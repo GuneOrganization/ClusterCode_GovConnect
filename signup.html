@@ -74,11 +74,11 @@
       class="w-full lg:w-1/2 flex flex-col justify-center p-8 lg:p-12 bg-white"
     >
       <div class="max-w-sm mx-auto w-full">
-        <div class="mb-8">
+        <div class="mb-3">
           <h2
-            class="text-2xl lg:text-3xl font-bold text-center text-gray-800 mb-2"
+            class="text-2xl lg:text-3xl  font-bold text-center text-gray-800 mb-2"
           >
-            Sign In
+            Create New Account
           </h2>
           <div class="w-16 h-0.5 bg-teal-600 mx-auto"></div>
         </div>
@@ -89,7 +89,43 @@
               type="text"
               class="w-full border-b-2 border-gray-300 py-3 px-1 text-base text-gray-700 focus:border-teal-600 focus:outline-none"
               id="email"
-              placeholder="Email Address or NIC"
+              placeholder="First Name"
+              required
+            />
+          </div>
+          <div>
+            <input
+              type="text"
+              class="w-full border-b-2 border-gray-300 py-3 px-1 text-base text-gray-700 focus:border-teal-600 focus:outline-none"
+              id="email"
+              placeholder="Last Name"
+              required
+            />
+          </div>
+          <div>
+            <input
+              type="text"
+              class="w-full border-b-2 border-gray-300 py-3 px-1 text-base text-gray-700 focus:border-teal-600 focus:outline-none"
+              id="email"
+              placeholder="Email Address"
+              required
+            />
+          </div>
+          <div>
+            <input
+              type="text"
+              class="w-full border-b-2 border-gray-300 py-3 px-1 text-base text-gray-700 focus:border-teal-600 focus:outline-none"
+              id="email"
+              placeholder="NIC"
+              required
+            />
+          </div>
+          <div>
+            <input
+              type="text"
+              class="w-full border-b-2 border-gray-300 py-3 px-1 text-base text-gray-700 focus:border-teal-600 focus:outline-none"
+              id="email"
+              placeholder="Mobile Number"
               required
             />
           </div>
@@ -99,6 +135,22 @@
               type="password"
               class="w-full border-b-2 border-gray-300 py-3 px-1 text-base text-gray-700 focus:border-teal-600 focus:outline-none"
               placeholder="Password"
+              id="password"
+              required
+            />
+            <button
+              type="button"
+              class="absolute right-0 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+              onclick="togglePassword()"
+            >
+              👁
+            </button>
+          </div>
+          <div class="relative">
+            <input
+              type="password"
+              class="w-full border-b-2 border-gray-300 py-3 px-1 text-base text-gray-700 focus:border-teal-600 focus:outline-none"
+              placeholder="Retype Password"
               id="password"
               required
             />
@@ -163,7 +215,7 @@
               d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
             />
           </svg>
-          <span class="font-medium  text-blue-500 ">SIGN IN WITH GOOGLE</span>
+          <span class="font-medium text-blue-500">SIGN IN WITH GOOGLE</span>
         </button>
 
         <div class="text-center">
