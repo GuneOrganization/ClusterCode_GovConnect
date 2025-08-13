@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gov-Connect - Sign In</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'teal': {
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            700: '#0f766e'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="h-screen flex bg-gray-50">
+    <div class="flex w-full h-screen">
+        <!-- Left Welcome Panel -->
+        <div class="flex-1 bg-gradient-to-br from-teal-600 to-teal-500 flex flex-col justify-center items-center text-white text-center p-12">
+            <!-- Logo -->
+            <div class="relative w-20 h-20 mb-12">
+                <div class="absolute w-10 h-10 bg-orange-500 rounded-full top-2.5 left-2.5 transform -rotate-45" style="border-radius: 50% 50% 50% 10px;"></div>
+                <div class="absolute w-9 h-9 bg-orange-400 bottom-4 right-4 transform rotate-45" style="border-radius: 50% 50% 10px 50%;"></div>
+            </div>
+
+            <h1 class="text-4xl font-bold mb-6 uppercase tracking-wide">WELCOME TO GOV-CONNECT</h1>
+            <p class="text-lg mb-8 opacity-90 max-w-md leading-relaxed">
+                GovConnect Is A One-Stop Digital Platform That Lets Sri Lankan Citizens 
+                Access, Book, And Track Government Services With A Single NIC Login - 
+                Saving Time, Reducing Queues, And Cutting Paperwork.
+            </p>
+            <button class="bg-white text-teal-600 px-8 py-3 rounded-full font-semibold uppercase hover:bg-gray-50 transition-colors">
+                LEARN MORE
+            </button>
+        </div>
+
+        <!-- Right Sign In Panel -->
+        <div class="flex-1 flex flex-col justify-center p-12 bg-white">
+            <div class="max-w-md mx-auto w-full">
+                <div class="mb-8">
+                    <h2 class="text-3xl font-semibold text-gray-800 mb-2 relative">
+                        Sign In
+                        <div class="absolute bottom-0 left-0 w-16 h-0.5 bg-teal-600"></div>
+                    </h2>
+                </div>
+
+                <form onsubmit="handleLogin(event)" class="space-y-6">
+                    <div>
+                        <input
+                            type="text"
+                            class="w-full px-4 py-4 bg-gray-50 border-2 border-gray-200 rounded-lg text-lg focus:border-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-600/20"
+                            placeholder="Email Address or NIC"
+                            id="email"
+                            required
+                        />
+                    </div>
+
+                    <div class="relative">
+                        <input
+                            type="password"
+                            class="w-full px-4 py-4 bg-gray-50 border-2 border-gray-200 rounded-lg text-lg focus:border-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-600/20"
+                            placeholder="Password"
+                            id="password"
+                            required
+                        />
+                        <button
+                            type="button"
+                            class="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700"
+                            onclick="togglePassword()"
+                        >
+                            👁
+                        </button>
+                    </div>
+
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center">
+                            <input
+                                class="w-4 h-4 text-teal-600 border-gray-300 rounded focus:ring-teal-600"
+                                type="checkbox"
+                                id="rememberMe"
+                            />
+                            <label class="ml-2 text-sm text-gray-600" for="rememberMe">
+                                Remember Me
+                            </label>
+                        </div>
+                        <a href="#" class="text-teal-600 text-sm font-medium hover:text-teal-700">
+                            Forgot Password?
+                        </a>
+                    </div>
+
+                    <button
+                        type="submit"
+                        class="w-full bg-teal-600 text-white py-4 font-semibold uppercase rounded-lg hover:bg-teal-700 transition-colors"
+                    >
+                        SIGN IN
+                    </button>
+                </form>
+
+                <div class="relative my-8">
+                    <div class="absolute inset-0 flex items-center">
+                        <div class="w-full border-t border-gray-300"></div>
+                    </div>
+                    <div class="relative flex justify-center text-sm">
+                        <span class="px-4 bg-white text-gray-500">or</span>
+                    </div>
+                </div>
+
+                <button class="w-full border-2 border-gray-300 py-4 flex items-center justify-center gap-3 rounded-lg hover:bg-gray-50 transition-colors mb-6">
+                    <svg width="18" height="18" viewBox="0 0 24 24">
+                        <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                        <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                        <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                        <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                    </svg>
+                    <span class="font-medium">SIGN IN WITH GOOGLE</span>
+                </button>
+
+                <div class="text-center">
+                    <a href="#" class="text-teal-600 font-medium hover:text-teal-700">
+                        Create New Account
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const toggleBtn = document.querySelector('.password-toggle') || event.target;
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleBtn.textContent = '🙈';
+            } else {
+                passwordInput.type = 'password';
+                toggleBtn.textContent = '👁';
+            }
+        }
+
+        function handleLogin(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            if (email && password) {
+                // Redirect to dashboard
+                window.location.href = 'dashboard.html';
+            } else {
+                alert('Please enter both email and password');
+            }
+        }
+    </script>
+</body>
+</html>
