@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gov-Connect Dashboard</title>
     <!-- Replaced Bootstrap with Tailwind CSS -->
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.1.8/index.global.min.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.1.8/index.global.min.js"></script>
+    <!-- <script>
         tailwind.config = {
             theme: {
                 extend: {
@@ -19,7 +24,7 @@
                 }
             }
         }
-    </script>
+    </script> -->
     <style>
         /* Custom styles for logo and specific components */
         .logo {
@@ -27,7 +32,7 @@
             height: 48px;
             position: relative;
         }
-        
+
         .logo-shape-1 {
             position: absolute;
             width: 24px;
@@ -38,7 +43,7 @@
             left: 6px;
             transform: rotate(-45deg);
         }
-        
+
         .logo-shape-2 {
             position: absolute;
             width: 20px;
@@ -49,13 +54,35 @@
             right: 8px;
             transform: rotate(45deg);
         }
-        
+
         .content-section {
             display: none;
         }
-        
+
         .content-section.active {
             display: block;
+        }
+
+        .fc-theme-standard .fc-scrollgrid {
+            border: 1px solid #e5e7eb;
+        }
+
+        .fc-daygrid-day.booking-day {
+            background-color: #dcfdf7 !important;
+        }
+
+        .fc-daygrid-day.holiday {
+            background-color: #fef3c7 !important;
+        }
+
+        .fc-event.booking-event {
+            background-color: #14b8a6;
+            border-color: #14b8a6;
+        }
+
+        .fc-event.holiday-event {
+            background-color: #f59e0b;
+            border-color: #f59e0b;
         }
     </style>
 </head>
@@ -72,27 +99,39 @@
             </div>
 
             <nav class="p-3">
-                <button class="menu-item w-full flex items-center gap-2 p-3 mb-2 rounded text-left font-medium text-gray-600 hover:bg-gray-300 transition-all duration-200 bg-white shadow-sm" data-menu="dashboard">
+                <button
+                    class="menu-item w-full flex items-center gap-2 p-3 mb-2 rounded text-left font-medium text-gray-600 hover:bg-gray-300 transition-all duration-200 bg-white shadow-sm"
+                    data-menu="dashboard">
                     <span>📊</span>
                     DASHBOARD
                 </button>
-                <button class="menu-item w-full flex items-center gap-2 p-3 mb-2 rounded text-left font-medium text-gray-600 hover:bg-gray-300 transition-all duration-200" data-menu="appointments">
+                <button
+                    class="menu-item w-full flex items-center gap-2 p-3 mb-2 rounded text-left font-medium text-gray-600 hover:bg-gray-300 transition-all duration-200"
+                    data-menu="appointments">
                     <span>📅</span>
                     APPOINTMENTS
                 </button>
-                <button class="menu-item w-full flex items-center gap-2 p-3 mb-2 rounded text-left font-medium text-gray-600 hover:bg-gray-300 transition-all duration-200" data-menu="service-guide">
+                <button
+                    class="menu-item w-full flex items-center gap-2 p-3 mb-2 rounded text-left font-medium text-gray-600 hover:bg-gray-300 transition-all duration-200"
+                    data-menu="service-guide">
                     <span>📋</span>
                     SERVICE GUIDE
                 </button>
-                <button class="menu-item w-full flex items-center gap-2 p-3 mb-2 rounded text-left font-medium text-gray-600 hover:bg-gray-300 transition-all duration-200" data-menu="ai-chatbot">
+                <button
+                    class="menu-item w-full flex items-center gap-2 p-3 mb-2 rounded text-left font-medium text-gray-600 hover:bg-gray-300 transition-all duration-200"
+                    data-menu="ai-chatbot">
                     <span>🤖</span>
                     AI CHATBOT
                 </button>
-                <button class="menu-item w-full flex items-center gap-2 p-3 mb-2 rounded text-left font-medium text-gray-600 hover:bg-gray-300 transition-all duration-200" data-menu="my-profile">
+                <button
+                    class="menu-item w-full flex items-center gap-2 p-3 mb-2 rounded text-left font-medium text-gray-600 hover:bg-gray-300 transition-all duration-200"
+                    data-menu="my-profile">
                     <span>👤</span>
                     MY PROFILE
                 </button>
-                <button class="menu-item w-full flex items-center gap-2 p-3 mb-2 rounded text-left font-medium text-gray-600 hover:bg-gray-300 transition-all duration-200" data-menu="logout">
+                <button
+                    class="menu-item w-full flex items-center gap-2 p-3 mb-2 rounded text-left font-medium text-gray-600 hover:bg-gray-300 transition-all duration-200"
+                    data-menu="logout">
                     <span>🚪</span>
                     LOGOUT
                 </button>
@@ -110,7 +149,7 @@
                         </button>
                         <h5 class="text-lg font-medium">Welcome Sahan !</h5>
                     </div>
-                    
+
                     <div class="flex items-center gap-3">
                         <div class="text-right">
                             <div class="font-semibold text-sm">SAHAN PERERA</div>
@@ -168,39 +207,51 @@
                                 <div class="flex justify-between items-start">
                                     <div>
                                         <h5 class="font-semibold text-gray-800 mb-2">Apply for New National ID Card</h5>
-                                        <p class="text-gray-600 text-sm mb-3">Guidelines and requirements for obtaining a new National Identity Card, including necessary documents, eligibility criteria, and application procedures.</p>
+                                        <p class="text-gray-600 text-sm mb-3">Guidelines and requirements for obtaining
+                                            a new National Identity Card, including necessary documents, eligibility
+                                            criteria, and application procedures.</p>
                                         <div class="flex gap-4 text-sm text-gray-600">
                                             <span><strong>Department:</strong> Civil Registration Department</span>
                                             <span><strong>Last Updated:</strong> 2022.03.25</span>
                                         </div>
                                     </div>
-                                    <button class="bg-teal-500 hover:bg-teal-600 text-white px-4 py-2 rounded font-medium">VIEW GUIDE</button>
+                                    <button
+                                        class="bg-teal-500 hover:bg-teal-600 text-white px-4 py-2 rounded font-medium">VIEW
+                                        GUIDE</button>
                                 </div>
                             </div>
                             <div class="bg-white rounded-lg shadow p-4">
                                 <div class="flex justify-between items-start">
                                     <div>
                                         <h5 class="font-semibold text-gray-800 mb-2">Apply for New National ID Card</h5>
-                                        <p class="text-gray-600 text-sm mb-3">Guidelines and requirements for obtaining a new National Identity Card, including necessary documents, eligibility criteria, and application procedures.</p>
+                                        <p class="text-gray-600 text-sm mb-3">Guidelines and requirements for obtaining
+                                            a new National Identity Card, including necessary documents, eligibility
+                                            criteria, and application procedures.</p>
                                         <div class="flex gap-4 text-sm text-gray-600">
                                             <span><strong>Department:</strong> Civil Registration Department</span>
                                             <span><strong>Last Updated:</strong> 2022.03.25</span>
                                         </div>
                                     </div>
-                                    <button class="bg-teal-500 hover:bg-teal-600 text-white px-4 py-2 rounded font-medium">VIEW GUIDE</button>
+                                    <button
+                                        class="bg-teal-500 hover:bg-teal-600 text-white px-4 py-2 rounded font-medium">VIEW
+                                        GUIDE</button>
                                 </div>
                             </div>
                             <div class="bg-white rounded-lg shadow p-4">
                                 <div class="flex justify-between items-start">
                                     <div>
                                         <h5 class="font-semibold text-gray-800 mb-2">Apply for New National ID Card</h5>
-                                        <p class="text-gray-600 text-sm mb-3">Guidelines and requirements for obtaining a new National Identity Card, including necessary documents, eligibility criteria, and application procedures.</p>
+                                        <p class="text-gray-600 text-sm mb-3">Guidelines and requirements for obtaining
+                                            a new National Identity Card, including necessary documents, eligibility
+                                            criteria, and application procedures.</p>
                                         <div class="flex gap-4 text-sm text-gray-600">
                                             <span><strong>Department:</strong> Civil Registration Department</span>
                                             <span><strong>Last Updated:</strong> 2022.03.25</span>
                                         </div>
                                     </div>
-                                    <button class="bg-teal-500 hover:bg-teal-600 text-white px-4 py-2 rounded font-medium">VIEW GUIDE</button>
+                                    <button
+                                        class="bg-teal-500 hover:bg-teal-600 text-white px-4 py-2 rounded font-medium">VIEW
+                                        GUIDE</button>
                                 </div>
                             </div>
                         </div>
@@ -209,166 +260,216 @@
 
                 <!-- Appointments Section -->
                 <div id="appointments-content" class="content-section">
-                    <div class="flex justify-between items-center mb-6">
-                        <div>
-                            <h2 class="text-2xl font-semibold text-gray-800">APPOINTMENTS</h2>
-                            <div class="w-20 h-0.5 bg-black mt-2"></div>
+                    <div class="container mx-auto p-6">
+                        <!-- Header -->
+                        <div class="flex justify-between items-center mb-6">
+                            <div>
+                                <h2 class="text-2xl font-semibold text-gray-800">APPOINTMENTS</h2>
+                                <div class="w-20 h-0.5 bg-black mt-2"></div>
+                            </div>
+                            <button id="newAppointmentBtn"
+                                class="bg-teal-500 hover:bg-teal-600 text-white px-4 py-2 rounded font-medium flex items-center gap-2 transition-colors">
+                                <span>+</span> NEW APPOINTMENT
+                            </button>
                         </div>
-                        <button id="newAppointmentBtn" class="bg-teal-500 hover:bg-teal-600 text-white px-4 py-2 rounded font-medium flex items-center gap-2">
-                            <span>+</span> NEW APPOINTMENT
-                        </button>
+
+                        <!-- Main Content Grid -->
+                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                            <!-- Left Side - Booking Cards -->
+                            <div class="lg:col-span-2">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <!-- Appointment Card 1 -->
+                                    <div
+                                        class="bg-white rounded-lg shadow-sm border p-4 hover:shadow-md transition-shadow">
+                                        <div class="space-y-2 text-sm">
+                                            <div class="flex justify-between">
+                                                <span class="font-medium text-gray-600">Appointment Id</span>
+                                                <span class="text-gray-900">2569470001</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span class="font-medium text-gray-600">Service</span>
+                                                <span class="text-gray-900">National ID Renewal</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span class="font-medium text-gray-600">Department</span>
+                                                <span class="text-gray-900">Civil Registration Department</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span class="font-medium text-gray-600">Branch</span>
+                                                <span class="text-gray-900">Central Government Office</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span class="font-medium text-gray-600">Date</span>
+                                                <span class="text-teal-600 font-medium">2025-08-12</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span class="font-medium text-gray-600">Time Slot</span>
+                                                <span class="text-gray-900">09:00am - 10:00am</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span class="font-medium text-gray-600">Queue Number</span>
+                                                <span class="text-teal-600 font-bold text-lg">#004</span>
+                                            </div>
+                                        </div>
+                                        <div class="flex gap-2 mt-4">
+                                            <button
+                                                class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded text-sm font-medium transition-colors">CANCEL</button>
+                                            <button
+                                                class="bg-teal-500 hover:bg-teal-600 text-white px-4 py-2 rounded text-sm font-medium transition-colors">VIEW
+                                                BARCODE</button>
+                                        </div>
+                                    </div>
+
+                                    <!-- Appointment Card 2 -->
+                                    <div
+                                        class="bg-white rounded-lg shadow-sm border p-4 hover:shadow-md transition-shadow">
+                                        <div class="space-y-2 text-sm">
+                                            <div class="flex justify-between">
+                                                <span class="font-medium text-gray-600">Appointment Id</span>
+                                                <span class="text-gray-900">2569470002</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span class="font-medium text-gray-600">Service</span>
+                                                <span class="text-gray-900">Passport Application</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span class="font-medium text-gray-600">Department</span>
+                                                <span class="text-gray-900">Immigration Department</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span class="font-medium text-gray-600">Branch</span>
+                                                <span class="text-gray-900">Passport Office - Colombo</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span class="font-medium text-gray-600">Date</span>
+                                                <span class="text-teal-600 font-medium">2025-08-15</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span class="font-medium text-gray-600">Time Slot</span>
+                                                <span class="text-gray-900">02:00pm - 03:00pm</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span class="font-medium text-gray-600">Queue Number</span>
+                                                <span class="text-teal-600 font-bold text-lg">#012</span>
+                                            </div>
+                                        </div>
+                                        <div class="flex gap-2 mt-4">
+                                            <button
+                                                class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded text-sm font-medium transition-colors">CANCEL</button>
+                                            <button
+                                                class="bg-teal-500 hover:bg-teal-600 text-white px-4 py-2 rounded text-sm font-medium transition-colors">VIEW
+                                                BARCODE</button>
+                                        </div>
+                                    </div>
+
+                                    <!-- Appointment Card 3 -->
+                                    <div
+                                        class="bg-white rounded-lg shadow-sm border p-4 hover:shadow-md transition-shadow">
+                                        <div class="space-y-2 text-sm">
+                                            <div class="flex justify-between">
+                                                <span class="font-medium text-gray-600">Appointment Id</span>
+                                                <span class="text-gray-900">2569470003</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span class="font-medium text-gray-600">Service</span>
+                                                <span class="text-gray-900">Birth Certificate</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span class="font-medium text-gray-600">Department</span>
+                                                <span class="text-gray-900">Civil Registration Department</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span class="font-medium text-gray-600">Branch</span>
+                                                <span class="text-gray-900">District Secretariat</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span class="font-medium text-gray-600">Date</span>
+                                                <span class="text-teal-600 font-medium">2025-08-18</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span class="font-medium text-gray-600">Time Slot</span>
+                                                <span class="text-gray-900">11:00am - 12:00pm</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span class="font-medium text-gray-600">Queue Number</span>
+                                                <span class="text-teal-600 font-bold text-lg">#007</span>
+                                            </div>
+                                        </div>
+                                        <div class="flex gap-2 mt-4">
+                                            <button
+                                                class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded text-sm font-medium transition-colors">CANCEL</button>
+                                            <button
+                                                class="bg-teal-500 hover:bg-teal-600 text-white px-4 py-2 rounded text-sm font-medium transition-colors">VIEW
+                                                BARCODE</button>
+                                        </div>
+                                    </div>
+
+                                    <!-- Appointment Card 4 -->
+                                    <div
+                                        class="bg-white rounded-lg shadow-sm border p-4 hover:shadow-md transition-shadow">
+                                        <div class="space-y-2 text-sm">
+                                            <div class="flex justify-between">
+                                                <span class="font-medium text-gray-600">Appointment Id</span>
+                                                <span class="text-gray-900">2569470004</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span class="font-medium text-gray-600">Service</span>
+                                                <span class="text-gray-900">Driving License Renewal</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span class="font-medium text-gray-600">Department</span>
+                                                <span class="text-gray-900">Motor Traffic Department</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span class="font-medium text-gray-600">Branch</span>
+                                                <span class="text-gray-900">RMV Werahera</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span class="font-medium text-gray-600">Date</span>
+                                                <span class="text-teal-600 font-medium">2025-08-20</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span class="font-medium text-gray-600">Time Slot</span>
+                                                <span class="text-gray-900">10:00am - 11:00am</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span class="font-medium text-gray-600">Queue Number</span>
+                                                <span class="text-teal-600 font-bold text-lg">#015</span>
+                                            </div>
+                                        </div>
+                                        <div class="flex gap-2 mt-4">
+                                            <button
+                                                class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded text-sm font-medium transition-colors">CANCEL</button>
+                                            <button
+                                                class="bg-teal-500 hover:bg-teal-600 text-white px-4 py-2 rounded text-sm font-medium transition-colors">VIEW
+                                                BARCODE</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Right Side - Calendar -->
+                            <div class="lg:col-span-1">
+                                <div class="bg-white rounded-lg shadow-sm border p-4">
+                                    <h3 class="text-lg font-semibold text-gray-800 mb-4">Calendar</h3>
+                                    <div class="mb-4">
+                                        <div class="flex items-center gap-2 text-xs mb-2">
+                                            <div class="w-3 h-3 bg-teal-200 rounded"></div>
+                                            <span class="text-gray-600">Booking Days</span>
+                                        </div>
+                                        <div class="flex items-center gap-2 text-xs">
+                                            <div class="w-3 h-3 bg-yellow-200 rounded"></div>
+                                            <span class="text-gray-600">Holidays</span>
+                                        </div>
+                                    </div>
+                                    <div id="calendar"></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Converted appointment cards from Bootstrap to Tailwind grid -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="bg-white rounded-lg shadow p-4">
-                            <div class="space-y-2 text-sm">
-                                <div class="flex justify-between">
-                                    <span class="font-medium">Appointment Id</span>
-                                    <span>2569470001</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span class="font-medium">Service</span>
-                                    <span>National ID Renewal</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span class="font-medium">Department</span>
-                                    <span>Civil Registration Department</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span class="font-medium">Branch</span>
-                                    <span>Central Government Office</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span class="font-medium">Date</span>
-                                    <span>2025-08-12</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span class="font-medium">Time Slot</span>
-                                    <span>09:00am -10:00am</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span class="font-medium">Queue Number</span>
-                                    <span>004</span>
-                                </div>
-                            </div>
-                            <div class="flex gap-2 mt-4">
-                                <button class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded text-sm font-medium">CANCEL APPOINTMENT</button>
-                                <button class="bg-teal-500 hover:bg-teal-600 text-white px-4 py-2 rounded text-sm font-medium">VIEW BARCODE</button>
-                            </div>
-                        </div>
-
-                        <div class="bg-white rounded-lg shadow p-4">
-                            <div class="space-y-2 text-sm">
-                                <div class="flex justify-between">
-                                    <span class="font-medium">Appointment Id</span>
-                                    <span>2569470001</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span class="font-medium">Service</span>
-                                    <span>National ID Renewal</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span class="font-medium">Department</span>
-                                    <span>Civil Registration Department</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span class="font-medium">Branch</span>
-                                    <span>Central Government Office</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span class="font-medium">Date</span>
-                                    <span>2025-08-12</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span class="font-medium">Time Slot</span>
-                                    <span>09:00am -10:00am</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span class="font-medium">Queue Number</span>
-                                    <span>004</span>
-                                </div>
-                            </div>
-                            <div class="flex gap-2 mt-4">
-                                <button class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded text-sm font-medium">CANCEL APPOINTMENT</button>
-                                <button class="bg-teal-500 hover:bg-teal-600 text-white px-4 py-2 rounded text-sm font-medium">VIEW BARCODE</button>
-                            </div>
-                        </div>
-
-                        <div class="bg-white rounded-lg shadow p-4">
-                            <div class="space-y-2 text-sm">
-                                <div class="flex justify-between">
-                                    <span class="font-medium">Appointment Id</span>
-                                    <span>2569470001</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span class="font-medium">Service</span>
-                                    <span>National ID Renewal</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span class="font-medium">Department</span>
-                                    <span>Civil Registration Department</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span class="font-medium">Branch</span>
-                                    <span>Central Government Office</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span class="font-medium">Date</span>
-                                    <span>2025-08-12</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span class="font-medium">Time Slot</span>
-                                    <span>09:00am -10:00am</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span class="font-medium">Queue Number</span>
-                                    <span>004</span>
-                                </div>
-                            </div>
-                            <div class="flex gap-2 mt-4">
-                                <button class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded text-sm font-medium">CANCEL APPOINTMENT</button>
-                                <button class="bg-teal-500 hover:bg-teal-600 text-white px-4 py-2 rounded text-sm font-medium">VIEW BARCODE</button>
-                            </div>
-                        </div>
-
-                        <div class="bg-white rounded-lg shadow p-4">
-                            <div class="space-y-2 text-sm">
-                                <div class="flex justify-between">
-                                    <span class="font-medium">Appointment Id</span>
-                                    <span>2569470001</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span class="font-medium">Service</span>
-                                    <span>National ID Renewal</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span class="font-medium">Department</span>
-                                    <span>Civil Registration Department</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span class="font-medium">Branch</span>
-                                    <span>Central Government Office</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span class="font-medium">Date</span>
-                                    <span>2025-08-12</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span class="font-medium">Time Slot</span>
-                                    <span>09:00am -10:00am</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span class="font-medium">Queue Number</span>
-                                    <span>004</span>
-                                </div>
-                            </div>
-                            <div class="flex gap-2 mt-4">
-                                <button class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded text-sm font-medium">CANCEL APPOINTMENT</button>
-                                <button class="bg-teal-500 hover:bg-teal-600 text-white px-4 py-2 rounded text-sm font-medium">VIEW BARCODE</button>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
 
                 <!-- Service Guide Section -->
@@ -382,14 +483,17 @@
                     <div class="flex flex-col md:flex-row gap-4 mb-6">
                         <div class="flex-1">
                             <div class="relative">
-                                <input type="text" placeholder="SEARCH" class="w-full pl-4 pr-12 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500">
-                                <button class="absolute right-3 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded">
+                                <input type="text" placeholder="SEARCH"
+                                    class="w-full pl-4 pr-12 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500">
+                                <button
+                                    class="absolute right-3 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded">
                                     🔍
                                 </button>
                             </div>
                         </div>
                         <div class="md:w-64">
-                            <select class="w-full py-3 px-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500">
+                            <select
+                                class="w-full py-3 px-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500">
                                 <option>CIVIL REGISTRATION DEPARTMENT</option>
                                 <option>Department of Motor Traffic</option>
                                 <option>Immigration Department</option>
@@ -403,13 +507,17 @@
                             <div class="flex justify-between items-start">
                                 <div class="flex-1">
                                     <h5 class="font-semibold text-gray-800 mb-2">Apply for New National ID Card</h5>
-                                    <p class="text-gray-600 text-sm mb-3">Guidelines and requirements for obtaining a new National Identity Card, including necessary documents, eligibility criteria, and application procedures.</p>
+                                    <p class="text-gray-600 text-sm mb-3">Guidelines and requirements for obtaining a
+                                        new National Identity Card, including necessary documents, eligibility criteria,
+                                        and application procedures.</p>
                                     <div class="flex gap-4 text-sm text-gray-600">
                                         <span><strong>Department:</strong> Civil Registration Department</span>
                                         <span><strong>Last Updated:</strong> 2022.03.25</span>
                                     </div>
                                 </div>
-                                <button class="bg-teal-500 hover:bg-teal-600 text-white px-4 py-2 rounded font-medium ml-4">VIEW GUIDE</button>
+                                <button
+                                    class="bg-teal-500 hover:bg-teal-600 text-white px-4 py-2 rounded font-medium ml-4">VIEW
+                                    GUIDE</button>
                             </div>
                         </div>
 
@@ -417,13 +525,17 @@
                             <div class="flex justify-between items-start">
                                 <div class="flex-1">
                                     <h5 class="font-semibold text-gray-800 mb-2">Apply for New National ID Card</h5>
-                                    <p class="text-gray-600 text-sm mb-3">Guidelines and requirements for obtaining a new National Identity Card, including necessary documents, eligibility criteria, and application procedures.</p>
+                                    <p class="text-gray-600 text-sm mb-3">Guidelines and requirements for obtaining a
+                                        new National Identity Card, including necessary documents, eligibility criteria,
+                                        and application procedures.</p>
                                     <div class="flex gap-4 text-sm text-gray-600">
                                         <span><strong>Department:</strong> Civil Registration Department</span>
                                         <span><strong>Last Updated:</strong> 2022.03.25</span>
                                     </div>
                                 </div>
-                                <button class="bg-teal-500 hover:bg-teal-600 text-white px-4 py-2 rounded font-medium ml-4">VIEW GUIDE</button>
+                                <button
+                                    class="bg-teal-500 hover:bg-teal-600 text-white px-4 py-2 rounded font-medium ml-4">VIEW
+                                    GUIDE</button>
                             </div>
                         </div>
 
@@ -431,13 +543,17 @@
                             <div class="flex justify-between items-start">
                                 <div class="flex-1">
                                     <h5 class="font-semibold text-gray-800 mb-2">Apply for New National ID Card</h5>
-                                    <p class="text-gray-600 text-sm mb-3">Guidelines and requirements for obtaining a new National Identity Card, including necessary documents, eligibility criteria, and application procedures.</p>
+                                    <p class="text-gray-600 text-sm mb-3">Guidelines and requirements for obtaining a
+                                        new National Identity Card, including necessary documents, eligibility criteria,
+                                        and application procedures.</p>
                                     <div class="flex gap-4 text-sm text-gray-600">
                                         <span><strong>Department:</strong> Civil Registration Department</span>
                                         <span><strong>Last Updated:</strong> 2022.03.25</span>
                                     </div>
                                 </div>
-                                <button class="bg-teal-500 hover:bg-teal-600 text-white px-4 py-2 rounded font-medium ml-4">VIEW GUIDE</button>
+                                <button
+                                    class="bg-teal-500 hover:bg-teal-600 text-white px-4 py-2 rounded font-medium ml-4">VIEW
+                                    GUIDE</button>
                             </div>
                         </div>
                     </div>
@@ -467,7 +583,8 @@
                             <div class="flex justify-start">
                                 <div class="max-w-xs lg:max-w-md">
                                     <div class="bg-white border border-gray-200 rounded-lg px-4 py-2">
-                                        <p class="text-sm text-black">Hello! I can help you with that. Are you looking to apply for a new passport or renew an existing one?</p>
+                                        <p class="text-sm text-black">Hello! I can help you with that. Are you looking
+                                            to apply for a new passport or renew an existing one?</p>
                                     </div>
                                     <div class="text-xs text-gray-500 mt-1">22:25</div>
                                 </div>
@@ -487,7 +604,9 @@
                             <div class="flex justify-start">
                                 <div class="max-w-xs lg:max-w-md">
                                     <div class="bg-white border border-gray-200 rounded-lg px-4 py-2">
-                                        <p class="text-sm text-black">Great! You will need to submit proof of identity, proof of citizenship, and a recent photo. Would you like me to guide you through the application process?</p>
+                                        <p class="text-sm text-black">Great! You will need to submit proof of identity,
+                                            proof of citizenship, and a recent photo. Would you like me to guide you
+                                            through the application process?</p>
                                     </div>
                                     <div class="text-xs text-gray-500 mt-1">22:27</div>
                                 </div>
@@ -508,9 +627,11 @@
                                 <div class="max-w-xs lg:max-w-md">
                                     <div class="bg-white border border-gray-200 rounded-lg px-4 py-2">
                                         <div class="text-sm text-black">
-                                            <p class="mb-2">Step 1: Fill out the online application form <a href="#" class="text-blue-600 underline">here</a>.</p>
+                                            <p class="mb-2">Step 1: Fill out the online application form <a href="#"
+                                                    class="text-blue-600 underline">here</a>.</p>
                                             <p class="mb-2">Step 2: Upload scanned copies of your documents.</p>
-                                            <p class="mb-2">Step 3: Schedule an appointment at the nearest passport office.</p>
+                                            <p class="mb-2">Step 3: Schedule an appointment at the nearest passport
+                                                office.</p>
                                             <p>Would you like me to help you schedule the appointment now?</p>
                                         </div>
                                     </div>
@@ -522,16 +643,10 @@
                         <!-- Chat Input -->
                         <div class="border-t border-gray-200 p-4">
                             <div class="flex gap-2">
-                                <input 
-                                    type="text" 
-                                    id="chatInput"
-                                    placeholder="ASK ANYTHING..." 
-                                    class="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
-                                >
-                                <button 
-                                    id="sendBtn"
-                                    class="bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors"
-                                >
+                                <input type="text" id="chatInput" placeholder="ASK ANYTHING..."
+                                    class="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500">
+                                <button id="sendBtn"
+                                    class="bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors">
                                     ➤
                                 </button>
                             </div>
@@ -551,7 +666,8 @@
                         <div class="bg-white rounded-lg shadow p-8">
                             <!-- Profile Avatar -->
                             <div class="text-center mb-6">
-                                <div class="w-32 h-32 bg-gray-600 rounded-full flex items-center justify-center text-white text-5xl mx-auto mb-4">
+                                <div
+                                    class="w-32 h-32 bg-gray-600 rounded-full flex items-center justify-center text-white text-5xl mx-auto mb-4">
                                     👤
                                 </div>
                                 <h3 class="text-xl font-semibold text-gray-800">SAHAN PERERA</h3>
@@ -562,46 +678,61 @@
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <div>
                                         <label class="block text-sm font-medium text-gray-700 mb-1">First Name</label>
-                                        <input type="text" value="Sahan" class="w-full px-3 py-2 border-b-2 border-gray-300 focus:border-teal-500 outline-none bg-transparent">
+                                        <input type="text" value="Sahan"
+                                            class="w-full px-3 py-2 border-b-2 border-gray-300 focus:border-teal-500 outline-none bg-transparent">
                                     </div>
                                     <div>
                                         <label class="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
-                                        <input type="text" value="Perera" class="w-full px-3 py-2 border-b-2 border-gray-300 focus:border-teal-500 outline-none bg-transparent">
+                                        <input type="text" value="Perera"
+                                            class="w-full px-3 py-2 border-b-2 border-gray-300 focus:border-teal-500 outline-none bg-transparent">
                                     </div>
                                 </div>
 
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <div>
                                         <label class="block text-sm font-medium text-gray-700 mb-1">NIC</label>
-                                        <input type="text" value="200012345678" class="w-full px-3 py-2 border-b-2 border-gray-300 focus:border-teal-500 outline-none bg-transparent">
+                                        <input type="text" value="200012345678"
+                                            class="w-full px-3 py-2 border-b-2 border-gray-300 focus:border-teal-500 outline-none bg-transparent">
                                     </div>
                                     <div>
-                                        <label class="block text-sm font-medium text-gray-700 mb-1">Mobile Number</label>
-                                        <input type="text" value="+94771234567" class="w-full px-3 py-2 border-b-2 border-gray-300 focus:border-teal-500 outline-none bg-transparent">
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Mobile
+                                            Number</label>
+                                        <input type="text" value="+94771234567"
+                                            class="w-full px-3 py-2 border-b-2 border-gray-300 focus:border-teal-500 outline-none bg-transparent">
                                     </div>
                                 </div>
 
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
-                                    <input type="email" value="sahanperera@gmail.com" class="w-full px-3 py-2 border-b-2 border-gray-300 focus:border-teal-500 outline-none bg-transparent">
+                                    <input type="email" value="sahanperera@gmail.com"
+                                        class="w-full px-3 py-2 border-b-2 border-gray-300 focus:border-teal-500 outline-none bg-transparent">
                                 </div>
 
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <div class="relative">
                                         <label class="block text-sm font-medium text-gray-700 mb-1">Password</label>
-                                        <input type="password" id="password" class="w-full px-3 py-2 pr-10 border-b-2 border-gray-300 focus:border-teal-500 outline-none bg-transparent">
-                                        <button type="button" onclick="togglePassword('password')" class="absolute right-2 top-8 text-gray-500">👁</button>
+                                        <input type="password" id="password"
+                                            class="w-full px-3 py-2 pr-10 border-b-2 border-gray-300 focus:border-teal-500 outline-none bg-transparent">
+                                        <button type="button" onclick="togglePassword('password')"
+                                            class="absolute right-2 top-8 text-gray-500">👁</button>
                                     </div>
                                     <div class="relative">
-                                        <label class="block text-sm font-medium text-gray-700 mb-1">Retype Password</label>
-                                        <input type="password" id="retypePassword" class="w-full px-3 py-2 pr-10 border-b-2 border-gray-300 focus:border-teal-500 outline-none bg-transparent">
-                                        <button type="button" onclick="togglePassword('retypePassword')" class="absolute right-2 top-8 text-gray-500">👁</button>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Retype
+                                            Password</label>
+                                        <input type="password" id="retypePassword"
+                                            class="w-full px-3 py-2 pr-10 border-b-2 border-gray-300 focus:border-teal-500 outline-none bg-transparent">
+                                        <button type="button" onclick="togglePassword('retypePassword')"
+                                            class="absolute right-2 top-8 text-gray-500">👁</button>
                                     </div>
                                 </div>
 
                                 <div class="flex gap-4 pt-6">
-                                    <button type="button" class="flex-1 bg-gray-500 hover:bg-gray-600 text-white py-3 rounded font-medium">RESET DETAILS</button>
-                                    <button type="submit" class="flex-1 bg-teal-500 hover:bg-teal-600 text-white py-3 rounded font-medium">UPDATE DETAILS</button>
+                                    <button type="button"
+                                        class="flex-1 bg-gray-500 hover:bg-gray-600 text-white py-3 rounded font-medium">RESET
+                                        DETAILS</button>
+                                    <button type="submit"
+                                        class="flex-1 bg-teal-500 hover:bg-teal-600 text-white py-3 rounded font-medium">UPDATE
+                                        DETAILS</button>
                                 </div>
                             </form>
                         </div>
@@ -612,49 +743,56 @@
     </div>
 
     <!-- Converted new appointment modal from Bootstrap to Tailwind -->
-    <div id="appointmentModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
+    <div id="appointmentModal"
+        class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
         <div class="bg-white rounded-lg w-full max-w-md mx-4 max-h-screen overflow-y-auto">
             <div class="p-6 border-b-4 border-teal-500 relative">
                 <h3 class="text-xl font-semibold text-gray-800 text-center">New Appointment</h3>
-                <button id="closeModal" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-2xl">×</button>
+                <button id="closeModal"
+                    class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-2xl">×</button>
             </div>
-            
+
             <div class="p-6">
                 <form id="appointmentForm" class="space-y-5">
                     <div>
-                        <select class="w-full px-4 py-3 border-b-2 border-gray-300 focus:border-teal-500 outline-none bg-transparent text-gray-600">
+                        <select
+                            class="w-full px-4 py-3 border-b-2 border-gray-300 focus:border-teal-500 outline-none bg-transparent text-gray-600">
                             <option value="">Service</option>
                             <option value="national-id">National ID Renewal</option>
                             <option value="passport">Passport Application</option>
                             <option value="driving-license">Driving License</option>
                         </select>
                     </div>
-                    
+
                     <div>
-                        <select class="w-full px-4 py-3 border-b-2 border-gray-300 focus:border-teal-500 outline-none bg-transparent text-gray-600">
+                        <select
+                            class="w-full px-4 py-3 border-b-2 border-gray-300 focus:border-teal-500 outline-none bg-transparent text-gray-600">
                             <option value="">Department</option>
                             <option value="civil-registration">Civil Registration Department</option>
                             <option value="immigration">Immigration Department</option>
                             <option value="motor-traffic">Department of Motor Traffic</option>
                         </select>
                     </div>
-                    
+
                     <div>
-                        <select class="w-full px-4 py-3 border-b-2 border-gray-300 focus:border-teal-500 outline-none bg-transparent text-gray-600">
+                        <select
+                            class="w-full px-4 py-3 border-b-2 border-gray-300 focus:border-teal-500 outline-none bg-transparent text-gray-600">
                             <option value="">Branch</option>
                             <option value="central">Central Government Office</option>
                             <option value="colombo">Colombo District Office</option>
                             <option value="kandy">Kandy District Office</option>
                         </select>
                     </div>
-                    
+
                     <div class="relative">
-                        <input type="date" class="w-full px-4 py-3 border-b-2 border-gray-300 focus:border-teal-500 outline-none bg-transparent text-gray-600">
+                        <input type="date"
+                            class="w-full px-4 py-3 border-b-2 border-gray-300 focus:border-teal-500 outline-none bg-transparent text-gray-600">
                         <span class="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-500">📅</span>
                     </div>
-                    
+
                     <div>
-                        <select class="w-full px-4 py-3 border-b-2 border-gray-300 focus:border-teal-500 outline-none bg-transparent text-gray-600">
+                        <select
+                            class="w-full px-4 py-3 border-b-2 border-gray-300 focus:border-teal-500 outline-none bg-transparent text-gray-600">
                             <option value="">Time Slot</option>
                             <option value="09:00-10:00">09:00am - 10:00am</option>
                             <option value="10:00-11:00">10:00am - 11:00am</option>
@@ -662,17 +800,20 @@
                             <option value="14:00-15:00">02:00pm - 03:00pm</option>
                         </select>
                     </div>
-                    
+
                     <div class="text-center py-4">
                         <p class="text-lg text-gray-800">Approx Queue Number : <span class="font-semibold">12</span></p>
                     </div>
-                    
-                    <button type="submit" class="w-full bg-teal-500 hover:bg-teal-600 text-white py-4 rounded font-semibold text-sm tracking-wider">
+
+                    <button type="submit"
+                        class="w-full bg-teal-500 hover:bg-teal-600 text-white py-4 rounded font-semibold text-sm tracking-wider">
                         CREATE APPOINTMENT
                     </button>
-                    
+
                     <div class="text-center text-xs text-red-600 leading-relaxed pt-4">
-                        Please Be Aware That Poya Days, Public Holidays, Bank Holidays, And Mercantile Holidays Are Excluded From Regular Scheduling. We Are Not Responsible For Any Issues Arising From Appointments Made On These Days.
+                        Please Be Aware That Poya Days, Public Holidays, Bank Holidays, And Mercantile Holidays Are
+                        Excluded From Regular Scheduling. We Are Not Responsible For Any Issues Arising From
+                        Appointments Made On These Days.
                     </div>
                 </form>
             </div>
@@ -680,32 +821,32 @@
     </div>
 
     <script>
-        
+
         // Menu navigation
         document.querySelectorAll('.menu-item').forEach(item => {
-            item.addEventListener('click', function() {
+            item.addEventListener('click', function () {
                 const menu = this.getAttribute('data-menu');
-                
+
                 if (menu === 'logout') {
                     window.location.href = '/';
                     return;
                 }
-                
+
                 // Remove active class from all menu items
                 document.querySelectorAll('.menu-item').forEach(menuItem => {
                     menuItem.classList.remove('bg-white', 'shadow-sm');
                     menuItem.classList.add('hover:bg-gray-300');
                 });
-                
+
                 // Add active class to clicked item
                 this.classList.add('bg-white', 'shadow-sm');
                 this.classList.remove('hover:bg-gray-300');
-                
+
                 // Hide all content sections
                 document.querySelectorAll('.content-section').forEach(section => {
                     section.classList.remove('active');
                 });
-                
+
                 // Show selected content section
                 const targetSection = document.getElementById(menu + '-content');
                 if (targetSection) {
@@ -730,17 +871,17 @@
                         <div class="bg-gray-200 text-gray-800 rounded-lg px-4 py-2">
                             <p class="text-sm">${message}</p>
                         </div>
-                        <div class="text-xs text-gray-500 text-right mt-1">${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</div>
+                        <div class="text-xs text-gray-500 text-right mt-1">${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</div>
                     </div>
                 `;
                 chatMessages.appendChild(userMessageDiv);
-                
+
                 // Clear input
                 chatInput.value = '';
-                
+
                 // Scroll to bottom
                 chatMessages.scrollTop = chatMessages.scrollHeight;
-                
+
                 // Simulate AI response after a delay
                 setTimeout(() => {
                     const aiMessageDiv = document.createElement('div');
@@ -750,7 +891,7 @@
                             <div class="bg-white border border-gray-200 rounded-lg px-4 py-2">
                                 <p class="text-sm text-black">Thank you for your message. How can I assist you further?</p>
                             </div>
-                            <div class="text-xs text-gray-500 mt-1">${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</div>
+                            <div class="text-xs text-gray-500 mt-1">${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</div>
                         </div>
                     `;
                     chatMessages.appendChild(aiMessageDiv);
@@ -760,7 +901,7 @@
         }
 
         sendBtn.addEventListener('click', sendMessage);
-        chatInput.addEventListener('keypress', function(e) {
+        chatInput.addEventListener('keypress', function (e) {
             if (e.key === 'Enter') {
                 sendMessage();
             }
@@ -772,21 +913,21 @@
         const closeModal = document.getElementById('closeModal');
         const appointmentForm = document.getElementById('appointmentForm');
 
-        newAppointmentBtn.addEventListener('click', function() {
+        newAppointmentBtn.addEventListener('click', function () {
             appointmentModal.classList.remove('hidden');
         });
 
-        closeModal.addEventListener('click', function() {
+        closeModal.addEventListener('click', function () {
             appointmentModal.classList.add('hidden');
         });
 
-        appointmentModal.addEventListener('click', function(e) {
+        appointmentModal.addEventListener('click', function (e) {
             if (e.target === appointmentModal) {
                 appointmentModal.classList.add('hidden');
             }
         });
 
-        appointmentForm.addEventListener('submit', function(e) {
+        appointmentForm.addEventListener('submit', function (e) {
             e.preventDefault();
             alert('Appointment created successfully!');
             appointmentModal.classList.add('hidden');
@@ -799,5 +940,111 @@
             field.setAttribute('type', type);
         }
     </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const calendarEl = document.getElementById('calendar');
+            const calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                height: 'auto',
+                headerToolbar: {
+                    left: 'prev,next',
+                    center: 'title',
+                    right: 'today'
+                },
+                events: [
+                    // Booking Events
+                    {
+                        id: 'booking1',
+                        title: 'ID Renewal',
+                        date: '2025-08-12',
+                        className: 'booking-event',
+                        textColor: 'white'
+                    },
+                    {
+                        id: 'booking2',
+                        title: 'Passport App',
+                        date: '2025-08-15',
+                        className: 'booking-event',
+                        textColor: 'white'
+                    },
+                    {
+                        id: 'booking3',
+                        title: 'Birth Cert',
+                        date: '2025-08-18',
+                        className: 'booking-event',
+                        textColor: 'white'
+                    },
+                    {
+                        id: 'booking4',
+                        title: 'License Renewal',
+                        date: '2025-08-20',
+                        className: 'booking-event',
+                        textColor: 'white'
+                    },
+                    // Holiday Events
+                    {
+                        id: 'holiday1',
+                        title: 'Independence Day',
+                        date: '2025-02-04',
+                        className: 'holiday-event',
+                        textColor: 'white'
+                    },
+                    {
+                        id: 'holiday2',
+                        title: 'Vesak Day',
+                        date: '2025-05-12',
+                        className: 'holiday-event',
+                        textColor: 'white'
+                    }
+                ],
+                dayCellDidMount: function (info) {
+                    // Mark booking days
+                    const bookingDates = ['2025-08-12', '2025-08-15', '2025-08-18', '2025-08-20'];
+                    const holidayDates = ['2025-02-04', '2025-05-12'];
+
+                    const dateStr = info.date.toISOString().split('T')[0];
+
+                    if (bookingDates.includes(dateStr)) {
+                        info.el.classList.add('booking-day');
+                    }
+
+                    if (holidayDates.includes(dateStr)) {
+                        info.el.classList.add('holiday');
+                    }
+                },
+                eventClick: function (info) {
+                    alert('Event: ' + info.event.title + '\nDate: ' + info.event.startStr);
+                }
+            });
+
+            calendar.render();
+
+            // New Appointment Button Handler
+            document.getElementById('newAppointmentBtn').addEventListener('click', function () {
+                alert('New Appointment booking functionality would be implemented here.');
+            });
+
+            // Cancel and View Barcode button handlers
+            document.querySelectorAll('button').forEach(button => {
+                if (button.textContent.includes('CANCEL')) {
+                    button.addEventListener('click', function () {
+                        if (confirm('Are you sure you want to cancel this appointment?')) {
+                            button.closest('.bg-white').style.opacity = '0.5';
+                            alert('Appointment cancelled successfully.');
+                        }
+                    });
+                } else if (button.textContent.includes('VIEW BARCODE')) {
+                    button.addEventListener('click', function () {
+                        alert('Barcode view functionality would be implemented here.');
+                    });
+                }
+            });
+        });
+
+            
+
+    </script>
 </body>
+
 </html>
