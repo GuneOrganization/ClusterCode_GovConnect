@@ -11,6 +11,12 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.1.8/index.global.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.css" rel="stylesheet" />
+    <link href="/assets/css/calander.css" />
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
+
+    <!-- SweetAlert2 for alerts/toasts -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- <script>
         tailwind.config = {
             theme: {
@@ -469,7 +475,7 @@
                     </div>
 
                     <!-- Converted appointment cards from Bootstrap to Tailwind grid -->
-                    
+
                 </div>
 
                 <!-- Service Guide Section -->
@@ -743,21 +749,24 @@
     </div>
 
     <!-- Converted new appointment modal from Bootstrap to Tailwind -->
-    <div id="appointmentModal"
-        class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
-        <div class="bg-white rounded-lg w-full max-w-md mx-4 max-h-screen overflow-y-auto">
+     <div id="appointmentModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center">
+        <div class="bg-white rounded-lg w-full max-w-6xl mx-4 max-h-[90vh] overflow-hidden shadow-xl">
+            <!-- Header -->
             <div class="p-6 border-b-4 border-teal-500 relative">
-                <h3 class="text-xl font-semibold text-gray-800 text-center">New Appointment</h3>
+                <h3 class="text-2xl font-semibold text-gray-800 text-center">New Appointment</h3>
                 <button id="closeModal"
-                    class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-2xl">×</button>
+                    class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-2xl leading-none">×</button>
             </div>
 
-            <div class="p-6">
+            <!-- Body -->
+            <div class="p-6 grid grid-cols-1 lg:grid-cols-2 gap-6 overflow-y-auto max-h-[calc(90vh-96px)]">
+                <!-- LEFT: Data fillers -->
                 <form id="appointmentForm" class="space-y-5">
                     <div>
-                        <select
-                            class="w-full px-4 py-3 border-b-2 border-gray-300 focus:border-teal-500 outline-none bg-transparent text-gray-600">
-                            <option value="">Service</option>
+                        <label class="block text-sm text-gray-500 mb-1">Service</label>
+                        <select id="service"
+                            class="w-full px-4 py-3 rounded border border-gray-200 focus:border-teal-500 outline-none">
+                            <option value="">Select service</option>
                             <option value="national-id">National ID Renewal</option>
                             <option value="passport">Passport Application</option>
                             <option value="driving-license">Driving License</option>
@@ -765,9 +774,10 @@
                     </div>
 
                     <div>
-                        <select
-                            class="w-full px-4 py-3 border-b-2 border-gray-300 focus:border-teal-500 outline-none bg-transparent text-gray-600">
-                            <option value="">Department</option>
+                        <label class="block text-sm text-gray-500 mb-1">Department</label>
+                        <select id="department"
+                            class="w-full px-4 py-3 rounded border border-gray-200 focus:border-teal-500 outline-none">
+                            <option value="">Select department</option>
                             <option value="civil-registration">Civil Registration Department</option>
                             <option value="immigration">Immigration Department</option>
                             <option value="motor-traffic">Department of Motor Traffic</option>
@@ -775,47 +785,56 @@
                     </div>
 
                     <div>
-                        <select
-                            class="w-full px-4 py-3 border-b-2 border-gray-300 focus:border-teal-500 outline-none bg-transparent text-gray-600">
-                            <option value="">Branch</option>
+                        <label class="block text-sm text-gray-500 mb-1">Branch</label>
+                        <select id="branch"
+                            class="w-full px-4 py-3 rounded border border-gray-200 focus:border-teal-500 outline-none">
+                            <option value="">Select branch</option>
                             <option value="central">Central Government Office</option>
                             <option value="colombo">Colombo District Office</option>
                             <option value="kandy">Kandy District Office</option>
                         </select>
                     </div>
 
-                    <div class="relative">
-                        <input type="date"
-                            class="w-full px-4 py-3 border-b-2 border-gray-300 focus:border-teal-500 outline-none bg-transparent text-gray-600">
-                        <span class="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-500">📅</span>
+                    <div class="rounded-lg border border-gray-100 p-4 bg-gray-50">
+                        <p class="text-sm text-gray-600">Selected Date:</p>
+                        <p id="selectedDateText" class="text-lg font-semibold text-gray-800">—</p>
+                        <p class="text-sm text-gray-600 mt-2">Selected Time:</p>
+                        <p id="selectedTimeText" class="text-lg font-semibold text-gray-800">—</p>
                     </div>
 
-                    <div>
-                        <select
-                            class="w-full px-4 py-3 border-b-2 border-gray-300 focus:border-teal-500 outline-none bg-transparent text-gray-600">
-                            <option value="">Time Slot</option>
-                            <option value="09:00-10:00">09:00am - 10:00am</option>
-                            <option value="10:00-11:00">10:00am - 11:00am</option>
-                            <option value="11:00-12:00">11:00am - 12:00pm</option>
-                            <option value="14:00-15:00">02:00pm - 03:00pm</option>
-                        </select>
+                    <div class="text-center py-2">
+                        <p class="text-lg text-gray-800">
+                            Approx Queue Number: <span id="queueNumber" class="font-semibold">-</span>
+                        </p>
                     </div>
 
-                    <div class="text-center py-4">
-                        <p class="text-lg text-gray-800">Approx Queue Number : <span class="font-semibold">12</span></p>
-                    </div>
-
-                    <button type="submit"
-                        class="w-full bg-teal-500 hover:bg-teal-600 text-white py-4 rounded font-semibold text-sm tracking-wider">
+                    <button type="submit" id="submitBtn" disabled
+                        class="w-full bg-teal-500 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-teal-600 text-white py-4 rounded font-semibold tracking-wider">
                         CREATE APPOINTMENT
                     </button>
 
-                    <div class="text-center text-xs text-red-600 leading-relaxed pt-4">
+                    <p class="text-center text-xs text-red-600 leading-relaxed">
                         Please Be Aware That Poya Days, Public Holidays, Bank Holidays, And Mercantile Holidays Are
-                        Excluded From Regular Scheduling. We Are Not Responsible For Any Issues Arising From
-                        Appointments Made On These Days.
-                    </div>
+                        Excluded.
+                    </p>
                 </form>
+
+                <!-- RIGHT: Calendar + Time slots -->
+                <div class="space-y-4">
+                    <div id="calendar2" class="rounded-lg border border-gray-200 p-2 bg-white shadow-sm"></div>
+
+                    <div>
+                        <div class="flex items-center justify-between mb-2">
+                            <h4 class="text-lg font-semibold text-gray-800">Available Time Slots</h4>
+                            <div class="flex items-center gap-3 text-xs">
+                                <span class="px-2 py-1 rounded bg-green-100">Available</span>
+                                <span class="px-2 py-1 rounded bg-red-100">Unavailable</span>
+                                <span class="px-2 py-1 rounded bg-sky-100">Selected</span>
+                            </div>
+                        </div>
+                        <div id="timeSlots" class="grid grid-cols-2 md:grid-cols-3 gap-2"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -1042,9 +1061,10 @@
             });
         });
 
-            
+
 
     </script>
+    <script src="/assets/js/calnder.js"></script>
 </body>
 
 </html>
