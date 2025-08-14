@@ -8,7 +8,6 @@
     <!-- Replaced Bootstrap with Tailwind CSS -->
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.1.8/index.global.min.css" rel="stylesheet">
-    
     <script src="https://cdn.tailwindcss.com"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.1.8/index.global.min.js"></script>
@@ -62,10 +61,6 @@
             transform: rotate(45deg);
         }
 
-         .logo1 {
-            width: 18px;
-            height: 18px;
-        }   
         .content-section {
             display: none;
         }
@@ -98,14 +93,14 @@
     </style>
 </head>
 
-<body class="bg-white">
+<body class="bg-gray-100">
     <div class="flex min-h-screen">
-        
-        <div class="w-64 bg-stone-200 min-h-screen">
-            <div class="p-4 border-b">
-                <div class=" flex justify-between">
-                    <div class=" w-[48px] h-[48px]"><img src="assets/images/logo.png" alt="Image"></div>
-                    <img class="w-[25px] h-[18px] self-center" src="assets/images/dashboard_icons/more.png" alt="Image">
+        <!-- Converted sidebar from Bootstrap to Tailwind -->
+        <div class="w-64 bg-gray-200 min-h-screen">
+            <div class="p-4 border-b border-gray-300">
+                <div class="logo">
+                    <div class="logo-shape-1"></div>
+                    <div class="logo-shape-2"></div>
                 </div>
             </div>
 
@@ -114,54 +109,42 @@
                     class="menu-item w-full flex items-center gap-2 p-3 mb-2 rounded text-left font-medium text-gray-600 hover:bg-gray-300 transition-all duration-200 bg-white shadow-sm"
                     data-menu="dashboard">
                     <span>📊</span>
-            <nav class="p-3 px-2">
-                <button class="menu-item w-full flex items-center gap-2 p-3 mb-2 rounded-full text-left font-medium text-gray-600 hover:bg-gray-200 transition-all duration-200 bg-stone-100 shadow-sm" data-menu="dashboard">
-                    <div class="logo1"><img src="assets/images/dashboard_icons/dashboard.png" alt="Image"></div> |
                     DASHBOARD
                 </button>
                 <button
                     class="menu-item w-full flex items-center gap-2 p-3 mb-2 rounded text-left font-medium text-gray-600 hover:bg-gray-300 transition-all duration-200"
                     data-menu="appointments">
                     <span>📅</span>
-                <button class="menu-item w-full flex items-center gap-2 p-3 mb-2 rounded-full text-left font-medium text-gray-600 hover:bg-gray-300 transition-all duration-200" data-menu="appointments">
-                    <div class="logo1"><img src="assets/images/dashboard_icons/appointments.png" alt="Image"></div> |
                     APPOINTMENTS
                 </button>
                 <button
                     class="menu-item w-full flex items-center gap-2 p-3 mb-2 rounded text-left font-medium text-gray-600 hover:bg-gray-300 transition-all duration-200"
                     data-menu="service-guide">
                     <span>📋</span>
-                <button class="menu-item w-full flex items-center gap-2 p-3 mb-2 rounded-full text-left font-medium text-gray-600 hover:bg-gray-300 transition-all duration-200" data-menu="service-guide">
-                    <div class="logo1"><img src="assets/images/dashboard_icons/service_guide.png" alt="Image"></div> |
                     SERVICE GUIDE
                 </button>
                 <button
                     class="menu-item w-full flex items-center gap-2 p-3 mb-2 rounded text-left font-medium text-gray-600 hover:bg-gray-300 transition-all duration-200"
                     data-menu="ai-chatbot">
                     <span>🤖</span>
-                <button class="menu-item w-full flex items-center gap-2 p-3 mb-2 rounded-full text-left font-medium text-gray-600 hover:bg-gray-300 transition-all duration-200" data-menu="ai-chatbot">
-                    <div class="logo1"><img src="assets/images/dashboard_icons/ai_chatbot.png" alt="Image"></div> |
                     AI CHATBOT
                 </button>
                 <button
                     class="menu-item w-full flex items-center gap-2 p-3 mb-2 rounded text-left font-medium text-gray-600 hover:bg-gray-300 transition-all duration-200"
                     data-menu="my-profile">
                     <span>👤</span>
-                <button class="menu-item w-full flex items-center gap-2 p-3 mb-2 rounded-full text-left font-medium text-gray-600 hover:bg-gray-300 transition-all duration-200" data-menu="my-profile">
-                    <div class="logo1"><img src="assets/images/dashboard_icons/my_profile.png" alt="Image"></div> |
                     MY PROFILE
                 </button>
                 <button
                     class="menu-item w-full flex items-center gap-2 p-3 mb-2 rounded text-left font-medium text-gray-600 hover:bg-gray-300 transition-all duration-200"
                     data-menu="logout">
                     <span>🚪</span>
-                <button class="menu-item w-full flex items-center gap-2 p-3 mb-2 rounded-full text-left font-medium text-gray-600 hover:bg-gray-300 transition-all duration-200" data-menu="logout">
-                    <div class="logo1"><img src="assets/images/dashboard_icons/logout.png" alt="Image"></div> |
                     LOGOUT
                 </button>
             </nav>
         </div>
 
+        <!-- Converted main content area from Bootstrap to Tailwind -->
         <div class="flex-1">
             <!-- Header -->
             <header class="bg-white shadow-sm border-b border-gray-200 p-4">
@@ -170,18 +153,17 @@
                         <button class="text-gray-500 p-0 lg:hidden" type="button">
                             <span class="text-xl">☰</span>
                         </button>
-                        <h5 class="text-lg font-medium">Welcome Sachintha !</h5>
+                        <h5 class="text-lg font-medium">Welcome Sahan !</h5>
                     </div>
 
                     <div class="flex items-center gap-3">
+                        <div class="text-right">
+                            <div class="font-semibold text-sm">SAHAN PERERA</div>
+                            <div class="text-gray-500 text-xs">sahanperera@gmail.com</div>
+                        </div>
                         <div class="bg-gray-800 text-white rounded-full flex items-center justify-center w-10 h-10">
-                            <span class="font-semibold text-sm">😁</span>
+                            <span class="font-semibold text-sm">SP</span>
                         </div>
-                        <div class="text-left">
-                            <div class="font-semibold text-sm">SACHINTHA PERERA</div>
-                            <div class="text-gray-500 text-xs">sachinthaperera@gmail.com</div>
-                        </div>
-                        
                     </div>
                 </div>
             </header>
@@ -191,53 +173,49 @@
                 <!-- Dashboard Section -->
                 <div id="dashboard-content" class="content-section active">
                     <div class="mb-4">
-                        <h2 class="text-2xl font-semibold text-gray-800 text-center"><B>USER DASHBOARD</B></h2>
+                        <h2 class="text-2xl font-semibold text-gray-800 text-center">USER DASHBOARD</h2>
                         <div class="w-20 h-0.5 bg-black mx-auto mt-2"></div>
                     </div>
 
+                    <!-- Converted stats cards from Bootstrap grid to Tailwind -->
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-                        <div class="bg-stone-200 rounded-lg shadow p-4">
+                        <div class="bg-white rounded-lg shadow p-4">
                             <div class="text-center">
                                 <h6 class="text-sm font-medium text-gray-600 mb-2">TOTAL APPOINTMENTS</h6>
-                                <h2 class="text-3xl font-bold text-gray-800">01</h2>
+                                <h2 class="text-3xl font-bold text-gray-800">03</h2>
                             </div>
                         </div>
-                        <div class="bg-stone-200  rounded-lg shadow p-4">
+                        <div class="bg-white rounded-lg shadow p-4">
                             <div class="text-center">
                                 <h6 class="text-sm font-medium text-gray-600 mb-2">ONGOING APPOINTMENTS</h6>
-                                <h2 class="text-3xl font-bold text-gray-800">02</h2>
+                                <h2 class="text-3xl font-bold text-gray-800">03</h2>
                             </div>
                         </div>
-                        <div class="bg-stone-200  rounded-lg shadow p-4">
+                        <div class="bg-white rounded-lg shadow p-4">
                             <div class="text-center">
                                 <h6 class="text-sm font-medium text-gray-600 mb-2">TODAY APPOINTMENTS</h6>
                                 <h2 class="text-3xl font-bold text-gray-800">03</h2>
                             </div>
                         </div>
-                        <div class="bg-stone-200  rounded-lg shadow p-4">
+                        <div class="bg-white rounded-lg shadow p-4">
                             <div class="text-center">
                                 <h6 class="text-sm font-medium text-gray-600 mb-2">CANCELED APPOINTMENTS</h6>
-                                <h2 class="text-3xl font-bold text-gray-800">04</h2>
+                                <h2 class="text-3xl font-bold text-gray-800">03</h2>
                             </div>
                         </div>
                     </div>
 
                     <!-- Upcoming Appointments -->
                     <div class="mb-6">
-                        <div class="flex w-full mb-4 gap-4  items-center">
-                            <h4 class="text-xl  font-bold text-gray-800 min-w-fit">UPCOMING APPOINTMENT</h4>
-                            <div class="w-full h-0 border border-[#333333]"></div>
-                        </div>
+                        <h4 class="text-xl font-semibold text-gray-800 mb-4">UPCOMING APPOINTMENTS</h4>
                         <div class="space-y-4">
-                            <div class="bg-stone-100 rounded-lg shadow p-4">
+                            <div class="bg-white rounded-lg shadow p-4">
                                 <div class="flex justify-between items-start">
                                     <div>
                                         <h5 class="font-semibold text-gray-800 mb-2">Apply for New National ID Card</h5>
                                         <p class="text-gray-600 text-sm mb-3">Guidelines and requirements for obtaining
                                             a new National Identity Card, including necessary documents, eligibility
                                             criteria, and application procedures.</p>
-                                        <p class="text-gray-600 text-sm mb-3">Guidelines and requirements for obtaining a new National Identity Card, including necessary documents, eligibility criteria, and application procedures.</p>
-                                        <br>
                                         <div class="flex gap-4 text-sm text-gray-600">
                                             <span><strong>Department:</strong> Civil Registration Department</span>
                                             <span><strong>Last Updated:</strong> 2022.03.25</span>
@@ -246,20 +224,15 @@
                                     <button
                                         class="bg-teal-500 hover:bg-teal-600 text-white px-4 py-2 rounded font-medium">VIEW
                                         GUIDE</button>
-                                    <div class="mt-auto">
-                                        <button class="bg-teal-600 hover:bg-teal-500 text-white px-12 py-2 rounded font-medium">VIEW GUIDE</button>
-                                    </div>
                                 </div>
                             </div>
-                            <div class="bg-stone-100 rounded-lg shadow p-4">
+                            <div class="bg-white rounded-lg shadow p-4">
                                 <div class="flex justify-between items-start">
                                     <div>
                                         <h5 class="font-semibold text-gray-800 mb-2">Apply for New National ID Card</h5>
                                         <p class="text-gray-600 text-sm mb-3">Guidelines and requirements for obtaining
                                             a new National Identity Card, including necessary documents, eligibility
                                             criteria, and application procedures.</p>
-                                        <p class="text-gray-600 text-sm mb-3">Guidelines and requirements for obtaining a new National Identity Card, including necessary documents, eligibility criteria, and application procedures.</p>
-                                        <br>
                                         <div class="flex gap-4 text-sm text-gray-600">
                                             <span><strong>Department:</strong> Civil Registration Department</span>
                                             <span><strong>Last Updated:</strong> 2022.03.25</span>
@@ -268,20 +241,15 @@
                                     <button
                                         class="bg-teal-500 hover:bg-teal-600 text-white px-4 py-2 rounded font-medium">VIEW
                                         GUIDE</button>
-                                    <div class="mt-auto">
-                                        <button class="bg-teal-600 hover:bg-teal-500 text-white px-12 py-2 rounded font-medium">VIEW GUIDE</button>
-                                    </div>
                                 </div>
                             </div>
-                            <div class="bg-stone-100 rounded-lg shadow p-4">
+                            <div class="bg-white rounded-lg shadow p-4">
                                 <div class="flex justify-between items-start">
                                     <div>
                                         <h5 class="font-semibold text-gray-800 mb-2">Apply for New National ID Card</h5>
                                         <p class="text-gray-600 text-sm mb-3">Guidelines and requirements for obtaining
                                             a new National Identity Card, including necessary documents, eligibility
                                             criteria, and application procedures.</p>
-                                        <p class="text-gray-600 text-sm mb-3">Guidelines and requirements for obtaining a new National Identity Card, including necessary documents, eligibility criteria, and application procedures.</p>
-                                        <br>
                                         <div class="flex gap-4 text-sm text-gray-600">
                                             <span><strong>Department:</strong> Civil Registration Department</span>
                                             <span><strong>Last Updated:</strong> 2022.03.25</span>
@@ -290,9 +258,6 @@
                                     <button
                                         class="bg-teal-500 hover:bg-teal-600 text-white px-4 py-2 rounded font-medium">VIEW
                                         GUIDE</button>
-                                    <div class="mt-auto">
-                                        <button class="bg-teal-600 hover:bg-teal-500 text-white px-12 py-2 rounded font-medium">VIEW GUIDE</button>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -313,15 +278,6 @@
                                 <span>+</span> NEW APPOINTMENT
                             </button>
                         </div>
-                    <div class="flex justify-between items-center mb-6">
-                        <div>
-                            <h2 class="text-2xl font-semibold text-gray-800">APPOINTMENTS</h2>
-                            <div class="w-20 h-0.5 bg-black mt-2"></div>
-                        </div>
-                        <button id="newAppointmentBtn" class="bg-teal-800 hover:bg-teal-600 text-white px-4 py-2 rounded font-medium flex items-center gap-2">
-                            <span>+</span> NEW APPOINTMENT
-                        </button>
-                    </div>
 
                         <!-- Main Content Grid -->
                         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -369,43 +325,6 @@
                                                 BARCODE</button>
                                         </div>
                                     </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="bg-white rounded-lg shadow p-4">
-                            <div class="space-y-2 text-sm">
-                                <div class="flex justify-between">
-                                    <span class="font-medium">Appointment Id</span>
-                                    <span>2569470001</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span class="font-medium">Service</span>
-                                    <span>National ID Renewal</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span class="font-medium">Department</span>
-                                    <span>Civil Registration Department</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span class="font-medium">Branch</span>
-                                    <span>Central Government Office</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span class="font-medium">Date</span>
-                                    <span>2025-08-12</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span class="font-medium">Time Slot</span>
-                                    <span>09:00am -10:00am</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span class="font-medium">Queue Number</span>
-                                    <span>004</span>
-                                </div>
-                            </div>
-                            <div class="flex gap-2 mt-4">
-                                <button class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded text-sm font-medium">CANCEL APPOINTMENT</button>
-                                <button class="bg-teal-500 hover:bg-teal-600 text-white px-4 py-2 rounded text-sm font-medium">VIEW BARCODE</button>
-                            </div>
-                        </div>
 
                                     <!-- Appointment Card 2 -->
                                     <div
@@ -566,6 +485,7 @@
                         <div class="w-20 h-0.5 bg-black mx-auto mt-2"></div>
                     </div>
 
+                    <!-- Converted search and filter from Bootstrap to Tailwind -->
                     <div class="flex flex-col md:flex-row gap-4 mb-6">
                         <div class="flex-1">
                             <div class="relative">
