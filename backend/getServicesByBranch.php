@@ -1,6 +1,6 @@
 <?php
 // Testing URL
-// http://localhost/ClusterCode_GovConnect/backend/getServicesByBranch.php?id=%22BRN0000001%22
+// http://localhost/ClusterCode_GovConnect/backend/getServicesByBranch.php?branch_id=%22BRN0000001%22
 
 require 'connection.php';
 
@@ -14,12 +14,12 @@ function sendResponse($status, $message, $data = [])
     exit;
 }
 
-if (!isset($_GET['id']) || empty($_GET['id'])) {
-    sendResponse("fail", "Branch id is required");
+if (!isset($_GET['branch_id']) || empty($_GET['branch_id'])) {
+    sendResponse("fail", "branch_id is required");
 }
 
 try {
-    $resultSet = Database::search("SELECT * FROM `service` WHERE `branch_id` = ".$_GET['id']." ");
+    $resultSet = Database::search("SELECT * FROM `service` WHERE `branch_id` = ".$_GET['branch_id']." ");
 
     $services = [];
     while ($row = $resultSet->fetch_assoc()) {
