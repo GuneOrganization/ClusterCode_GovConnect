@@ -8,7 +8,7 @@ $response = array();
 if (isset($_SESSION['user'])) {
     http_response_code(401);
     echo json_encode([
-        "status" => "error",
+        "status" => "fail",
         "message" => "Unauthorized. Please log in."
     ]);
 
@@ -32,7 +32,7 @@ if (isset($_SESSION['user'])) {
         }
     } catch (Exception $e) {
         http_response_code(500);
-        $response["status"] = "error";
+        $response["status"] = "fail";
         $response["message"] =  $e->getMessage();
     }
 
