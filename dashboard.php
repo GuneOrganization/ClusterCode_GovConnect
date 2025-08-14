@@ -184,16 +184,7 @@
             <div class="p-6 grid grid-cols-1 lg:grid-cols-2 gap-6 overflow-y-auto max-h-[calc(90vh-96px)]">
                 <!-- LEFT: Data fillers -->
                 <form id="appointmentForm" class="space-y-5">
-                    <div>
-                        <label class="block text-sm text-gray-500 mb-1">Service</label>
-                        <select id="service"
-                            class="w-full px-4 py-3 rounded border border-gray-200 focus:border-teal-500 outline-none">
-                            <option value="">Select service</option>
-                            <option value="national-id">National ID Renewal</option>
-                            <option value="passport">Passport Application</option>
-                            <option value="driving-license">Driving License</option>
-                        </select>
-                    </div>
+                    
 
                     <div>
                         <label class="block text-sm text-gray-500 mb-1">Department</label>
@@ -216,6 +207,31 @@
                             <option value="kandy">Kandy District Office</option>
                         </select>
                     </div>
+
+                    <div>
+                        <label class="block text-sm text-gray-500 mb-1">Service</label>
+                        <select id="service"
+                            class="w-full px-4 py-3 rounded border border-gray-200 focus:border-teal-500 outline-none">
+                            <option value="">Select service</option>
+                            <option value="national-id">National ID Renewal</option>
+                            <option value="passport">Passport Application</option>
+                            <option value="driving-license">Driving License</option>
+                        </select>
+                    </div>
+
+
+                    <div>
+    <label class="block text-sm text-gray-500 mb-1">Attach Documents (Optional)</label>
+    <div class="flex items-center gap-3">
+        <input type="file" id="fileUpload" class="hidden" multiple>
+        <button type="button" id="fileSelectBtn"
+            class="bg-teal-800 hover:bg-teal-700 text-white px-4 py-2 rounded font-semibold text-sm shadow">
+            📎 Choose Files
+        </button>
+        <span id="fileCount" class="text-sm text-gray-600">No files selected</span>
+    </div>
+    <ul id="fileList" class="mt-2 text-xs text-gray-700 list-disc list-inside"></ul>
+</div>
 
                     <div class="rounded-lg border border-gray-100 p-4 bg-gray-50">
                         <p class="text-sm text-gray-600">Selected Date:</p>
@@ -261,6 +277,29 @@
         </div>
     </div>
 
+
+    <script>
+    const fileInput = document.getElementById('fileUpload');
+    const fileBtn = document.getElementById('fileSelectBtn');
+    const fileCount = document.getElementById('fileCount');
+    const fileList = document.getElementById('fileList');
+
+    fileBtn.addEventListener('click', () => {
+        fileInput.click();
+    });
+
+    fileInput.addEventListener('change', () => {
+        const files = Array.from(fileInput.files);
+        if (files.length === 0) {
+            fileCount.textContent = "No files selected";
+            fileList.innerHTML = "";
+        } else {
+            fileCount.textContent = `${files.length} file(s) selected`;
+            fileList.innerHTML = files.map(file => `<li>${file.name}</li>`).join('');
+        }
+    });
+</script>
+
     <script>
 
         // Menu navigation
@@ -296,57 +335,7 @@
             });
         });
 
-        // Chat functionality
-        // const chatInput = document.getElementById('chatInput');
-        // const sendBtn = document.getElementById('sendBtn');
-        // const chatMessages = document.getElementById('chatMessages');
-
-        // function sendMessage() {
-        //     const message = chatInput.value.trim();
-        //     if (message) {
-        //         // Add user message
-        //         const userMessageDiv = document.createElement('div');
-        //         userMessageDiv.className = 'flex justify-end';
-        //         userMessageDiv.innerHTML = `
-        //             <div class="max-w-xs lg:max-w-md">
-        //                 <div class="bg-gray-200 text-gray-800 rounded-lg px-4 py-2">
-        //                     <p class="text-sm">${message}</p>
-        //                 </div>
-        //                 <div class="text-xs text-gray-500 text-right mt-1">${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</div>
-        //             </div>
-        //         `;
-        //         chatMessages.appendChild(userMessageDiv);
-
-        //         // Clear input
-        //         chatInput.value = '';
-
-        //         // Scroll to bottom
-        //         chatMessages.scrollTop = chatMessages.scrollHeight;
-
-        //         // Simulate AI response after a delay
-        //         setTimeout(() => {
-        //             const aiMessageDiv = document.createElement('div');
-        //             aiMessageDiv.className = 'flex justify-start';
-        //             aiMessageDiv.innerHTML = `
-        //                 <div class="max-w-xs lg:max-w-md">
-        //                     <div class="bg-white border border-gray-200 rounded-lg px-4 py-2">
-        //                         <p class="text-sm text-black">Thank you for your message. How can I assist you further?</p>
-        //                     </div>
-        //                     <div class="text-xs text-gray-500 mt-1">${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</div>
-        //                 </div>
-        //             `;
-        //             chatMessages.appendChild(aiMessageDiv);
-        //             chatMessages.scrollTop = chatMessages.scrollHeight;
-        //         }, 1000);
-        //     }
-        // }
-
-        // sendBtn.addEventListener('click', sendMessage);
-        // chatInput.addEventListener('keypress', function (e) {
-        //     if (e.key === 'Enter') {
-        //         sendMessage();
-        //     }
-        // });
+        
 
         // Modal functionality
         const newAppointmentBtn = document.getElementById('newAppointmentBtn');
@@ -382,6 +371,9 @@
         }
     </script>
 
+
+
+<!-- main clander -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const calendarEl = document.getElementById('calendar');
@@ -487,18 +479,6 @@
 
 
 
-        // function togglePassword() {
-//     const passwordInput = document.getElementById('password');
-//     const toggleBtn = document.querySelector('.password-toggle');
-
-//     if (passwordInput.type === 'password') {
-//         passwordInput.type = 'text';
-//         toggleBtn.textContent = '🙈';
-//     } else {
-//         passwordInput.type = 'password';
-//         toggleBtn.textContent = '👁';
-//     }
-// }
 
 // Navigation functionality
 document.addEventListener('DOMContentLoaded', function () {
@@ -633,18 +613,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-<script>
-    // document.getElementById("openModal").addEventListener("click", () => {
-//   const modal = document.getElementById("appointmentModal");
-//   modal.classList.remove("hidden");
-//   modal.classList.add("flex"); // Make it flex so it centers
-// });
 
-// document.getElementById("closeModal").addEventListener("click", () => {
-//   const modal = document.getElementById("appointmentModal");
-//   modal.classList.add("hidden");
-//   modal.classList.remove("flex"); // Remove flex so it hides properly
-// });
+
+<script>
+
 
 (() => {
   // ---------- CONFIG ----------
