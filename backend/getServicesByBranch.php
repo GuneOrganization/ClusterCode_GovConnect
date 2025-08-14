@@ -16,7 +16,7 @@ if (!isset($_GET['branch_id']) || empty($_GET['branch_id'])) {
 }
 
 try {
-    $resultSet = Database::search("SELECT * FROM `service` WHERE branch_id = ".$_GET['branch_id']."");
+    $resultSet = Database::search("SELECT * FROM `service` WHERE `branch_id` = '".$_GET['branch_id']."' ");
 
     $services = [];
     while ($row = $resultSet->fetch_assoc()) {
