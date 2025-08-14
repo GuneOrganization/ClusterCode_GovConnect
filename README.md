@@ -18,3 +18,14 @@ INSERT INTO `gov_connect`.`appointment_status` (`id`, `status`) VALUES (1, 'Pend
 INSERT INTO `gov_connect`.`appointment_status` (`id`, `status`) VALUES (2, 'Accepted');
 INSERT INTO `gov_connect`.`appointment_status` (`id`, `status`) VALUES (3, 'Rejected');
 INSERT INTO `gov_connect`.`appointment_status` (`id`, `status`) VALUES (4, 'Completed');
+
+
+## API Data Return Structure
+
+------------------------------------------
+|                                        |
+|  {"status":"","data":[],"message":""}  |
+|                                        |
+------------------------------------------  
+
+status - "success" or "error"
