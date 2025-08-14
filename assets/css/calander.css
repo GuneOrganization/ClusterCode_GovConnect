@@ -1,0 +1,23 @@
+/* Smooth modal fade */
+    #appointmentModal.show { display:flex; animation: fadeIn .15s ease-out; }
+    @keyframes fadeIn { from {opacity:0} to {opacity:1} }
+
+    /* FullCalendar tweaks to match Tailwind look */
+    .fc .fc-toolbar-title { font-size: 1.125rem; font-weight: 600; color: #1f2937; }
+    .fc .fc-daygrid-day.fc-day-today { background: #ecfeff; } /* cyan-50 */
+    .fc .fc-button-primary {
+      background-color: #14b8a6; /* teal-500 */
+      border: none;
+    }
+    .fc .fc-button-primary:hover { background-color:#0d9488; } /* teal-600 */
+    .fc .fc-day-disabled,
+    .fc .is-holiday {
+      background-color: #fee2e2 !important; /* red-100 */
+      cursor: not-allowed;
+      position: relative;
+    }
+    .fc .is-holiday::after {
+      content: "Holiday";
+      position: absolute; right: 4px; bottom: 2px;
+      font-size: 10px; color: #ef4444; /* red-500 */
+    }
