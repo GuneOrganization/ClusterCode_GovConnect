@@ -1,15 +1,15 @@
-function togglePassword() {
-    const passwordInput = document.getElementById('password');
-    const toggleBtn = document.querySelector('.password-toggle');
+// function togglePassword() {
+//     const passwordInput = document.getElementById('password');
+//     const toggleBtn = document.querySelector('.password-toggle');
 
-    if (passwordInput.type === 'password') {
-        passwordInput.type = 'text';
-        toggleBtn.textContent = '🙈';
-    } else {
-        passwordInput.type = 'password';
-        toggleBtn.textContent = '👁';
-    }
-}
+//     if (passwordInput.type === 'password') {
+//         passwordInput.type = 'text';
+//         toggleBtn.textContent = '🙈';
+//     } else {
+//         passwordInput.type = 'password';
+//         toggleBtn.textContent = '👁';
+//     }
+// }
 
 // Navigation functionality
 document.addEventListener('DOMContentLoaded', function () {
