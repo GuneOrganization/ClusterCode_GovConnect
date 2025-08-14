@@ -242,7 +242,7 @@
 
                     <div class="text-center py-2">
                         <p class="text-lg text-gray-800">
-                            Approx Queue Number: <span id="queueNumber" class="font-semibold">-</span>
+                            <!-- Approx Queue Number: <span id="queueNumber" class="font-semibold">-</span> -->
                         </p>
                     </div>
 
@@ -510,62 +510,62 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    const chatInput = document.getElementById('chatInput');
-    const sendButton = document.getElementById('sendButton');
-    const chatMessages = document.querySelector('.chat-messages');
+    // const chatInput = document.getElementById('chatInput');
+    // const sendButton = document.getElementById('sendButton');
+    // const chatMessages = document.querySelector('.chat-messages');
 
-    function sendMessage() {
-        const message = chatInput.value.trim();
-        if (message === '') return;
+    // function sendMessage() {
+    //     const message = chatInput.value.trim();
+    //     if (message === '') return;
 
-        // Get current time
-        const now = new Date();
-        const timeString = now.getHours().toString().padStart(2, '0') + ':' +
-            now.getMinutes().toString().padStart(2, '0');
+    //     // Get current time
+    //     const now = new Date();
+    //     const timeString = now.getHours().toString().padStart(2, '0') + ':' +
+    //         now.getMinutes().toString().padStart(2, '0');
 
-        // Create user message element
-        const userMessageHTML = `
-                    <div class="message-wrapper d-flex justify-content-end mb-3">
-                        <div class="user-message bg-light p-3 rounded" style="max-width: 70%;">
-                            <p class="mb-1">${message}</p>
-                            <small class="text-muted">${timeString}</small>
-                        </div>
-                    </div>
-                `;
+    //     // Create user message element
+    //     const userMessageHTML = `
+    //                 <div class="message-wrapper d-flex justify-content-end mb-3">
+    //                     <div class="user-message bg-light p-3 rounded" style="max-width: 70%;">
+    //                         <p class="mb-1">${message}</p>
+    //                         <small class="text-muted">${timeString}</small>
+    //                     </div>
+    //                 </div>
+    //             `;
 
-        // Add user message to chat
-        chatMessages.insertAdjacentHTML('beforeend', userMessageHTML);
+    //     // Add user message to chat
+    //     chatMessages.insertAdjacentHTML('beforeend', userMessageHTML);
 
-        // Clear input
-        chatInput.value = '';
+    //     // Clear input
+    //     chatInput.value = '';
 
-        // Scroll to bottom
-        chatMessages.scrollTop = chatMessages.scrollHeight;
+    //     // Scroll to bottom
+    //     chatMessages.scrollTop = chatMessages.scrollHeight;
 
-        // Simulate AI response after a short delay
-        setTimeout(() => {
-            const aiResponseHTML = `
-                        <div class="message-wrapper d-flex justify-content-start mb-3">
-                            <div class="ai-message bg-white p-3 rounded border" style="max-width: 70%;">
-                                <p class="mb-1">Thank you for your message. I'm here to help you with government services. How can I assist you today?</p>
-                                <small class="text-muted">${timeString}</small>
-                            </div>
-                        </div>
-                    `;
-            chatMessages.insertAdjacentHTML('beforeend', aiResponseHTML);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        }, 1000);
-    }
+    //     // Simulate AI response after a short delay
+    //     setTimeout(() => {
+    //         const aiResponseHTML = `
+    //                     <div class="message-wrapper d-flex justify-content-start mb-3">
+    //                         <div class="ai-message bg-white p-3 rounded border" style="max-width: 70%;">
+    //                             <p class="mb-1">Thank you for your message. I'm here to help you with government services. How can I assist you today?</p>
+    //                             <small class="text-muted">${timeString}</small>
+    //                         </div>
+    //                     </div>
+    //                 `;
+    //         chatMessages.insertAdjacentHTML('beforeend', aiResponseHTML);
+    //         chatMessages.scrollTop = chatMessages.scrollHeight;
+    //     }, 1000);
+    // }
 
-    // Send message on button click
-    sendButton.addEventListener('click', sendMessage);
+    // // Send message on button click
+    // sendButton.addEventListener('click', sendMessage);
 
-    // Send message on Enter key press
-    chatInput.addEventListener('keypress', function (e) {
-        if (e.key === 'Enter') {
-            sendMessage();
-        }
-    });
+    // // Send message on Enter key press
+    // chatInput.addEventListener('keypress', function (e) {
+    //     if (e.key === 'Enter') {
+    //         sendMessage();
+    //     }
+    // });
 
     function openNewAppointmentModal() {
         document.getElementById('newAppointmentModal').style.display = 'flex';
@@ -583,30 +583,30 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Handle form submission
-    document.getElementById('newAppointmentForm').addEventListener('submit', function (e) {
-        e.preventDefault();
+    // document.getElementById('newAppointmentForm').addEventListener('submit', function (e) {
+    //     e.preventDefault();
 
-        // Get form values
-        const service = document.getElementById('service').value;
-        const department = document.getElementById('department').value;
-        const branch = document.getElementById('branch').value;
-        const date = document.getElementById('date').value;
-        const timeSlot = document.getElementById('timeSlot').value;
+    //     // Get form values
+    //     const service = document.getElementById('service').value;
+    //     const department = document.getElementById('department').value;
+    //     const branch = document.getElementById('branch').value;
+    //     const date = document.getElementById('date').value;
+    //     const timeSlot = document.getElementById('timeSlot').value;
 
-        if (service && department && branch && date && timeSlot) {
-            alert('Appointment created successfully!');
-            closeNewAppointmentModal();
-        } else {
-            alert('Please fill in all fields.');
-        }
-    });
+    //     if (service && department && branch && date && timeSlot) {
+    //         alert('Appointment created successfully!');
+    //         closeNewAppointmentModal();
+    //     } else {
+    //         alert('Please fill in all fields.');
+    //     }
+    // });
 
     // Close modal when clicking outside
-    document.getElementById('newAppointmentModal').addEventListener('click', function (e) {
-        if (e.target === this) {
-            closeNewAppointmentModal();
-        }
-    });
+    // document.getElementById('newAppointmentModal').addEventListener('click', function (e) {
+    //     if (e.target === this) {
+    //         closeNewAppointmentModal();
+    //     }
+    // });
 });
 
     </script>
@@ -656,7 +656,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const timeSlotsEl = document.getElementById('timeSlots');
   const selectedDateText = document.getElementById('selectedDateText');
   const selectedTimeText = document.getElementById('selectedTimeText');
-  const queueNumberEl = document.getElementById('queueNumber');
+//   const queueNumberEl = document.getElementById('queueNumber');
   const form = document.getElementById('appointmentForm');
   const submitBtn = document.getElementById('submitBtn');
 
@@ -714,7 +714,7 @@ document.addEventListener('DOMContentLoaded', function () {
     timeSlotsEl.innerHTML = "";
     selectedSlot = null;
     selectedTimeText.textContent = "—";
-    queueNumberEl.textContent = "-";
+    // queueNumberEl.textContent = "-";
     submitBtn.disabled = true;
 
     if (!ymd) return;
@@ -761,7 +761,7 @@ document.addEventListener('DOMContentLoaded', function () {
           btn.classList.add("ring-2","ring-sky-400","bg-sky-100");
           selectedSlot = slot;
           selectedTimeText.textContent = slot.replace("-", " - ");
-          queueNumberEl.textContent = estimateQueue(ymd, slot);
+        //   queueNumberEl.textContent = estimateQueue(ymd, slot);
           submitBtn.disabled = false;
           toast('info', `Time selected: ${slot}`);
         });
@@ -846,7 +846,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // TODO: Replace with real API call
-    alertSuccess(`Your appointment is set for ${selectedDate} at ${selectedSlot}. Queue No: ${queueNumberEl.textContent}`);
+    // alertSuccess(`Your appointment is set for ${selectedDate} at ${selectedSlot}. Queue No: ${queueNumberEl.textContent}`);
     // Close modal after success (optional)
     setTimeout(() => hideModal(), 700);
   });
