@@ -131,7 +131,7 @@
                             <span class="font-semibold text-sm">😁</span>
                         </div>
                         <div class="text-left">
-                            <div class="font-semibold text-sm">SACHINTHA PERERA</div>
+                            <div class="font-semibold text-sm">SACHINTHA Padaya</div>
                             <div class="text-gray-500 text-xs">sachinthaperera@gmail.com</div>
                         </div>
                     </div>
@@ -156,8 +156,8 @@
                         New Notifications 03
                     </li>
                 </ul>
-                <div
-                    class="p-2 text-center text-sm text-gray-500 border-t border-gray-200 cursor-pointer hover:bg-gray-100">
+                <div class="p-2 text-center text-sm text-gray-500 border-t border-gray-200 cursor-pointer hover:bg-gray-100"
+                    onclick="showNotifications()">
                     <a>View All</a>
                 </div>
             </div>
@@ -295,6 +295,40 @@
         </div>
     </div>
 
+    <?php
+    
+    include "./components/notification.php";
+    
+    ?>
+
+    <script>
+        function showNotifications() {
+            document.getElementById('notificationsSection').classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function hideNotifications() {
+            document.getElementById('notificationsSection').classList.add('hidden');
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+
+        function dismissNotification(button) {
+            const notification = button.closest('.bg-gray-100');
+            notification.style.transition = 'opacity 0.3s ease';
+            notification.style.opacity = '0';
+            setTimeout(() => {
+                notification.remove();
+            }, 300);
+        }
+
+        // Close notifications when pressing Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                hideNotifications();
+            }
+        });
+    </script>
+
     <script>
         // Menu navigation
         document.querySelectorAll('.menu-item').forEach(item => {
@@ -384,16 +418,16 @@
         // Modal functionality
         const newAppointmentBtn = document.getElementById('newAppointmentBtn');
         const appointmentModal = document.getElementById('appointmentModal');
-        const closeModal = document.getElementById('closeModal');
+        // const closeModal = document.getElementById('closeModal');
         const appointmentForm = document.getElementById('appointmentForm');
 
         newAppointmentBtn.addEventListener('click', function() {
             appointmentModal.classList.remove('hidden');
         });
 
-        closeModal.addEventListener('click', function() {
-            appointmentModal.classList.add('hidden');
-        });
+        // closeModal.addEventListener('click', function() {
+        //     appointmentModal.classList.add('hidden');
+        // });
 
         appointmentModal.addEventListener('click', function(e) {
             if (e.target === appointmentModal) {
@@ -438,21 +472,21 @@
             }, 100);
         });
 
-        //notification section JS
-        const viewAllBtn = document.getElementById("viewAllNotifications");
-        const allSections = document.querySelectorAll(".content-section");
-        const fullNotifications = document.getElementById("notifications-content");
+        // //notification section JS
+        // const viewAllBtn = document.getElementById("viewAllNotifications");
+        // const allSections = document.querySelectorAll(".content-section");
+        // const fullNotifications = document.getElementById("notifications-content");
 
-        viewAllBtn.addEventListener("click", () => {
-            // Hide all sections
-            allSections.forEach(sec => sec.classList.add("hidden"));
+        // viewAllBtn.addEventListener("click", () => {
+        //     // Hide all sections
+        //     allSections.forEach(sec => sec.classList.add("hidden"));
 
-            // Show the notifications page
-            fullNotifications.classList.remove("hidden");
+        //     // Show the notifications page
+        //     fullNotifications.classList.remove("hidden");
 
-            // Also hide the dropdown
-            document.getElementById("notificationPopup").classList.add("hidden");
-        });
+        //     // Also hide the dropdown
+        //     document.getElementById("notificationPopup").classList.add("hidden");
+        // });
     </script>
 
     <script>
@@ -603,62 +637,62 @@
                 });
             });
 
-            const chatInput = document.getElementById('chatInput');
-            const sendButton = document.getElementById('sendButton');
-            const chatMessages = document.querySelector('.chat-messages');
+            // const chatInput = document.getElementById('chatInput');
+            // const sendButton = document.getElementById('sendButton');
+            // const chatMessages = document.querySelector('.chat-messages');
 
-            function sendMessage() {
-                const message = chatInput.value.trim();
-                if (message === '') return;
+            // function sendMessage() {
+            //     const message = chatInput.value.trim();
+            //     if (message === '') return;
 
-                // Get current time
-                const now = new Date();
-                const timeString = now.getHours().toString().padStart(2, '0') + ':' +
-                    now.getMinutes().toString().padStart(2, '0');
+            //     // Get current time
+            //     const now = new Date();
+            //     const timeString = now.getHours().toString().padStart(2, '0') + ':' +
+            //         now.getMinutes().toString().padStart(2, '0');
 
-                // Create user message element
-                const userMessageHTML = `
-                    <div class="message-wrapper d-flex justify-content-end mb-3">
-                        <div class="user-message bg-light p-3 rounded" style="max-width: 70%;">
-                            <p class="mb-1">${message}</p>
-                            <small class="text-muted">${timeString}</small>
-                        </div>
-                    </div>
-                `;
+            //     // Create user message element
+            //     const userMessageHTML = `
+            //         <div class="message-wrapper d-flex justify-content-end mb-3">
+            //             <div class="user-message bg-light p-3 rounded" style="max-width: 70%;">
+            //                 <p class="mb-1">${message}</p>
+            //                 <small class="text-muted">${timeString}</small>
+            //             </div>
+            //         </div>
+            //     `;
 
-                // Add user message to chat
-                chatMessages.insertAdjacentHTML('beforeend', userMessageHTML);
+            //     // Add user message to chat
+            //     chatMessages.insertAdjacentHTML('beforeend', userMessageHTML);
 
-                // Clear input
-                chatInput.value = '';
+            //     // Clear input
+            //     chatInput.value = '';
 
-                // Scroll to bottom
-                chatMessages.scrollTop = chatMessages.scrollHeight;
+            //     // Scroll to bottom
+            //     chatMessages.scrollTop = chatMessages.scrollHeight;
 
-                // Simulate AI response after a short delay
-                setTimeout(() => {
-                    const aiResponseHTML = `
-                        <div class="message-wrapper d-flex justify-content-start mb-3">
-                            <div class="ai-message bg-white p-3 rounded border" style="max-width: 70%;">
-                                <p class="mb-1">Thank you for your message. I'm here to help you with government services. How can I assist you today?</p>
-                                <small class="text-muted">${timeString}</small>
-                            </div>
-                        </div>
-                    `;
-                    chatMessages.insertAdjacentHTML('beforeend', aiResponseHTML);
-                    chatMessages.scrollTop = chatMessages.scrollHeight;
-                }, 1000);
-            }
+            //     // Simulate AI response after a short delay
+            //     setTimeout(() => {
+            //         const aiResponseHTML = `
+            //             <div class="message-wrapper d-flex justify-content-start mb-3">
+            //                 <div class="ai-message bg-white p-3 rounded border" style="max-width: 70%;">
+            //                     <p class="mb-1">Thank you for your message. I'm here to help you with government services. How can I assist you today?</p>
+            //                     <small class="text-muted">${timeString}</small>
+            //                 </div>
+            //             </div>
+            //         `;
+            //         chatMessages.insertAdjacentHTML('beforeend', aiResponseHTML);
+            //         chatMessages.scrollTop = chatMessages.scrollHeight;
+            //     }, 1000);
+            // }
 
-            // Send message on button click
-            sendButton.addEventListener('click', sendMessage);
+            // // Send message on button click
+            // sendButton.addEventListener('click', sendMessage);
 
-            // Send message on Enter key press
-            chatInput.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    sendMessage();
-                }
-            });
+            // // Send message on Enter key press
+            // chatInput.addEventListener('keypress', function(e) {
+            //     if (e.key === 'Enter') {
+            //         sendMessage();
+            //     }
+            // });
 
             function openNewAppointmentModal() {
                 document.getElementById('newAppointmentModal').style.display = 'flex';
