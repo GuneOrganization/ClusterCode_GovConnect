@@ -123,12 +123,17 @@
             <!-- Header -->
             <header class="bg-white shadow-sm border-b border-gray-200 p-4">
                 <div class="flex justify-between items-center">
-                    <div class="flex items-center gap-3">
-                        <button class="text-gray-500 p-0 lg:hidden" type="button">
-                            <span class="text-xl">☰</span>
+                     <!-- Left side -->
+                    <div class="hidden md:flex items-center gap-3 flex-shrink-0">
+                        <!-- Menu button (mobile only) -->
+                        <button class="text-gray-500 p-0 block lg:hidden" type="button">
+                            <span class="text-2xl">☰</span>
                         </button>
-                        <h5 class="text-md font-medium">Welcome Sachintha !</h5>
+                        <h5 class="text-sm sm:text-md font-medium truncate max-w-[150px] sm:max-w-none">
+                            Welcome Sachintha !
+                        </h5>
                     </div>
+
 
                     <div class="flex items-center gap-3">
                         <div class="bg-gray-800 text-white rounded-full flex items-center justify-center w-10 h-10">
