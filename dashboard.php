@@ -740,10 +740,7 @@
             calendar.render();
 
             // New Appointment Button Handler
-            document.getElementById('newAppointmentBtn').addEventListener('click', function() {
-                alert('New Appointment booking functionality would be implemented here.');
-            });
-
+           
             // Cancel and View Barcode button handlers
             document.querySelectorAll('button').forEach(button => {
                 if (button.textContent.includes('CANCEL')) {
