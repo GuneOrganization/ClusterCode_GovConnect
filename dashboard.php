@@ -12,7 +12,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.1.8/index.global.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.css" rel="stylesheet" />
     <link href="/assets/css/calander.css" />
-    <link href="./assets/css/styles.css" rel="stylesheet"  />
+    <link href="./assets/css/styles.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
     <script src="https://kit.fontawesome.com/4ba622a87c.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -108,50 +108,50 @@
 
         <div class="flex-1">
             <!-- Header -->
-           <header class="bg-white shadow-sm border-b border-gray-200 p-4">
-    <div class="flex flex-wrap justify-between items-center gap-4">
-        
-        <!-- Left side -->
-        <div class="flex items-center gap-3 flex-shrink-0 ">
-            <!-- Menu button (mobile only) -->
-            <button class="text-gray-500 p-0 block lg:hidden" type="button">
-                <span class="text-2xl">☰</span>
-            </button>
-            <h5 class="text-sm sm:text-md font-medium truncate max-w-[150px] sm:max-w-none">
-                Welcome Sachintha !
-            </h5>
-        </div>
+            <header class="bg-white shadow-sm border-b border-gray-200 p-4">
+                <div class="flex flex-wrap justify-between items-center gap-4">
 
-        <!-- Right side -->
-        <div class="flex items-center gap-3 flex-wrap sm:flex-nowrap justify-end">
-            
-            <!-- Notification Icon -->
-            <div>
-                <button id="notificationBtn"
-                    class="text-white rounded-full flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10">
-                    <img src="assets/images/dashboard_icons/notificationicon.png"
-                        class="w-6 h-6 sm:w-7 sm:h-7 object-cover" />
-                </button>
-            </div>
+                    <!-- Left side -->
+                    <div class="flex items-center gap-3 flex-shrink-0 ">
+                        <!-- Menu button (mobile only) -->
+                        <button class="text-gray-500 p-0 block lg:hidden" type="button">
+                            <span class="text-2xl">☰</span>
+                        </button>
+                        <h5 class="text-sm sm:text-md font-medium truncate max-w-[150px] sm:max-w-none">
+                            Welcome Sachintha !
+                        </h5>
+                    </div>
 
-            <!-- Profile Icon -->
-            <div class="bg-gray-800 text-white rounded-full flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10">
-                <span class="font-semibold text-xs sm:text-sm">😁</span>
-            </div>
+                    <!-- Right side -->
+                    <div class="flex items-center gap-3 flex-wrap sm:flex-nowrap justify-end">
 
-            <!-- User Info -->
-            <div class="text-left text-xs sm:text-sm leading-tight min-w-[100px] sm:min-w-[150px]">
-                <div class="font-semibold truncate">SACHINTHA DISHAN</div>
-                <div class="text-gray-500 truncate">sachinthaperera@gmail.com</div>
-            </div>
-        </div>
-    </div>
-</header>
+                        <!-- Notification Icon -->
+                        <div>
+                            <button id="notificationBtn"
+                                class="text-white rounded-full flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10">
+                                <img src="assets/images/dashboard_icons/notificationicon.png"
+                                    class="w-6 h-6 sm:w-7 sm:h-7 object-cover" />
+                            </button>
+                        </div>
+
+                        <!-- Profile Icon -->
+                        <div
+                            class="bg-gray-800 text-white rounded-full flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10">
+                            <span class="font-semibold text-xs sm:text-sm">😁</span>
+                        </div>
+
+                        <!-- User Info -->
+                        <div class="text-left text-xs sm:text-sm leading-tight min-w-[100px] sm:min-w-[150px]">
+                            <div class="font-semibold truncate">SACHINTHA DISHAN</div>
+                            <div class="text-gray-500 truncate">sachinthaperera@gmail.com</div>
+                        </div>
+                    </div>
+                </div>
+            </header>
 
 
             <!-- Popup Dropdown -->
-            <div
-                id="notificationPopup"
+            <div id="notificationPopup"
                 class="hidden absolute right-0 mt-2 w-64 bg-white border border-gray-200 rounded shadow-lg z-50">
                 <div class="p-4 border-b border-gray-200 font-semibold">
                     Notifications
@@ -216,7 +216,8 @@
     </div>
 
     <!-- Converted new appointment modal from Bootstrap to Tailwind -->
-    <div id="appointmentModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center">
+    <div id="appointmentModal"
+        class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center">
         <div class="bg-white rounded-lg w-full max-w-6xl mx-4 max-h-[90vh] overflow-hidden shadow-xl">
             <!-- Header -->
             <div class="p-6 border-b-4 border-teal-800 relative">
@@ -229,7 +230,7 @@
             <div class="p-6 grid grid-cols-1 lg:grid-cols-2 gap-6 overflow-y-auto max-h-[calc(90vh-96px)]">
                 <!-- LEFT: Data fillers -->
                 <form id="appointmentForm" class="space-y-5">
-                    
+
 
                     <div>
                         <label class="block text-sm text-gray-500 mb-1">Department</label>
@@ -266,17 +267,17 @@
 
 
                     <div>
-    <label class="block text-sm text-gray-500 mb-1">Attach Documents (Optional)</label>
-    <div class="flex items-center gap-3">
-        <input type="file" id="fileUpload" class="hidden" multiple>
-        <button type="button" id="fileSelectBtn"
-            class="bg-teal-800 hover:bg-teal-700 text-white px-4 py-2 rounded font-semibold text-sm shadow">
-            📎 Choose Files
-        </button>
-        <span id="fileCount" class="text-sm text-gray-600">No files selected</span>
-    </div>
-    <ul id="fileList" class="mt-2 text-xs text-gray-700 list-disc list-inside"></ul>
-</div>
+                        <label class="block text-sm text-gray-500 mb-1">Attach Documents (Optional)</label>
+                        <div class="flex items-center gap-3">
+                            <input type="file" id="fileUpload" class="hidden" multiple>
+                            <button type="button" id="fileSelectBtn"
+                                class="bg-teal-800 hover:bg-teal-700 text-white px-4 py-2 rounded font-semibold text-sm shadow">
+                                📎 Choose Files
+                            </button>
+                            <span id="fileCount" class="text-sm text-gray-600">No files selected</span>
+                        </div>
+                        <ul id="fileList" class="mt-2 text-xs text-gray-700 list-disc list-inside"></ul>
+                    </div>
 
                     <div class="rounded-lg border border-gray-100 p-4 bg-gray-50">
                         <p class="text-sm text-gray-600">Selected Date:</p>
@@ -324,177 +325,175 @@
 
 
     <!-- feedback model -->
-       <div id="feedbackModal" 
-    class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-    
-    <!-- Modal Box -->
-    <div id="modalContent"
-      class="bg-white rounded-xl shadow-lg w-full max-w-lg p-6 transform scale-95 opacity-0 transition-all duration-200">
-      
-      <!-- Header -->
-      <h2 class="text-2xl font-bold text-gray-800 text-center mb-1">Feedback Form</h2>
-      <p class="text-gray-500 text-center mb-5">Help us improve government services</p>
+    <div id="feedbackModal"
+        class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
 
-      <!-- Department Select -->
-      <label class="block text-sm font-medium text-gray-700 mb-1">Service Department</label>
-      <select id="department" 
-        class="w-full border rounded-lg p-2 mb-4 focus:ring focus:ring-blue-300">
-        <option value="">Select department...</option>
-        <option>Citizen Services</option>
-        <option>Tax & Revenue</option>
-        <option>Transport</option>
-        <option>Healthcare</option>
-        <option>Other</option>
-      </select>
+        <!-- Modal Box -->
+        <div id="modalContent"
+            class="bg-white rounded-xl shadow-lg w-full max-w-lg p-6 transform scale-95 opacity-0 transition-all duration-200">
 
-      <!-- Branch Select -->
-      <label class="block text-sm font-medium text-gray-700 mb-1">Branch</label>
-      <select id="branch" 
-        class="w-full border rounded-lg p-2 mb-4 focus:ring focus:ring-blue-300">
-        <option value="">Select branch...</option>
-        <option>Main Office</option>
-        <option>North Branch</option>
-        <option>South Branch</option>
-        <option>East Branch</option>
-        <option>West Branch</option>
-      </select>
+            <!-- Header -->
+            <h2 class="text-2xl font-bold text-gray-800 text-center mb-1">Feedback Form</h2>
+            <p class="text-gray-500 text-center mb-5">Help us improve government services</p>
 
-      <!-- Star Rating -->
-      <p class="text-gray-700 font-medium mb-2">Rate your experience</p>
-      <div class="flex justify-center mb-4">
-        <button class="star text-4xl text-gray-300 hover:text-yellow-400 transition" data-value="1">★</button>
-        <button class="star text-4xl text-gray-300 hover:text-yellow-400 transition" data-value="2">★</button>
-        <button class="star text-4xl text-gray-300 hover:text-yellow-400 transition" data-value="3">★</button>
-        <button class="star text-4xl text-gray-300 hover:text-yellow-400 transition" data-value="4">★</button>
-        <button class="star text-4xl text-gray-300 hover:text-yellow-400 transition" data-value="5">★</button>
-      </div>
+            <!-- Department Select -->
+            <label class="block text-sm font-medium text-gray-700 mb-1">Service Department</label>
+            <select id="department" class="w-full border rounded-lg p-2 mb-4 focus:ring focus:ring-blue-300">
+                <option value="">Select department...</option>
+                <option>Citizen Services</option>
+                <option>Tax & Revenue</option>
+                <option>Transport</option>
+                <option>Healthcare</option>
+                <option>Other</option>
+            </select>
 
-      <!-- Feedback Text -->
-      <textarea id="feedbackText" placeholder="Please provide your feedback..." 
-        class="w-full border rounded-lg p-3 mb-5 resize-none h-28 focus:ring focus:ring-blue-300"></textarea>
+            <!-- Branch Select -->
+            <label class="block text-sm font-medium text-gray-700 mb-1">Branch</label>
+            <select id="branch" class="w-full border rounded-lg p-2 mb-4 focus:ring focus:ring-blue-300">
+                <option value="">Select branch...</option>
+                <option>Main Office</option>
+                <option>North Branch</option>
+                <option>South Branch</option>
+                <option>East Branch</option>
+                <option>West Branch</option>
+            </select>
 
-      <!-- Buttons -->
-      <div class="flex gap-3">
-        <button id="submitFeedback" 
-          class="flex-1 bg-teal-700 text-white py-2 rounded-lg hover:bg-teal-800 transition">
-          Submit
-        </button>
-        <button id="closeFeedback" 
-          class="flex-1 bg-gray-300 text-gray-700 py-2 rounded-lg hover:bg-gray-400 transition">
-          Cancel
-        </button>
-      </div>
+            <!-- Star Rating -->
+            <p class="text-gray-700 font-medium mb-2">Rate your experience</p>
+            <div class="flex justify-center mb-4">
+                <button class="star text-4xl text-gray-300 hover:text-yellow-400 transition" data-value="1">★</button>
+                <button class="star text-4xl text-gray-300 hover:text-yellow-400 transition" data-value="2">★</button>
+                <button class="star text-4xl text-gray-300 hover:text-yellow-400 transition" data-value="3">★</button>
+                <button class="star text-4xl text-gray-300 hover:text-yellow-400 transition" data-value="4">★</button>
+                <button class="star text-4xl text-gray-300 hover:text-yellow-400 transition" data-value="5">★</button>
+            </div>
+
+            <!-- Feedback Text -->
+            <textarea id="feedbackText" placeholder="Please provide your feedback..."
+                class="w-full border rounded-lg p-3 mb-5 resize-none h-28 focus:ring focus:ring-blue-300"></textarea>
+
+            <!-- Buttons -->
+            <div class="flex gap-3">
+                <button id="submitFeedback"
+                    class="flex-1 bg-teal-700 text-white py-2 rounded-lg hover:bg-teal-800 transition">
+                    Submit
+                </button>
+                <button id="closeFeedback"
+                    class="flex-1 bg-gray-300 text-gray-700 py-2 rounded-lg hover:bg-gray-400 transition">
+                    Cancel
+                </button>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <!-- Success Message -->
-  <div id="successPopup" 
-    class="hidden fixed bottom-6 right-6 bg-green-600 text-white px-5 py-3 rounded-lg shadow-lg flex items-center space-x-2 animate-bounce">
-    <span class="text-xl">✅</span>
-    <span>Feedback Submitted!</span>
-  </div>
+    <!-- Success Message -->
+    <div id="successPopup"
+        class="hidden fixed bottom-6 right-6 bg-green-600 text-white px-5 py-3 rounded-lg shadow-lg flex items-center space-x-2 animate-bounce">
+        <span class="text-xl">✅</span>
+        <span>Feedback Submitted!</span>
+    </div>
 
 
     <script>
-    const fileInput = document.getElementById('fileUpload');
-    const fileBtn = document.getElementById('fileSelectBtn');
-    const fileCount = document.getElementById('fileCount');
-    const fileList = document.getElementById('fileList');
+        const fileInput = document.getElementById('fileUpload');
+        const fileBtn = document.getElementById('fileSelectBtn');
+        const fileCount = document.getElementById('fileCount');
+        const fileList = document.getElementById('fileList');
 
-    fileBtn.addEventListener('click', () => {
-        fileInput.click();
-    });
+        fileBtn.addEventListener('click', () => {
+            fileInput.click();
+        });
 
-    fileInput.addEventListener('change', () => {
-        const files = Array.from(fileInput.files);
-        if (files.length === 0) {
-            fileCount.textContent = "No files selected";
-            fileList.innerHTML = "";
-        } else {
-            fileCount.textContent = `${files.length} file(s) selected`;
-            fileList.innerHTML = files.map(file => `<li>${file.name}</li>`).join('');
-        }
-    });
-</script>
+        fileInput.addEventListener('change', () => {
+            const files = Array.from(fileInput.files);
+            if (files.length === 0) {
+                fileCount.textContent = "No files selected";
+                fileList.innerHTML = "";
+            } else {
+                fileCount.textContent = `${files.length} file(s) selected`;
+                fileList.innerHTML = files.map(file => `<li>${file.name}</li>`).join('');
+            }
+        });
+    </script>
 
     <?php
-    
+
     include "./components/notification.php";
-    
+
     ?>
 
 
-<!-- feedback script -->
- <script>
-  const openModal = document.getElementById("openFeedback");
-  const closeModal = document.getElementById("closeFeedback");
-  const feedbackModal = document.getElementById("feedbackModal");
-  const modalContent = document.getElementById("modalContent");
-  const stars = document.querySelectorAll(".star");
-  const successPopup = document.getElementById("successPopup");
-  let selectedRating = 0;
+    <!-- feedback script -->
+    <script>
+        const openModal = document.getElementById("openFeedback");
+        const closeModal = document.getElementById("closeFeedback");
+        const feedbackModal = document.getElementById("feedbackModal");
+        const modalContent = document.getElementById("modalContent");
+        const stars = document.querySelectorAll(".star");
+        const successPopup = document.getElementById("successPopup");
+        let selectedRating = 0;
 
-  // Open Modal
-  openModal.addEventListener("click", () => {
-    feedbackModal.classList.remove("hidden");
-    setTimeout(() => {
-      modalContent.classList.remove("scale-95", "opacity-0");
-      modalContent.classList.add("scale-100", "opacity-100");
-    }, 50);
-  });
+        // Open Modal
+        openModal.addEventListener("click", () => {
+            feedbackModal.classList.remove("hidden");
+            setTimeout(() => {
+                modalContent.classList.remove("scale-95", "opacity-0");
+                modalContent.classList.add("scale-100", "opacity-100");
+            }, 50);
+        });
 
-  // Close Modal
-  closeModal.addEventListener("click", () => {
-    modalContent.classList.add("scale-95", "opacity-0");
-    setTimeout(() => {
-      feedbackModal.classList.add("hidden");
-    }, 200);
-  });
+        // Close Modal
+        closeModal.addEventListener("click", () => {
+            modalContent.classList.add("scale-95", "opacity-0");
+            setTimeout(() => {
+                feedbackModal.classList.add("hidden");
+            }, 200);
+        });
 
-  // Star Rating
-  stars.forEach(star => {
-    star.addEventListener("click", () => {
-      selectedRating = star.dataset.value;
-      stars.forEach(s => s.classList.remove("text-yellow-400"));
-      for (let i = 0; i < selectedRating; i++) {
-        stars[i].classList.add("text-yellow-400");
-      }
-    });
-  });
+        // Star Rating
+        stars.forEach(star => {
+            star.addEventListener("click", () => {
+                selectedRating = star.dataset.value;
+                stars.forEach(s => s.classList.remove("text-yellow-400"));
+                for (let i = 0; i < selectedRating; i++) {
+                    stars[i].classList.add("text-yellow-400");
+                }
+            });
+        });
 
-  // Submit Feedback
-  document.getElementById("submitFeedback").addEventListener("click", () => {
-    const feedback = document.getElementById("feedbackText").value;
-    const department = document.getElementById("department").value;
-    const branch = document.getElementById("branch").value;
+        // Submit Feedback
+        document.getElementById("submitFeedback").addEventListener("click", () => {
+            const feedback = document.getElementById("feedbackText").value;
+            const department = document.getElementById("department").value;
+            const branch = document.getElementById("branch").value;
 
-    if (!department) {
-      alert("Please select a department.");
-      return;
-    }
-    if (!branch) {
-      alert("Please select a branch.");
-      return;
-    }
-    if (!selectedRating) {
-      alert("Please select a rating.");
-      return;
-    }
-    if (!feedback.trim()) {
-      alert("Please provide feedback.");
-      return;
-    }
+            if (!department) {
+                alert("Please select a department.");
+                return;
+            }
+            if (!branch) {
+                alert("Please select a branch.");
+                return;
+            }
+            if (!selectedRating) {
+                alert("Please select a rating.");
+                return;
+            }
+            if (!feedback.trim()) {
+                alert("Please provide feedback.");
+                return;
+            }
 
-    // Close modal
-    closeModal.click();
+            // Close modal
+            closeModal.click();
 
-    // Show success popup
-    successPopup.classList.remove("hidden");
-    setTimeout(() => {
-      successPopup.classList.add("hidden");
-    }, 2000);
-  });
-</script>
+            // Show success popup
+            successPopup.classList.remove("hidden");
+            setTimeout(() => {
+                successPopup.classList.add("hidden");
+            }, 2000);
+        });
+    </script>
 
     <script>
         function showNotifications() {
@@ -517,7 +516,7 @@
         }
 
         // Close notifications when pressing Escape key
-        document.addEventListener('keydown', function(event) {
+        document.addEventListener('keydown', function (event) {
             if (event.key === 'Escape') {
                 hideNotifications();
             }
@@ -527,7 +526,7 @@
     <script>
         // Menu navigation
         document.querySelectorAll('.menu-item').forEach(item => {
-            item.addEventListener('click', function() {
+            item.addEventListener('click', function () {
                 const menu = this.getAttribute('data-menu');
 
                 if (menu === 'logout') {
@@ -558,7 +557,7 @@
             });
         });
 
-        
+
 
         // Modal functionality
         const newAppointmentBtn = document.getElementById('newAppointmentBtn');
@@ -566,7 +565,7 @@
         // const closeModal = document.getElementById('closeModal');
         const appointmentForm = document.getElementById('appointmentForm');
 
-        newAppointmentBtn.addEventListener('click', function() {
+        newAppointmentBtn.addEventListener('click', function () {
             appointmentModal.classList.remove('hidden');
         });
 
@@ -574,13 +573,13 @@
         //     appointmentModal.classList.add('hidden');
         // });
 
-        appointmentModal.addEventListener('click', function(e) {
+        appointmentModal.addEventListener('click', function (e) {
             if (e.target === appointmentModal) {
                 appointmentModal.classList.add('hidden');
             }
         });
 
-        appointmentForm.addEventListener('submit', function(e) {
+        appointmentForm.addEventListener('submit', function (e) {
             e.preventDefault();
             alert('Appointment created successfully!');
             appointmentModal.classList.add('hidden');
@@ -596,7 +595,7 @@
 
 
 
-<!-- main clander -->
+    <!-- main clander -->
     <script>
         const btn = document.getElementById("notificationBtn");
         const popup = document.getElementById("notificationPopup");
@@ -638,7 +637,7 @@
     </script>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const calendarEl = document.getElementById('calendar');
             const calendar = new FullCalendar.Calendar(calendarEl, {
                 initialView: 'dayGridMonth',
@@ -694,7 +693,7 @@
                         textColor: 'white'
                     }
                 ],
-                dayCellDidMount: function(info) {
+                dayCellDidMount: function (info) {
                     // Mark booking days
                     const bookingDates = ['2025-08-12', '2025-08-15', '2025-08-18', '2025-08-20'];
                     const holidayDates = ['2025-02-04', '2025-05-12'];
@@ -709,7 +708,7 @@
                         info.el.classList.add('holiday');
                     }
                 },
-                eventClick: function(info) {
+                eventClick: function (info) {
                     alert('Event: ' + info.event.title + '\nDate: ' + info.event.startStr);
                 }
             });
@@ -717,21 +716,21 @@
             calendar.render();
 
             // New Appointment Button Handler
-            document.getElementById('newAppointmentBtn').addEventListener('click', function() {
+            document.getElementById('newAppointmentBtn').addEventListener('click', function () {
                 alert('New Appointment booking functionality would be implemented here.');
             });
 
             // Cancel and View Barcode button handlers
             document.querySelectorAll('button').forEach(button => {
                 if (button.textContent.includes('CANCEL')) {
-                    button.addEventListener('click', function() {
+                    button.addEventListener('click', function () {
                         if (confirm('Are you sure you want to cancel this appointment?')) {
                             button.closest('.bg-white').style.opacity = '0.5';
                             alert('Appointment cancelled successfully.');
                         }
                     });
                 } else if (button.textContent.includes('VIEW BARCODE')) {
-                    button.addEventListener('click', function() {
+                    button.addEventListener('click', function () {
                         alert('Barcode view functionality would be implemented here.');
                     });
                 }
@@ -756,12 +755,12 @@
         // }
 
         // Navigation functionality
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const menuItems = document.querySelectorAll('.menu-item');
             const contentSections = document.querySelectorAll('.content-section');
 
             menuItems.forEach(item => {
-                item.addEventListener('click', function() {
+                item.addEventListener('click', function () {
                     const targetMenu = this.getAttribute('data-menu');
 
                     // Remove active class from all menu items
@@ -858,7 +857,7 @@
             }
 
             // Handle form submission
-            document.getElementById('newAppointmentForm').addEventListener('submit', function(e) {
+            document.getElementById('newAppointmentForm').addEventListener('submit', function (e) {
                 e.preventDefault();
 
                 // Get form values
@@ -877,110 +876,110 @@
             });
 
             // Close modal when clicking outside
-            document.getElementById('newAppointmentModal').addEventListener('click', function(e) {
+            document.getElementById('newAppointmentModal').addEventListener('click', function (e) {
                 if (e.target === this) {
                     closeNewAppointmentModal();
                 }
             });
         });
 
-    // const chatInput = document.getElementById('chatInput');
-    // const sendButton = document.getElementById('sendButton');
-    // const chatMessages = document.querySelector('.chat-messages');
+        // const chatInput = document.getElementById('chatInput');
+        // const sendButton = document.getElementById('sendButton');
+        // const chatMessages = document.querySelector('.chat-messages');
 
-    // function sendMessage() {
-    //     const message = chatInput.value.trim();
-    //     if (message === '') return;
+        // function sendMessage() {
+        //     const message = chatInput.value.trim();
+        //     if (message === '') return;
 
-    //     // Get current time
-    //     const now = new Date();
-    //     const timeString = now.getHours().toString().padStart(2, '0') + ':' +
-    //         now.getMinutes().toString().padStart(2, '0');
+        //     // Get current time
+        //     const now = new Date();
+        //     const timeString = now.getHours().toString().padStart(2, '0') + ':' +
+        //         now.getMinutes().toString().padStart(2, '0');
 
-    //     // Create user message element
-    //     const userMessageHTML = `
-    //                 <div class="message-wrapper d-flex justify-content-end mb-3">
-    //                     <div class="user-message bg-light p-3 rounded" style="max-width: 70%;">
-    //                         <p class="mb-1">${message}</p>
-    //                         <small class="text-muted">${timeString}</small>
-    //                     </div>
-    //                 </div>
-    //             `;
+        //     // Create user message element
+        //     const userMessageHTML = `
+        //                 <div class="message-wrapper d-flex justify-content-end mb-3">
+        //                     <div class="user-message bg-light p-3 rounded" style="max-width: 70%;">
+        //                         <p class="mb-1">${message}</p>
+        //                         <small class="text-muted">${timeString}</small>
+        //                     </div>
+        //                 </div>
+        //             `;
 
-    //     // Add user message to chat
-    //     chatMessages.insertAdjacentHTML('beforeend', userMessageHTML);
+        //     // Add user message to chat
+        //     chatMessages.insertAdjacentHTML('beforeend', userMessageHTML);
 
-    //     // Clear input
-    //     chatInput.value = '';
+        //     // Clear input
+        //     chatInput.value = '';
 
-    //     // Scroll to bottom
-    //     chatMessages.scrollTop = chatMessages.scrollHeight;
+        //     // Scroll to bottom
+        //     chatMessages.scrollTop = chatMessages.scrollHeight;
 
-    //     // Simulate AI response after a short delay
-    //     setTimeout(() => {
-    //         const aiResponseHTML = `
-    //                     <div class="message-wrapper d-flex justify-content-start mb-3">
-    //                         <div class="ai-message bg-white p-3 rounded border" style="max-width: 70%;">
-    //                             <p class="mb-1">Thank you for your message. I'm here to help you with government services. How can I assist you today?</p>
-    //                             <small class="text-muted">${timeString}</small>
-    //                         </div>
-    //                     </div>
-    //                 `;
-    //         chatMessages.insertAdjacentHTML('beforeend', aiResponseHTML);
-    //         chatMessages.scrollTop = chatMessages.scrollHeight;
-    //     }, 1000);
-    // }
+        //     // Simulate AI response after a short delay
+        //     setTimeout(() => {
+        //         const aiResponseHTML = `
+        //                     <div class="message-wrapper d-flex justify-content-start mb-3">
+        //                         <div class="ai-message bg-white p-3 rounded border" style="max-width: 70%;">
+        //                             <p class="mb-1">Thank you for your message. I'm here to help you with government services. How can I assist you today?</p>
+        //                             <small class="text-muted">${timeString}</small>
+        //                         </div>
+        //                     </div>
+        //                 `;
+        //         chatMessages.insertAdjacentHTML('beforeend', aiResponseHTML);
+        //         chatMessages.scrollTop = chatMessages.scrollHeight;
+        //     }, 1000);
+        // }
 
-    // // Send message on button click
-    // sendButton.addEventListener('click', sendMessage);
+        // // Send message on button click
+        // sendButton.addEventListener('click', sendMessage);
 
-    // // Send message on Enter key press
-    // chatInput.addEventListener('keypress', function (e) {
-    //     if (e.key === 'Enter') {
-    //         sendMessage();
-    //     }
-    // });
+        // // Send message on Enter key press
+        // chatInput.addEventListener('keypress', function (e) {
+        //     if (e.key === 'Enter') {
+        //         sendMessage();
+        //     }
+        // });
 
-    function openNewAppointmentModal() {
-        document.getElementById('newAppointmentModal').style.display = 'flex';
-        updateQueueNumber();
-    }
+        function openNewAppointmentModal() {
+            document.getElementById('newAppointmentModal').style.display = 'flex';
+            updateQueueNumber();
+        }
 
-    function closeNewAppointmentModal() {
-        document.getElementById('newAppointmentModal').style.display = 'none';
-        document.getElementById('newAppointmentForm').reset();
-    }
+        function closeNewAppointmentModal() {
+            document.getElementById('newAppointmentModal').style.display = 'none';
+            document.getElementById('newAppointmentForm').reset();
+        }
 
-    function updateQueueNumber() {
-        const queueNumber = Math.floor(Math.random() * 20) + 10;
-        document.getElementById('queueNumber').textContent = queueNumber;
-    }
+        function updateQueueNumber() {
+            const queueNumber = Math.floor(Math.random() * 20) + 10;
+            document.getElementById('queueNumber').textContent = queueNumber;
+        }
 
-    // Handle form submission
-    // document.getElementById('newAppointmentForm').addEventListener('submit', function (e) {
-    //     e.preventDefault();
+        // Handle form submission
+        // document.getElementById('newAppointmentForm').addEventListener('submit', function (e) {
+        //     e.preventDefault();
 
-    //     // Get form values
-    //     const service = document.getElementById('service').value;
-    //     const department = document.getElementById('department').value;
-    //     const branch = document.getElementById('branch').value;
-    //     const date = document.getElementById('date').value;
-    //     const timeSlot = document.getElementById('timeSlot').value;
+        //     // Get form values
+        //     const service = document.getElementById('service').value;
+        //     const department = document.getElementById('department').value;
+        //     const branch = document.getElementById('branch').value;
+        //     const date = document.getElementById('date').value;
+        //     const timeSlot = document.getElementById('timeSlot').value;
 
-    //     if (service && department && branch && date && timeSlot) {
-    //         alert('Appointment created successfully!');
-    //         closeNewAppointmentModal();
-    //     } else {
-    //         alert('Please fill in all fields.');
-    //     }
-    // });
+        //     if (service && department && branch && date && timeSlot) {
+        //         alert('Appointment created successfully!');
+        //         closeNewAppointmentModal();
+        //     } else {
+        //         alert('Please fill in all fields.');
+        //     }
+        // });
 
-    // Close modal when clicking outside
-    // document.getElementById('newAppointmentModal').addEventListener('click', function (e) {
-    //     if (e.target === this) {
-    //         closeNewAppointmentModal();
-    //     }
-    // });
+        // Close modal when clicking outside
+        // document.getElementById('newAppointmentModal').addEventListener('click', function (e) {
+        //     if (e.target === this) {
+        //         closeNewAppointmentModal();
+        //     }
+        // });
 
     </script>
 
@@ -1030,20 +1029,20 @@
             let selectedDate = null; // "YYYY-MM-DD"
             let selectedSlot = null; // "HH:mm-HH:mm"
 
-  // ---------- DOM ----------
-  const modal = document.getElementById('appointmentModal');
-  const openBtn = document.getElementById('openModal');
-  const closeBtn = document.getElementById('closeModal');
-  const timeSlotsEl = document.getElementById('timeSlots');
-  const selectedDateText = document.getElementById('selectedDateText');
-  const selectedTimeText = document.getElementById('selectedTimeText');
-//   const queueNumberEl = document.getElementById('queueNumber');
-  const form = document.getElementById('appointmentForm');
-  const submitBtn = document.getElementById('submitBtn');
+            // ---------- DOM ----------
+            const modal = document.getElementById('appointmentModal');
+            const openBtn = document.getElementById('openModal');
+            const closeBtn = document.getElementById('closeModal');
+            const timeSlotsEl = document.getElementById('timeSlots');
+            const selectedDateText = document.getElementById('selectedDateText');
+            const selectedTimeText = document.getElementById('selectedTimeText');
+            //   const queueNumberEl = document.getElementById('queueNumber');
+            const form = document.getElementById('appointmentForm');
+            const submitBtn = document.getElementById('submitBtn');
 
             // ---------- UTIL ----------
             const pad = n => String(n).padStart(2, '0');
-            const toYMD = (d) => `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+            const toYMD = (d) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
 
             function isHoliday(ymd) {
                 return HOLIDAYS.has(ymd);
@@ -1142,8 +1141,8 @@
                     btn.className = [
                         "px-3 py-2 rounded border text-sm transition",
                         unavailable ?
-                        "bg-red-100 text-gray-500 cursor-not-allowed border-red-200" :
-                        "bg-green-100 hover:bg-green-200 border-green-200"
+                            "bg-red-100 text-gray-500 cursor-not-allowed border-red-200" :
+                            "bg-green-100 hover:bg-green-200 border-green-200"
                     ].join(" ");
                     btn.textContent = slot.replace("-", " - ");
 
