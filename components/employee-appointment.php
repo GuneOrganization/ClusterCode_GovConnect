@@ -199,7 +199,7 @@
                     <button class="px-3 py-1 bg-blue-50 text-blue-600 rounded-md text-sm hover:bg-blue-100 mr-2">
                         <i class="fas fa-print mr-1"></i> Print
                     </button>
-                    <button class="px-3 py-1 bg-green-50 text-green-600 rounded-md text-sm hover:bg-green-100">
+                    <button id="openModalBtn" class="px-3 py-1 bg-green-50 text-green-600 rounded-md text-sm hover:bg-green-100">
                         <i class="fas fa-eye mr-1"></i> View
                     </button>
                 </div>
@@ -207,8 +207,8 @@
         </div>
             
         <!-- Appointment Card 2 -->
-        <div class="bg-stone-200 rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition ">
-            <!-- Card Header -->
+        <!-- <div class="bg-stone-200 rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition ">
+            
             <div class="px-4 py-3 border-b border-gray-200 bg-gray-50 flex justify-between items-center">
                 <div>
                     <span class="font-medium text-gray-900">REF-20230814-045</span>
@@ -219,7 +219,7 @@
                 </button>
             </div>
 
-            <!-- Card Body -->
+            
             <div class="p-4">
                 <div class="mb-4">
                     <h4 class="text-lg font-semibold text-gray-900">Sunil Perera</h4>
@@ -264,20 +264,20 @@
                 </div>
             </div>
 
-            <!-- Card Footer -->
+            
             <div class="px-4 py-3 border-t border-gray-200 bg-gray-50 flex justify-end">
                 <button class="px-3 py-1 bg-blue-50 text-blue-600 rounded-md text-sm hover:bg-blue-100 mr-2">
                     <i class="fas fa-print mr-1"></i> Print
                 </button>
-                <button class="px-3 py-1 bg-green-50 text-green-600 rounded-md text-sm hover:bg-green-100">
+                <button id="openModalBtn" class="px-3 py-1 bg-green-50 text-green-600 rounded-md text-sm hover:bg-green-100">
                     <i class="fas fa-eye mr-1"></i> View
                 </button>
             </div>
-        </div>
+        </div> -->
 
         <!-- Appointment Card 3 -->
-        <div class="bg-stone-200 rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition">
-            <!-- Card Header -->
+        <!-- <div class="bg-stone-200 rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition">
+            
             <div class="px-4 py-3 border-b border-gray-200 bg-gray-50 flex justify-between items-center">
                 <div>
                     <span class="font-medium text-gray-900"><b>REF-20230812-112</b></span>
@@ -288,7 +288,7 @@
                 </button>
             </div>
 
-            <!-- Card Body -->
+            
             <div class="p-4">
                 <div class="mb-4">
                     <h4 class="text-lg font-semibold text-gray-900"><b>Anoma Fernando</b></h4>
@@ -327,16 +327,16 @@
                 </div>
             </div>
 
-            <!-- Card Footer -->
+            
             <div class="px-4 py-3 border-t border-gray-200 bg-gray-50 flex justify-end ">
                 <button class="px-3 py-1 bg-blue-50 text-blue-600 rounded-md text-sm hover:bg-blue-100 mr-2">
                     <i class="fas fa-print mr-1"></i> Print
                 </button>
-                <button class="px-3 py-1 bg-green-50 text-green-600 rounded-md text-sm hover:bg-green-100">
+                <button id="openModalBtn" class="px-3 py-1 bg-green-50 text-green-600 rounded-md text-sm hover:bg-green-100">
                     <i class="fas fa-eye mr-1"></i> View
                 </button>
             </div>
-        </div>
+        </div> -->
     </div>
 
     <!-- Pagination -->

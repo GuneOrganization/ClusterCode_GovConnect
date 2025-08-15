@@ -111,7 +111,7 @@
                             <th class="px-4 py-3 text-left font-medium text-gray-500 uppercase tracking-wider">NIC</th>
                             <th class="px-4 py-3 text-left font-medium text-gray-500 uppercase tracking-wider">Date & Time</th>
                             <th class="px-4 py-3 text-left font-medium text-gray-500 uppercase tracking-wider">Status</th>
-                            <th class="px-4 py-3 text-left font-medium text-gray-500 uppercase tracking-wider">Action</th>
+                            <!-- <th class="px-4 py-3 text-left font-medium text-gray-500 uppercase tracking-wider">Action</th> -->
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
@@ -124,12 +124,12 @@
                             <td class="px-4 py-4">
                                 <span class="px-2 py-1 inline-flex text-xs font-semibold rounded-full bg-green-100 text-green-800">Confirmed</span>
                             </td>
-                            <td class="px-4 py-4">
-                                <a href="government-officer-single-appointment-view.html"
+                            <!-- <td class="px-4 py-4">
+                                <a href=""
                                     class="text-green-600 hover:text-green-800 bg-green-50 hover:bg-green-100 px-3 py-1 rounded-md text-sm">
                                     <i class="fas fa-eye mr-1"></i> View
                                 </a>
-                            </td>
+                            </td> -->
                         </tr>
                         <!-- Repeat other rows similarly -->
                     </tbody>
