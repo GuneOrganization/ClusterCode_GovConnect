@@ -1,6 +1,6 @@
 <?php
 
-require 'connection.php';
+include_once 'connection.php';
 
 class Validation
 {
@@ -10,7 +10,7 @@ class Validation
         $resultSet = Database::search("SELECT * FROM user u
             INNER JOIN user_status s ON u.user_status_id = s.id
             WHERE nic='{$nic}'  AND s.status='Active'");
-        if ($resultSet != 0) {
+        if ($resultSet->num_rows != 0) {
             return true;
         } else {
             return false;
@@ -25,7 +25,7 @@ class Validation
             INNER JOIN user_status s ON u.user_status_id = s.id
             WHERE nic='{$nic}' AND r.role='{$userRole}' AND s.status='Active'");
 
-        if ($resultSet != 0) {
+        if ($resultSet->num_rows != 0) {
             return true;
         } else {
             return false;
