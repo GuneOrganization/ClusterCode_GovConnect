@@ -15,7 +15,7 @@ class IdGenerator {
             return $prefix . str_pad("1", $numLength, '0', STR_PAD_LEFT);
         } else {
             $data = $resultset->fetch_assoc();
-            $lastId = $data['id'];
+            $lastId = $data[$columnName];
 
             $numericPart = (int) substr($lastId, strlen($prefix));
             $newNumericPart = $numericPart + 1;
