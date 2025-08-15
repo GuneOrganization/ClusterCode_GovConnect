@@ -112,7 +112,7 @@
                 <div class="flex flex-wrap justify-between items-center gap-4">
 
                     <!-- Left side -->
-                    <div class="flex items-center gap-3 flex-shrink-0 ">
+                    <div class="hidden md:flex items-center gap-3 flex-shrink-0">
                         <!-- Menu button (mobile only) -->
                         <button class="text-gray-500 p-0 block lg:hidden" type="button">
                             <span class="text-2xl">☰</span>
@@ -122,15 +122,16 @@
                         </h5>
                     </div>
 
+
                     <!-- Right side -->
                     <div class="flex items-center gap-3 flex-wrap sm:flex-nowrap justify-end">
 
                         <!-- Notification Icon -->
                         <div>
                             <button id="notificationBtn"
-                                class="text-white rounded-full flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10">
-                                <img src="assets/images/dashboard_icons/notificationicon.png"
-                                    class="w-6 h-6 sm:w-7 sm:h-7 object-cover" />
+                                class="text-black rounded-full flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10">
+                                <i class="fa-solid fa-bell w-6 h-6 sm:w-7 sm:h-7 object-cover"></i>
+
                             </button>
                         </div>
 
@@ -217,116 +218,163 @@
 
     <!-- Converted new appointment modal from Bootstrap to Tailwind -->
     <div id="appointmentModal"
-    class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center px-2 sm:px-4">
-    <div class="bg-white rounded-xl w-full max-w-6xl max-h-[90vh] flex flex-col shadow-xl overflow-hidden">
+        class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center px-2 sm:px-4">
+        <div class="bg-white rounded-xl w-full max-w-6xl max-h-[90vh] flex flex-col shadow-xl overflow-hidden">
 
-        <!-- Header -->
-        <div class="p-4 sm:p-6 border-b-4 border-teal-800 relative flex items-center justify-center">
-            <h3 class="text-xl sm:text-2xl font-semibold text-gray-800 text-center">New Appointment</h3>
-            <button id="closeModal"
-                class="absolute top-3 right-3 sm:top-4 sm:right-4 text-gray-500 hover:text-gray-700 text-2xl leading-none">
-                ×
-            </button>
-        </div>
-
-        <!-- Body -->
-        <div class="flex-1 p-4 sm:p-6 grid grid-cols-1 lg:grid-cols-2 gap-6 overflow-y-auto">
-
-            <!-- LEFT: Form -->
-            <form id="appointmentForm" class="space-y-5">
-                <!-- Department -->
-                <div>
-                    <label class="block text-sm text-gray-500 mb-1">Department</label>
-                    <select id="department"
-                        class="w-full px-3 py-2 rounded border border-gray-200 focus:border-teal-500 outline-none">
-                        <option value="">Select department</option>
-                        <option value="civil-registration">Civil Registration Department</option>
-                        <option value="immigration">Immigration Department</option>
-                        <option value="motor-traffic">Department of Motor Traffic</option>
-                    </select>
-                </div>
-
-                <!-- Branch -->
-                <div>
-                    <label class="block text-sm text-gray-500 mb-1">Branch</label>
-                    <select id="branch"
-                        class="w-full px-3 py-2 rounded border border-gray-200 focus:border-teal-500 outline-none">
-                        <option value="">Select branch</option>
-                        <option value="central">Central Government Office</option>
-                        <option value="colombo">Colombo District Office</option>
-                        <option value="kandy">Kandy District Office</option>
-                    </select>
-                </div>
-
-                <!-- Service -->
-                <div>
-                    <label class="block text-sm text-gray-500 mb-1">Service</label>
-                    <select id="service"
-                        class="w-full px-3 py-2 rounded border border-gray-200 focus:border-teal-500 outline-none">
-                        <option value="">Select service</option>
-                        <option value="national-id">National ID Renewal</option>
-                        <option value="passport">Passport Application</option>
-                        <option value="driving-license">Driving License</option>
-                    </select>
-                </div>
-
-                <!-- File Upload -->
-                <div>
-                    <label class="block text-sm text-gray-500 mb-1">Attach Documents (Optional)</label>
-                    <div class="flex flex-col sm:flex-row sm:items-center gap-3">
-                        <input type="file" id="fileUpload" class="hidden" multiple>
-                        <button type="button" id="fileSelectBtn"
-                            class="bg-teal-800 hover:bg-teal-700 text-white px-4 py-2 rounded font-semibold text-sm shadow">
-                            📎 Choose Files
-                        </button>
-                        <span id="fileCount" class="text-sm text-gray-600">No files selected</span>
-                    </div>
-                    <ul id="fileList" class="mt-2 text-xs text-gray-700 list-disc list-inside"></ul>
-                </div>
-
-                <!-- Selected Date & Time -->
-                <div class="rounded-lg border border-gray-100 p-4 bg-gray-50">
-                    <p class="text-sm text-gray-600">Selected Date:</p>
-                    <p id="selectedDateText" class="text-lg font-semibold text-gray-800">—</p>
-                    <p class="text-sm text-gray-600 mt-2">Selected Time:</p>
-                    <p id="selectedTimeText" class="text-lg font-semibold text-gray-800">—</p>
-                </div>
-
-                <!-- Create Button -->
-                <button type="submit" id="submitBtn" disabled
-                    class="w-full bg-teal-800 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-teal-600 text-white py-3 sm:py-4 rounded-lg font-semibold tracking-wider transition-colors duration-200">
-                    CREATE APPOINTMENT
+            <!-- Header -->
+            <div class="p-4 sm:p-6 border-b-4 border-teal-800 relative flex items-center justify-center">
+                <h3 class="text-xl sm:text-2xl font-semibold text-gray-800 text-center">New Appointment</h3>
+                <button id="closeModal"
+                    class="absolute top-3 right-3 sm:top-4 sm:right-4 text-gray-500 hover:text-gray-700 text-2xl leading-none">
+                    ×
                 </button>
+            </div>
 
-                <!-- Note -->
-                <p class="text-center text-xs text-red-600 leading-relaxed">
-                    Please be aware that Poya Days, Public Holidays, Bank Holidays, and Mercantile Holidays are excluded.
-                </p>
-            </form>
+            <!-- Body -->
+            <div class="flex-1 p-4 sm:p-6 grid grid-cols-1 lg:grid-cols-2 gap-6 overflow-y-auto">
 
-            <!-- RIGHT: Calendar + Time Slots -->
-            <div class="space-y-4">
-                <!-- Calendar -->
-                <div id="calendar2" class="rounded-lg border border-gray-200 p-2 bg-white shadow-sm"></div>
-
-                <!-- Time Slots -->
-                <div>
-                    <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
-                        <h4 class="text-lg font-semibold text-gray-800">Available Time Slots</h4>
-                        <div class="flex items-center gap-2 text-xs">
-                            <span class="px-2 py-1 rounded bg-green-100">Available</span>
-                            <span class="px-2 py-1 rounded bg-red-100">Unavailable</span>
-                            <span class="px-2 py-1 rounded bg-sky-100">Selected</span>
-                        </div>
+                <!-- LEFT: Form -->
+                <form id="appointmentForm" class="space-y-5">
+                    <!-- Department -->
+                    <div>
+                        <label class="block text-sm text-gray-500 mb-1">Department</label>
+                        <select id="department"
+                            class="w-full px-3 py-2 rounded border border-gray-200 focus:border-teal-500 outline-none">
+                            <option value="">Select department</option>
+                            <option value="civil-registration">Civil Registration Department</option>
+                            <option value="immigration">Immigration Department</option>
+                            <option value="motor-traffic">Department of Motor Traffic</option>
+                        </select>
                     </div>
-                    <div id="timeSlots" class="grid grid-cols-2 sm:grid-cols-3 gap-2"></div>
+
+                    <!-- Branch -->
+                    <div>
+                        <label class="block text-sm text-gray-500 mb-1">Branch</label>
+                        <select id="branch"
+                            class="w-full px-3 py-2 rounded border border-gray-200 focus:border-teal-500 outline-none">
+                            <option value="">Select branch</option>
+                            <option value="central">Central Government Office</option>
+                            <option value="colombo">Colombo District Office</option>
+                            <option value="kandy">Kandy District Office</option>
+                        </select>
+                    </div>
+
+                    <!-- Service -->
+                    <div>
+                        <label class="block text-sm text-gray-500 mb-1">Service</label>
+                        <select id="service"
+                            class="w-full px-3 py-2 rounded border border-gray-200 focus:border-teal-500 outline-none">
+                            <option value="">Select service</option>
+                            <option value="national-id">National ID Renewal</option>
+                            <option value="passport">Passport Application</option>
+                            <option value="driving-license">Driving License</option>
+                        </select>
+                    </div>
+
+                    <!-- File Upload -->
+                    <div>
+                        <label class="block text-sm text-gray-500 mb-1">Attach Documents (Optional)</label>
+                        <div class="flex flex-col sm:flex-row sm:items-center gap-3">
+                            <input type="file" id="fileUpload" class="hidden" multiple>
+                            <button type="button" id="fileSelectBtn"
+                                class="bg-teal-800 hover:bg-teal-700 text-white px-4 py-2 rounded font-semibold text-sm shadow">
+                                📎 Choose Files
+                            </button>
+                            <span id="fileCount" class="text-sm text-gray-600">No files selected</span>
+                        </div>
+                        <ul id="fileList" class="mt-2 text-xs text-gray-700 list-disc list-inside"></ul>
+                    </div>
+
+                    <!-- Selected Date & Time -->
+                    <div class="rounded-lg border border-gray-100 p-4 bg-gray-50">
+                        <p class="text-sm text-gray-600">Selected Date:</p>
+                        <p id="selectedDateText" class="text-lg font-semibold text-gray-800">—</p>
+                        <p class="text-sm text-gray-600 mt-2">Selected Time:</p>
+                        <p id="selectedTimeText" class="text-lg font-semibold text-gray-800">—</p>
+                    </div>
+
+                    <!-- Create Button -->
+                    <button type="submit" id="submitBtn" disabled
+                        class="w-full bg-teal-800 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-teal-600 text-white py-3 sm:py-4 rounded-lg font-semibold tracking-wider transition-colors duration-200">
+                        CREATE APPOINTMENT
+                    </button>
+
+                    <!-- Note -->
+                    <p class="text-center text-xs text-red-600 leading-relaxed">
+                        Please be aware that Poya Days, Public Holidays, Bank Holidays, and Mercantile Holidays are
+                        excluded.
+                    </p>
+                </form>
+
+                <!-- RIGHT: Calendar + Time Slots -->
+                <div class="space-y-4">
+                    <!-- Calendar -->
+                    <div id="calendar2" class="rounded-lg border border-gray-200 p-2 bg-white shadow-sm"></div>
+
+                    <!-- Time Slots -->
+                    <div>
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                            <h4 class="text-lg font-semibold text-gray-800">Available Time Slots</h4>
+                            <div class="flex items-center gap-2 text-xs">
+                                <span class="px-2 py-1 rounded bg-green-100">Available</span>
+                                <span class="px-2 py-1 rounded bg-red-100">Unavailable</span>
+                                <span class="px-2 py-1 rounded bg-sky-100">Selected</span>
+                            </div>
+                        </div>
+                        <div id="timeSlots" class="grid grid-cols-2 sm:grid-cols-3 gap-2"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- view barcode model -->
+    <!-- Modal Background -->
+    <div id="modalbarcode" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center">
+        <!-- Modal Box -->
+        <div class="bg-white rounded-lg shadow-lg p-6 w-96 relative">
+            <!-- Close Button -->
+            <button id="closeModalbarcode"
+                class="absolute top-3 right-3 text-gray-500 hover:text-gray-700">&times;</button>
+
+            <!-- Title -->
+            <h2 class="text-xl font-bold text-center mb-4 border-b pb-2">APPOINTMENT DETAILS</h2>
+
+            <!-- Barcode and Queue Number -->
+            <div class="flex items-center justify-between mb-6">
+                <div class="text-center">
+                    <img src="https://barcodeapi.org/api/128/2556580001" alt="barcode" class="mx-auto w-32">
+                    <p class="text-sm font-semibold text-teal-800">2556580001</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-teal-700 font-medium">Queue Number</p>
+                    <p class="text-3xl font-bold">22</p>
                 </div>
             </div>
 
+            <!-- Appointment Details -->
+            <div class="space-y-4">
+                <div class="flex justify-between border-b pb-1">
+                    <span class="text-gray-500">Time Slot</span>
+                    <span class="font-medium">--</span>
+                </div>
+                <div class="flex justify-between border-b pb-1">
+                    <span class="text-gray-500">Department</span>
+                    <span class="font-medium">--</span>
+                </div>
+                <div class="flex justify-between border-b pb-1">
+                    <span class="text-gray-500">Service</span>
+                    <span class="font-medium">--</span>
+                </div>
+                <div class="flex justify-between border-b pb-1">
+                    <span class="text-gray-500">Date</span>
+                    <span class="font-medium">--</span>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-
 
 
     <!-- feedback model -->
@@ -341,7 +389,7 @@
             <h2 class="text-2xl font-bold text-gray-800 text-center mb-1">Feedback Form</h2>
             <p class="text-gray-500 text-center mb-5">Help us improve government services</p>
 
-            
+
             <!-- Star Rating -->
             <p class="text-gray-700 font-medium mb-2">Rate your experience</p>
             <div class="flex justify-center mb-4">
@@ -451,8 +499,8 @@
             const department = document.getElementById("department").value;
             const branch = document.getElementById("branch").value;
 
-           
-           
+
+
             if (!selectedRating) {
                 alert("Please select a rating.");
                 return;
@@ -1261,6 +1309,30 @@
             });
 
         })();
+    </script>
+
+    <!-- vew barcode js -->
+    <script>
+        const openBarcodemodelModal = document.getElementById('openModalbarcode');
+        const closeBarcodeModal = document.getElementById('closeModalbarcode');
+        const barcode = document.getElementById('modalbarcode');
+
+        openBarcodemodelModal.addEventListener('click', () => {
+            barcode.classList.remove('hidden');
+            barcode.classList.add('flex');
+        });
+
+        closeBarcodeModal.addEventListener('click', () => {
+            barcode.classList.remove('flex');
+            barcode.classList.add('hidden');
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                barcode.classList.add('hidden');
+                barcode.classList.remove('flex');
+            }
+        });
     </script>
 
 </body>

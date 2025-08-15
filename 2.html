@@ -9,16 +9,16 @@
 <body class="bg-gray-100 flex items-center justify-center h-screen">
 
   <!-- View Button -->
-  <button id="openModal" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+  <button id="openModalbarcode" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
     View
   </button>
 
   <!-- Modal Background -->
-  <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center">
+  <div id="modalbarcode" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center">
     <!-- Modal Box -->
     <div class="bg-white rounded-lg shadow-lg p-6 w-96 relative">
       <!-- Close Button -->
-      <button id="closeModal" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700">&times;</button>
+      <button id="closeModalbarcode" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700">&times;</button>
 
       <!-- Title -->
       <h2 class="text-xl font-bold text-center mb-4 border-b pb-2">APPOINTMENT DETAILS</h2>
@@ -59,9 +59,9 @@
 
   <!-- Script -->
   <script>
-    const openModal = document.getElementById('openModal');
-    const closeModal = document.getElementById('closeModal');
-    const modal = document.getElementById('modal');
+    const openModal = document.getElementById('openModalbarcode');
+    const closeModal = document.getElementById('closeModalbarcode');
+    const modal = document.getElementById('modalbarcode');
 
     openModal.addEventListener('click', () => {
       modal.classList.remove('hidden');

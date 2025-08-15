@@ -4,7 +4,7 @@
     <div class="w-12 h-0.5 bg-black mx-auto mt-2"></div>
   </div>
 
-  <div class="bg-white rounded-lg p-6 sm:p-8 shadow-md max-w-3xl mx-auto">
+  <div class=" rounded-lg p-6 sm:p-8  max-w-3xl mx-auto">
     <!-- Avatar -->
     <div class="text-center mb-4">
       <div

@@ -18,8 +18,7 @@
             <div class="lg:col-span-2">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <!-- Appointment Card Template -->
-                    <div
-                        class="bg-stone-200 rounded-lg shadow-sm border p-4 hover:shadow-md transition-shadow">
+                    <div class="bg-stone-200 rounded-lg shadow-sm border p-4 hover:shadow-md transition-shadow">
                         <div class="space-y-2 text-sm">
                             <div class="flex justify-between flex-wrap">
                                 <span class="font-medium text-gray-600">Appointment Id</span>
@@ -53,11 +52,12 @@
                         <div class="flex flex-col sm:flex-row gap-2 mt-4">
                             <button
                                 class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded text-sm font-medium transition-colors w-full sm:w-auto">CANCEL</button>
-                            <button
+                            <button id="openModalbarcode"
                                 class="bg-teal-500 hover:bg-teal-600 text-white px-4 py-2 rounded text-sm font-medium transition-colors w-full sm:w-auto">VIEW
                                 BARCODE</button>
-                            <button id="openFeedback" 
-                                class="bg-black hover:bg-gray-900 text-white px-4 py-2 rounded text-sm font-medium transition-colors w-full sm:w-auto"><i class="fa-regular fa-thumbs-up"></i></button>
+                            <button id="openFeedback"
+                                class="bg-black hover:bg-gray-900 text-white px-4 py-2 rounded text-sm font-medium transition-colors w-full sm:w-auto"><i
+                                    class="fa-regular fa-thumbs-up"></i></button>
                         </div>
                     </div>
 
@@ -85,3 +85,7 @@
         </div>
     </div>
 </div>
+
+<!--  -->
+
+
