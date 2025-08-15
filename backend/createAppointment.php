@@ -6,7 +6,7 @@
 // Test Data JSON
 //{"service_id":"SER0000001","appointment_date":"2025-08-15","time_slot_id":"1"}
 
-
+session_start();
 header("Content-Type: application/json");
 require 'connection.php';
 require './core/IdGenerator.php';

@@ -48,7 +48,6 @@ body {
 
 
 
-
 .welcome-title {
     font-size: 2rem;
     font-weight: 700;
@@ -356,11 +355,11 @@ body {
     text-align: left;
     font-weight: 500;
     color: #4b5563;
-    transition: all 0.2s;
+    transition: all 0.2s ease-in;
 }
 
 .menu-item:hover {
-    background-color: #d1d5db !important;
+    background-color: #eeeeee !important;
 }
 
 .menu-item.active {

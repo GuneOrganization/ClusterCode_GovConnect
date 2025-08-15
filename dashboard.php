@@ -108,15 +108,11 @@
 
         <div class="flex-1">
             <!-- Header -->
-            <header class="bg-white shadow-sm border-b border-gray-200 p-4">
+            <header class="bg-white shadow-sm border-b border-gray-200 py-6">
                 <div class="flex flex-wrap justify-between items-center gap-4">
 
                     <!-- Left side -->
-                    <div class="hidden md:flex items-center gap-3 flex-shrink-0">
-                        <!-- Menu button (mobile only) -->
-                        <button class="text-gray-500 p-0 block lg:hidden" type="button">
-                            <span class="text-2xl">☰</span>
-                        </button>
+                    <div class="hidden md:flex items-center gap-3 flex-shrink-0 pl-8">
                         <h5 class="text-sm sm:text-md font-medium truncate max-w-[150px] sm:max-w-none">
                             Welcome Sachintha !
                         </h5>
@@ -124,51 +120,54 @@
 
 
                     <!-- Right side -->
-                    <div class="flex items-center gap-3 flex-wrap sm:flex-nowrap justify-end">
+                    <div class="w-full md:w-auto px-8 flex items-center justify-between gap-3 flex-wrap sm:flex-nowrap">
+
+                        <div class="flex items-center justify-between gap-2 flex-wrap sm:flex-nowrap">
+                            <!-- Profile Icon -->
+                            <div class="bg-gray-800 text-white rounded-full flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10">
+                                <img src="./assets/images/dashboard_icons/user.png" alt="User Profile image">
+                            </div>
+
+                            <!-- User Info -->
+                            <div class="text-left text-xs leading-tight min-w-[100px] sm:min-w-[150px]">
+                                <div class="font-semibold truncate">SACHINTHA DISHAN</div>
+                                <div class="text-gray-500 truncate text-[10px]">sachinthaperera@gmail.com</div>
+                            </div>
+                        </div>
 
                         <!-- Notification Icon -->
                         <div>
                             <button id="notificationBtn"
                                 class="text-black rounded-full flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10">
-                                <i class="fa-solid fa-bell w-6 h-6 sm:w-7 sm:h-7 object-cover"></i>
+                                <img src="./assets/images/dashboard_icons/notificationicon.png" class="w-5 h-5" alt="">
 
                             </button>
                         </div>
 
-                        <!-- Profile Icon -->
-                        <div
-                            class="bg-gray-800 text-white rounded-full flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10">
-                            <span class="font-semibold text-xs sm:text-sm">😁</span>
-                        </div>
 
-                        <!-- User Info -->
-                        <div class="text-left text-xs sm:text-sm leading-tight min-w-[100px] sm:min-w-[150px]">
-                            <div class="font-semibold truncate">SACHINTHA DISHAN</div>
-                            <div class="text-gray-500 truncate">sachinthaperera@gmail.com</div>
-                        </div>
+
                     </div>
                 </div>
             </header>
 
-
             <!-- Popup Dropdown -->
             <div id="notificationPopup"
                 class="hidden absolute right-0 mt-2 w-64 bg-white border border-gray-200 rounded shadow-lg z-50">
-                <div class="p-4 border-b border-gray-200 font-semibold">
+                <div class="p-4 border-b border-gray-200 font-semibold text-sm">
                     Notifications
                 </div>
                 <ul class="max-h-64 overflow-y-auto">
-                    <li class="p-3 hover:bg-gray-100 cursor-pointer">
+                    <li class="p-3 hover:bg-gray-100 cursor-pointer text-xs">
                         New Notifications 01
                     </li>
-                    <li class="p-3 hover:bg-gray-100 cursor-pointer">
+                    <li class="p-3 hover:bg-gray-100 cursor-pointer text-xs">
                         New Notifications 02
                     </li>
-                    <li class="p-3 hover:bg-gray-100 cursor-pointer">
+                    <li class="p-3 hover:bg-gray-100 cursor-pointer text-xs">
                         New Notifications 03
                     </li>
                 </ul>
-                <div class="p-2 text-center text-sm text-gray-500 border-t border-gray-200 cursor-pointer hover:bg-gray-100"
+                <div class="p-2 text-xs text-center text-gray-500 border-t border-gray-200 cursor-pointer hover:bg-gray-100"
                     onclick="showNotifications()">
                     <a>View All</a>
                 </div>
@@ -542,7 +541,7 @@
         }
 
         // Close notifications when pressing Escape key
-        document.addEventListener('keydown', function (event) {
+        document.addEventListener('keydown', function(event) {
             if (event.key === 'Escape') {
                 hideNotifications();
             }
@@ -552,7 +551,7 @@
     <script>
         // Menu navigation
         document.querySelectorAll('.menu-item').forEach(item => {
-            item.addEventListener('click', function () {
+            item.addEventListener('click', function() {
                 const menu = this.getAttribute('data-menu');
 
                 if (menu === 'logout') {
@@ -591,7 +590,7 @@
         // const closeModal = document.getElementById('closeModal');
         const appointmentForm = document.getElementById('appointmentForm');
 
-        newAppointmentBtn.addEventListener('click', function () {
+        newAppointmentBtn.addEventListener('click', function() {
             appointmentModal.classList.remove('hidden');
         });
 
@@ -599,13 +598,13 @@
         //     appointmentModal.classList.add('hidden');
         // });
 
-        appointmentModal.addEventListener('click', function (e) {
+        appointmentModal.addEventListener('click', function(e) {
             if (e.target === appointmentModal) {
                 appointmentModal.classList.add('hidden');
             }
         });
 
-        appointmentForm.addEventListener('submit', function (e) {
+        appointmentForm.addEventListener('submit', function(e) {
             e.preventDefault();
             alert('Appointment created successfully!');
             appointmentModal.classList.add('hidden');
@@ -618,7 +617,6 @@
             field.setAttribute('type', type);
         }
     </script>
-
 
 
     <!-- main clander -->
@@ -663,7 +661,7 @@
     </script>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             const calendarEl = document.getElementById('calendar');
             const calendar = new FullCalendar.Calendar(calendarEl, {
                 initialView: 'dayGridMonth',
@@ -719,7 +717,7 @@
                         textColor: 'white'
                     }
                 ],
-                dayCellDidMount: function (info) {
+                dayCellDidMount: function(info) {
                     // Mark booking days
                     const bookingDates = ['2025-08-12', '2025-08-15', '2025-08-18', '2025-08-20'];
                     const holidayDates = ['2025-02-04', '2025-05-12'];
@@ -734,7 +732,7 @@
                         info.el.classList.add('holiday');
                     }
                 },
-                eventClick: function (info) {
+                eventClick: function(info) {
                     alert('Event: ' + info.event.title + '\nDate: ' + info.event.startStr);
                 }
             });
@@ -742,21 +740,21 @@
             calendar.render();
 
             // New Appointment Button Handler
-            document.getElementById('newAppointmentBtn').addEventListener('click', function () {
+            document.getElementById('newAppointmentBtn').addEventListener('click', function() {
                 alert('New Appointment booking functionality would be implemented here.');
             });
 
             // Cancel and View Barcode button handlers
             document.querySelectorAll('button').forEach(button => {
                 if (button.textContent.includes('CANCEL')) {
-                    button.addEventListener('click', function () {
+                    button.addEventListener('click', function() {
                         if (confirm('Are you sure you want to cancel this appointment?')) {
                             button.closest('.bg-white').style.opacity = '0.5';
                             alert('Appointment cancelled successfully.');
                         }
                     });
                 } else if (button.textContent.includes('VIEW BARCODE')) {
-                    button.addEventListener('click', function () {
+                    button.addEventListener('click', function() {
                         alert('Barcode view functionality would be implemented here.');
                     });
                 }
@@ -781,12 +779,12 @@
         // }
 
         // Navigation functionality
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             const menuItems = document.querySelectorAll('.menu-item');
             const contentSections = document.querySelectorAll('.content-section');
 
             menuItems.forEach(item => {
-                item.addEventListener('click', function () {
+                item.addEventListener('click', function() {
                     const targetMenu = this.getAttribute('data-menu');
 
                     // Remove active class from all menu items
@@ -883,7 +881,7 @@
             }
 
             // Handle form submission
-            document.getElementById('newAppointmentForm').addEventListener('submit', function (e) {
+            document.getElementById('newAppointmentForm').addEventListener('submit', function(e) {
                 e.preventDefault();
 
                 // Get form values
@@ -902,7 +900,7 @@
             });
 
             // Close modal when clicking outside
-            document.getElementById('newAppointmentModal').addEventListener('click', function (e) {
+            document.getElementById('newAppointmentModal').addEventListener('click', function(e) {
                 if (e.target === this) {
                     closeNewAppointmentModal();
                 }
@@ -1006,7 +1004,6 @@
         //         closeNewAppointmentModal();
         //     }
         // });
-
     </script>
 
 
@@ -1167,8 +1164,8 @@
                     btn.className = [
                         "px-3 py-2 rounded border text-sm transition",
                         unavailable ?
-                            "bg-red-100 text-gray-500 cursor-not-allowed border-red-200" :
-                            "bg-green-100 hover:bg-green-200 border-green-200"
+                        "bg-red-100 text-gray-500 cursor-not-allowed border-red-200" :
+                        "bg-green-100 hover:bg-green-200 border-green-200"
                     ].join(" ");
                     btn.textContent = slot.replace("-", " - ");
 
