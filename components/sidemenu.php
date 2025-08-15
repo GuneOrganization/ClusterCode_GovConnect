@@ -38,7 +38,7 @@
 </div>
 
 <!-- Mobile Footer Navigation -->
-<div id="mobileNav" class="sm:hidden fixed bottom-0 left-0 w-full border-t flex justify-around py-2">
+<div id="mobileNav" class="sm:hidden fixed bottom-0 left-0 w-full bg-white border-t flex justify-around py-2">
     <button class="menu-item flex flex-col items-center text-xs " data-menu="dashboard">
         <img class="w-6 h-6" src="assets/images/dashboard_icons/dashboard.png" alt="Dashboard">
         <span>DASHBOARD</span>

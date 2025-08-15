@@ -217,111 +217,116 @@
 
     <!-- Converted new appointment modal from Bootstrap to Tailwind -->
     <div id="appointmentModal"
-        class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center">
-        <div class="bg-white rounded-lg w-full max-w-6xl mx-4 max-h-[90vh] overflow-hidden shadow-xl">
-            <!-- Header -->
-            <div class="p-6 border-b-4 border-teal-800 relative">
-                <h3 class="text-2xl font-semibold text-gray-800 text-center">New Appointment</h3>
-                <button id="closeModal"
-                    class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-2xl leading-none">×</button>
-            </div>
+    class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center px-2 sm:px-4">
+    <div class="bg-white rounded-xl w-full max-w-6xl max-h-[90vh] flex flex-col shadow-xl overflow-hidden">
 
-            <!-- Body -->
-            <div class="p-6 grid grid-cols-1 lg:grid-cols-2 gap-6 overflow-y-auto max-h-[calc(90vh-96px)]">
-                <!-- LEFT: Data fillers -->
-                <form id="appointmentForm" class="space-y-5">
+        <!-- Header -->
+        <div class="p-4 sm:p-6 border-b-4 border-teal-800 relative flex items-center justify-center">
+            <h3 class="text-xl sm:text-2xl font-semibold text-gray-800 text-center">New Appointment</h3>
+            <button id="closeModal"
+                class="absolute top-3 right-3 sm:top-4 sm:right-4 text-gray-500 hover:text-gray-700 text-2xl leading-none">
+                ×
+            </button>
+        </div>
 
+        <!-- Body -->
+        <div class="flex-1 p-4 sm:p-6 grid grid-cols-1 lg:grid-cols-2 gap-6 overflow-y-auto">
 
-                    <div>
-                        <label class="block text-sm text-gray-500 mb-1">Department</label>
-                        <select id="department"
-                            class="w-full px-4 py-3 rounded border border-gray-200 focus:border-teal-500 outline-none">
-                            <option value="">Select department</option>
-                            <option value="civil-registration">Civil Registration Department</option>
-                            <option value="immigration">Immigration Department</option>
-                            <option value="motor-traffic">Department of Motor Traffic</option>
-                        </select>
+            <!-- LEFT: Form -->
+            <form id="appointmentForm" class="space-y-5">
+                <!-- Department -->
+                <div>
+                    <label class="block text-sm text-gray-500 mb-1">Department</label>
+                    <select id="department"
+                        class="w-full px-3 py-2 rounded border border-gray-200 focus:border-teal-500 outline-none">
+                        <option value="">Select department</option>
+                        <option value="civil-registration">Civil Registration Department</option>
+                        <option value="immigration">Immigration Department</option>
+                        <option value="motor-traffic">Department of Motor Traffic</option>
+                    </select>
+                </div>
+
+                <!-- Branch -->
+                <div>
+                    <label class="block text-sm text-gray-500 mb-1">Branch</label>
+                    <select id="branch"
+                        class="w-full px-3 py-2 rounded border border-gray-200 focus:border-teal-500 outline-none">
+                        <option value="">Select branch</option>
+                        <option value="central">Central Government Office</option>
+                        <option value="colombo">Colombo District Office</option>
+                        <option value="kandy">Kandy District Office</option>
+                    </select>
+                </div>
+
+                <!-- Service -->
+                <div>
+                    <label class="block text-sm text-gray-500 mb-1">Service</label>
+                    <select id="service"
+                        class="w-full px-3 py-2 rounded border border-gray-200 focus:border-teal-500 outline-none">
+                        <option value="">Select service</option>
+                        <option value="national-id">National ID Renewal</option>
+                        <option value="passport">Passport Application</option>
+                        <option value="driving-license">Driving License</option>
+                    </select>
+                </div>
+
+                <!-- File Upload -->
+                <div>
+                    <label class="block text-sm text-gray-500 mb-1">Attach Documents (Optional)</label>
+                    <div class="flex flex-col sm:flex-row sm:items-center gap-3">
+                        <input type="file" id="fileUpload" class="hidden" multiple>
+                        <button type="button" id="fileSelectBtn"
+                            class="bg-teal-800 hover:bg-teal-700 text-white px-4 py-2 rounded font-semibold text-sm shadow">
+                            📎 Choose Files
+                        </button>
+                        <span id="fileCount" class="text-sm text-gray-600">No files selected</span>
                     </div>
+                    <ul id="fileList" class="mt-2 text-xs text-gray-700 list-disc list-inside"></ul>
+                </div>
 
-                    <div>
-                        <label class="block text-sm text-gray-500 mb-1">Branch</label>
-                        <select id="branch"
-                            class="w-full px-4 py-3 rounded border border-gray-200 focus:border-teal-500 outline-none">
-                            <option value="">Select branch</option>
-                            <option value="central">Central Government Office</option>
-                            <option value="colombo">Colombo District Office</option>
-                            <option value="kandy">Kandy District Office</option>
-                        </select>
-                    </div>
+                <!-- Selected Date & Time -->
+                <div class="rounded-lg border border-gray-100 p-4 bg-gray-50">
+                    <p class="text-sm text-gray-600">Selected Date:</p>
+                    <p id="selectedDateText" class="text-lg font-semibold text-gray-800">—</p>
+                    <p class="text-sm text-gray-600 mt-2">Selected Time:</p>
+                    <p id="selectedTimeText" class="text-lg font-semibold text-gray-800">—</p>
+                </div>
 
-                    <div>
-                        <label class="block text-sm text-gray-500 mb-1">Service</label>
-                        <select id="service"
-                            class="w-full px-4 py-3 rounded border border-gray-200 focus:border-teal-500 outline-none">
-                            <option value="">Select service</option>
-                            <option value="national-id">National ID Renewal</option>
-                            <option value="passport">Passport Application</option>
-                            <option value="driving-license">Driving License</option>
-                        </select>
-                    </div>
+                <!-- Create Button -->
+                <button type="submit" id="submitBtn" disabled
+                    class="w-full bg-teal-800 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-teal-600 text-white py-3 sm:py-4 rounded-lg font-semibold tracking-wider transition-colors duration-200">
+                    CREATE APPOINTMENT
+                </button>
 
+                <!-- Note -->
+                <p class="text-center text-xs text-red-600 leading-relaxed">
+                    Please be aware that Poya Days, Public Holidays, Bank Holidays, and Mercantile Holidays are excluded.
+                </p>
+            </form>
 
-                    <div>
-                        <label class="block text-sm text-gray-500 mb-1">Attach Documents (Optional)</label>
-                        <div class="flex items-center gap-3">
-                            <input type="file" id="fileUpload" class="hidden" multiple>
-                            <button type="button" id="fileSelectBtn"
-                                class="bg-teal-800 hover:bg-teal-700 text-white px-4 py-2 rounded font-semibold text-sm shadow">
-                                📎 Choose Files
-                            </button>
-                            <span id="fileCount" class="text-sm text-gray-600">No files selected</span>
+            <!-- RIGHT: Calendar + Time Slots -->
+            <div class="space-y-4">
+                <!-- Calendar -->
+                <div id="calendar2" class="rounded-lg border border-gray-200 p-2 bg-white shadow-sm"></div>
+
+                <!-- Time Slots -->
+                <div>
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                        <h4 class="text-lg font-semibold text-gray-800">Available Time Slots</h4>
+                        <div class="flex items-center gap-2 text-xs">
+                            <span class="px-2 py-1 rounded bg-green-100">Available</span>
+                            <span class="px-2 py-1 rounded bg-red-100">Unavailable</span>
+                            <span class="px-2 py-1 rounded bg-sky-100">Selected</span>
                         </div>
-                        <ul id="fileList" class="mt-2 text-xs text-gray-700 list-disc list-inside"></ul>
                     </div>
-
-                    <div class="rounded-lg border border-gray-100 p-4 bg-gray-50">
-                        <p class="text-sm text-gray-600">Selected Date:</p>
-                        <p id="selectedDateText" class="text-lg font-semibold text-gray-800">—</p>
-                        <p class="text-sm text-gray-600 mt-2">Selected Time:</p>
-                        <p id="selectedTimeText" class="text-lg font-semibold text-gray-800">—</p>
-                    </div>
-
-                    <div class="text-center py-2">
-                        <p class="text-lg text-gray-800">
-                            <!-- Approx Queue Number: <span id="queueNumber" class="font-semibold">-</span> -->
-                        </p>
-                    </div>
-
-                    <button type="submit" id="submitBtn" disabled
-                        class="w-full bg-teal-800 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-teal-600 text-white py-4 rounded font-semibold tracking-wider">
-                        CREATE APPOINTMENT
-                    </button>
-
-                    <p class="text-center text-xs text-red-600 leading-relaxed">
-                        Please Be Aware That Poya Days, Public Holidays, Bank Holidays, And Mercantile Holidays Are
-                        Excluded.
-                    </p>
-                </form>
-
-                <!-- RIGHT: Calendar + Time slots -->
-                <div class="space-y-4">
-                    <div id="calendar2" class="rounded-lg border border-gray-200 p-2 bg-white shadow-sm"></div>
-
-                    <div>
-                        <div class="flex items-center justify-between mb-2">
-                            <h4 class="text-lg font-semibold text-gray-800">Available Time Slots</h4>
-                            <div class="flex items-center gap-3 text-xs">
-                                <span class="px-2 py-1 rounded bg-green-100">Available</span>
-                                <span class="px-2 py-1 rounded bg-red-100">Unavailable</span>
-                                <span class="px-2 py-1 rounded bg-sky-100">Selected</span>
-                            </div>
-                        </div>
-                        <div id="timeSlots" class="grid grid-cols-2 md:grid-cols-3 gap-2"></div>
-                    </div>
+                    <div id="timeSlots" class="grid grid-cols-2 sm:grid-cols-3 gap-2"></div>
                 </div>
             </div>
+
         </div>
     </div>
+</div>
+
 
 
     <!-- feedback model -->
@@ -336,28 +341,7 @@
             <h2 class="text-2xl font-bold text-gray-800 text-center mb-1">Feedback Form</h2>
             <p class="text-gray-500 text-center mb-5">Help us improve government services</p>
 
-            <!-- Department Select -->
-            <label class="block text-sm font-medium text-gray-700 mb-1">Service Department</label>
-            <select id="department" class="w-full border rounded-lg p-2 mb-4 focus:ring focus:ring-blue-300">
-                <option value="">Select department...</option>
-                <option>Citizen Services</option>
-                <option>Tax & Revenue</option>
-                <option>Transport</option>
-                <option>Healthcare</option>
-                <option>Other</option>
-            </select>
-
-            <!-- Branch Select -->
-            <label class="block text-sm font-medium text-gray-700 mb-1">Branch</label>
-            <select id="branch" class="w-full border rounded-lg p-2 mb-4 focus:ring focus:ring-blue-300">
-                <option value="">Select branch...</option>
-                <option>Main Office</option>
-                <option>North Branch</option>
-                <option>South Branch</option>
-                <option>East Branch</option>
-                <option>West Branch</option>
-            </select>
-
+            
             <!-- Star Rating -->
             <p class="text-gray-700 font-medium mb-2">Rate your experience</p>
             <div class="flex justify-center mb-4">
@@ -467,14 +451,8 @@
             const department = document.getElementById("department").value;
             const branch = document.getElementById("branch").value;
 
-            if (!department) {
-                alert("Please select a department.");
-                return;
-            }
-            if (!branch) {
-                alert("Please select a branch.");
-                return;
-            }
+           
+           
             if (!selectedRating) {
                 alert("Please select a rating.");
                 return;
