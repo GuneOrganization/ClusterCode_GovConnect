@@ -29,6 +29,7 @@
             }
         }
     </script> -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         /* Custom styles for logo and specific components */
         .logo {
@@ -92,6 +93,18 @@
         .fc-event.holiday-event {
             background-color: #f59e0b;
             border-color: #f59e0b;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            /* max-width: 600px; */
+            /* margin: 40px auto; */
+        }
+
+        canvas {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
@@ -248,10 +261,9 @@
     </div>
 
     <script>
-
         // Menu navigation
         document.querySelectorAll('.menu-item').forEach(item => {
-            item.addEventListener('click', function () {
+            item.addEventListener('click', function() {
                 const menu = this.getAttribute('data-menu');
 
                 if (menu === 'logout') {
@@ -340,21 +352,21 @@
         const closeModal = document.getElementById('closeModal');
         const appointmentForm = document.getElementById('appointmentForm');
 
-        newAppointmentBtn.addEventListener('click', function () {
+        newAppointmentBtn.addEventListener('click', function() {
             appointmentModal.classList.remove('hidden');
         });
 
-        closeModal.addEventListener('click', function () {
+        closeModal.addEventListener('click', function() {
             appointmentModal.classList.add('hidden');
         });
 
-        appointmentModal.addEventListener('click', function (e) {
+        appointmentModal.addEventListener('click', function(e) {
             if (e.target === appointmentModal) {
                 appointmentModal.classList.add('hidden');
             }
         });
 
-        appointmentForm.addEventListener('submit', function (e) {
+        appointmentForm.addEventListener('submit', function(e) {
             e.preventDefault();
             alert('Appointment created successfully!');
             appointmentModal.classList.add('hidden');
@@ -369,7 +381,7 @@
     </script>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             const calendarEl = document.getElementById('calendar');
             const calendar = new FullCalendar.Calendar(calendarEl, {
                 initialView: 'dayGridMonth',
@@ -425,7 +437,7 @@
                         textColor: 'white'
                     }
                 ],
-                dayCellDidMount: function (info) {
+                dayCellDidMount: function(info) {
                     // Mark booking days
                     const bookingDates = ['2025-08-12', '2025-08-15', '2025-08-18', '2025-08-20'];
                     const holidayDates = ['2025-02-04', '2025-05-12'];
@@ -440,7 +452,7 @@
                         info.el.classList.add('holiday');
                     }
                 },
-                eventClick: function (info) {
+                eventClick: function(info) {
                     alert('Event: ' + info.event.title + '\nDate: ' + info.event.startStr);
                 }
             });
@@ -448,46 +460,79 @@
             calendar.render();
 
             // New Appointment Button Handler
-            document.getElementById('newAppointmentBtn').addEventListener('click', function () {
+            document.getElementById('newAppointmentBtn').addEventListener('click', function() {
                 alert('New Appointment booking functionality would be implemented here.');
             });
 
             // Cancel and View Barcode button handlers
             document.querySelectorAll('button').forEach(button => {
                 if (button.textContent.includes('CANCEL')) {
-                    button.addEventListener('click', function () {
+                    button.addEventListener('click', function() {
                         if (confirm('Are you sure you want to cancel this appointment?')) {
                             button.closest('.bg-white').style.opacity = '0.5';
                             alert('Appointment cancelled successfully.');
                         }
                     });
                 } else if (button.textContent.includes('VIEW BARCODE')) {
-                    button.addEventListener('click', function () {
+                    button.addEventListener('click', function() {
                         alert('Barcode view functionality would be implemented here.');
                     });
                 }
             });
         });
-
     </script>
     <script src="/assets/js/calnder.js"></script>
 
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Fix for null element errors
-        const someElement = document.getElementById('some-element-id');
-        if (someElement) {
-            someElement.addEventListener('click', function() {
-                // Your event handler
-            });
-        }
-        
-        // Bar graph initialization with null check
-        const barsContainer = document.getElementById('bars-container');
-        if (barsContainer) {
-            // Initialize your bar graph here
-        }
-    });
+        document.addEventListener('DOMContentLoaded', function() {
+            // Fix for null element errors
+            const someElement = document.getElementById('some-element-id');
+            if (someElement) {
+                someElement.addEventListener('click', function() {
+                    // Your event handler
+                });
+            }
+
+            // Bar graph initialization with null check
+            const barsContainer = document.getElementById('bars-container');
+            if (barsContainer) {
+                // Initialize your bar graph here
+            }
+        });
+    </script>
+
+    <script>
+        const ctx = document.getElementById('myBarChart').getContext('2d');
+
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['7-8', '8-9', '9-10', '10-11', '11-12', '12-1', '2-3', '3-4', '4-5'],
+                datasets: [{
+                    label: 'Appointments Count',
+                    data: [10, 35, 50, 25, 55, 40, 20, 60, 15],
+                    backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1,
+                    // barThickness: 40 // width in pixels
+                    categoryPercentage: 0.6, // space taken by each category (0–1)
+                    barPercentage: 0.8 // space taken by each bar within the category
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return value;
+                            }
+                        }
+                    }
+                }
+            }
+        });
     </script>
 </body>
 
