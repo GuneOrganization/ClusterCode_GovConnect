@@ -69,7 +69,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Service Type Filter -->
             <div class="flex-1">
                 <label for="serviceFilter" class="block text-sm font-medium text-gray-700 mb-1">Service Type</label>
@@ -87,7 +87,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Date Filter -->
             <div class="flex-1">
                 <label for="dateFilter" class="block text-sm font-medium text-gray-700 mb-1">Appointment Date</label>
@@ -99,7 +99,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Time Slot Filter -->
             <div class="flex-1">
                 <label for="timeFilter" class="block text-sm font-medium text-gray-700 mb-1">Time Slot</label>
@@ -116,7 +116,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Search Button -->
             <div class="flex items-end">
                 <button id="searchButton" class="h-10 px-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
@@ -133,82 +133,81 @@
     </div>
 
     <!-- Appointments Cards Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-        <!-- Appointment Card 1 -->
-        <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition">
-            <!-- Card Header -->
-            <div class="px-4 py-3 border-b border-gray-200 bg-gray-50 flex justify-between items-center">
-                <div>
-                    <span class="font-medium text-gray-900">REF-20230815-001</span>
-                    <span class="ml-2 px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">Completed</span>
+    <div class="grid grid-cols-1 gap-6 mb-8">
+        <div class="space-y-4">
+            <!-- Appointment Card 1 -->
+
+            <div class="bg-stone-200 rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition">
+                <!-- Card Header -->
+                <div class="px-4 py-3 border-b border-gray-200 bg-gray-50 flex justify-between items-center">
+                    <div>
+                        <span class="font-medium text-gray-900">REF-20230815-001</span>
+                        <span class="ml-2 px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">Completed</span>
+                    </div>
+                    <button class="text-gray-400 hover:text-gray-600">
+                        <i class="fas fa-ellipsis-v"></i>
+                    </button>
                 </div>
-                <button class="text-gray-400 hover:text-gray-600">
-                    <i class="fas fa-ellipsis-v"></i>
-                </button>
-            </div>
-            
-            <!-- Card Body -->
-            <div class="p-4">
-                <div class="mb-4">
-                    <h4 class="text-lg font-semibold text-gray-900">Nimal Silva</h4>
-                    <p class="text-sm text-gray-500">987654321V</p>
-                </div>
-                
-                <div class="grid grid-cols-2 gap-4 mb-4">
-                    <div>
-                        <p class="text-xs font-medium text-gray-500 uppercase">Service Type</p>
-                        <p class="text-sm text-gray-900">Driving License</p>
+
+                <!-- Card Body -->
+                <div class="p-4">
+                    <div class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-900">Nimal Silva</h4>
+                        <p class="text-sm text-gray-500"><b>987654321V</b></p>
                     </div>
-                    <div>
-                        <p class="text-xs font-medium text-gray-500 uppercase">Date & Time</p>
-                        <p class="text-sm text-gray-900">15 Aug 2023, 09:00 AM</p>
+
+                    <div class="grid grid-cols-6 mb-2">
+                        <div>
+                            <p class="text-xs font-medium text-gray-500 uppercase"><b>Service Type</b></p>
+                            <p class="text-sm text-gray-900">Driving License</p>
+                        </div>
+                        <div>
+                            <p class="text-xs font-medium text-gray-500 uppercase"><b>Date & Time</b></p>
+                            <p class="text-sm text-gray-900">15 Aug 2023, 09:00 AM</p>
+                        </div>
+                        <div>
+                            <p class="text-xs font-medium text-gray-500 uppercase"><b>Accepted By</b></p>
+                            <p class="text-sm text-gray-900">Officer Kamal</p>
+                        </div>
+                        <div>
+                            <p class="text-xs font-medium text-gray-500 uppercase"><b>Completed By</b></p>
+                            <p class="text-sm text-gray-900">Officer Kamal</p>
+                        </div>
+                        <div>
+                            <p class="text-xs font-medium text-gray-500 uppercase"><b>Accepted By</b></p>
+                            <p class="text-sm text-gray-900">14 Aug 2023, 10:30 AM</p>
+                        </div>
+                        <div>
+                            <p class="text-xs font-medium text-gray-500 uppercase"><b>Completed On</b></p>
+                            <p class="text-sm text-gray-900">15 Aug 2023, 09:45 AM</p>
+                        </div>
                     </div>
-                    <div>
-                        <p class="text-xs font-medium text-gray-500 uppercase">Accepted By</p>
-                        <p class="text-sm text-gray-900">Officer Kamal</p>
-                    </div>
-                    <div>
-                        <p class="text-xs font-medium text-gray-500 uppercase">Completed By</p>
-                        <p class="text-sm text-gray-900">Officer Kamal</p>
-                    </div>
-                </div>
-                
-                <div class="grid grid-cols-2 gap-4 mb-4">
-                    <div>
-                        <p class="text-xs font-medium text-gray-500 uppercase">Accepted On</p>
-                        <p class="text-sm text-gray-900">14 Aug 2023, 10:30 AM</p>
-                    </div>
-                    <div>
-                        <p class="text-xs font-medium text-gray-500 uppercase">Completed On</p>
-                        <p class="text-sm text-gray-900">15 Aug 2023, 09:45 AM</p>
-                    </div>
-                </div>
-                
-                <div class="border-t border-gray-200 pt-3">
-                    <p class="text-xs font-medium text-gray-500 uppercase mb-1">Feedback & Rating</p>
-                    <div class="flex items-center justify-between">
-                        <p class="text-sm text-gray-900 truncate">Very helpful and efficient service. Thank you!</p>
-                        <div class="flex items-center bg-yellow-50 px-2 py-1 rounded">
-                            <i class="fas fa-star text-yellow-400 mr-1"></i>
-                            <span class="text-sm font-medium">4.5</span>
+                    <div class="border-t border-gray-200 pt-3">
+                        <p class="text-xs font-medium text-gray-500 uppercase mb-1"><b>Feedback & Rating</b></p>
+                        <div class="flex items-center justify-between">
+                            <p class="text-sm text-gray-900 truncate">Very helpful and efficient service. Thank you!</p>
+                            <div class="flex items-center bg-yellow-50 px-2 py-1 rounded">
+                                <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                <span class="text-sm font-medium">4.5</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            <!-- Card Footer -->
-            <div class="px-4 py-3 border-t border-gray-200 bg-gray-50 flex justify-end">
-                <button class="px-3 py-1 bg-blue-50 text-blue-600 rounded-md text-sm hover:bg-blue-100 mr-2">
-                    <i class="fas fa-print mr-1"></i> Print
-                </button>
-                <button class="px-3 py-1 bg-green-50 text-green-600 rounded-md text-sm hover:bg-green-100">
-                    <i class="fas fa-eye mr-1"></i> View
-                </button>
+
+                <!-- Card Footer -->
+                <div class="px-4 py-3 border-t border-gray-200 bg-gray-50 flex justify-end">
+                    <button class="px-3 py-1 bg-blue-50 text-blue-600 rounded-md text-sm hover:bg-blue-100 mr-2">
+                        <i class="fas fa-print mr-1"></i> Print
+                    </button>
+                    <button class="px-3 py-1 bg-green-50 text-green-600 rounded-md text-sm hover:bg-green-100">
+                        <i class="fas fa-eye mr-1"></i> View
+                    </button>
+                </div>
             </div>
         </div>
-
+            
         <!-- Appointment Card 2 -->
-        <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition">
+        <div class="bg-stone-200 rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition ">
             <!-- Card Header -->
             <div class="px-4 py-3 border-b border-gray-200 bg-gray-50 flex justify-between items-center">
                 <div>
@@ -219,46 +218,43 @@
                     <i class="fas fa-ellipsis-v"></i>
                 </button>
             </div>
-            
+
             <!-- Card Body -->
             <div class="p-4">
                 <div class="mb-4">
                     <h4 class="text-lg font-semibold text-gray-900">Sunil Perera</h4>
-                    <p class="text-sm text-gray-500">876543219V</p>
+                    <p class="text-sm text-gray-500"><b>876543219V</b></p>
                 </div>
-                
-                <div class="grid grid-cols-2 gap-4 mb-4">
+
+                <div class="grid grid-cols-6 gap-4 mb-4">
                     <div>
-                        <p class="text-xs font-medium text-gray-500 uppercase">Service Type</p>
+                        <p class="text-xs font-medium text-gray-500 uppercase"><b>Service Type</b></p>
                         <p class="text-sm text-gray-900">Passport Renewal</p>
                     </div>
                     <div>
-                        <p class="text-xs font-medium text-gray-500 uppercase">Date & Time</p>
+                        <p class="text-xs font-medium text-gray-500 uppercase"><b>Date & Time</b></p>
                         <p class="text-sm text-gray-900">18 Aug 2023, 02:30 PM</p>
                     </div>
                     <div>
-                        <p class="text-xs font-medium text-gray-500 uppercase">Accepted By</p>
+                        <p class="text-xs font-medium text-gray-500 uppercase"><b>Accepted By</b></p>
                         <p class="text-sm text-gray-900">-</p>
                     </div>
                     <div>
-                        <p class="text-xs font-medium text-gray-500 uppercase">Completed By</p>
+                        <p class="text-xs font-medium text-gray-500 uppercase"><b>Completed By</b></p>
+                        <p class="text-sm text-gray-900">-</p>
+                    </div>
+                    <div>
+                        <p class="text-xs font-medium text-gray-500 uppercase"><b>Accepted On</b></p>
+                        <p class="text-sm text-gray-900">-</p>
+                    </div>
+                    <div>
+                        <p class="text-xs font-medium text-gray-500 uppercase"><b>Completed On</b></p>
                         <p class="text-sm text-gray-900">-</p>
                     </div>
                 </div>
-                
-                <div class="grid grid-cols-2 gap-4 mb-4">
-                    <div>
-                        <p class="text-xs font-medium text-gray-500 uppercase">Accepted On</p>
-                        <p class="text-sm text-gray-900">-</p>
-                    </div>
-                    <div>
-                        <p class="text-xs font-medium text-gray-500 uppercase">Completed On</p>
-                        <p class="text-sm text-gray-900">-</p>
-                    </div>
-                </div>
-                
+
                 <div class="border-t border-gray-200 pt-3">
-                    <p class="text-xs font-medium text-gray-500 uppercase mb-1">Feedback & Rating</p>
+                    <p class="text-xs font-medium text-gray-500 uppercase mb-1"><b>Feedback & Rating</b></p>
                     <div class="flex items-center justify-between">
                         <p class="text-sm text-gray-400 italic">No feedback yet</p>
                         <div class="flex items-center bg-gray-100 px-2 py-1 rounded">
@@ -267,7 +263,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Card Footer -->
             <div class="px-4 py-3 border-t border-gray-200 bg-gray-50 flex justify-end">
                 <button class="px-3 py-1 bg-blue-50 text-blue-600 rounded-md text-sm hover:bg-blue-100 mr-2">
@@ -280,63 +276,59 @@
         </div>
 
         <!-- Appointment Card 3 -->
-        <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition">
+        <div class="bg-stone-200 rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition">
             <!-- Card Header -->
             <div class="px-4 py-3 border-b border-gray-200 bg-gray-50 flex justify-between items-center">
                 <div>
-                    <span class="font-medium text-gray-900">REF-20230812-112</span>
+                    <span class="font-medium text-gray-900"><b>REF-20230812-112</b></span>
                     <span class="ml-2 px-2 py-1 text-xs font-semibold rounded-full bg-red-100 text-red-800">Cancelled</span>
                 </div>
                 <button class="text-gray-400 hover:text-gray-600">
                     <i class="fas fa-ellipsis-v"></i>
                 </button>
             </div>
-            
+
             <!-- Card Body -->
             <div class="p-4">
                 <div class="mb-4">
-                    <h4 class="text-lg font-semibold text-gray-900">Anoma Fernando</h4>
+                    <h4 class="text-lg font-semibold text-gray-900"><b>Anoma Fernando</b></h4>
                     <p class="text-sm text-gray-500">765432198V</p>
                 </div>
-                
-                <div class="grid grid-cols-2 gap-4 mb-4">
+
+                <div class="grid grid-cols-6 gap-4 mb-4">
                     <div>
-                        <p class="text-xs font-medium text-gray-500 uppercase">Service Type</p>
+                        <p class="text-xs font-medium text-gray-500 uppercase"><b>Service Type</b></p>
                         <p class="text-sm text-gray-900">Birth Certificate</p>
                     </div>
                     <div>
-                        <p class="text-xs font-medium text-gray-500 uppercase">Date & Time</p>
+                        <p class="text-xs font-medium text-gray-500 uppercase"><b>Date & Time</b></p>
                         <p class="text-sm text-gray-900">14 Aug 2023, 10:00 AM</p>
                     </div>
                     <div>
-                        <p class="text-xs font-medium text-gray-500 uppercase">Accepted By</p>
+                        <p class="text-xs font-medium text-gray-500 uppercase"><b>Accepted By</b></p>
                         <p class="text-sm text-gray-900">Officer Nimali</p>
                     </div>
                     <div>
-                        <p class="text-xs font-medium text-gray-500 uppercase">Completed By</p>
+                        <p class="text-xs font-medium text-gray-500 uppercase"><b>Completed By</b></p>
                         <p class="text-sm text-gray-900">-</p>
                     </div>
-                </div>
-                
-                <div class="grid grid-cols-2 gap-4 mb-4">
-                    <div>
-                        <p class="text-xs font-medium text-gray-500 uppercase">Accepted On</p>
+                     <div>
+                        <p class="text-xs font-medium text-gray-500 uppercase"><b>Accepted On</b></p>
                         <p class="text-sm text-gray-900">13 Aug 2023, 03:15 PM</p>
                     </div>
                     <div>
-                        <p class="text-xs font-medium text-gray-500 uppercase">Completed On</p>
+                        <p class="text-xs font-medium text-gray-500 uppercase"><b>Completed On</b></p>
                         <p class="text-sm text-gray-900">-</p>
                     </div>
                 </div>
-                
                 <div class="border-t border-gray-200 pt-3">
-                    <p class="text-xs font-medium text-gray-500 uppercase mb-1">Cancellation Reason</p>
+                    <p class="text-xs font-medium text-gray-500 uppercase mb-1"><b>Cancellation Reason</b></p>
                     <p class="text-sm text-gray-900">Civilian requested cancellation</p>
                 </div>
             </div>
-            
+
             <!-- Card Footer -->
-            <div class="px-4 py-3 border-t border-gray-200 bg-gray-50 flex justify-end">
+            <div class="px-4 py-3 border-t border-gray-200 bg-gray-50 flex justify-end ">
                 <button class="px-3 py-1 bg-blue-50 text-blue-600 rounded-md text-sm hover:bg-blue-100 mr-2">
                     <i class="fas fa-print mr-1"></i> Print
                 </button>
