@@ -51,11 +51,10 @@ if (isset($_SESSION['user'])) {
                 } else {
 
                     //TODO:update data
-                    $_SESSION['user'] = [
-                        "firstName" => $user['first_name'],
-                        "lastName"  => $user['last_name'],
-                        "email"     => $user['email']
-                    ];
+
+                    $user['password'] = null;
+
+                    $_SESSION['user'] = $user;
 
                     sendUserResponse("success", "Login successful", $_SESSION['user']);
                 }
