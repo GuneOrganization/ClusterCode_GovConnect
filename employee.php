@@ -11,9 +11,9 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.1.8/index.global.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.css" rel="stylesheet" />
-    <link href="/assets/css/calander.css" />
+    <link href="./assets/css/styles.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
-
+    <script src="https://kit.fontawesome.com/4ba622a87c.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- <script>
         tailwind.config = {
@@ -96,7 +96,7 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
+           
             /* max-width: 600px; */
             /* margin: 40px auto; */
         }
@@ -126,7 +126,7 @@
                         <button class="text-gray-500 p-0 lg:hidden" type="button">
                             <span class="text-xl">☰</span>
                         </button>
-                        <h5 class="text-lg font-medium">Welcome Sachintha !</h5>
+                        <h5 class="text-md font-medium">Welcome Sachintha !</h5>
                     </div>
 
                     <div class="flex items-center gap-3">

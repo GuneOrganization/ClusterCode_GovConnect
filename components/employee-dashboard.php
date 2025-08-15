@@ -10,7 +10,7 @@
 
         <!-- Stats Cards -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-            <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-4 hover:shadow-md transition">
+            <div class="bg-stone-200 rounded-xl shadow-sm border p-4 hover:shadow-md transition">
                 <div class="flex items-center">
                     <div class="bg-blue-100 p-3 rounded-lg">
                         <i class="fas fa-calendar-alt text-blue-600"></i>
@@ -21,7 +21,7 @@
                     </div>
                 </div>
             </div>
-            <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-4 hover:shadow-md transition">
+            <div class="bg-stone-200 rounded-xl shadow-sm border  p-4 hover:shadow-md transition">
                 <div class="flex items-center">
                     <div class="bg-green-100 p-3 rounded-lg">
                         <i class="fas fa-check-circle text-green-600"></i>
@@ -32,7 +32,7 @@
                     </div>
                 </div>
             </div>
-            <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-4 hover:shadow-md transition">
+            <div class="bg-stone-200 rounded-xl shadow-sm border  p-4 hover:shadow-md transition">
                 <div class="flex items-center">
                     <div class="bg-red-100 p-3 rounded-lg">
                         <i class="fas fa-times-circle text-red-600"></i>
@@ -43,7 +43,7 @@
                     </div>
                 </div>
             </div>
-            <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-4 hover:shadow-md transition">
+            <div class="bg-stone-200 rounded-xl shadow-sm border  p-4 hover:shadow-md transition">
                 <div class="flex items-center">
                     <div class="bg-teal-100 p-3 rounded-lg">
                         <i class="fas fa-check-double text-teal-600"></i>
