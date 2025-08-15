@@ -4,11 +4,11 @@ include_once 'connection.php';
 
 class IdGenerator {
 
-    public static function generateId($table, $prefix) {
+    public static function generateId($table, $columnName, $prefix) {
 
         $totalLength = 10;
 
-        $resultset = Database::search("SELECT * FROM $table ORDER BY id DESC LIMIT 1");
+        $resultset = Database::search("SELECT * FROM $table ORDER BY $columnName DESC LIMIT 1");
 
         if ($resultset->num_rows == 0) {
             $numLength = $totalLength - strlen($prefix);
