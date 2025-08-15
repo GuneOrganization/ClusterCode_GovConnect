@@ -2,39 +2,41 @@
 session_start();
 
 require 'connection.php';
+require './core/Validation.php';
 
-$response = array();
+function sendResponse($status, $message, $data = [])
+{
+    echo json_encode([
+        "status" => $status,
+        "message" => $message,
+        "data" => $data
+    ]);
+    exit;
+}
 
 if (isset($_SESSION['user'])) {
-    http_response_code(401);
-    echo json_encode([
-        "status" => "fail",
-        "message" => "Unauthorized. Please log in."
-    ]);
-
-} else {
-    
-    try {
-        $query = "SELECT * FROM `department`";
-        $resultset = Database::search($query);
-
-        if ($resultset->num_rows > 0) {
-            $departments = array();
-            while ($row = $resultset->fetch_assoc()) {
-                $departments[] = $row;
-            }
-            $response["status"] = "success";
-            $response["data"] = $departments;
-        } else {
-            $response["status"] = "success";
-            $response["data"] = [];
-            $response["message"] = "No departments found.";
-        }
-    } catch (Exception $e) {
-        http_response_code(500);
-        $response["status"] = "fail";
-        $response["message"] =  $e->getMessage();
-    }
-
-    echo json_encode($response);
+    sendResponse("fail", "No logged user found");
 }
+
+if (!Validation::isValidUser($_SESSION['user']['nic'])) {
+    sendResponse("fail", "Invalid User");
+}
+
+try {
+    $query = "SELECT * FROM `department`";
+    $resultset = Database::search($query);
+
+    if ($resultset->num_rows > 0) {
+        $departments = array();
+        while ($row = $resultset->fetch_assoc()) {
+            $departments[] = $row;
+        }
+
+        sendResponse("success", "Get Departments Successful", $departments);
+    } else {
+        sendResponse("success", "No Departments Found", []);
+    }
+} catch (Exception $e) {
+    sendResponse("fail", "Server error: " . $e->getMessage());
+}
+?>
