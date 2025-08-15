@@ -56,6 +56,8 @@
                             <button
                                 class="bg-teal-500 hover:bg-teal-600 text-white px-4 py-2 rounded text-sm font-medium transition-colors">VIEW
                                 BARCODE</button>
+                                 <button id="openFeedback" 
+                                class="bg-black hover:bg-gray-900 text-white px-4 py-2 rounded text-sm font-medium transition-colors"><i class="fa-regular fa-thumbs-up"></i></button>
                         </div>
                     </div>
 
@@ -98,6 +100,8 @@
                             <button
                                 class="bg-teal-500 hover:bg-teal-600 text-white px-4 py-2 rounded text-sm font-medium transition-colors">VIEW
                                 BARCODE</button>
+                                 <button
+                                class="bg-black hover:bg-gray-900 text-white px-4 py-2 rounded text-sm font-medium transition-colors">Add Feedback</button>
                         </div>
                     </div>
 
@@ -140,6 +144,8 @@
                             <button
                                 class="bg-teal-500 hover:bg-teal-600 text-white px-4 py-2 rounded text-sm font-medium transition-colors">VIEW
                                 BARCODE</button>
+                                 <button
+                                class="bg-black hover:bg-gray-900 text-white px-4 py-2 rounded text-sm font-medium transition-colors">Add Feedback</button>
                         </div>
                     </div>
 
@@ -182,6 +188,8 @@
                             <button
                                 class="bg-teal-500 hover:bg-teal-600 text-white px-4 py-2 rounded text-sm font-medium transition-colors">VIEW
                                 BARCODE</button>
+                                 <button
+                                class="bg-black hover:bg-gray-900 text-white px-4 py-2 rounded text-sm font-medium transition-colors">Add Feedback</button>
                         </div>
                     </div>
                 </div>
