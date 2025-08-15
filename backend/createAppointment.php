@@ -26,7 +26,7 @@ if (isset($_SESSION['user'])) {
     sendResponse("fail", "No logged user found");
 }
 
-if(!Validation::isValidUser("200127804509")){
+if(!Validation::isValidUser($_SESSION['user']['nic'])){
     sendResponse("fail", "Invalid User");
 }
 
@@ -56,7 +56,7 @@ try {
 
             $reference_no = IdGenerator::generateId("appointment", "reference_number", "APP");
             $currentDateTime = date("Y-m-d H:i:s");
-            $addedUserNIC = "200127804509";
+            $addedUserNIC = $_SESSION['user']['nic'];
 
             try {
 
