@@ -43,6 +43,31 @@
 
 </div>
 
+<!-- mobile footer bar -->
+<div id="mobileNav"
+    class="sm:hidden fixed bottom-0 left-0 w-full bg-white border-t shadow-md flex justify-around items-center py-2 z-50">
+    <button class="menu-item flex flex-col items-center text-xs text-gray-600 hover:text-blue-600 transition-colors"
+        data-menu="employee-dashboard">
+        <img class="w-6 h-6 mb-1" src="assets/images/dashboard_icons/dashboard.png" alt="Dashboard">
+        <span class="text-[10px] sm:text-xs font-medium">DASHBOARD</span>
+    </button>
+    <button class="menu-item flex flex-col items-center text-xs text-gray-600 hover:text-blue-600 transition-colors"
+        data-menu="employee-appointments">
+        <img class="w-6 h-6 mb-1" src="assets/images/dashboard_icons/appointments.png" alt="Appointments">
+        <span class="text-[10px] sm:text-xs font-medium">APPOINTMENTS</span>
+    </button>
+    <button class="menu-item flex flex-col items-center text-xs text-gray-600 hover:text-blue-600 transition-colors"
+        data-menu="employee-analytics">
+        <img class="w-6 h-6 mb-1" src="assets/images/dashboard_icons/service_guide.png" alt="Analytics">
+        <span class="text-[10px] sm:text-xs font-medium">ANALYTICS</span>
+    </button>
+    <button class="menu-item flex flex-col items-center text-xs text-gray-600 hover:text-red-600 transition-colors"
+        data-menu="employee-logout">
+        <img class="w-6 h-6 mb-1" src="assets/images/dashboard_icons/logout.png" alt="Logout">
+        <span class="text-[10px] sm:text-xs font-medium">LOGOUT</span>
+    </button>
+</div>
+
 
 <script>
     const toggleBtn = document.getElementById("toggleSidebar");
