@@ -49,6 +49,8 @@ if (isset($_SESSION['user'])) {
                 } else if (strtolower($user['status']) === "Deactive") {
                     sendUserResponse("fail", "User account is deactivated");
                 } else {
+
+                    //TODO:update data
                     $_SESSION['user'] = [
                         "firstName" => $user['first_name'],
                         "lastName"  => $user['last_name'],
