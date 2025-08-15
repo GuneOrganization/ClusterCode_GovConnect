@@ -12,6 +12,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.1.8/index.global.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.css" rel="stylesheet" />
     <link href="/assets/css/calander.css" />
+    <link href="./assets/css/styles.css" rel="stylesheet"  />
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
     <script src="https://kit.fontawesome.com/4ba622a87c.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -107,36 +108,46 @@
 
         <div class="flex-1">
             <!-- Header -->
-            <header class="bg-white shadow-sm border-b border-gray-200 p-4">
-                <div class="flex justify-between items-center">
-                    <div class="flex items-center gap-3">
-                        <button class="text-gray-500 p-0 lg:hidden" type="button">
-                            <span class="text-xl">☰</span>
-                        </button>
-                        <h5 class="text-lg font-medium">Welcome Sachintha !</h5>
-                    </div>
+           <header class="bg-white shadow-sm border-b border-gray-200 p-4">
+    <div class="flex flex-wrap justify-between items-center gap-4">
+        
+        <!-- Left side -->
+        <div class="flex items-center gap-3 flex-shrink-0 ">
+            <!-- Menu button (mobile only) -->
+            <button class="text-gray-500 p-0 block lg:hidden" type="button">
+                <span class="text-2xl">☰</span>
+            </button>
+            <h5 class="text-sm sm:text-md font-medium truncate max-w-[150px] sm:max-w-none">
+                Welcome Sachintha !
+            </h5>
+        </div>
 
-                    <div class="flex items-center gap-3">
-                        <!-- Notification Icon -->
-                        <div>
-                            <button
-                                id="notificationBtn"
-                                class="text-white rounded-full flex items-center justify-center w-10 h-10">
-                                <img
-                                    src="assets/images//dashboard_icons/notificationicon.png"
-                                    class="w-7 h-7 object-cover" />
-                            </button>
-                        </div>
-                        <div class="bg-gray-800 text-white rounded-full flex items-center justify-center w-10 h-10">
-                            <span class="font-semibold text-sm">😁</span>
-                        </div>
-                        <div class="text-left">
-                            <div class="font-semibold text-sm">SACHINTHA Padaya</div>
-                            <div class="text-gray-500 text-xs">sachinthaperera@gmail.com</div>
-                        </div>
-                    </div>
-                </div>
-            </header>
+        <!-- Right side -->
+        <div class="flex items-center gap-3 flex-wrap sm:flex-nowrap justify-end">
+            
+            <!-- Notification Icon -->
+            <div>
+                <button id="notificationBtn"
+                    class="text-white rounded-full flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10">
+                    <img src="assets/images/dashboard_icons/notificationicon.png"
+                        class="w-6 h-6 sm:w-7 sm:h-7 object-cover" />
+                </button>
+            </div>
+
+            <!-- Profile Icon -->
+            <div class="bg-gray-800 text-white rounded-full flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10">
+                <span class="font-semibold text-xs sm:text-sm">😁</span>
+            </div>
+
+            <!-- User Info -->
+            <div class="text-left text-xs sm:text-sm leading-tight min-w-[100px] sm:min-w-[150px]">
+                <div class="font-semibold truncate">SACHINTHA DISHAN</div>
+                <div class="text-gray-500 truncate">sachinthaperera@gmail.com</div>
+            </div>
+        </div>
+    </div>
+</header>
+
 
             <!-- Popup Dropdown -->
             <div

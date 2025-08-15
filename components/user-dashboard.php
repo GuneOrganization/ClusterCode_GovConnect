@@ -1,42 +1,42 @@
 <div id="dashboard-content" class="content-section active">
     <div class="mb-4">
-        <h2 class="text-2xl font-semibold text-gray-800 text-center">USER DASHBOARD</h2>
+        <h2 class="text-2xl font-bold text-gray-800 text-center ">USER DASHBOARD</h2>
         <div class="w-20 h-0.5 bg-black mx-auto mt-2"></div>
     </div>
 
     <!-- Converted stats cards from Bootstrap grid to Tailwind -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-        <div class="bg-white rounded-lg shadow p-4">
-            <div class="text-center">
-                <h6 class="text-sm font-medium text-gray-600 mb-2">TOTAL APPOINTMENTS</h6>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mb-6 p-3">
+        <div class="bg-stone-200 rounded-lg shadow p-4">
+            <div class="text-end">
+                <h6 class="text-md font-medium text-gray-600 mb-2">TOTAL APPOINTMENTS</h6>
                 <h2 class="text-3xl font-bold text-gray-800">03</h2>
             </div>
         </div>
-        <div class="bg-white rounded-lg shadow p-4">
-            <div class="text-center">
-                <h6 class="text-sm font-medium text-gray-600 mb-2">ONGOING APPOINTMENTS</h6>
+        <div class="bg-stone-200 rounded-lg shadow p-4">
+            <div class="text-end">
+                <h6 class="text-md font-medium text-gray-600 mb-2">ONGOING APPOINTMENTS</h6>
                 <h2 class="text-3xl font-bold text-gray-800">03</h2>
             </div>
         </div>
-        <div class="bg-white rounded-lg shadow p-4">
-            <div class="text-center">
-                <h6 class="text-sm font-medium text-gray-600 mb-2">TODAY APPOINTMENTS</h6>
+        <div class="bg-stone-200 rounded-lg shadow p-4">
+            <div class="text-end">
+                <h6 class="text-md font-medium text-gray-600 mb-2">TODAY APPOINTMENTS</h6>
                 <h2 class="text-3xl font-bold text-gray-800">03</h2>
             </div>
         </div>
-        <div class="bg-white rounded-lg shadow p-4">
-            <div class="text-center">
-                <h6 class="text-sm font-medium text-gray-600 mb-2">CANCELED APPOINTMENTS</h6>
+        <div class="bg-stone-200 rounded-lg shadow p-4">
+            <div class="text-end">
+                <h6 class="text-md font-medium text-gray-600 mb-2">CANCELED APPOINTMENTS</h6>
                 <h2 class="text-3xl font-bold text-gray-800">03</h2>
             </div>
         </div>
     </div>
 
     <!-- Upcoming Appointments -->
-    <div class="mb-6">
+    <div class="mb-6 p-3">
         <h4 class="text-xl font-semibold text-gray-800 mb-4">UPCOMING APPOINTMENTS</h4>
         <div class="space-y-4">
-            <div class="bg-white rounded-lg shadow p-4">
+            <div class="bg-stone-100 rounded-lg shadow p-5">
                 <div class="flex justify-between items-start">
                     <div>
                         <h5 class="font-semibold text-gray-800 mb-2">Apply for New National ID Card</h5>
@@ -53,7 +53,7 @@
                         GUIDE</button>
                 </div>
             </div>
-            <div class="bg-white rounded-lg shadow p-4">
+            <div class="bg-stone-100 rounded-lg shadow p-5">
                 <div class="flex justify-between items-start">
                     <div>
                         <h5 class="font-semibold text-gray-800 mb-2">Apply for New National ID Card</h5>
@@ -70,7 +70,7 @@
                         GUIDE</button>
                 </div>
             </div>
-            <div class="bg-white rounded-lg shadow p-4">
+            <div class="bg-stone-100 rounded-lg shadow p-5">
                 <div class="flex justify-between items-start">
                     <div>
                         <h5 class="font-semibold text-gray-800 mb-2">Apply for New National ID Card</h5>
