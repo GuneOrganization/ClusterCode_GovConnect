@@ -12,27 +12,27 @@
     <nav class="p-4">
         <button class="menu-item w-full flex items-center gap-3 p-3 mb-2 rounded-full text-sm font-medium text-gray-600 hover:bg-gray-200 bg-white shadow-sm" data-menu="dashboard">
             <img class="w-5 h-5" src="assets/images/dashboard_icons/dashboard.png" alt="Dashboard">
-            <span class="menu-text">DASHBOARD</span>
+            <span class="menu-text">| DASHBOARD</span>
         </button>
         <button class="menu-item w-full flex items-center gap-3 p-3 mb-2 rounded-full text-sm font-medium text-gray-600 hover:bg-gray-300" data-menu="appointments">
             <img class="w-5 h-5" src="assets/images/dashboard_icons/appointments.png" alt="Appointments">
-            <span class="menu-text">APPOINTMENTS</span>
+            <span class="menu-text">| APPOINTMENTS</span>
         </button>
         <button class="menu-item w-full flex items-center gap-3 p-3 mb-2 rounded-full text-sm font-medium text-gray-600 hover:bg-gray-300" data-menu="service-guide">
             <img class="w-5 h-5" src="assets/images/dashboard_icons/service_guide.png" alt="Service Guide">
-            <span class="menu-text">SERVICE GUIDE</span>
+            <span class="menu-text">| SERVICE GUIDE</span>
         </button>
         <button class="menu-item w-full flex items-center gap-3 p-3 mb-2 rounded-full text-sm font-medium text-gray-600 hover:bg-gray-300" data-menu="ai-chatbot">
             <img class="w-5 h-5" src="assets/images/dashboard_icons/ai_chatbot.png" alt="AI Chatbot">
-            <span class="menu-text">AI CHATBOT</span>
+            <span class="menu-text">| AI CHATBOT</span>
         </button>
         <button class="menu-item w-full flex items-center gap-3 p-3 mb-2 rounded-full text-sm font-medium text-gray-600 hover:bg-gray-300" data-menu="my-profile">
             <img class="w-5 h-5" src="assets/images/dashboard_icons/my_profile.png" alt="My Profile">
-            <span class="menu-text">MY PROFILE</span>
+            <span class="menu-text">| MY PROFILE</span>
         </button>
         <button class="menu-item w-full flex items-center gap-3 p-3 mb-2 rounded-full text-sm font-medium text-gray-600 hover:bg-gray-300" data-menu="logout">
             <img class="w-5 h-5" src="assets/images/dashboard_icons/logout.png" alt="Logout">
-            <span class="menu-text">LOGOUT</span>
+            <span class="menu-text">| LOGOUT</span>
         </button>
     </nav>
 </div>
