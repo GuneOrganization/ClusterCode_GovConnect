@@ -645,21 +645,21 @@
             }, 100);
         });
 
-        // //notification section JS
-        // const viewAllBtn = document.getElementById("viewAllNotifications");
-        // const allSections = document.querySelectorAll(".content-section");
-        // const fullNotifications = document.getElementById("notifications-content");
+        //notification section JS
+        const viewAllBtn = document.getElementById("viewAllNotifications");
+        const allSections = document.querySelectorAll(".content-section");
+        const fullNotifications = document.getElementById("notifications-content");
 
-        // viewAllBtn.addEventListener("click", () => {
-        //     // Hide all sections
-        //     allSections.forEach(sec => sec.classList.add("hidden"));
+        viewAllBtn.addEventListener("click", () => {
+            // Hide all sections
+            allSections.forEach(sec => sec.classList.add("hidden"));
 
-        //     // Show the notifications page
-        //     fullNotifications.classList.remove("hidden");
+            // Show the notifications page
+            fullNotifications.classList.remove("hidden");
 
-        //     // Also hide the dropdown
-        //     document.getElementById("notificationPopup").classList.add("hidden");
-        // });
+            // Also hide the dropdown
+            document.getElementById("notificationPopup").classList.add("hidden");
+        });
     </script>
 
     <script>
