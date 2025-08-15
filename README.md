@@ -21,6 +21,9 @@ INSERT INTO `gov_connect`.`appointment_status` (`id`, `status`) VALUES (2, 'Acce
 INSERT INTO `gov_connect`.`appointment_status` (`id`, `status`) VALUES (3, 'Rejected');
 INSERT INTO `gov_connect`.`appointment_status` (`id`, `status`) VALUES (4, 'Completed');
 
+INSERT INTO `notification_status` (`id`, `status`) VALUES (1, 'Unread');
+INSERT INTO `notification_status` (`id`, `status`) VALUES (2, 'Read');
+
 
 ### Sample Data Queries
 
