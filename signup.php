@@ -1,10 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+
+session_start();
+
+if (isset($_SESSION["user"])) {
+
+  if ($_SESSION["user"]["role"] == "Government Officer") {
+    header("Location: employee.php");
+  } else if ($_SESSION["user"]["role"] == "Citizen") {
+    header("Location: dashboard.php");
+  }
+} else {
+
+?>
+  <!DOCTYPE html>
+  <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gov-Connect - Sign In</title>
+    <title>Gov-Connect - Sign Up</title>
+    <link rel="icon" href="assets/images/logo.png" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/4ba622a87c.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script>
       tailwind.config = {
@@ -25,82 +43,67 @@
     </script>
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+      rel="stylesheet" />
     <style>
       body {
         font-family: "Inter", sans-serif;
       }
     </style>
   </head>
+
   <body class="min-h-screen flex flex-col lg:flex-row bg-gray-50">
     <!-- Left Welcome Panel -->
     <div
-      class="w-full lg:w-1/2 bg-gradient-to-b from-teal-800 to-teal-900 flex flex-col justify-center items-center text-white text-center p-8 lg:p-12"
-    >
+      class="w-full lg:w-1/2 bg-gradient-to-b from-teal-800 to-teal-900 flex flex-col justify-center items-center text-white text-center p-8 lg:p-12">
       <!-- Logo -->
-      <div class="relative w-16 h-16 lg:w-20 lg:h-20 mb-8 lg:mb-12">
-        <div
-          class="absolute w-8 h-8 lg:w-10 lg:h-10 bg-orange-500 rounded-full top-2 left-2 transform -rotate-45"
-          style="border-radius: 50% 50% 50% 10px"
-        ></div>
-        <div
-          class="absolute w-7 h-7 lg:w-9 lg:h-9 bg-orange-400 bottom-3 right-3 transform rotate-45"
-          style="border-radius: 50% 50% 10px 50%"
-        ></div>
-      </div>
+      <img src="assets/images/logo.png" class="relative w-16 h-16 lg:w-20 lg:h-20 mb-8 lg:mb-12">
+
+      </img>
 
       <h1
-        class="text-2xl lg:text-4xl font-bold mb-4 lg:mb-6 uppercase tracking-wide"
-      >
+        class="text-2xl lg:text-4xl font-bold mb-4 lg:mb-6 uppercase tracking-wide">
         WELCOME TO GOV-CONNECT
       </h1>
       <p
-        class="text-sm lg:text-base mb-6 lg:mb-8 opacity-90 max-w-md leading-relaxed px-4 lg:px-0"
-      >
+        class="text-sm lg:text-base mb-6 lg:mb-8 opacity-90 max-w-md leading-relaxed px-4 lg:px-0">
         GovConnect is a one-stop digital platform that lets Sri Lankan citizens
         access, book, and track government services with a single NIC login –
         saving time, reducing queues, and cutting paperwork.
       </p>
       <button
-        class="bg-white text-teal-600 px-6 py-2 lg:px-8 lg:py-3 rounded-full font-semibold uppercase hover:bg-gray-50 transition-colors"
-      >
+        class="bg-white text-teal-600 px-6 py-2 lg:px-8 lg:py-3 rounded-full font-semibold uppercase hover:bg-gray-50 transition-colors">
         LEARN MORE
       </button>
     </div>
 
     <!-- Right Sign In Panel -->
     <div
-      class="w-full lg:w-1/2 flex flex-col justify-center p-8 lg:p-12 bg-white"
-    >
+      class="w-full lg:w-1/2 flex flex-col justify-center p-8 lg:p-12 bg-white">
       <div class="max-w-sm mx-auto w-full">
         <div class="mb-3">
           <h2
-            class="text-2xl lg:text-3xl  font-bold text-center text-gray-800 mb-2"
-          >
+            class="text-2xl lg:text-3xl  font-bold text-center text-gray-800 mb-2">
             Create New Account
           </h2>
           <div class="w-16 h-0.5 bg-teal-600 mx-auto"></div>
         </div>
 
-        <form onsubmit="handleLogin(event)" class="space-y-6">
+        <div class="space-y-6">
           <div>
             <input
               type="text"
               class="w-full border-b-2 border-gray-300 py-3 px-1 text-base text-gray-700 focus:border-teal-600 focus:outline-none"
-              id="email"
+              id="first-name"
               placeholder="First Name"
-              required
-            />
+              required />
           </div>
           <div>
             <input
               type="text"
               class="w-full border-b-2 border-gray-300 py-3 px-1 text-base text-gray-700 focus:border-teal-600 focus:outline-none"
-              id="email"
+              id="last-name"
               placeholder="Last Name"
-              required
-            />
+              required />
           </div>
           <div>
             <input
@@ -108,26 +111,23 @@
               class="w-full border-b-2 border-gray-300 py-3 px-1 text-base text-gray-700 focus:border-teal-600 focus:outline-none"
               id="email"
               placeholder="Email Address"
-              required
-            />
+              required />
           </div>
           <div>
             <input
               type="text"
               class="w-full border-b-2 border-gray-300 py-3 px-1 text-base text-gray-700 focus:border-teal-600 focus:outline-none"
-              id="email"
+              id="nic"
               placeholder="NIC"
-              required
-            />
+              required />
           </div>
           <div>
             <input
               type="text"
               class="w-full border-b-2 border-gray-300 py-3 px-1 text-base text-gray-700 focus:border-teal-600 focus:outline-none"
-              id="email"
+              id="mobile"
               placeholder="Mobile Number"
-              required
-            />
+              required />
           </div>
 
           <div class="relative">
@@ -135,55 +135,28 @@
               type="password"
               class="w-full border-b-2 border-gray-300 py-3 px-1 text-base text-gray-700 focus:border-teal-600 focus:outline-none"
               placeholder="Password"
-              id="password"
-              required
-            />
-            <button
-              type="button"
-              class="absolute right-0 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
-              onclick="togglePassword()"
-            >
-              👁
-            </button>
+              id="password-pass"
+              required />
+            <i class="absolute fa-solid password-toggle-pass fa-eye-slash right-0 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+              onclick="togglePassword('pass')"></i>
           </div>
           <div class="relative">
             <input
               type="password"
               class="w-full border-b-2 border-gray-300 py-3 px-1 text-base text-gray-700 focus:border-teal-600 focus:outline-none"
               placeholder="Retype Password"
-              id="password"
-              required
-            />
-            <button
-              type="button"
-              class="absolute right-0 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
-              onclick="togglePassword()"
-            >
-              👁
-            </button>
-          </div>
-
-          <!-- Remember Me + Forgot Password -->
-          <div class="flex justify-between items-center text-sm">
-            <label class="flex items-center text-gray-600">
-              <input
-                type="checkbox"
-                class="w-4 h-4 text-teal-600 border-gray-300 rounded focus:ring-teal-600"
-              />
-              <span class="ml-2">Remember Me</span>
-            </label>
-            <a href="#" class="text-teal-600 font-medium hover:text-teal-700">
-              Forgot Password?
-            </a>
+              id="password-re"
+              required />
+            <i class="absolute fa-solid password-toggle-re fa-eye-slash right-0 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+              onclick="togglePassword('re')"></i>
           </div>
 
           <button
-            type="submit"
-            class="w-full bg-teal-600 text-white py-2 font-semibold uppercase rounded-2xl hover:bg-teal-700 transition-colors"
-          >
-            SIGN IN
+            onclick="signUp();"
+            class="w-full bg-teal-800 text-white py-2 font-semibold uppercase rounded-2xl hover:bg-teal-700 transition-colors">
+            Create Account
           </button>
-        </form>
+        </div>
 
         <div class="relative my-6">
           <div class="absolute inset-0 flex items-center">
@@ -195,35 +168,38 @@
         </div>
 
         <button
-          class="w-full border-2 border-blue-400 py-2 flex items-center justify-center gap-3 rounded-2xl hover:bg-gray-50 transition-colors mb-3"
-        >
+          class="w-full border-2 border-blue-400 py-2 flex items-center justify-center gap-3 rounded-2xl hover:bg-gray-50 transition-colors mb-3">
           <svg width="18" height="18" viewBox="0 0 24 24">
             <path
               fill="#4285F4"
-              d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
-            />
+              d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
             <path
               fill="#34A853"
-              d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
-            />
+              d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
             <path
               fill="#FBBC05"
-              d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
-            />
+              d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
             <path
               fill="#EA4335"
-              d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
-            />
+              d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
           </svg>
           <span class="font-medium text-blue-500">SIGN IN WITH GOOGLE</span>
         </button>
 
         <div class="text-center">
-          <a href="#" class="text-teal-600 font-sm text-sm hover:text-teal-700">
-            Create New Account
+          <a href="index.php" class="text-teal-600 font-sm text-sm hover:text-teal-700">
+            Already have a Account? Login.
           </a>
         </div>
       </div>
     </div>
+
+    <script src="./assets/js/signup.js"></script>
+
   </body>
-</html>
+
+  </html>
+<?php
+}
+
+?>
