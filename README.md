@@ -104,18 +104,17 @@ ClusterCode_GovConnect/
 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/ClusterCode_GovConnect.git
+git clone https://github.com/GuneOrganization/ClusterCode_GovConnect.git
 cd ClusterCode_GovConnect
 ```
 
 2. Move Project to Server Directory
 
 - For **XAMPP**: Move to `htdocs/ClusterCode_GovConnect/`
-- For **WAMP**: Move to `www/ClusterCode_GovConnect/`
 
 3. Start Local Server
 
-- Start **Apache** and **MySQL** from XAMPP/WAMP control panel.
+- Start **Apache** and **MySQL** from XAMPP control panel.
 
 4. Configure Database Connection  
    Open the PHP files that interact with DB and set:
@@ -131,60 +130,6 @@ $dbname = "govconnect";
 
 ```
 http://localhost/ClusterCode_GovConnect/
-```
-
----
-
-🗄️ Database Setup
-
-Run the following SQL script to create the required database:
-
-```sql
-CREATE DATABASE govconnect;
-
-USE govconnect;
-
--- Users Table
-CREATE TABLE users (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    email VARCHAR(100) UNIQUE NOT NULL,
-    password VARCHAR(255) NOT NULL,
-    role ENUM('citizen', 'officer', 'admin') DEFAULT 'citizen',
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
--- Appointments Table
-CREATE TABLE appointments (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT,
-    officer_id INT,
-    date DATE NOT NULL,
-    time TIME NOT NULL,
-    status ENUM('pending','approved','rejected') DEFAULT 'pending',
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES users(id),
-    FOREIGN KEY (officer_id) REFERENCES users(id)
-);
-
--- Employees Table
-CREATE TABLE employees (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(100),
-    position VARCHAR(100),
-    department VARCHAR(100),
-    email VARCHAR(100) UNIQUE
-);
-
--- Feedback Table
-CREATE TABLE feedback (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT,
-    rating INT CHECK (rating BETWEEN 1 AND 5),
-    comment TEXT,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES users(id)
-);
 ```
 
 ---
