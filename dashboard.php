@@ -125,9 +125,9 @@ if (isset($_SESSION["user"])) {
                         <!-- Left side -->
                         <div class="hidden md:flex items-center gap-3 flex-shrink-0 pl-8">
                             <h5 class="text-sm sm:text-md font-medium truncate max-w-[150px] sm:max-w-none">
-                                Welcome 
-                                <?php 
-                                    echo $user["first_name"] ; 
+                                Welcome
+                                <?php
+                                echo $user["first_name"];
                                 ?> !
                             </h5>
                         </div>
@@ -144,8 +144,8 @@ if (isset($_SESSION["user"])) {
 
                                 <!-- User Info -->
                                 <div class="text-left text-xs leading-tight min-w-[100px] sm:min-w-[150px]">
-                                    <div class="font-semibold truncate"><?php echo $user["first_name"]." ".$user["last_name"] ;  ?>
-                                </div>
+                                    <div class="font-semibold truncate"><?php echo $user["first_name"] . " " . $user["last_name"];  ?>
+                                    </div>
                                     <div class="text-gray-500 truncate text-[10px]"><?php echo $user["email"];  ?></div>
                                 </div>
                             </div>
@@ -258,10 +258,15 @@ if (isset($_SESSION["user"])) {
                             <label class="block text-sm text-gray-500 mb-1">Department</label>
                             <select id="department"
                                 class="w-full px-3 py-2 rounded border border-gray-200 focus:border-teal-500 outline-none">
-                                <option value="">Select department</option>
-                                <option value="civil-registration">Civil Registration Department</option>
-                                <option value="immigration">Immigration Department</option>
-                                <option value="motor-traffic">Department of Motor Traffic</option>
+                                <option value="0">Select department</option>
+                                <?php
+
+                                $department_rs = Database::search("SELECT * FROM `department`");
+                                while ($department_row = $department_rs->fetch_assoc()) {
+                                    echo "<option value='" . $department_row['id'] . "'>" . $department_row['department'] . "</option>";
+                                }
+
+                                ?>
                             </select>
                         </div>
 
@@ -270,10 +275,15 @@ if (isset($_SESSION["user"])) {
                             <label class="block text-sm text-gray-500 mb-1">Branch</label>
                             <select id="branch"
                                 class="w-full px-3 py-2 rounded border border-gray-200 focus:border-teal-500 outline-none">
-                                <option value="">Select branch</option>
-                                <option value="central">Central Government Office</option>
-                                <option value="colombo">Colombo District Office</option>
-                                <option value="kandy">Kandy District Office</option>
+                                <option value="0">Select branch</option>
+                                <?php
+
+                                // $branch_rs = Database::search("SELECT * FROM `branch`");
+                                // while ($branch_row = $branch_rs->fetch_assoc()) {
+                                //     echo "<option value='" . $branch_row['id'] . "'>" . $branch_row['branch'] . "</option>";
+                                // }
+
+                                ?>
                             </select>
                         </div>
 
@@ -282,26 +292,34 @@ if (isset($_SESSION["user"])) {
                             <label class="block text-sm text-gray-500 mb-1">Service</label>
                             <select id="service"
                                 class="w-full px-3 py-2 rounded border border-gray-200 focus:border-teal-500 outline-none">
-                                <option value="">Select service</option>
-                                <option value="national-id">National ID Renewal</option>
-                                <option value="passport">Passport Application</option>
-                                <option value="driving-license">Driving License</option>
+                                <option value="0">Select service</option>
+                                <?php
+
+                                //$service_rs = Database::search("SELECT * FROM `service`");
+                                //while ($service_row = $service_rs->fetch_assoc()) {
+                                //    echo "<option value='" . $service_row['id'] . "'>" . $service_row['title'] . "</option>";
+                                //}
+
+                                ?>
                             </select>
                         </div>
 
                         <!-- File Upload -->
-                        <div>
-                            <label class="block text-sm text-gray-500 mb-1">Attach Documents (Optional)</label>
-                            <div class="flex flex-col sm:flex-row sm:items-center gap-3">
-                                <input type="file" id="fileUpload" class="hidden" multiple>
-                                <button type="button" id="fileSelectBtn"
-                                    class="bg-teal-800 hover:bg-teal-700 text-white px-4 py-2 rounded font-semibold text-sm shadow">
-                                    📎 Choose Files
-                                </button>
-                                <span id="fileCount" class="text-sm text-gray-600">No files selected</span>
+                        <div id="documentsContainer"></div>
+                        <!-- <div id="attach-doc-main">
+                            <div id="attach-doc-temp" class="hidden">
+                                <label class="block text-sm text-gray-500 mb-1">Attach Documents (Optional)</label>
+                                <div class="flex flex-col sm:flex-row sm:items-center gap-3">
+                                    <input type="file" id="fileUpload" class="hidden" multiple>
+                                    <button type="button" id="fileSelectBtn"
+                                        class="bg-teal-800 hover:bg-teal-700 text-white px-4 py-2 rounded font-semibold text-sm shadow">
+                                        📎 Choose Files
+                                    </button>
+                                    <span id="fileCount" class="text-sm text-gray-600">No files selected</span>
+                                </div>
+                                <ul id="fileList" class="mt-2 text-xs text-gray-700 list-disc list-inside"></ul>
                             </div>
-                            <ul id="fileList" class="mt-2 text-xs text-gray-700 list-disc list-inside"></ul>
-                        </div>
+                        </div> -->
 
                         <!-- Selected Date & Time -->
                         <div class="rounded-lg border border-gray-100 p-4 bg-gray-50">
@@ -444,7 +462,7 @@ if (isset($_SESSION["user"])) {
         </div>
 
 
-        <script>
+        <!-- <script>
             const fileInput = document.getElementById('fileUpload');
             const fileBtn = document.getElementById('fileSelectBtn');
             const fileCount = document.getElementById('fileCount');
@@ -464,7 +482,7 @@ if (isset($_SESSION["user"])) {
                     fileList.innerHTML = files.map(file => `<li>${file.name}</li>`).join('');
                 }
             });
-        </script>
+        </script> -->
 
         <?php
 
@@ -887,7 +905,7 @@ if (isset($_SESSION["user"])) {
                 // Simulate per-date booked slots (replace with your API)
                 // Key: 'YYYY-MM-DD' -> array of fully booked slots
                 const BOOKED_BY_DATE = {
-                    // "2025-02-05": ["10:00-11:00", "15:00-16:00"],
+                    "2025-08-05": ["10:00-11:00", "15:00-16:00"],
                 };
 
                 // ---------- STATE ----------
@@ -1121,6 +1139,19 @@ if (isset($_SESSION["user"])) {
                 function showModal() {
                     modal.classList.add('show');
                     modal.classList.remove('hidden');
+
+                    if (calendar) {
+                        setTimeout(() => {
+                            calendar.updateSize(); // force recalculation
+                            calendar.render(); // ensure layout refresh
+                        }, 50);
+                    }
+
+                    modal.addEventListener('transitionend', () => {
+                        if (calendar) calendar.updateSize();
+                    });
+
+
                 }
 
                 function hideModal() {
@@ -1166,12 +1197,12 @@ if (isset($_SESSION["user"])) {
                 barcode.classList.add('hidden');
             });
 
-            window.addEventListener('click', (e) => {
-                if (e.target === modal) {
-                    barcode.classList.add('hidden');
-                    barcode.classList.remove('flex');
-                }
-            });
+            // window.addEventListener('click', (e) => {
+            //     if (e.target === modal) {
+            //         barcode.classList.add('hidden');
+            //         barcode.classList.remove('flex');
+            //     }
+            // });
         </script>
 
         <script src="./assets/js/script.js"></script>
