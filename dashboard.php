@@ -656,20 +656,20 @@ if (isset($_SESSION["user"])) {
             });
 
             //notification section JS
-            const viewAllBtn = document.getElementById("viewAllNotifications");
-            const allSections = document.querySelectorAll(".content-section");
-            const fullNotifications = document.getElementById("notifications-content");
+            // const viewAllBtn = document.getElementById("viewAllNotifications");
+            // const allSections = document.querySelectorAll(".content-section");
+            // const fullNotifications = document.getElementById("notifications-content");
 
-            viewAllBtn.addEventListener("click", () => {
-                // Hide all sections
-                allSections.forEach(sec => sec.classList.add("hidden"));
+            // viewAllBtn.addEventListener("click", () => {
+            //     // Hide all sections
+            //     allSections.forEach(sec => sec.classList.add("hidden"));
 
-                // Show the notifications page
-                fullNotifications.classList.remove("hidden");
+            //     // Show the notifications page
+            //     fullNotifications.classList.remove("hidden");
 
-                // Also hide the dropdown
-                document.getElementById("notificationPopup").classList.add("hidden");
-            });
+            //     // Also hide the dropdown
+            //     document.getElementById("notificationPopup").classList.add("hidden");
+            // });
         </script>
 
         <script>
@@ -770,10 +770,6 @@ if (isset($_SESSION["user"])) {
                 });
             });
 
-
-
-
-
             // Navigation functionality
             document.addEventListener('DOMContentLoaded', function() {
                 const menuItems = document.querySelectorAll('.menu-item');
@@ -804,48 +800,46 @@ if (isset($_SESSION["user"])) {
                     });
                 });
 
+                // function openNewAppointmentModal() {
+                //     document.getElementById('newAppointmentModal').style.display = 'flex';
+                //     updateQueueNumber();
+                // }
 
+                // function closeNewAppointmentModal() {
+                //     document.getElementById('newAppointmentModal').style.display = 'none';
+                //     document.getElementById('newAppointmentForm').reset();
+                // }
 
-                function openNewAppointmentModal() {
-                    document.getElementById('newAppointmentModal').style.display = 'flex';
-                    updateQueueNumber();
-                }
+                // function updateQueueNumber() {
+                //     const queueNumber = Math.floor(Math.random() * 20) + 10;
+                //     document.getElementById('queueNumber').textContent = queueNumber;
+                // }
 
-                function closeNewAppointmentModal() {
-                    document.getElementById('newAppointmentModal').style.display = 'none';
-                    document.getElementById('newAppointmentForm').reset();
-                }
+                // // Handle form submission
+                // document.getElementById('newAppointmentForm').addEventListener('submit', function(e) {
+                //     e.preventDefault();
 
-                function updateQueueNumber() {
-                    const queueNumber = Math.floor(Math.random() * 20) + 10;
-                    document.getElementById('queueNumber').textContent = queueNumber;
-                }
+                //     // Get form values
+                //     const service = document.getElementById('service').value;
+                //     const department = document.getElementById('department').value;
+                //     const branch = document.getElementById('branch').value;
+                //     const date = document.getElementById('date').value;
+                //     const timeSlot = document.getElementById('timeSlot').value;
 
-                // Handle form submission
-                document.getElementById('newAppointmentForm').addEventListener('submit', function(e) {
-                    e.preventDefault();
+                //     if (service && department && branch && date && timeSlot) {
+                //         alert('Appointment created successfully!');
+                //         closeNewAppointmentModal();
+                //     } else {
+                //         alert('Please fill in all fields.');
+                //     }
+                // });
 
-                    // Get form values
-                    const service = document.getElementById('service').value;
-                    const department = document.getElementById('department').value;
-                    const branch = document.getElementById('branch').value;
-                    const date = document.getElementById('date').value;
-                    const timeSlot = document.getElementById('timeSlot').value;
-
-                    if (service && department && branch && date && timeSlot) {
-                        alert('Appointment created successfully!');
-                        closeNewAppointmentModal();
-                    } else {
-                        alert('Please fill in all fields.');
-                    }
-                });
-
-                // Close modal when clicking outside
-                document.getElementById('newAppointmentModal').addEventListener('click', function(e) {
-                    if (e.target === this) {
-                        closeNewAppointmentModal();
-                    }
-                });
+                // // Close modal when clicking outside
+                // document.getElementById('newAppointmentModal').addEventListener('click', function(e) {
+                //     if (e.target === this) {
+                //         closeNewAppointmentModal();
+                //     }
+                // });
             });
 
 
@@ -984,7 +978,7 @@ if (isset($_SESSION["user"])) {
                     timeSlotsEl.innerHTML = "";
                     selectedSlot = null;
                     selectedTimeText.textContent = "—";
-                    queueNumberEl.textContent = "-";
+                    // queueNumberEl.textContent = "-";
                     submitBtn.disabled = true;
 
                     if (!ymd) return;
@@ -1031,7 +1025,7 @@ if (isset($_SESSION["user"])) {
                                 btn.classList.add("ring-2", "ring-sky-400", "bg-sky-100");
                                 selectedSlot = slot;
                                 selectedTimeText.textContent = slot.replace("-", " - ");
-                                queueNumberEl.textContent = estimateQueue(ymd, slot);
+                                // queueNumberEl.textContent = estimateQueue(ymd, slot);
                                 submitBtn.disabled = false;
                                 toast('info', `Time selected: ${slot}`);
                             });
@@ -1118,7 +1112,7 @@ if (isset($_SESSION["user"])) {
                     }
 
                     // TODO: Replace with real API call
-                    alertSuccess(`Your appointment is set for ${selectedDate} at ${selectedSlot}. Queue No: ${queueNumberEl.textContent}`);
+                    // alertSuccess(`Your appointment is set for ${selectedDate} at ${selectedSlot}. Queue No: ${queueNumberEl.textContent}`);
                     // Close modal after success (optional)
                     setTimeout(() => hideModal(), 700);
                 });
