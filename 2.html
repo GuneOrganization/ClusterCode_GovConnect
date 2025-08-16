@@ -1,85 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Appointment Modal</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feedback System</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 flex items-center justify-center h-screen">
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
 
-  <!-- View Button -->
-  <button id="openModalbarcode" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
-    View
+  <!-- Add Feedback Button -->
+  <button id="openFeedback" class="px-6 py-3 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700">
+    Add Feedback
   </button>
 
-  <!-- Modal Background -->
-  <div id="modalbarcode" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center">
-    <!-- Modal Box -->
-    <div class="bg-white rounded-lg shadow-lg p-6 w-96 relative">
-      <!-- Close Button -->
-      <button id="closeModalbarcode" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700">&times;</button>
+  <!-- Feedback Modal -->
+  <div id="feedbackModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+    <div id="modalContent" class="bg-white rounded-lg shadow-lg p-6 w-full max-w-lg transform scale-95 opacity-0 transition-all duration-200">
+      <!-- Modal Header -->
+      <div class="flex justify-between items-center border-b pb-3">
+        <h2 class="text-xl font-semibold">Give Your Feedback</h2>
+        <button id="closeFeedback" class="text-gray-500 hover:text-red-500 text-xl">&times;</button>
+      </div>
 
-      <!-- Title -->
-      <h2 class="text-xl font-bold text-center mb-4 border-b pb-2">APPOINTMENT DETAILS</h2>
+      <!-- Department Selection -->
+      <div class="mt-4">
+        <label class="block text-sm font-medium text-gray-700">Select Department</label>
+        <select id="department" class="mt-1 block w-full border border-gray-300 rounded-lg p-2">
+          <option value="">-- Choose Department --</option>
+          <option value="Transport">Transport</option>
+          <option value="Health">Health</option>
+          <option value="Education">Education</option>
+        </select>
+      </div>
 
-      <!-- Barcode and Queue Number -->
-      <div class="flex items-center justify-between mb-6">
-        <div class="text-center">
-          <img src="https://barcodeapi.org/api/128/2556580001" alt="barcode" class="mx-auto w-32">
-          <p class="text-sm font-semibold text-teal-800">2556580001</p>
-        </div>
-        <div class="text-center">
-          <p class="text-teal-700 font-medium">Queue Number</p>
-          <p class="text-3xl font-bold">22</p>
+      <!-- Branch Selection -->
+      <div class="mt-4">
+        <label class="block text-sm font-medium text-gray-700">Select Branch</label>
+        <select id="branch" class="mt-1 block w-full border border-gray-300 rounded-lg p-2">
+          <option value="">-- Choose Branch --</option>
+          <option value="Colombo">Colombo</option>
+          <option value="Galle">Galle</option>
+          <option value="Kandy">Kandy</option>
+        </select>
+      </div>
+
+      <!-- Star Rating -->
+      <div class="mt-4">
+        <label class="block text-sm font-medium text-gray-700 mb-1">Your Rating</label>
+        <div class="flex space-x-1">
+          <span class="star cursor-pointer text-gray-300 text-2xl" data-value="1">&#9733;</span>
+          <span class="star cursor-pointer text-gray-300 text-2xl" data-value="2">&#9733;</span>
+          <span class="star cursor-pointer text-gray-300 text-2xl" data-value="3">&#9733;</span>
+          <span class="star cursor-pointer text-gray-300 text-2xl" data-value="4">&#9733;</span>
+          <span class="star cursor-pointer text-gray-300 text-2xl" data-value="5">&#9733;</span>
         </div>
       </div>
 
-      <!-- Appointment Details -->
-      <div class="space-y-4">
-        <div class="flex justify-between border-b pb-1">
-          <span class="text-gray-500">Time Slot</span>
-          <span class="font-medium">--</span>
-        </div>
-        <div class="flex justify-between border-b pb-1">
-          <span class="text-gray-500">Department</span>
-          <span class="font-medium">--</span>
-        </div>
-        <div class="flex justify-between border-b pb-1">
-          <span class="text-gray-500">Service</span>
-          <span class="font-medium">--</span>
-        </div>
-        <div class="flex justify-between border-b pb-1">
-          <span class="text-gray-500">Date</span>
-          <span class="font-medium">--</span>
-        </div>
+      <!-- Feedback Text -->
+      <div class="mt-4">
+        <label class="block text-sm font-medium text-gray-700">Your Feedback</label>
+        <textarea id="feedbackText" rows="3" class="mt-1 block w-full border border-gray-300 rounded-lg p-2" placeholder="Write your feedback here..."></textarea>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="mt-6 text-right">
+        <button id="submitFeedback" class="px-5 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700">
+          Submit
+        </button>
       </div>
     </div>
   </div>
 
-  <!-- Script -->
+  <!-- Success Popup -->
+  <div id="successPopup" class="fixed bottom-5 right-5 bg-green-500 text-white px-4 py-2 rounded-lg shadow hidden">
+    ✅ Feedback Submitted Successfully!
+  </div>
+
   <script>
-    const openModal = document.getElementById('openModalbarcode');
-    const closeModal = document.getElementById('closeModalbarcode');
-    const modal = document.getElementById('modalbarcode');
+    const openModal = document.getElementById("openFeedback");
+    const closeModal = document.getElementById("closeFeedback");
+    const feedbackModal = document.getElementById("feedbackModal");
+    const modalContent = document.getElementById("modalContent");
+    const stars = document.querySelectorAll(".star");
+    const successPopup = document.getElementById("successPopup");
+    let selectedRating = 0;
 
-    openModal.addEventListener('click', () => {
-      modal.classList.remove('hidden');
-      modal.classList.add('flex');
+    // Open Modal
+    openModal.addEventListener("click", () => {
+      feedbackModal.classList.remove("hidden");
+      feedbackModal.classList.add("flex");
+      setTimeout(() => {
+        modalContent.classList.remove("scale-95", "opacity-0");
+        modalContent.classList.add("scale-100", "opacity-100");
+      }, 50);
     });
 
-    closeModal.addEventListener('click', () => {
-      modal.classList.remove('flex');
-      modal.classList.add('hidden');
+    // Close Modal
+    closeModal.addEventListener("click", () => {
+      modalContent.classList.add("scale-95", "opacity-0");
+      setTimeout(() => {
+        feedbackModal.classList.add("hidden");
+        feedbackModal.classList.remove("flex");
+      }, 200);
     });
 
-    window.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        modal.classList.add('hidden');
-        modal.classList.remove('flex');
+    // Star Rating
+    stars.forEach(star => {
+      star.addEventListener("click", () => {
+        selectedRating = star.dataset.value;
+        stars.forEach(s => s.classList.remove("text-yellow-400"));
+        for (let i = 0; i < selectedRating; i++) {
+          stars[i].classList.add("text-yellow-400");
+        }
+      });
+    });
+
+    // Submit Feedback
+    document.getElementById("submitFeedback").addEventListener("click", () => {
+      const feedback = document.getElementById("feedbackText").value;
+      const department = document.getElementById("department").value;
+      const branch = document.getElementById("branch").value;
+
+      if (!department) {
+        alert("Please select a department.");
+        return;
       }
+      if (!branch) {
+        alert("Please select a branch.");
+        return;
+      }
+      if (!selectedRating) {
+        alert("Please select a rating.");
+        return;
+      }
+      if (!feedback.trim()) {
+        alert("Please provide feedback.");
+        return;
+      }
+
+      // Close modal
+      closeModal.click();
+
+      // Show success popup
+      successPopup.classList.remove("hidden");
+      setTimeout(() => {
+        successPopup.classList.add("hidden");
+      }, 2000);
     });
   </script>
-
 </body>
 </html>
