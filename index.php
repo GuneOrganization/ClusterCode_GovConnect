@@ -156,7 +156,7 @@ if (isset($_SESSION["user"])) {
         </button>
 
         <div class="text-center">
-          <a href="#" class="text-teal-600 font-sm text-sm hover:text-teal-700">
+          <a href="signup.php" class="text-teal-600 font-sm text-sm hover:text-teal-700">
             Create New Account
           </a>
         </div>

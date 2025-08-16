@@ -32,5 +32,10 @@ class Validation
         }
     }
 
-    
+    public static function isValidMobile($number)
+    {
+        $pattern = '/^(?:\+94|0)(71|72|75|76|77|78)[0-9]{7}$/';
+
+        return preg_match($pattern, $number);
+    }
 }
