@@ -35,11 +35,11 @@
     </style>
   </head>
   <body class="min-h-screen flex flex-col lg:flex-row bg-gray-50">
-    <!-- Left Welcome Panel -->
+   
     <div
       class="w-full lg:w-1/2 bg-gradient-to-b from-teal-800 to-teal-900 flex flex-col justify-center items-center text-white text-center p-8 lg:p-12"
     >
-      <!-- Logo -->
+      
       <img src="assets/images/logo.png" class="relative w-16 h-16 lg:w-20 lg:h-20 mb-8 lg:mb-12">
         
       </img>
@@ -63,7 +63,6 @@
       </button>
     </div>
 
-    <!-- Right Sign In Panel -->
     <div
       class="w-full lg:w-1/2 flex flex-col justify-center p-8 lg:p-12 bg-white"
     >

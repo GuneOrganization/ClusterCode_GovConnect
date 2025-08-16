@@ -50,7 +50,7 @@ if (!isset($_SESSION["vda"]) || isset($_SESSION["user"])) {
   </head>
 
   <body class="min-h-screen flex flex-col lg:flex-row bg-gray-50">
-    <!-- Left Welcome Panel -->
+  
     <div
       class="w-full lg:w-1/2 bg-gradient-to-b from-teal-800 to-teal-900 flex flex-col justify-center items-center text-white text-center p-8 lg:p-12">
       <!-- Logo -->
@@ -74,7 +74,7 @@ if (!isset($_SESSION["vda"]) || isset($_SESSION["user"])) {
       </button>
     </div>
 
-    <!-- Right Sign In Panel -->
+    
     <div
       class="w-full lg:w-1/2 flex flex-col justify-center p-8 lg:p-12 bg-white">
       <div class="max-w-sm mx-auto w-full">

@@ -50,7 +50,7 @@ let mySelectedDate = "";
 //   });
 // });
 
-// Submit Feedback
+
 document.getElementById("submitFeedback").addEventListener("click", () => {
   const feedback = document.getElementById("feedbackText").value;
   const department = document.getElementById("department").value;
@@ -65,10 +65,9 @@ document.getElementById("submitFeedback").addEventListener("click", () => {
     return;
   }
 
-  // Close modal
+
   closeModal.click();
 
-  // Show success popup
   successPopup.classList.remove("hidden");
   setTimeout(() => {
     successPopup.classList.add("hidden");
@@ -94,34 +93,29 @@ function dismissNotification(button) {
   }, 300);
 }
 
-// Close notifications when pressing Escape key
 document.addEventListener("keydown", function (event) {
   if (event.key === "Escape") {
     hideNotifications();
   }
 });
 
-// Menu navigation
 document.querySelectorAll(".menu-item").forEach((item) => {
   item.addEventListener("click", function () {
     const menu = this.getAttribute("data-menu");
 
-    // Remove active class from all menu items
     document.querySelectorAll(".menu-item").forEach((menuItem) => {
       menuItem.classList.remove("bg-white", "shadow-sm");
       menuItem.classList.add("hover:bg-gray-300");
     });
 
-    // Add active class to clicked item
+    
     this.classList.add("bg-white", "shadow-sm");
     this.classList.remove("hover:bg-gray-300");
 
-    // Hide all content sections
     document.querySelectorAll(".content-section").forEach((section) => {
       section.classList.remove("active");
     });
 
-    // Show selected content section
     const targetSection = document.getElementById(menu + "-content");
     if (targetSection) {
       targetSection.classList.add("active");
@@ -129,7 +123,7 @@ document.querySelectorAll(".menu-item").forEach((item) => {
   });
 });
 
-// Modal functionality
+
 const newAppointmentBtn = document.getElementById("newAppointmentBtn");
 const appointmentModal = document.getElementById("appointmentModal");
 // const closeModal = document.getElementById('closeModal');
@@ -151,28 +145,27 @@ appointmentForm.addEventListener("submit", function (e) {
   appointmentModal.classList.add("hidden");
 });
 
-// Password toggle functionality
 function togglePassword(fieldId) {
   const field = document.getElementById(fieldId);
   const type = field.getAttribute("type") === "password" ? "text" : "password";
   field.setAttribute("type", type);
 }
 
-// main clander
+
 const btn = document.getElementById("notificationBtn");
 const popup = document.getElementById("notificationPopup");
 
-// Show popup on hover
+
 btn.addEventListener("mouseenter", () => {
   popup.classList.remove("hidden");
 });
 
-// Keep it open if hovering over popup
+
 popup.addEventListener("mouseenter", () => {
   popup.classList.remove("hidden");
 });
 
-// Hide popup when mouse leaves both button and popup
+
 btn.addEventListener("mouseleave", () => {
   setTimeout(() => {
     if (!popup.matches(":hover")) {
@@ -281,7 +274,7 @@ document.addEventListener("DOMContentLoaded", function () {
   calendar.render();
 });
 
-// Navigation functionality
+
 document.addEventListener("DOMContentLoaded", function () {
   const menuItems = document.querySelectorAll(".menu-item");
   const contentSections = document.querySelectorAll(".content-section");
@@ -290,20 +283,20 @@ document.addEventListener("DOMContentLoaded", function () {
     item.addEventListener("click", function () {
       const targetMenu = this.getAttribute("data-menu");
 
-      // Remove active class from all menu items
+      
       menuItems.forEach((menuItem) => {
         menuItem.classList.remove("active");
       });
 
-      // Add active class to clicked item
+      
       this.classList.add("active");
 
-      // Hide all content sections
+      
       contentSections.forEach((section) => {
         section.classList.remove("active");
       });
 
-      // Show target content section
+      
       const targetSection = document.getElementById(targetMenu + "-content");
       if (targetSection) {
         targetSection.classList.add("active");
@@ -369,19 +362,17 @@ function updateQueueNumber() {
 }
 
 (() => {
-  // ---------- CONFIG ----------
-  // Add/modify holidays here (YYYY-MM-DD). Example includes common SL dates; extend as needed.
+  
   const HOLIDAYS = new Set([
-    "2025-01-14", // Poya
-    "2025-02-04", // Independence Day
+    "2025-01-14", 
+    "2025-02-04", 
     "2025-04-13",
-    "2025-04-14", // Sinhala & Tamil New Year
-    "2025-05-01", // Labour Day
-    "2025-05-12", // Example Poya
-    "2025-06-11", // Example Poya
+    "2025-04-14", 
+    "2025-05-01", 
+    "2025-05-12", 
+    "2025-06-11", 
   ]);
 
-  // Business hours (used for queue estimate & slot generation)
   const BASE_SLOTS = [
     "09:00-10:00",
     "10:00-11:00",
@@ -390,17 +381,13 @@ function updateQueueNumber() {
     "15:00-16:00",
   ];
 
-  // Simulate per-date booked slots (replace with your API)
-  // Key: 'YYYY-MM-DD' -> array of fully booked slots
   const BOOKED_BY_DATE = {
     "2025-08-05": ["10:00-11:00", "15:00-16:00"],
   };
 
-  // ---------- STATE ----------
-  let selectedDate = null; // "YYYY-MM-DD"
-  let selectedSlot = null; // "HH:mm-HH:mm"
+  let selectedDate = null; 
+  let selectedSlot = null; 
 
-  // ---------- DOM ----------
   const modal = document.getElementById("appointmentModal");
   const openBtn = document.getElementById("openModal");
   const closeBtn = document.getElementById("closeModal");
@@ -411,7 +398,6 @@ function updateQueueNumber() {
   const form = document.getElementById("appointmentForm");
   const submitBtn = document.getElementById("submitBtn");
 
-  // ---------- UTIL ----------
   const pad = (n) => String(n).padStart(2, "0");
   const toYMD = (d) =>
     `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
@@ -428,7 +414,6 @@ function updateQueueNumber() {
     return d < today;
   }
 
-  // A stable pseudo-random hash for a string (for demo queue estimates)
   function hashStr(str) {
     let h = 2166136261 >>> 0;
     for (let i = 0; i < str.length; i++) {
@@ -550,7 +535,6 @@ function updateQueueNumber() {
   //     }
   // }
 
-  // ---------- CALENDAR ----------
   let calendar = null;
 
   function buildCalendar() {
@@ -589,14 +573,14 @@ function updateQueueNumber() {
         loadTimeSlotsWithAvailability(ymd);
         // renderTimeSlots(ymd);
       },
-      // Shade holidays using background events
+      
       events: Array.from(HOLIDAYS).map((d) => ({
         start: d,
         end: d,
         display: "background",
         className: "is-holiday",
       })),
-      // Add a CSS class to day cells that are holidays to block pointer events
+      
       dayCellDidMount: (arg) => {
         const ymd = toYMD(arg.date);
         if (isHoliday(ymd)) {
@@ -608,7 +592,7 @@ function updateQueueNumber() {
     calendar.render();
   }
 
-  // ---------- SUBMIT ----------
+  
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     const service = document.getElementById("service").value.trim();
@@ -626,7 +610,7 @@ function updateQueueNumber() {
     setTimeout(() => hideModal(), 700);
   });
 
-  // ---------- MODAL OPEN/CLOSE ----------
+  
   function showModal() {
     modal.classList.add("show");
     modal.classList.remove("hidden");
@@ -654,8 +638,7 @@ function updateQueueNumber() {
     if (e.target === modal) hideModal();
   });
 
-  // ---------- INIT ----------
-  // Build calendar after modal is in DOM to ensure width calc is correct
+  
   document.addEventListener("DOMContentLoaded", () => {
     buildCalendar();
     // Preselect "today" (if not holiday)
@@ -668,7 +651,7 @@ function updateQueueNumber() {
   });
 })();
 
-// ew barcode js
+
 function loadBarcodeModelData(data) {
   const openBarcodemodelModal = document.getElementById("openModalbarcode");
   const closeBarcodeModal = document.getElementById("closeModalbarcode");
@@ -702,7 +685,7 @@ async function cancelAppointment(reference) {
   }
 }
 
-// Navigation functionality
+
 document.addEventListener("DOMContentLoaded", function () {
   const menuItems = document.querySelectorAll(".menu-item");
   const contentSections = document.querySelectorAll(".content-section");
@@ -711,20 +694,20 @@ document.addEventListener("DOMContentLoaded", function () {
     item.addEventListener("click", function () {
       const targetMenu = this.getAttribute("data-menu");
 
-      // Remove active class from all menu items
+      
       menuItems.forEach((menuItem) => {
         menuItem.classList.remove("active");
       });
 
-      // Add active class to clicked item
+      
       this.classList.add("active");
 
-      // Hide all content sections
+      
       contentSections.forEach((section) => {
         section.classList.remove("active");
       });
 
-      // Show target content section
+      
       const targetSection = document.getElementById(targetMenu + "-content");
       if (targetSection) {
         targetSection.classList.add("active");
@@ -954,13 +937,13 @@ async function loadTimeSlotsWithAvailability(ymd) {
     alert("Select a Date");
   } else {
     try {
-      // 1. Fetch all time slots
+      
       const allRes = await fetch(
         "http://localhost/ClusterCode_GovConnect/backend/getTimeSlots.php"
       );
       const allResult = await allRes.json();
 
-      // 2. Fetch available time slots
+      
       const availRes = await fetch(
         `http://localhost/ClusterCode_GovConnect/backend/getAvailableTimeSlotsByService.php?service_id=${serviceId}&appointment_date=${ymd}`
       );
@@ -977,7 +960,7 @@ async function loadTimeSlotsWithAvailability(ymd) {
             : [];
 
         let i = 0;
-        // While loop to add options
+        
         while (i < allSlots.length) {
           const slot = allSlots[i];
           const option = document.createElement("option");
@@ -985,7 +968,7 @@ async function loadTimeSlotsWithAvailability(ymd) {
           option.value = slot.id;
           option.textContent = `${slot.start_time} - ${slot.end_time}`;
 
-          // Disable if not available
+          
           if (!availableSlots.includes(slot.id)) {
             option.disabled = true;
             option.textContent =
@@ -1009,7 +992,7 @@ async function loadTimeSlotsWithAvailability(ymd) {
 }
 
 async function createNewAppointment() {
-  // Get form values
+  
   let department = document.getElementById("department").value;
   let branch = document.getElementById("branch").value;
   let service = document.getElementById("service").value;
@@ -1030,7 +1013,7 @@ async function createNewAppointment() {
 
     document.querySelectorAll("input[type='file']").forEach((input) => {
       if (input.files.length > 0) {
-        // append with the name attribute (documents[12], etc.)
+        
         formData.append(input.name, input.files[0]);
       }
     });

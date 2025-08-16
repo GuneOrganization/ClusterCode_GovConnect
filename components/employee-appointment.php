@@ -1,13 +1,12 @@
 <div id="employee-appointments-content" class="content-section p-4 sm:p-6">
 
-    <!-- Dashboard Header -->
+    
     <div class="mb-6 text-center">
         <h2 class="text-2xl font-bold text-gray-800">CIVILIAN APPOINTMENTS</h2>
         <div class="w-32 h-0.5 bg-black mx-auto mt-2"></div>
         <p class="mt-2 text-sm text-gray-600">View and manage all civilian appointments</p>
     </div>
 
-    <!-- Stats Cards -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         <?php
         $user_nic = $_SESSION['user']['nic'];
@@ -99,7 +98,7 @@
         </div>
     </div>
 
-    <!-- Search and Filter Section -->
+   
     <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-4 mb-6">
         <div class="flex flex-col sm:flex-row flex-wrap gap-4">
             <!-- Reference Number Search -->
@@ -114,7 +113,7 @@
                 </div>
             </div>
 
-            <!-- Service Type Filter -->
+            
             <div class="flex-1 min-w-[200px]">
                 <label for="serviceFilter" class="block text-sm font-medium text-gray-700 mb-1">Service Type</label>
                 <div class="relative">
@@ -140,7 +139,7 @@
                 </div>
             </div>
 
-            <!-- Date Filter -->
+           
             <div class="flex-1 min-w-[200px]">
                 <label for="dateFilter" class="block text-sm font-medium text-gray-700 mb-1">Appointment Date</label>
                 <div class="relative">
@@ -152,7 +151,7 @@
                 </div>
             </div>
 
-            <!-- Time Slot Filter -->
+            
             <div class="flex-1 min-w-[200px]">
                 <label for="timeFilter" class="block text-sm font-medium text-gray-700 mb-1">Time Slot</label>
                 <div class="relative">
@@ -178,7 +177,7 @@
                 </div>
             </div>
 
-            <!-- Search Button -->
+            
             <div class="flex items-end min-w-[120px]">
                 <button id="searchButton" class="h-10 w-full sm:w-auto px-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
                     <i class="fas fa-search mr-2"></i> Search
@@ -187,9 +186,9 @@
         </div>
     </div>
 
-    <!-- Appointments Cards Grid -->
+   
     <div class="grid grid-cols-1 gap-6 mb-8 overflow-y-auto max-h-[420px]">
-        <!-- Example Appointment Card -->
+        
         <?php
         $appoinment_result = Database::search("
                                     SELECT * FROM `appointment` 

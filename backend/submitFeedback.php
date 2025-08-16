@@ -43,5 +43,4 @@ if (empty($referenceNumber) || empty($rating) || empty($feedback)) {
     }
 }
 
-// Return JSON
 echo json_encode($response);

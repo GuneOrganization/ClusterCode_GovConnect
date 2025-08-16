@@ -37,7 +37,7 @@ if (isset($_SESSION["user"])) {
                 <header class="bg-white shadow-sm border-b border-gray-200 py-6">
                     <div class="flex flex-wrap justify-between items-center gap-4">
 
-                        <!-- Left side -->
+                        
                         <div class="hidden md:flex items-center gap-3 flex-shrink-0 pl-8">
                             <h5 class="text-sm sm:text-md font-medium truncate max-w-[150px] sm:max-w-none">
                                 Welcome
@@ -48,7 +48,7 @@ if (isset($_SESSION["user"])) {
                         </div>
 
 
-                        <!-- Right side -->
+                        
                         <div class="w-full md:w-auto px-8 flex items-center justify-between gap-3 flex-wrap sm:flex-nowrap">
 
                             <div class="flex items-center justify-between gap-2 flex-wrap sm:flex-nowrap">
@@ -67,7 +67,7 @@ if (isset($_SESSION["user"])) {
                                 </div>
                             </div>
 
-                            <!-- Notification Icon -->
+                            
                             <div class="flex">
                                 <button id="notificationBtn"
                                     class="text-black rounded-full flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 hover:bg-gray-100">
@@ -83,7 +83,7 @@ if (isset($_SESSION["user"])) {
                     </div>
                 </header>
 
-                <!-- Popup Dropdown -->
+                
                 <div id="notificationPopup"
                     class="hidden absolute right-0 mt-2 w-64 bg-white border border-gray-200 rounded shadow-lg z-50">
                     <div class="p-4 border-b border-gray-200 font-semibold text-sm">
@@ -106,34 +106,34 @@ if (isset($_SESSION["user"])) {
                     </div>
                 </div>
 
-                <!-- Main Dashboard Content -->
+                
                 <main class="p-4">
 
-                    <!-- Dashboard Section -->
+                    
                     <?php include 'components/user-dashboard.php'; ?>
 
-                    <!-- appointment Section -->
+                    
                     <?php include 'components/appointment.php'; ?>
 
-                    <!-- service-guide Section -->
+                    
                     <?php include 'components/service-guide.php'; ?>
 
-                    <!-- AI Chatbot Section -->
+                    
                     <?php include 'components/ai-chat-bot.php'; ?>
 
-                    <!-- My profile Section -->
+                    
                     <?php include 'components/my-profile.php'; ?>
 
                 </main>
             </div>
         </div>
 
-        <!-- Converted new appointment modal from Bootstrap to Tailwind -->
+        
         <div id="appointmentModal"
             class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center px-2 sm:px-4">
             <div class="bg-white rounded-xl w-full max-w-6xl max-h-[90vh] flex flex-col shadow-xl overflow-hidden">
 
-                <!-- Header -->
+                
                 <div class="p-4 sm:p-6 border-b-4 border-teal-800 relative flex items-center justify-center">
                     <h3 class="text-xl sm:text-2xl font-semibold text-gray-800 text-center">New Appointment</h3>
                     <button id="closeModal"
@@ -142,12 +142,12 @@ if (isset($_SESSION["user"])) {
                     </button>
                 </div>
 
-                <!-- Body -->
+                
                 <div class="flex-1 p-4 sm:p-6 grid grid-cols-1 lg:grid-cols-2 gap-6 overflow-y-auto">
 
-                    <!-- LEFT: Form -->
+                    
                     <div id="appointmentForm" class="space-y-5">
-                        <!-- Department -->
+                        
                         <div>
                             <label class="block text-xs text-gray-800 mb-1">Department</label>
                             <select id="department"
@@ -164,7 +164,7 @@ if (isset($_SESSION["user"])) {
                             </select>
                         </div>
 
-                        <!-- Branch -->
+                        
                         <div>
                             <label class="block text-xs text-gray-800 mb-1">Branch</label>
                             <select id="branch"
@@ -173,7 +173,7 @@ if (isset($_SESSION["user"])) {
                             </select>
                         </div>
 
-                        <!-- Service -->
+                       
                         <div>
                             <label class="block text-xs text-gray-800 mb-1">Service</label>
                             <select id="service"
@@ -206,7 +206,7 @@ if (isset($_SESSION["user"])) {
                             </div>
                         </div> -->
 
-                        <!-- Selected Date & Time -->
+                        
                         <div class="rounded-lg border border-gray-100 p-4 bg-gray-50">
                             <p class="text-xs text-gray-800">Selected Date:</p>
                             <p id="selectedDateText" class="text-sm font-semibold text-gray-800">—</p>
@@ -214,7 +214,7 @@ if (isset($_SESSION["user"])) {
                             <p id="selectedTimeText" class="text-sm font-semibold text-gray-800">—</p> -->
                         </div>
 
-                        <!-- Time Slot -->
+                        
                         <div>
                             <label class="block text-xs text-gray-800 mb-1">Time Slot</label>
                             <select id="timeslot" class="w-full px-3 py-2 rounded border border-gray-200 focus:border-teal-500 outline-none text-xs" disabled>
@@ -222,25 +222,25 @@ if (isset($_SESSION["user"])) {
                             </select>
                         </div>
 
-                         <!-- File Upload -->
+                         
                           <div>
                             <label class="block text-sm text-gray-800 m2-2">Documents</label>
                         </div>
                         <div id="documentsContainer"></div>
 
-                        <!-- Create Button -->
+                        
                         <button onclick="createNewAppointment();" id="submitBtn" class="w-full bg-teal-800 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-teal-600 text-white py-3 sm:py-4 rounded-lg font-semibold tracking-wider transition-colors duration-200">
                             CREATE APPOINTMENT
                         </button>
 
-                        <!-- Note -->
+                       
                         <p class="text-center text-xs text-red-600 leading-relaxed">
                             Please be aware that Poya Days, Public Holidays, Bank Holidays, and Mercantile Holidays are
                             excluded.
                         </p>
                     </div>
 
-                    <!-- RIGHT: Calendar + Time Slots -->
+                    
                     <div class="space-y-4">
                         <!-- Calendar -->
                         <div id="calendar2" class="rounded-lg border border-gray-200 p-2 bg-white shadow-sm"></div>
@@ -272,26 +272,23 @@ if (isset($_SESSION["user"])) {
                 document.body.innerHTML = printContents;
                 window.print();
                 document.body.innerHTML = originalContents;
-                location.reload(); // reload back to normal after print
+                location.reload();
             }
         </script>
 
-
-
-        <!-- feedback model -->
         <div id="feedbackModal"
             class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
 
-            <!-- Modal Box -->
+            
             <div id="modalContent"
                 class="bg-white rounded-xl shadow-lg w-full max-w-lg p-6 transform scale-95 opacity-0 transition-all duration-200">
 
-                <!-- Header -->
+                
                 <h2 class="text-2xl font-bold text-gray-800 text-center mb-1">Feedback Form</h2>
                 <p class="text-gray-500 text-center mb-5">Help us improve government services</p>
 
 
-                <!-- Star Rating -->
+                
                 <p class="text-gray-700 font-medium mb-2">Rate your experience</p>
                 <div class="flex justify-center mb-4">
                     <button class="star text-4xl text-gray-300 hover:text-yellow-400 transition" data-value="1">★</button>
@@ -301,11 +298,11 @@ if (isset($_SESSION["user"])) {
                     <button class="star text-4xl text-gray-300 hover:text-yellow-400 transition" data-value="5">★</button>
                 </div>
 
-                <!-- Feedback Text -->
+               
                 <textarea id="feedbackText" placeholder="Please provide your feedback..."
                     class="w-full border rounded-lg p-3 mb-5 resize-none h-28 focus:ring focus:ring-blue-300"></textarea>
 
-                <!-- Buttons -->
+                
                 <div class="flex gap-3">
                     <button id="submitFeedback"
                         class="flex-1 bg-teal-700 text-white py-2 rounded-lg hover:bg-teal-800 transition">
@@ -319,7 +316,6 @@ if (isset($_SESSION["user"])) {
             </div>
         </div>
 
-        <!-- Success Message -->
         <div id="successPopup"
             class="hidden fixed bottom-6 right-6 bg-green-600 text-white px-5 py-3 rounded-lg shadow-lg flex items-center space-x-2 animate-bounce">
             <span class="text-xl">✅</span>

@@ -11,7 +11,7 @@
 </head>
 
 <body class="bg-gray-50">
-    <!-- Header -->
+    
     <header class="bg-white shadow-sm border-b border-gray-200">
         <div class="px-4 py-3">
             <div class="flex items-center justify-between">
@@ -35,7 +35,7 @@
     </header>
 
     <main class="container mx-auto px-4 py-6">
-        <!-- Appointment Details Card -->
+        
         <div class="bg-white shadow rounded-lg overflow-hidden mb-6 border border-gray-200">
             <div class="px-4 py-5 sm:px-6 border-b border-gray-200">
                 <h3 class="text-lg font-medium leading-6 text-gray-900">Appointment Information</h3>
@@ -84,7 +84,7 @@
             </div>
         </div>
 
-        <!-- Uploaded Documents Section -->
+        
         <div class="bg-white shadow rounded-lg overflow-hidden mb-6 border border-gray-200">
             <div class="px-4 py-5 sm:px-6 border-b border-gray-200">
                 <h3 class="text-lg font-medium leading-6 text-gray-900">Uploaded Documents</h3>
@@ -92,7 +92,7 @@
             </div>
             <div class="px-4 py-5 sm:p-6">
                 <div class="space-y-4">
-                    <!-- Document 1 -->
+                    
                     <div
                         class="flex items-center justify-between p-3 border border-gray-200 rounded-lg hover:bg-gray-50">
                         <div class="flex items-center">
@@ -109,7 +109,7 @@
                         </button>
                     </div>
 
-                    <!-- Document 2 -->
+                    
                     <div
                         class="flex items-center justify-between p-3 border border-gray-200 rounded-lg hover:bg-gray-50">
                         <div class="flex items-center">
@@ -126,7 +126,7 @@
                         </button>
                     </div>
 
-                    <!-- Document 3 -->
+                    
                     <div
                         class="flex items-center justify-between p-3 border border-gray-200 rounded-lg hover:bg-gray-50">
                         <div class="flex items-center">
@@ -146,7 +146,7 @@
             </div>
         </div>
 
-        <!-- Update Button -->
+        
         <div class="mb-6">
             <button
                 class="w-full bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-4 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
@@ -154,16 +154,16 @@
             </button>
         </div>
 
-        <!-- Communication Section -->
+        
         <div class="bg-white shadow rounded-lg overflow-hidden border border-gray-200">
             <div class="px-4 py-5 sm:px-6 border-b border-gray-200">
                 <h3 class="text-lg font-medium leading-6 text-gray-900">Send Message to Civilian</h3>
                 <p class="mt-1 text-sm text-gray-500">Special notes or requests</p>
             </div>
             <div class="px-4 py-5 sm:p-6">
-                <!-- Message History -->
+            
                 <div class="mb-4 space-y-4 max-h-60 overflow-y-auto p-2">
-                    <!-- Officer Message -->
+                   
                     <div class="flex justify-end">
                         <div class="max-w-xs md:max-w-md bg-green-100 rounded-lg p-3">
                             <p class="text-sm text-gray-800">Please bring the original documents for verification.</p>
@@ -171,7 +171,7 @@
                         </div>
                     </div>
 
-                    <!-- Civilian Message -->
+                    
                     <div class="flex justify-start">
                         <div class="max-w-xs md:max-w-md bg-gray-100 rounded-lg p-3">
                             <p class="text-sm text-gray-800">Understood. I will bring all originals.</p>
@@ -179,14 +179,14 @@
                         </div>
                     </div>
 
-                    <!-- System Message -->
+                    
                     <div class="text-center">
                         <span class="inline-block bg-gray-100 rounded-full px-3 py-1 text-xs text-gray-500">Appointment
                             confirmed on 2025-08-10</span>
                     </div>
                 </div>
 
-                <!-- Message Input -->
+               
                 <div class="mt-4">
                     <div class="flex">
                         <input type="text"
@@ -210,24 +210,24 @@
     </main>
 
     <script>
-        // Simple script to handle document viewing (would be replaced with actual implementation)
+        
         document.querySelectorAll('[class*="fa-eye"]').forEach(icon => {
             icon.closest('button').addEventListener('click', function () {
                 alert('This would open a document viewer in a real implementation');
             });
         });
 
-        // Handle status change
+        
         document.getElementById('status').addEventListener('change', function () {
             console.log('Status changed to:', this.value);
-            // Here you would typically make an API call to update the status
+           
         });
 
-        // Handle update button click
+        
         document.querySelector('button.bg-green-600').addEventListener('click', function () {
             const status = document.getElementById('status').value;
             alert(`Appointment status updated to: ${status}`);
-            // Here you would typically submit all changes to the server
+            
         });
     </script>
 </body>

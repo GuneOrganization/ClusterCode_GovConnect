@@ -43,7 +43,6 @@
 
 </div>
 
-<!-- mobile footer bar -->
 <div id="mobileNav"
     class="sm:hidden fixed bottom-0 left-0 w-full bg-white border-t shadow-md flex justify-around items-center py-2 z-50">
     <button class="menu-item flex flex-col items-center text-xs text-gray-600 hover:text-blue-600 transition-colors"

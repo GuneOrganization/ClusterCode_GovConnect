@@ -37,7 +37,7 @@
     </nav>
 </div>
 
-<!-- Mobile Footer Navigation -->
+
 <div id="mobileNav" class="bg-stone-100 xl:hidden fixed bottom-0 left-0 w-full border-t flex justify-around px-1 z-10">
     <button class="menu-item flex flex-col items-center justify-center text-xs p-3 w-24 h-20" data-menu="dashboard">
         <img class="w-5 h-5 mb-2" src="assets/images/dashboard_icons/dashboard.png" alt="Dashboard">

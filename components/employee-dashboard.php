@@ -1,13 +1,11 @@
 <div id="employee-dashboard-content" class="content-section active p-3 sm:p-6">
 
-    <!-- Dashboard Header -->
     <div class="mb-6 text-center">
         <h2 class="text-xl sm:text-2xl font-bold text-gray-800">OFFICER DASHBOARD</h2>
         <div class="w-24 sm:w-32 h-0.5 bg-black mx-auto mt-2"></div>
         <p class="mt-2 text-xs sm:text-sm text-gray-600">Today's appointment overview</p>
     </div>
 
-    <!-- Stats Cards -->
     <div class="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-4 gap-4 mb-8">
         <?php
         $user_nic = $_SESSION['user']['nic'];
@@ -33,7 +31,7 @@
         if ($result && $result->num_rows > 0) {
             $total_appointments = $result->num_rows;
 
-            // Loop through all appointments to calculate counts
+            
             while ($data = $result->fetch_assoc()) {
                 if ($data['status'] === 'Pending') $pending_appointments++;
                 if ($data['status'] === 'Accepted') $accepted_appointments++;
@@ -41,7 +39,7 @@
                 if ($data['status'] === 'Completed') $completed_appointments++;
             }
 
-            // Available appointments = Pending + Accepted
+            
             $available_appointments = $pending_appointments + $accepted_appointments;
         }
         ?>
@@ -94,7 +92,7 @@
         </div>
     </div>
 
-    <!-- Appointments Table (Mobile Cards on Small Screens) -->
+    
     <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
         <?php
         $appoinment_result = Database::search("
@@ -116,7 +114,7 @@
             <span class="text-sm text-gray-500">Total: <?php echo $today_appointments ?></span>
         </div>
 
-        <!-- Desktop Table -->
+        
         <div class="overflow-x-auto hidden md:block">
             <table class="min-w-full divide-y divide-gray-200 text-sm">
                 <thead class="bg-gray-50">
@@ -159,10 +157,10 @@
             </table>
         </div>
 
-        <!-- Mobile Card View -->
+        
         <div class="md:hidden divide-y mb-10">
             <?php
-            // Reset pointer if needed
+            
             $appoinment_result->data_seek(0);
             while ($appointment = $appoinment_result->fetch_assoc()):
             ?>

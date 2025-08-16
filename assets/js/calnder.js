@@ -1,28 +1,14 @@
-// document.getElementById("openModal").addEventListener("click", () => {
-//   const modal = document.getElementById("appointmentModal");
-//   modal.classList.remove("hidden");
-//   modal.classList.add("flex"); // Make it flex so it centers
-// });
-
-// document.getElementById("closeModal").addEventListener("click", () => {
-//   const modal = document.getElementById("appointmentModal");
-//   modal.classList.add("hidden");
-//   modal.classList.remove("flex"); // Remove flex so it hides properly
-// });
-
 (() => {
-  // ---------- CONFIG ----------
-  // Add/modify holidays here (YYYY-MM-DD). Example includes common SL dates; extend as needed.
   const HOLIDAYS = new Set([
-    "2025-01-14", // Poya
-    "2025-02-04", // Independence Day
-    "2025-04-13", "2025-04-14", // Sinhala & Tamil New Year
-    "2025-05-01", // Labour Day
-    "2025-05-12", // Example Poya
-    "2025-06-11", // Example Poya
+    "2025-01-14", 
+    "2025-02-04", 
+    "2025-04-13", "2025-04-14", 
+    "2025-05-01", 
+    "2025-05-12", 
+    "2025-06-11",
   ]);
 
-  // Business hours (used for queue estimate & slot generation)
+ 
   const BASE_SLOTS = [
     "09:00-10:00",
     "10:00-11:00",
@@ -31,17 +17,14 @@
     "15:00-16:00",
   ];
 
-  // Simulate per-date booked slots (replace with your API)
-  // Key: 'YYYY-MM-DD' -> array of fully booked slots
+  
   const BOOKED_BY_DATE = {
     // "2025-02-05": ["10:00-11:00", "15:00-16:00"],
   };
 
-  // ---------- STATE ----------
-  let selectedDate = null;  // "YYYY-MM-DD"
-  let selectedSlot = null;  // "HH:mm-HH:mm"
+  let selectedDate = null;  
+  let selectedSlot = null;  
 
-  // ---------- DOM ----------
   const modal = document.getElementById('appointmentModal');
   const openBtn = document.getElementById('openModal');
   const closeBtn = document.getElementById('closeModal');
@@ -52,7 +35,6 @@
   const form = document.getElementById('appointmentForm');
   const submitBtn = document.getElementById('submitBtn');
 
-  // ---------- UTIL ----------
   const pad = n => String(n).padStart(2, '0');
   const toYMD = (d) => `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
 
@@ -66,7 +48,6 @@
     return d < today;
   }
 
-  // A stable pseudo-random hash for a string (for demo queue estimates)
   function hashStr(str) {
     let h = 2166136261 >>> 0;
     for (let i = 0; i < str.length; i++) {
@@ -79,7 +60,7 @@
   function estimateQueue(ymd, slot) {
     if (!ymd || !slot) return "-";
     const h = hashStr(ymd + "|" + slot);
-    return (h % 25) + 1; // 1..26
+    return (h % 25) + 1; 
   }
 
   function toast(icon, title) {
@@ -101,7 +82,7 @@
     Swal.fire({ icon: 'success', title: 'Appointment Created', text });
   }
 
-  // ---------- TIME SLOTS RENDER ----------
+
   function renderTimeSlots(ymd) {
     timeSlotsEl.innerHTML = "";
     selectedSlot = null;
@@ -122,7 +103,6 @@
 
     const booked = new Set(BOOKED_BY_DATE[ymd] || []);
 
-    // Demo rule: random extra unavailability to mimic load
     const randomUnavailableIdx = hashStr(ymd) % BASE_SLOTS.length;
 
     BASE_SLOTS.forEach((slot, idx) => {
@@ -164,7 +144,6 @@
       timeSlotsEl.appendChild(btn);
     });
 
-    // If all unavailable
     const anyEnabled = !!timeSlotsEl.querySelector('button:not([disabled])');
     if (!anyEnabled) {
       timeSlotsEl.innerHTML = `<p class="text-sm text-red-600">No available slots for ${ymd}.</p>`;
@@ -172,7 +151,7 @@
     }
   }
 
-  // ---------- CALENDAR ----------
+  
   let calendar = null;
 
   function buildCalendar() {
@@ -206,14 +185,14 @@
         toast('success', `Date selected: ${ymd}`);
         renderTimeSlots(ymd);
       },
-      // Shade holidays using background events
+      
       events: Array.from(HOLIDAYS).map(d => ({
         start: d,
         end: d,
         display: 'background',
         className: 'is-holiday'
       })),
-      // Add a CSS class to day cells that are holidays to block pointer events
+      
       dayCellDidMount: (arg) => {
         const ymd = toYMD(arg.date);
         if (isHoliday(ymd)) {
@@ -225,7 +204,7 @@
     calendar.render();
   }
 
-  // ---------- SUBMIT ----------
+  
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     const service = document.getElementById('service').value.trim();
@@ -237,13 +216,13 @@
       return;
     }
 
-    // TODO: Replace with real API call
+    
     alertSuccess(`Your appointment is set for ${selectedDate} at ${selectedSlot}. Queue No: ${queueNumberEl.textContent}`);
-    // Close modal after success (optional)
+    
     setTimeout(() => hideModal(), 700);
   });
 
-  // ---------- MODAL OPEN/CLOSE ----------
+  
   function showModal() { modal.classList.add('show'); modal.classList.remove('hidden'); }
   function hideModal() { modal.classList.remove('show'); modal.classList.add('hidden'); }
 
@@ -251,11 +230,10 @@
   if (closeBtn) closeBtn.addEventListener('click', hideModal);
   modal.addEventListener('click', (e) => { if (e.target === modal) hideModal(); });
 
-  // ---------- INIT ----------
-  // Build calendar after modal is in DOM to ensure width calc is correct
+  
   document.addEventListener('DOMContentLoaded', () => {
     buildCalendar();
-    // Preselect "today" (if not holiday)
+    
     const today = toYMD(new Date());
     if (!isHoliday(today)) {
       selectedDate = today;

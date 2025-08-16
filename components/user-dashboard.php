@@ -17,7 +17,7 @@
         $totalAppoitments = $totalAppoitmentsResult->fetch_assoc();
     ?>
 
-    <!-- Stats Cards -->
+    
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-6 p-3">
         <div class="bg-stone-100 rounded-lg shadow p-4">
             <div class="text-center sm:text-end">
@@ -45,7 +45,7 @@
         </div>
     </div>
 
-    <!-- Upcoming Appointments -->
+
     <div class="mt-5 mb-6 p-3">
         <h4 class="text-lg sm:text-xl font-semibold text-gray-800 mb-4">Upcoming Appointments</h4>
         <div class="space-y-4">

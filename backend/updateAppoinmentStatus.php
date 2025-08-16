@@ -16,7 +16,6 @@ if (isset($input['reference_number'], $input['status'])) {
     echo "Reference Number: $ref, Status ID: $status_id, Reason: $reason";
 
     try {
-        // Update query
         $stmt = Database::iud(
             "UPDATE appointment 
              SET appointment_status_id = '$status_id', rejected_message = '$reason'
@@ -62,6 +61,5 @@ if (isset($input['reference_number'], $input['status'])) {
     $response["message"] = "Invalid data sent";
 }
 
-// Return JSON
 header("Content-Type: application/json");
 echo json_encode($response);

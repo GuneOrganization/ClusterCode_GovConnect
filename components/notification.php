@@ -7,7 +7,6 @@
             </button>
         </div>
 
-        <!-- //////////////////////// -->
         <div class="max-w-2xl mx-auto bg-white p-6 pt-16 my-10 rounded-lg shadow">
             <div class="text-center mb-4">
                 <h1 class="text-xl font-semibold text-gray-900 tracking-wide">NOTIFICATIONS</h1>

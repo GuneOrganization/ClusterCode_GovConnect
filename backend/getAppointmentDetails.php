@@ -3,7 +3,6 @@ require 'connection.php';
 
 $response = ["data" => []];
 
-// Check for GET reference number
 if (isset($_GET['referenceNumber'])) {
     $ref = $_GET['referenceNumber'];
 
@@ -39,5 +38,4 @@ if (isset($_GET['referenceNumber'])) {
     $response["error"] = "Reference number not provided";
 }
 
-// Send JSON response
 echo json_encode($response);

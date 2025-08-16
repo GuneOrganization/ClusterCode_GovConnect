@@ -23,7 +23,7 @@ if (isset($_SESSION["user"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gov-Connect - Sign In</title>
 
-    <!-- Google tag (gtag.js) -->
+    
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-LW2CPHR7VM"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -67,10 +67,10 @@ if (isset($_SESSION["user"])) {
   </head>
 
   <body class="min-h-screen flex flex-col lg:flex-row bg-gray-50">
-    <!-- Left Welcome Panel -->
+    
     <div
       class="w-full lg:w-1/2 bg-gradient-to-b from-teal-800 to-teal-900 flex flex-col justify-center items-center text-white text-center p-8 lg:p-12">
-      <!-- Logo -->
+      
       <img src="assets/images/logo.png" class="relative w-16 h-16 lg:w-20 lg:h-20 mb-8 lg:mb-12">
 
       </img>
@@ -89,7 +89,7 @@ if (isset($_SESSION["user"])) {
       </button>
     </div>
 
-    <!-- Right Sign In Panel -->
+    
     <div class="w-full lg:w-1/2 flex flex-col justify-center p-8 lg:p-12 bg-white">
       <div class="max-w-sm mx-auto w-full">
         <div class="mb-8">

@@ -5,7 +5,7 @@
   </div>
 
   <div class=" rounded-lg p-6 sm:p-8  max-w-3xl mx-auto">
-    <!-- Avatar -->
+    
     <div class="text-center mb-4">
       <div
         class="w-24 h-24 sm:w-28 sm:h-28 rounded-full mx-auto mb-2 overflow-hidden border border-gray-300 bg-gray-200 flex items-center justify-center">
@@ -15,7 +15,7 @@
       <h3 class="text-lg sm:text-xl font-bold">SAHAN PERERA</h3>
     </div>
 
-    <!-- Form -->
+  
     <form class="space-y-6">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
         <input type="text" placeholder="First Name"

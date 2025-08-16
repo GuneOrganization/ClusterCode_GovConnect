@@ -5,7 +5,7 @@
             <div class="w-32 h-0.5 bg-black mx-auto mt-2"></div>
         </div>
 
-        <!-- Search and filter section -->
+       
         <div class="flex flex-col md:flex-row gap-3 mb-6 justify-center">
             <div class="w-full md:w-80">
                 <div class="relative">
@@ -36,7 +36,6 @@
             </div>
         </div>
 
-        <!-- Service Guide Items -->
         <div class="space-y-4">
             <!-- Service Item -->
             <div class="bg-stone-200 rounded-xl shadow-sm border border-gray-200 p-6">
@@ -63,7 +62,7 @@
                 </div>
             </div>
 
-            <!-- Repeat for other items -->
+            
             <div class="bg-stone-200 rounded-xl shadow-sm border border-gray-200 p-6">
                 <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
                     <div class="sm:basis-2/3">

@@ -1,6 +1,6 @@
 <div id="appointments-content" class="content-section">
     <div class="mx-auto p-4 sm:p-6">
-        <!-- Header -->
+        
         <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-6">
             <div>
                 <h2 class="text-xl sm:text-2xl font-semibold text-gray-800">APPOINTMENTS</h2>
@@ -12,9 +12,9 @@
             </button>
         </div>
 
-        <!-- Main Content Grid -->
+        
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            <!-- Left Side - Booking Cards -->
+            
             <div class="lg:col-span-2">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 
@@ -86,13 +86,9 @@
 
                     ?>
 
-
-
-                    <!-- Duplicate this card block for other appointments -->
                 </div>
             </div>
 
-            <!-- Right Side - Calendar -->
             <div class="lg:col-span-1">
                 <div class="bg-white rounded-lg shadow-sm border p-4">
                     <h3 class="text-lg font-semibold text-gray-800 mb-4">Calendar</h3>
@@ -113,25 +109,23 @@
     </div>
 </div>
 
-<!-- view barcode model -->
-<!-- Modal Background -->
+
 <div id="modalbarcode" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center">
-    <!-- Modal Box -->
+    
     <div class="bg-white rounded-lg shadow-lg p-6 w-96 relative" id="printSection">
-        <!-- Close Button -->
+       
         <button id="closeModalbarcode"
             class="absolute top-3 right-3 text-gray-500 hover:text-gray-700">&times;</button>
 
-        <!-- Title -->
+       
         <h2 class="text-xl font-bold text-center mb-4 border-b pb-2">APPOINTMENT DETAILS</h2>
 
-        <!-- Barcode -->
         <div class="text-center mb-6">
             <img id="bardoceImg" src="https://barcodeapi.org/api/128/2569470001" alt="barcode" class="mx-auto w-40">
             <!-- <p id="barcodeCode" class="text-sm font-semibold text-teal-800 mt-2">2569470001</p> -->
         </div>
 
-        <!-- Appointment Details -->
+       
         <div class="space-y-3">
             <div class="flex justify-between flex-wrap">
                 <span class="font-medium text-gray-600">Appointment Id</span>
@@ -168,5 +162,3 @@
                 </div> -->
     </div>
 </div>
-
-<!--  -->
