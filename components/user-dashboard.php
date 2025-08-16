@@ -5,19 +5,16 @@
     </div>
 
     <?php
-    $today = date("Y-m-d");
+        $today = date("Y-m-d");
+        $todayAppoitmentsResult = Database::search("SELECT COUNT(*) AS count FROM appointment WHERE added_user_nic='" . $user["nic"] . "' AND appointment_status_id='2' AND appointment_date='{$today}' ");
+        $ongoingAppoitmentsResult = Database::search("SELECT COUNT(*) AS count FROM appointment WHERE added_user_nic='" . $user["nic"] . "' AND appointment_status_id='2'");
+        $rejectedAppoitmentsResult = Database::search("SELECT COUNT(*) AS count FROM appointment WHERE added_user_nic='" . $user["nic"] . "' AND appointment_status_id='3'");
+        $totalAppoitmentsResult = Database::search("SELECT COUNT(*) AS count FROM appointment WHERE added_user_nic='" . $user["nic"] . "'");
 
-    $todayAppoitmentsResult = Database::search("SELECT COUNT(*) AS count FROM appointment WHERE added_user_nic='" . $user["nic"] . "' AND appointment_status_id='2' AND appointment_date='{$today}' ");
-    $ongoingAppoitmentsResult = Database::search("SELECT COUNT(*) AS count FROM appointment WHERE added_user_nic='" . $user["nic"] . "' AND appointment_status_id='2'");
-    $rejectedAppoitmentsResult = Database::search("SELECT COUNT(*) AS count FROM appointment WHERE added_user_nic='" . $user["nic"] . "' AND appointment_status_id='3'");
-    $totalAppoitmentsResult = Database::search("SELECT COUNT(*) AS count FROM appointment WHERE added_user_nic='" . $user["nic"] . "'");
-
-    $todayAppoitments = $todayAppoitmentsResult->fetch_assoc();
-    $ongoingAppoitments = $ongoingAppoitmentsResult->fetch_assoc();
-    $rejectedAppoitments = $rejectedAppoitmentsResult->fetch_assoc();
-    $totalAppoitments = $totalAppoitmentsResult->fetch_assoc();
-
-
+        $todayAppoitments = $todayAppoitmentsResult->fetch_assoc();
+        $ongoingAppoitments = $ongoingAppoitmentsResult->fetch_assoc();
+        $rejectedAppoitments = $rejectedAppoitmentsResult->fetch_assoc();
+        $totalAppoitments = $totalAppoitmentsResult->fetch_assoc();
     ?>
 
     <!-- Stats Cards -->
@@ -53,11 +50,9 @@
         <h4 class="text-lg sm:text-xl font-semibold text-gray-800 mb-4">Upcoming Appointments</h4>
         <div class="space-y-4">
 
-
             <?php
 
-            $currentTime = date("H:i:s");
-
+            $currentDateTime = date("Y-m-d H:i:s");
             $appoitmentResultSet = Database::search("SELECT * FROM appointment a
                     INNER JOIN appointment_status aps ON a.appointment_status_id = aps.id
                     INNER JOIN service s ON a.service_id = s.id
@@ -65,16 +60,14 @@
                     INNER JOIN department d ON b.department_id = d.id
                     INNER JOIN time_slot t ON a.time_slot_id = t.id
                     WHERE a.added_user_nic = '" . $user["nic"] . "' AND
-                    a.appointment_date >= '{$today}' AND
                     aps.status = 'Accepted' AND
-                    t.start_time > '{$currentTime}'
+                    TIMESTAMP(a.appointment_date, t.start_time) > '{$currentDateTime}'
                     ORDER BY a.appointment_date ASC, t.start_time ASC
                 ");
 
             while ($row = $appoitmentResultSet->fetch_assoc()) {
 
             ?>
-
 
                 <!-- Appointment Card -->
                 <div class="bg-stone-100 rounded-lg shadow p-5">

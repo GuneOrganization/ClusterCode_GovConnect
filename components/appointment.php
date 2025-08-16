@@ -60,7 +60,7 @@
                                     class="fa-regular fa-thumbs-up"></i></button>
                         </div>
                     </div>
-a
+
                     <!-- Duplicate this card block for other appointments -->
                 </div>
             </div>
