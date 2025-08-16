@@ -1,0 +1,49 @@
+version: "3.9"
+
+services:
+  app:
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    container_name: govconnect_app
+    restart: always
+    ports:
+      - "8080:80"
+    volumes:
+      - ./app:/var/www/html
+    environment:
+      - DB_HOST=db
+      - DB_NAME=govconnect
+      - DB_USER=govuser
+      - DB_PASS=govpass
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.0
+    container_name: govconnect_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: govconnect
+      MYSQL_USER: govuser
+      MYSQL_PASSWORD: govpass
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: govconnect_phpmyadmin
+    restart: always
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: rootpass
+    depends_on:
+      - db
+
+volumes:
+  db_data:
