@@ -2,7 +2,7 @@
 
 include_once 'connection.php';
 
-class IdGenerator {
+class CustomGenerator {
 
     public static function generateId($table, $columnName, $prefix) {
 
@@ -23,6 +23,11 @@ class IdGenerator {
             $numLength = $totalLength - strlen($prefix);
             return $prefix . str_pad($newNumericPart, $numLength, '0', STR_PAD_LEFT);
         }
+    }
+
+    public static function generateVerificationCode()
+    {
+        return str_pad(random_int(0, 999999), 6, '0', STR_PAD_LEFT);
     }
 
 }

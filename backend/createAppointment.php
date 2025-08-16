@@ -9,7 +9,7 @@
 session_start();
 header("Content-Type: application/json");
 require 'connection.php';
-require './core/IdGenerator.php';
+require './core/customGenerator.php';
 require './core/Validation.php';
 
 function sendResponse($status, $message, $data = [])
@@ -54,7 +54,7 @@ try {
 
         while (!$inserted && $attempt < $maxRetries) {
 
-            $reference_no = IdGenerator::generateId("appointment", "reference_number", "APP");
+            $reference_no = CustomGenerator::generateId("appointment", "reference_number", "APP");
             $currentDateTime = date("Y-m-d H:i:s");
             $addedUserNIC = $_SESSION['user']['nic'];
 

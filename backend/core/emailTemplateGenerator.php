@@ -44,16 +44,18 @@ class EmailTemplateGenerator
         }
         .content h2 {
             color: #0056b3;
+            text-align: center;
         }
-        .button {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 25px;
-            background-color: #0056b3;
-            color: #ffffff;
-            text-decoration: none;
-            border-radius: 5px;
+        .code-box {
+            text-align: center;
+            font-size: 32px;
             font-weight: bold;
+            color: #0056b3;
+            background-color: #f0f8ff;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 20px 0;
+            letter-spacing: 4px;
         }
         .footer {
             background-color: #f4f4f4;
