@@ -97,7 +97,7 @@
         }
 
         body {
-           
+
             /* max-width: 600px; */
             /* margin: 40px auto; */
         }
@@ -123,7 +123,7 @@
             <!-- Header -->
             <header class="bg-white shadow-sm border-b border-gray-200 p-4">
                 <div class="flex justify-between items-center">
-                     <!-- Left side -->
+                    <!-- Left side -->
                     <div class="hidden md:flex items-center gap-3 flex-shrink-0">
                         <!-- Menu button (mobile only) -->
                         <button class="text-gray-500 p-0 block lg:hidden" type="button">
@@ -177,12 +177,14 @@
 
     <!-- Converted new appointment modal from Bootstrap to Tailwind -->
     <div id="appointmentModal1" class="fixed inset-0 bg-black bg-opacity-50 hidden justify-center items-center z-50">
-        <div class="bg-white rounded-lg shadow-lg w-full max-w-4xl h-[500px] p-6 overflow-y-auto">
-            <header class="bg-white shadow-sm border-b border-gray-200">
-                <div class="px-4 py-3">
+        <div class="bg-white rounded-lg shadow-lg w-full max-w-6xl h-[95vh] p-4 sm:p-6 overflow-y-auto">
+
+            <!-- Header -->
+            <header class="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-10">
+                <div class="px-2 sm:px-4 py-3">
                     <div class="flex items-center justify-between">
                         <div class="flex items-center">
-                            <button id="closeModalBtn" 
+                            <button id="closeModalBtn"
                                 class="p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100 mr-2">
                                 <i class="fas fa-arrow-left"></i>
                             </button>
@@ -200,18 +202,20 @@
                 </div>
             </header>
 
-            <main class="container mx-auto px-4 py-6">
-                <!-- Landscape Grid -->
+            <!-- Main -->
+            <main class="container mx-auto px-2 sm:px-4 py-4 sm:py-6">
+                <!-- Responsive Grid -->
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
 
-                    <!-- LEFT COLUMN: Appointment Info + Update Button -->
+                    <!-- LEFT COLUMN -->
                     <div class="flex flex-col space-y-6">
                         <!-- Appointment Details Card -->
                         <div class="bg-white shadow rounded-lg overflow-hidden border border-gray-200 flex-1">
-                            <div class="px-4 py-5 sm:px-6 border-b border-gray-200">
-                                <h3 class="text-lg font-medium leading-6 text-gray-900">Appointment Information</h3>
+                            <div class="px-4 py-4 sm:px-6 border-b border-gray-200">
+                                <h3 class="text-base sm:text-lg font-medium leading-6 text-gray-900">Appointment
+                                    Information</h3>
                             </div>
-                            <div class="px-4 py-5 sm:p-6">
+                            <div class="px-4 py-4 sm:p-6">
                                 <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
                                     <div>
                                         <label class="block text-sm font-medium text-gray-500">Appointment ID</label>
@@ -254,10 +258,11 @@
                                             <option value="cancelled">Cancelled</option>
                                         </select>
                                     </div>
-                                    <div>
-                                        <!-- <label class="block text-sm font-medium text-gray-500">Venue</label> -->
-                                        <!-- <p class="mt-1 text-sm text-gray-900">Department of Immigration, Colombo 01</p> -->
-                                        <input type="text" placeholder="Rejected reason" class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 placeholder-gray-400" />
+                                    <div class="sm:col-span-2">
+                                        <label class="block text-sm font-medium text-gray-500">Rejected Reason</label>
+                                        <textarea placeholder="Enter reason if rejected..."
+                                            class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 placeholder-gray-400"
+                                            rows="3"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -270,15 +275,16 @@
                         </button>
                     </div>
 
-                    <!-- RIGHT COLUMN: Uploaded Docs + Messaging -->
+                    <!-- RIGHT COLUMN -->
                     <div class="flex flex-col space-y-6">
-                        <!-- Uploaded Documents Section -->
+                        <!-- Uploaded Documents -->
                         <div class="bg-white shadow rounded-lg overflow-hidden border border-gray-200 flex-1">
-                            <div class="px-4 py-5 sm:px-6 border-b border-gray-200">
-                                <h3 class="text-lg font-medium leading-6 text-gray-900">Uploaded Documents</h3>
-                                <p class="mt-1 text-sm text-gray-500">Documents submitted by the civilian</p>
+                            <div class="px-4 py-4 sm:px-6 border-b border-gray-200">
+                                <h3 class="text-base sm:text-lg font-medium leading-6 text-gray-900">Uploaded Documents
+                                </h3>
+                                <p class="mt-1 text-xs sm:text-sm text-gray-500">Documents submitted by the civilian</p>
                             </div>
-                            <div class="px-4 py-5 sm:p-6 space-y-4">
+                            <div class="px-4 py-4 sm:p-6 space-y-4">
                                 <!-- Document Item -->
                                 <div
                                     class="flex items-center justify-between p-3 border border-gray-200 rounded-lg hover:bg-gray-50">
@@ -296,6 +302,7 @@
                                         <i class="fas fa-eye mr-1"></i> View
                                     </button>
                                 </div>
+
                                 <div
                                     class="flex items-center justify-between p-3 border border-gray-200 rounded-lg hover:bg-gray-50">
                                     <div class="flex items-center">
@@ -312,6 +319,7 @@
                                         <i class="fas fa-eye mr-1"></i> View
                                     </button>
                                 </div>
+
                                 <div
                                     class="flex items-center justify-between p-3 border border-gray-200 rounded-lg hover:bg-gray-50">
                                     <div class="flex items-center">
@@ -331,13 +339,14 @@
                             </div>
                         </div>
 
-                        <!-- Communication Section -->
+                        <!-- Communication -->
                         <div class="bg-white shadow rounded-lg overflow-hidden border border-gray-200">
-                            <div class="px-4 py-5 sm:px-6 border-b border-gray-200">
-                                <h3 class="text-lg font-medium leading-6 text-gray-900">Send Message to Civilian</h3>
-                                <p class="mt-1 text-sm text-gray-500">Special notes or requests</p>
+                            <div class="px-4 py-4 sm:px-6 border-b border-gray-200">
+                                <h3 class="text-base sm:text-lg font-medium leading-6 text-gray-900">Send Message to
+                                    Civilian</h3>
+                                <p class="mt-1 text-xs sm:text-sm text-gray-500">Special notes or requests</p>
                             </div>
-                            <div class="px-4 py-5 sm:p-6">
+                            <div class="px-4 py-4 sm:p-6">
                                 <!-- Message History -->
                                 <div class="mb-4 space-y-4 max-h-40 overflow-y-auto p-2">
                                     <div class="flex justify-end">
@@ -385,14 +394,15 @@
                     </div>
                 </div>
             </main>
-
         </div>
     </div>
+
+
 
     <script>
         // Menu navigation
         document.querySelectorAll('.menu-item').forEach(item => {
-            item.addEventListener('click', function() {
+            item.addEventListener('click', function () {
                 const menu = this.getAttribute('data-menu');
 
                 if (menu === 'logout') {
@@ -481,21 +491,21 @@
         const closeModal = document.getElementById('closeModal');
         const appointmentForm = document.getElementById('appointmentForm');
 
-        newAppointmentBtn.addEventListener('click', function() {
+        newAppointmentBtn.addEventListener('click', function () {
             appointmentModal.classList.remove('hidden');
         });
 
-        closeModal.addEventListener('click', function() {
+        closeModal.addEventListener('click', function () {
             appointmentModal.classList.add('hidden');
         });
 
-        appointmentModal.addEventListener('click', function(e) {
+        appointmentModal.addEventListener('click', function (e) {
             if (e.target === appointmentModal) {
                 appointmentModal.classList.add('hidden');
             }
         });
 
-        appointmentForm.addEventListener('submit', function(e) {
+        appointmentForm.addEventListener('submit', function (e) {
             e.preventDefault();
             alert('Appointment created successfully!');
             appointmentModal.classList.add('hidden');
@@ -510,7 +520,7 @@
     </script>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const calendarEl = document.getElementById('calendar');
             const calendar = new FullCalendar.Calendar(calendarEl, {
                 initialView: 'dayGridMonth',
@@ -566,7 +576,7 @@
                         textColor: 'white'
                     }
                 ],
-                dayCellDidMount: function(info) {
+                dayCellDidMount: function (info) {
                     // Mark booking days
                     const bookingDates = ['2025-08-12', '2025-08-15', '2025-08-18', '2025-08-20'];
                     const holidayDates = ['2025-02-04', '2025-05-12'];
@@ -581,7 +591,7 @@
                         info.el.classList.add('holiday');
                     }
                 },
-                eventClick: function(info) {
+                eventClick: function (info) {
                     alert('Event: ' + info.event.title + '\nDate: ' + info.event.startStr);
                 }
             });
@@ -589,21 +599,21 @@
             calendar.render();
 
             // New Appointment Button Handler
-            document.getElementById('newAppointmentBtn').addEventListener('click', function() {
+            document.getElementById('newAppointmentBtn').addEventListener('click', function () {
                 alert('New Appointment booking functionality would be implemented here.');
             });
 
             // Cancel and View Barcode button handlers
             document.querySelectorAll('button').forEach(button => {
                 if (button.textContent.includes('CANCEL')) {
-                    button.addEventListener('click', function() {
+                    button.addEventListener('click', function () {
                         if (confirm('Are you sure you want to cancel this appointment?')) {
                             button.closest('.bg-white').style.opacity = '0.5';
                             alert('Appointment cancelled successfully.');
                         }
                     });
                 } else if (button.textContent.includes('VIEW BARCODE')) {
-                    button.addEventListener('click', function() {
+                    button.addEventListener('click', function () {
                         alert('Barcode view functionality would be implemented here.');
                     });
                 }
@@ -613,11 +623,11 @@
     <script src="/assets/js/calnder.js"></script>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Fix for null element errors
             const someElement = document.getElementById('some-element-id');
             if (someElement) {
-                someElement.addEventListener('click', function() {
+                someElement.addEventListener('click', function () {
                     // Your event handler
                 });
             }
@@ -654,7 +664,7 @@
                     y: {
                         beginAtZero: true,
                         ticks: {
-                            callback: function(value) {
+                            callback: function (value) {
                                 return value;
                             }
                         }
@@ -665,7 +675,7 @@
     </script>
 
     <!-- appointment modal -->
-     <script>
+    <script>
         const modal = document.getElementById('appointmentModal1');
         const openModalBtn = document.getElementById('openModalBtn');
         const closeModalBtn = document.getElementById('closeModalBtn');
