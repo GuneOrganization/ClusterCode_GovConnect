@@ -1,60 +1,67 @@
 <?php
-header("Content-Type: application/json");
-require 'connection.php'; 
+require 'connection.php';
+require "core/mail-sending/mailSender.php";
+require "core/emailTemplateGenerator.php";
 
-$referenceNumber = $_GET['reference_number'] ?? '';
-$newStatus = strtolower(trim($_GET['status'] ?? ''));
-echo("Reference Number: $referenceNumber, New Status: $newStatus\n");
+// Read JSON body
+$input = json_decode(file_get_contents("php://input"), true);
 
-$response = ["status" => "fail", "message" => "Unknown error"]; // default
+$response = ["success" => false, "message" => "Unknown error"];
 
-if (!empty($referenceNumber) && !empty($newStatus)) {
+if (isset($input['reference_number'], $input['status'])) {
+    $ref = $input['reference_number'];
+    $status_id = $input['status'];
+    $reason = $input['rejected_reason'] ?? null;
 
-    // Check appointment exists
-    $result = Database::search("SELECT `status` FROM `appointment` 
-    INNER JOIN `appointment_status` ON `appointment`.`appointment_status_id` = `appointment_status`.`id`  
-    WHERE `reference_number` = '$referenceNumber'");
+    echo "Reference Number: $ref, Status ID: $status_id, Reason: $reason";
 
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-        $currentStatus = strtolower($row['status']);
+    try {
+        // Update query
+        $stmt = Database::iud(
+            "UPDATE appointment 
+             SET appointment_status_id = '$status_id', rejected_message = '$reason'
+             WHERE reference_number = '$ref'"
+        );
+         $response = ["success" => true, "message" => "Appointment updated"];
 
-        if ($newStatus === "accepted") {
-            if ($currentStatus === "pending") {
-                Database::iud("
-                               UPDATE `appointment`
-                               SET `appointment_status_id` = 
-                               (SELECT `id` FROM `appointment_status` WHERE `status` = 'Accepted')
-                               WHERE `reference_number` = '$referenceNumber'
-                          ");
-                $response = ["status" => "success", "message" => "Appointment accepted"];
+         $result = Database::search("SELECT first_name, email FROM `appointment` 
+                                     INNER JOIN `user` ON `appointment`.`added_user_nic` = `user`.`nic`
+                                     WHERE `reference_number` = '$ref'");
+
+         $appoinment_result = Database::search("SELECT * FROM `appointment_status` 
+                                     WHERE `id` = '$status_id'");                            
+         
+         $data = $result->fetch_assoc();
+         $user_email = $data['email'];
+         $firstName = $data['first_name'];
+         $subject = "Appointment Status Update";
+         $appointment_status = $appoinment_result->fetch_assoc()['status'];
+
+         echo "User Email: $user_email, First Name: $firstName, Subject: $subject, Appointment Status: $appointment_status";
+            if (MailSender::sendMail(
+                $user_email,
+                $subject,
+                EmailTemplateGenerator::generateEmailTemplate('
+                <div class="content">
+                      <h2>Hello, '.$firstName.'</h2>
+                      <p>We are pleased to inform you that your appointment status has been changed.</p>
+                      <p>Your current appointment status: <b>'.$appointment_status.'</b> </p>
+                      <p>Thank you for choosing <strong>Gov-Connect</strong> for a smooth and efficient government service experience.</p>
+                 </div>'
+                )
+            )) {
+                $response = ["success" => true, "message" => "Appointment updated and email sent"];
             } else {
-                $response = ["status" => "fail", "message" => "Can only accept pending appointments"];
+               $response = ["success" => true, "message" => "Appointment updated but email doen't sent"];
             }
-        } else if ($newStatus === "rejected") {
-            Database::iud("
-                               UPDATE `appointment`
-                               SET `appointment_status_id` = 
-                               (SELECT `id` FROM `appointment_status` WHERE `status` = 'Rejected')
-                               WHERE `reference_number` = '$referenceNumber'
-                          ");
-            $response = ["status" => "success", "message" => "Appointment rejected"];
-        } else if ($newStatus === "completed") {
-             Database::iud("
-                               UPDATE `appointment`
-                               SET `appointment_status_id` = 
-                               (SELECT `id` FROM `appointment_status` WHERE `status` = 'Completed')
-                               WHERE `reference_number` = '$referenceNumber'
-                          ");
-            $response = ["status" => "success", "message" => "Appointment marked as completed"];
-        } else {
-            $response = ["status" => "fail", "message" => "Invalid status provided"];
-        }
-    } else {
-        $response = ["status" => "fail", "message" => "Appointment not found"];
+
+    } catch (Exception $e) {
+        $response["message"] = $e->getMessage();
     }
 } else {
-    $response = ["status" => "fail", "message" => "Missing appointment ID or status"];
+    $response["message"] = "Invalid data sent";
 }
 
+// Return JSON
+header("Content-Type: application/json");
 echo json_encode($response);

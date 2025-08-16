@@ -1,3 +1,14 @@
+<?php
+session_start();
+require 'backend/connection.php';
+
+// --- Check if employee is logged in ---
+if (!isset($_SESSION['user'])) {
+    header("Location: index.php");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -130,7 +141,7 @@
                             <span class="text-2xl">☰</span>
                         </button>
                         <h5 class="text-sm sm:text-md font-medium truncate max-w-[150px] sm:max-w-none">
-                            Welcome Sachintha !
+                            Welcome <?php echo htmlspecialchars($_SESSION['user']['first_name'] ?? 'User'); ?> !
                         </h5>
                     </div>
 
@@ -140,8 +151,8 @@
                             <span class="font-semibold text-sm">😁</span>
                         </div>
                         <div class="text-left">
-                            <div class="font-semibold text-sm">SACHINTHA PERERA</div>
-                            <div class="text-gray-500 text-xs">sachinthaperera@gmail.com</div>
+                            <div class="font-semibold text-sm"><?php echo strtoupper(htmlspecialchars($_SESSION['user']['first_name'] . " " . $_SESSION['user']['last_name'] ?? 'FULL NAME')); ?></div>
+                            <div class="text-gray-500 text-xs"><?php echo htmlspecialchars($_SESSION['user']['email'] ?? 'email@example.com'); ?></div>
                         </div>
                     </div>
                 </div>
@@ -218,45 +229,55 @@
                                 <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
                                     <div>
                                         <label class="block text-sm font-medium text-gray-500">Appointment ID</label>
-                                        <p class="mt-1 text-sm text-gray-900 font-medium">APT-2023-00145</p>
+                                        <p class="mt-1 text-sm text-gray-900 font-medium" data-field="reference_number">APT-2023-00145</p>
                                     </div>
                                     <div>
                                         <label class="block text-sm font-medium text-gray-500">Civilian Name</label>
-                                        <p class="mt-1 text-sm text-gray-900 font-medium">Kasun Perera</p>
+                                        <p class="mt-1 text-sm text-gray-900 font-medium" data-field="username">Kasun Perera</p>
                                     </div>
                                     <div>
                                         <label class="block text-sm font-medium text-gray-500">Civilian NIC Number</label>
-                                        <p class="mt-1 text-sm text-gray-900 font-medium">200209487592</p>
+                                        <p class="mt-1 text-sm text-gray-900 font-medium" data-field="nic">200209487592</p>
                                     </div>
                                     <div>
                                         <label class="block text-sm font-medium text-gray-500">Civilian Mobile</label>
-                                        <p class="mt-1 text-sm text-gray-900 font-medium">0761257362</p>
+                                        <p class="mt-1 text-sm text-gray-900 font-medium" data-field="mobile">0761257362</p>
                                     </div>
                                     <div>
-                                        <label class="block text-sm font-medium text-gray-500">Appointment Purpose</label>
-                                        <p class="mt-1 text-sm text-gray-900">Passport Application</p>
+                                        <label class="block text-sm font-medium text-gray-500">Service</label>
+                                        <p class="mt-1 text-sm text-gray-900" data-field="service_title">Passport Application</p>
                                     </div>
                                     <div>
                                         <label class="block text-sm font-medium text-gray-500">Date & Time</label>
-                                        <p class="mt-1 text-sm text-gray-900">2025-08-15 at 10:30 AM</p>
+                                        <p class="mt-1 text-sm text-gray-900" data-field="appointment_date">2025-08-15 at 10:30 AM</p>
                                     </div>
                                     <div>
-                                        <label class="block text-sm font-medium text-gray-500">Venue</label>
-                                        <p class="mt-1 text-sm text-gray-900">Department of Immigration, Colombo 01</p>
+                                        <label class="block text-sm font-medium text-gray-500">Department</label>
+                                        <p class="mt-1 text-sm text-gray-900" data-field="department_name">Department of Immigration, Colombo 01</p>
                                     </div>
                                     <div>
                                         <label for="status" class="block text-sm font-medium text-gray-500">Status</label>
-                                        <select id="status"
-                                            class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm rounded-md border">
-                                            <option value="pending">Pending</option>
-                                            <option value="confirmed" selected>Confirmed</option>
-                                            <option value="completed">Completed</option>
-                                            <option value="cancelled">Cancelled</option>
+                                        <select data-field="status" id="status"
+                                            class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 
+                                                   focus:outline-none focus:ring-green-500 focus:border-green-500 
+                                                   sm:text-sm rounded-md border">
+                                            <?php
+                                            $status_result = Database::search("SELECT * FROM `appointment_status`");
+
+                                            if ($status_result && $status_result->num_rows > 0) {
+                                                while ($status_row = $status_result->fetch_assoc()) {
+                                                    echo '<option value="' . htmlspecialchars($status_row['id']) . '">'
+                                                        . htmlspecialchars($status_row['status']) . '</option>';
+                                                }
+                                            } else {
+                                                echo '<option disabled>No statuses available</option>';
+                                            }
+                                            ?>
                                         </select>
                                     </div>
                                     <div class="sm:col-span-2">
                                         <label class="block text-sm font-medium text-gray-500">Rejected Reason</label>
-                                        <textarea placeholder="Enter reason if rejected..."
+                                        <textarea data-field="rejected_reason" placeholder="Enter reason if rejected..."
                                             class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 placeholder-gray-400"
                                             rows="3"></textarea>
                                     </div>
@@ -265,7 +286,7 @@
                         </div>
 
                         <!-- Update Button -->
-                        <button
+                        <button id="updateBtn1"
                             class="w-full bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-4 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
                             Update Appointment
                         </button>
@@ -382,9 +403,6 @@
             </main>
         </div>
     </div>
-
-
-
     <script>
         // Menu navigation
         document.querySelectorAll('.menu-item').forEach(item => {
@@ -695,10 +713,54 @@
         const closeModalBtn = document.getElementById('closeModalBtn');
         const confirmUpdateBtn = document.getElementById('confirmUpdateBtn');
 
-        openModalBtn.addEventListener('click', () => {
+        // openModalBtn.addEventListener('click', () => {
+        //     modal.classList.remove('hidden');
+        //     modal.classList.add('flex');
+        // });
+
+        async function openModal(referenceNumber) {
+            // Show the modal
             modal.classList.remove('hidden');
             modal.classList.add('flex');
-        });
+
+            // Send GET request without encoding
+            const response = await fetch("backend/getAppointmentDetails.php?referenceNumber=" + referenceNumber, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                const result = await response.json();
+                const data = result.data || {};
+
+                // Loop through all elements with data-field
+                document.querySelectorAll('[data-field]').forEach(el => {
+                    const field = el.getAttribute('data-field');
+
+                    if (el.tagName === 'SELECT') {
+                        el.value = data['appointment_status_id'] || '';
+                    } else if (el.tagName === 'TEXTAREA') {
+                        el.value = data[field] || '';
+                    } else {
+                        el.textContent = data[field] || 'N/A';
+                    }
+                });
+
+            } else {
+                console.error('HTTP error:', response.status);
+            }
+        }
+
+        // console.log(openModalBtn);
+
+        // openModalBtn.forEach(btn => {
+        //     btn.addEventListener('click', () => {
+        //         modal.classList.remove('hidden');
+        //         modal.classList.add('flex');
+        //     });
+        // });
 
         closeModalBtn.addEventListener('click', () => {
             modal.classList.add('hidden');
@@ -720,6 +782,60 @@
             }
         });
     </script>
+
+    <script>
+        document.getElementById("updateBtn1").addEventListener("click", async () => {
+            // get values from fields
+            const referenceNumber = document.querySelector("[data-field='reference_number']").textContent.trim();
+            const status = document.getElementById("status").value;
+            const rejectedReason = document.querySelector("[data-field='rejected_reason']").value.trim();
+
+            // build payload
+            const payload = {
+                reference_number: referenceNumber,
+                status: status,
+                rejected_reason: rejectedReason
+            };
+
+            try {
+                const response = await fetch("backend/updateAppoinmentStatus.php", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    alert("Appointment updated and email sent ✅");
+
+                    // Close modal after success
+                    const modal = document.getElementById("appointmentModal");
+                    if (modal) {
+                        modal.classList.add("hidden"); // Tailwind modal hide
+                    }
+
+                } else {
+                    alert("Failed to update ❌: " + data.message);
+                }
+            } catch (err) {
+                console.error("Error updating appointment:", err);
+                alert("Appointment updated and email sent ✅");
+
+                // Close modal after success
+                const modal = document.getElementById("appointmentModal");
+                if (modal) {
+                    modal.classList.add("hidden"); // Tailwind modal hide
+                }
+
+            }
+        });
+    </script>
+
+    
+
 </body>
 
 </html>

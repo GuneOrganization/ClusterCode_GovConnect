@@ -20,31 +20,39 @@
                                     SELECT `id` FROM `service` 
                                     WHERE `branch_id` = (
                                     SELECT `branch_id` FROM `user_has_branch` 
-                                    WHERE `user_nic` = '$user_nic')
-                                    ) AND DATE(`appointment`.`added_datetime`) = CURDATE()
+                                    WHERE `user_nic` = '$user_nic'
+                                         )
+                                       )
                                     ");
-        $total_appointments = 0;
-        $pending_appointments = 0;
-        $accepted_appointments = 0;
-        $rejected_appointments = 0;
-        $completed_appointments = 0;
-        $available_appointments = 0;
-
         if ($result && $result->num_rows > 0) {
             $total_appointments = $result->num_rows;
 
-            // Loop through all appointments to calculate counts
-            while ($data = $result->fetch_assoc()) {
-                if ($data['status'] === 'Pending') $pending_appointments++;
-                if ($data['status'] === 'Accepted') $accepted_appointments++;
-                if ($data['status'] === 'Rejected') $rejected_appointments++;
-                if ($data['status'] === 'Completed') $completed_appointments++;
-            }
+            if ($data = $result->fetch_assoc()) {
+                $pending_results =  $data['status'] === 'Pending';
+                $accepted_results =  $data['status'] === 'Accepted';
+                $rejected_results =  $data['status'] === 'Rejected';
+                $completed_results =  $data['status'] === 'Completed';
+                $available_appointments = $pending_results + $accepted_results;
 
-            // Available appointments = Pending + Accepted
-            $available_appointments = $pending_appointments + $accepted_appointments;
+                if ($rejected_results) {
+                    $rejected_appointments = $rejected_results;
+                } else {
+                    $rejected_appointments = 0;
+                }
+
+                if ($completed_results) {
+                    $completed_appointments = $completed_results;
+                } else {
+                    $completed_appointments = 0;
+                }
+            } else {
+                $available_appointments = 0;
+            }
+        } else {
+            $total_appointments = 0;
         }
         ?>
+
         <div class="bg-stone-200 rounded-xl shadow-sm border p-4 hover:shadow-md transition">
             <div class="flex items-center">
                 <div class="bg-blue-100 p-3 rounded-lg">
@@ -52,7 +60,7 @@
                 </div>
                 <div class="ml-4">
                     <h3 class="text-xs sm:text-sm font-medium text-gray-500">Total Appointments</h3>
-                    <p class="text-lg sm:text-2xl font-semibold text-gray-900"><?php echo $total_appointments ?></p>
+                    <p class="text-lg sm:text-2xl font-semibold text-gray-900"><?php echo $total_appointments ?> </p>
                 </div>
             </div>
         </div>
@@ -117,9 +125,9 @@
         </div>
 
         <!-- Desktop Table -->
-        <div class="overflow-x-auto hidden md:block">
+        <div class="overflow-y-auto max-h-96">
             <table class="min-w-full divide-y divide-gray-200 text-sm">
-                <thead class="bg-gray-50">
+                <thead class="bg-gray-50 sticky top-0 z-10">
                     <tr>
                         <th class="px-4 py-3 text-left font-medium text-gray-500 uppercase tracking-wider">Appointment ID</th>
                         <th class="px-4 py-3 text-left font-medium text-gray-500 uppercase tracking-wider">Civilian Name</th>
@@ -158,6 +166,10 @@
                 </tbody>
             </table>
         </div>
+
+
+
+        <!-- Mobile Card View -->
 
         <!-- Mobile Card View -->
         <div class="md:hidden divide-y mb-10">
@@ -201,6 +213,5 @@
                 </div>
             <?php endwhile; ?>
         </div>
-           
     </div>
 </div>
