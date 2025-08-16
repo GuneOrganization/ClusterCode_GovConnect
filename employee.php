@@ -97,7 +97,7 @@
         }
 
         body {
-           
+
             /* max-width: 600px; */
             /* margin: 40px auto; */
         }
@@ -123,7 +123,7 @@
             <!-- Header -->
             <header class="bg-white shadow-sm border-b border-gray-200 p-4">
                 <div class="flex justify-between items-center">
-                     <!-- Left side -->
+                    <!-- Left side -->
                     <div class="hidden md:flex items-center gap-3 flex-shrink-0">
                         <!-- Menu button (mobile only) -->
                         <button class="text-gray-500 p-0 block lg:hidden" type="button">
@@ -176,212 +176,212 @@
     </div>
 
     <!-- Converted new appointment modal from Bootstrap to Tailwind -->
-<div id="appointmentModal1" class="fixed inset-0 bg-black bg-opacity-50 hidden justify-center items-center z-50">
-    <div class="bg-white rounded-lg shadow-lg w-full max-w-6xl h-[95vh] p-4 sm:p-6 overflow-y-auto">
-        
-        <!-- Header -->
-        <header class="bg-white shadow-sm border-b border-gray-200 sticky  z-10">
-            <div class="px-2 sm:px-4 py-3">
-                <div class="flex items-center justify-between">
-                    <div class="flex items-center">
-                        <button id="closeModalBtn" 
-                            class="p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100 mr-2">
-                            <i class="fas fa-arrow-left"></i>
+    <div id="appointmentModal1" class="fixed inset-0 bg-black bg-opacity-50 hidden justify-center items-center z-50">
+        <div class="bg-white rounded-lg shadow-lg w-full max-w-6xl h-[95vh] p-4 sm:p-6 overflow-y-auto">
+
+            <!-- Header -->
+            <header class="bg-white shadow-sm border-b border-gray-200 sticky  z-10">
+                <div class="px-2 sm:px-4 py-3">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <button id="closeModalBtn"
+                                class="p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100 mr-2">
+                                <i class="fas fa-arrow-left"></i>
+                            </button>
+                            <div>
+                                <h1 class="text-lg font-bold text-gray-900">Appointment Details</h1>
+                                <p class="text-xs text-gray-600">Government of Sri Lanka</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <button class="p-2 rounded-full bg-gray-100 hover:bg-gray-200">
+                                <i class="fas fa-user text-gray-600"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Main -->
+            <main class="container mx-auto px-2 sm:px-4 py-4 sm:py-6">
+                <!-- Responsive Grid -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+                    <!-- LEFT COLUMN -->
+                    <div class="flex flex-col space-y-6">
+                        <!-- Appointment Details Card -->
+                        <div class="bg-white shadow rounded-lg overflow-hidden border border-gray-200 flex-1">
+                            <div class="px-4 py-4 sm:px-6 border-b border-gray-200">
+                                <h3 class="text-base sm:text-lg font-medium leading-6 text-gray-900">Appointment Information</h3>
+                            </div>
+                            <div class="px-4 py-4 sm:p-6">
+                                <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-500">Appointment ID</label>
+                                        <p class="mt-1 text-sm text-gray-900 font-medium">APT-2023-00145</p>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-500">Civilian Name</label>
+                                        <p class="mt-1 text-sm text-gray-900 font-medium">Kasun Perera</p>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-500">Civilian NIC Number</label>
+                                        <p class="mt-1 text-sm text-gray-900 font-medium">200209487592</p>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-500">Civilian Mobile</label>
+                                        <p class="mt-1 text-sm text-gray-900 font-medium">0761257362</p>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-500">Appointment Purpose</label>
+                                        <p class="mt-1 text-sm text-gray-900">Passport Application</p>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-500">Date & Time</label>
+                                        <p class="mt-1 text-sm text-gray-900">2025-08-15 at 10:30 AM</p>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-500">Venue</label>
+                                        <p class="mt-1 text-sm text-gray-900">Department of Immigration, Colombo 01</p>
+                                    </div>
+                                    <div>
+                                        <label for="status" class="block text-sm font-medium text-gray-500">Status</label>
+                                        <select id="status"
+                                            class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm rounded-md border">
+                                            <option value="pending">Pending</option>
+                                            <option value="confirmed" selected>Confirmed</option>
+                                            <option value="completed">Completed</option>
+                                            <option value="cancelled">Cancelled</option>
+                                        </select>
+                                    </div>
+                                    <div class="sm:col-span-2">
+                                        <label class="block text-sm font-medium text-gray-500">Rejected Reason</label>
+                                        <textarea placeholder="Enter reason if rejected..."
+                                            class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 placeholder-gray-400"
+                                            rows="3"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Update Button -->
+                        <button
+                            class="w-full bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-4 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+                            Update Appointment
                         </button>
-                        <div>
-                            <h1 class="text-lg font-bold text-gray-900">Appointment Details</h1>
-                            <p class="text-xs text-gray-600">Government of Sri Lanka</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center space-x-2">
-                        <button class="p-2 rounded-full bg-gray-100 hover:bg-gray-200">
-                            <i class="fas fa-user text-gray-600"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </header>
-
-        <!-- Main -->
-        <main class="container mx-auto px-2 sm:px-4 py-4 sm:py-6">
-            <!-- Responsive Grid -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-
-                <!-- LEFT COLUMN -->
-                <div class="flex flex-col space-y-6">
-                    <!-- Appointment Details Card -->
-                    <div class="bg-white shadow rounded-lg overflow-hidden border border-gray-200 flex-1">
-                        <div class="px-4 py-4 sm:px-6 border-b border-gray-200">
-                            <h3 class="text-base sm:text-lg font-medium leading-6 text-gray-900">Appointment Information</h3>
-                        </div>
-                        <div class="px-4 py-4 sm:p-6">
-                            <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                                <div>
-                                    <label class="block text-sm font-medium text-gray-500">Appointment ID</label>
-                                    <p class="mt-1 text-sm text-gray-900 font-medium">APT-2023-00145</p>
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-medium text-gray-500">Civilian Name</label>
-                                    <p class="mt-1 text-sm text-gray-900 font-medium">Kasun Perera</p>
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-medium text-gray-500">Civilian NIC Number</label>
-                                    <p class="mt-1 text-sm text-gray-900 font-medium">200209487592</p>
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-medium text-gray-500">Civilian Mobile</label>
-                                    <p class="mt-1 text-sm text-gray-900 font-medium">0761257362</p>
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-medium text-gray-500">Appointment Purpose</label>
-                                    <p class="mt-1 text-sm text-gray-900">Passport Application</p>
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-medium text-gray-500">Date & Time</label>
-                                    <p class="mt-1 text-sm text-gray-900">2025-08-15 at 10:30 AM</p>
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-medium text-gray-500">Venue</label>
-                                    <p class="mt-1 text-sm text-gray-900">Department of Immigration, Colombo 01</p>
-                                </div>
-                                <div>
-                                    <label for="status" class="block text-sm font-medium text-gray-500">Status</label>
-                                    <select id="status"
-                                        class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm rounded-md border">
-                                        <option value="pending">Pending</option>
-                                        <option value="confirmed" selected>Confirmed</option>
-                                        <option value="completed">Completed</option>
-                                        <option value="cancelled">Cancelled</option>
-                                    </select>
-                                </div>
-                                <div class="sm:col-span-2">
-                                    <label class="block text-sm font-medium text-gray-500">Rejected Reason</label>
-                                    <textarea placeholder="Enter reason if rejected..."
-                                        class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 placeholder-gray-400"
-                                        rows="3"></textarea>
-                                </div>
-                            </div>
-                        </div>
                     </div>
 
-                    <!-- Update Button -->
-                    <button
-                        class="w-full bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-4 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
-                        Update Appointment
-                    </button>
-                </div>
-
-                <!-- RIGHT COLUMN -->
-                <div class="flex flex-col space-y-6">
-                    <!-- Uploaded Documents -->
-                    <div class="bg-white shadow rounded-lg overflow-hidden border border-gray-200 flex-1">
-                        <div class="px-4 py-4 sm:px-6 border-b border-gray-200">
-                            <h3 class="text-base sm:text-lg font-medium leading-6 text-gray-900">Uploaded Documents</h3>
-                            <p class="mt-1 text-xs sm:text-sm text-gray-500">Documents submitted by the civilian</p>
-                        </div>
-                        <div class="px-4 py-4 sm:p-6 space-y-4">
-                            <!-- Document Item -->
-                            <div class="flex items-center justify-between p-3 border border-gray-200 rounded-lg hover:bg-gray-50">
-                                <div class="flex items-center">
-                                    <div class="p-2 rounded-lg bg-blue-100 text-blue-600 mr-3">
-                                        <i class="fas fa-file-pdf text-lg"></i>
-                                    </div>
-                                    <div>
-                                        <p class="text-sm font-medium text-gray-900">Passport Application Form</p>
-                                        <p class="text-xs text-gray-500">PDF • 245 KB</p>
-                                    </div>
-                                </div>
-                                <button class="text-green-600 hover:text-green-800 px-3 py-1 rounded-md text-sm font-medium">
-                                    <i class="fas fa-eye mr-1"></i> View
-                                </button>
+                    <!-- RIGHT COLUMN -->
+                    <div class="flex flex-col space-y-6">
+                        <!-- Uploaded Documents -->
+                        <div class="bg-white shadow rounded-lg overflow-hidden border border-gray-200 flex-1">
+                            <div class="px-4 py-4 sm:px-6 border-b border-gray-200">
+                                <h3 class="text-base sm:text-lg font-medium leading-6 text-gray-900">Uploaded Documents</h3>
+                                <p class="mt-1 text-xs sm:text-sm text-gray-500">Documents submitted by the civilian</p>
                             </div>
-
-                            <div class="flex items-center justify-between p-3 border border-gray-200 rounded-lg hover:bg-gray-50">
-                                <div class="flex items-center">
-                                    <div class="p-2 rounded-lg bg-green-100 text-green-600 mr-3">
-                                        <i class="fas fa-file-image text-lg"></i>
+                            <div class="px-4 py-4 sm:p-6 space-y-4">
+                                <!-- Document Item -->
+                                <div class="flex items-center justify-between p-3 border border-gray-200 rounded-lg hover:bg-gray-50">
+                                    <div class="flex items-center">
+                                        <div class="p-2 rounded-lg bg-blue-100 text-blue-600 mr-3">
+                                            <i class="fas fa-file-pdf text-lg"></i>
+                                        </div>
+                                        <div>
+                                            <p class="text-sm font-medium text-gray-900">Passport Application Form</p>
+                                            <p class="text-xs text-gray-500">PDF • 245 KB</p>
+                                        </div>
                                     </div>
-                                    <div>
-                                        <p class="text-sm font-medium text-gray-900">NIC Copy</p>
-                                        <p class="text-xs text-gray-500">JPG • 1.2 MB</p>
-                                    </div>
-                                </div>
-                                <button class="text-green-600 hover:text-green-800 px-3 py-1 rounded-md text-sm font-medium">
-                                    <i class="fas fa-eye mr-1"></i> View
-                                </button>
-                            </div>
-
-                            <div class="flex items-center justify-between p-3 border border-gray-200 rounded-lg hover:bg-gray-50">
-                                <div class="flex items-center">
-                                    <div class="p-2 rounded-lg bg-purple-100 text-purple-600 mr-3">
-                                        <i class="fas fa-file-word text-lg"></i>
-                                    </div>
-                                    <div>
-                                        <p class="text-sm font-medium text-gray-900">Supporting Letter</p>
-                                        <p class="text-xs text-gray-500">DOCX • 512 KB</p>
-                                    </div>
-                                </div>
-                                <button class="text-green-600 hover:text-green-800 px-3 py-1 rounded-md text-sm font-medium">
-                                    <i class="fas fa-eye mr-1"></i> View
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Communication -->
-                    <div class="bg-white shadow rounded-lg overflow-hidden border border-gray-200">
-                        <div class="px-4 py-4 sm:px-6 border-b border-gray-200">
-                            <h3 class="text-base sm:text-lg font-medium leading-6 text-gray-900">Send Message to Civilian</h3>
-                            <p class="mt-1 text-xs sm:text-sm text-gray-500">Special notes or requests</p>
-                        </div>
-                        <div class="px-4 py-4 sm:p-6">
-                            <!-- Message History -->
-                            <div class="mb-4 space-y-4 max-h-40 overflow-y-auto p-2">
-                                <div class="flex justify-end">
-                                    <div class="max-w-xs md:max-w-md bg-green-100 rounded-lg p-3">
-                                        <p class="text-sm text-gray-800">Please bring the original documents for verification.</p>
-                                        <p class="text-xs text-gray-500 text-right mt-1">Today, 10:15 AM</p>
-                                    </div>
-                                </div>
-                                <div class="flex justify-start">
-                                    <div class="max-w-xs md:max-w-md bg-gray-100 rounded-lg p-3">
-                                        <p class="text-sm text-gray-800">Understood. I will bring all originals.</p>
-                                        <p class="text-xs text-gray-500 text-right mt-1">Today, 10:30 AM</p>
-                                    </div>
-                                </div>
-                                <div class="text-center">
-                                    <span class="inline-block bg-gray-100 rounded-full px-3 py-1 text-xs text-gray-500">
-                                        Appointment confirmed on 2025-08-10
-                                    </span>
-                                </div>
-                            </div>
-
-                            <!-- Message Input -->
-                            <div class="mt-4">
-                                <div class="flex">
-                                    <input type="text"
-                                        class="flex-1 border border-gray-300 rounded-l-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
-                                        placeholder="Type your message...">
-                                    <button class="bg-green-600 hover:bg-green-700 text-white px-4 rounded-r-md">
-                                        <i class="fas fa-paper-plane"></i>
+                                    <button class="text-green-600 hover:text-green-800 px-3 py-1 rounded-md text-sm font-medium">
+                                        <i class="fas fa-eye mr-1"></i> View
                                     </button>
                                 </div>
-                                <div class="mt-2 flex space-x-2">
-                                    <button class="text-gray-500 hover:text-gray-700">
-                                        <i class="fas fa-paperclip"></i>
+
+                                <div class="flex items-center justify-between p-3 border border-gray-200 rounded-lg hover:bg-gray-50">
+                                    <div class="flex items-center">
+                                        <div class="p-2 rounded-lg bg-green-100 text-green-600 mr-3">
+                                            <i class="fas fa-file-image text-lg"></i>
+                                        </div>
+                                        <div>
+                                            <p class="text-sm font-medium text-gray-900">NIC Copy</p>
+                                            <p class="text-xs text-gray-500">JPG • 1.2 MB</p>
+                                        </div>
+                                    </div>
+                                    <button class="text-green-600 hover:text-green-800 px-3 py-1 rounded-md text-sm font-medium">
+                                        <i class="fas fa-eye mr-1"></i> View
                                     </button>
-                                    <button class="text-gray-500 hover:text-gray-700">
-                                        <i class="far fa-smile"></i>
+                                </div>
+
+                                <div class="flex items-center justify-between p-3 border border-gray-200 rounded-lg hover:bg-gray-50">
+                                    <div class="flex items-center">
+                                        <div class="p-2 rounded-lg bg-purple-100 text-purple-600 mr-3">
+                                            <i class="fas fa-file-word text-lg"></i>
+                                        </div>
+                                        <div>
+                                            <p class="text-sm font-medium text-gray-900">Supporting Letter</p>
+                                            <p class="text-xs text-gray-500">DOCX • 512 KB</p>
+                                        </div>
+                                    </div>
+                                    <button class="text-green-600 hover:text-green-800 px-3 py-1 rounded-md text-sm font-medium">
+                                        <i class="fas fa-eye mr-1"></i> View
                                     </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Communication -->
+                        <div class="bg-white shadow rounded-lg overflow-hidden border border-gray-200">
+                            <div class="px-4 py-4 sm:px-6 border-b border-gray-200">
+                                <h3 class="text-base sm:text-lg font-medium leading-6 text-gray-900">Send Message to Civilian</h3>
+                                <p class="mt-1 text-xs sm:text-sm text-gray-500">Special notes or requests</p>
+                            </div>
+                            <div class="px-4 py-4 sm:p-6">
+                                <!-- Message History -->
+                                <div class="mb-4 space-y-4 max-h-40 overflow-y-auto p-2">
+                                    <div class="flex justify-end">
+                                        <div class="max-w-xs md:max-w-md bg-green-100 rounded-lg p-3">
+                                            <p class="text-sm text-gray-800">Please bring the original documents for verification.</p>
+                                            <p class="text-xs text-gray-500 text-right mt-1">Today, 10:15 AM</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-start">
+                                        <div class="max-w-xs md:max-w-md bg-gray-100 rounded-lg p-3">
+                                            <p class="text-sm text-gray-800">Understood. I will bring all originals.</p>
+                                            <p class="text-xs text-gray-500 text-right mt-1">Today, 10:30 AM</p>
+                                        </div>
+                                    </div>
+                                    <div class="text-center">
+                                        <span class="inline-block bg-gray-100 rounded-full px-3 py-1 text-xs text-gray-500">
+                                            Appointment confirmed on 2025-08-10
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <!-- Message Input -->
+                                <div class="mt-4">
+                                    <div class="flex">
+                                        <input type="text"
+                                            class="flex-1 border border-gray-300 rounded-l-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                                            placeholder="Type your message...">
+                                        <button class="bg-green-600 hover:bg-green-700 text-white px-4 rounded-r-md">
+                                            <i class="fas fa-paper-plane"></i>
+                                        </button>
+                                    </div>
+                                    <div class="mt-2 flex space-x-2">
+                                        <button class="text-gray-500 hover:text-gray-700">
+                                            <i class="fas fa-paperclip"></i>
+                                        </button>
+                                        <button class="text-gray-500 hover:text-gray-700">
+                                            <i class="far fa-smile"></i>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </main>
+            </main>
+        </div>
     </div>
-</div>
 
 
 
@@ -472,37 +472,37 @@
         // });
 
         // Modal functionality
-        const newAppointmentBtn = document.getElementById('newAppointmentBtn');
-        const appointmentModal = document.getElementById('appointmentModal');
-        const closeModal = document.getElementById('closeModal');
-        const appointmentForm = document.getElementById('appointmentForm');
+        // const newAppointmentBtn = document.getElementById('newAppointmentBtn');
+        // const appointmentModal = document.getElementById('appointmentModal');
+        // const closeModal = document.getElementById('closeModal');
+        // const appointmentForm = document.getElementById('appointmentForm');
 
-        newAppointmentBtn.addEventListener('click', function() {
-            appointmentModal.classList.remove('hidden');
-        });
+        // newAppointmentBtn.addEventListener('click', function() {
+        //     appointmentModal.classList.remove('hidden');
+        // });
 
-        closeModal.addEventListener('click', function() {
-            appointmentModal.classList.add('hidden');
-        });
+        // closeModal.addEventListener('click', function() {
+        //     appointmentModal.classList.add('hidden');
+        // });
 
-        appointmentModal.addEventListener('click', function(e) {
-            if (e.target === appointmentModal) {
-                appointmentModal.classList.add('hidden');
-            }
-        });
+        // appointmentModal.addEventListener('click', function(e) {
+        //     if (e.target === appointmentModal) {
+        //         appointmentModal.classList.add('hidden');
+        //     }
+        // });
 
-        appointmentForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Appointment created successfully!');
-            appointmentModal.classList.add('hidden');
-        });
+        // appointmentForm.addEventListener('submit', function(e) {
+        //     e.preventDefault();
+        //     alert('Appointment created successfully!');
+        //     appointmentModal.classList.add('hidden');
+        // });
 
-        // Password toggle functionality
-        function togglePassword(fieldId) {
-            const field = document.getElementById(fieldId);
-            const type = field.getAttribute('type') === 'password' ? 'text' : 'password';
-            field.setAttribute('type', type);
-        }
+        // // Password toggle functionality
+        // function togglePassword(fieldId) {
+        //     const field = document.getElementById(fieldId);
+        //     const type = field.getAttribute('type') === 'password' ? 'text' : 'password';
+        //     field.setAttribute('type', type);
+        // }
     </script>
 
     <script>
@@ -606,7 +606,7 @@
             });
         });
     </script>
-    <script src="/assets/js/calnder.js"></script>
+    <script src="./assets/js/calnder.js"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -629,19 +629,18 @@
     <script>
         const ctx = document.getElementById('myBarChart').getContext('2d');
 
-        new Chart(ctx, {
+        const myChart = new Chart(ctx, {
             type: 'bar',
             data: {
                 labels: ['7-8', '8-9', '9-10', '10-11', '11-12', '12-1', '2-3', '3-4', '4-5'],
                 datasets: [{
                     label: 'Appointments Count',
-                    data: [10, 35, 50, 25, 55, 40, 20, 60, 15],
+                    data: [0, 0, 0, 0, 0, 0, 0, 0, 0],
                     backgroundColor: 'rgba(54, 162, 235, 0.6)',
                     borderColor: 'rgba(54, 162, 235, 1)',
                     borderWidth: 1,
-                    // barThickness: 40 // width in pixels
-                    categoryPercentage: 0.6, // space taken by each category (0–1)
-                    barPercentage: 0.8 // space taken by each bar within the category
+                    categoryPercentage: 0.6,
+                    barPercentage: 0.8
                 }]
             },
             options: {
@@ -658,10 +657,39 @@
                 }
             }
         });
+
+        async function loadAppointments() {
+            try {
+                const response = await fetch("backend/getAppointmentsPerHour.php");
+                if (!response.ok) throw new Error("Network error");
+
+                const result = await response.json();
+                console.log(result);
+
+                if (result.status == "success") {
+
+                    const data = []; 
+                    result.data.forEach((item) => {
+                        data.push(item.total_appointments);
+                    });
+
+                    myChart.data.datasets[0].data = data;
+                    myChart.update();
+                }
+            } catch (error) {
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Something went wrong! Please try again later.",
+                });
+            }
+        }
+
+        loadAppointments();
     </script>
 
     <!-- appointment modal -->
-     <script>
+    <script>
         const modal = document.getElementById('appointmentModal1');
         const openModalBtn = document.getElementById('openModalBtn');
         const closeModalBtn = document.getElementById('closeModalBtn');

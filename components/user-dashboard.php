@@ -56,20 +56,21 @@
 
             <?php
 
-            $currentTime = date("H:i:s");
+            $currentDateTime = date("Y-m-d H:i:s");
 
-            $appoitmentResultSet = Database::search("SELECT * FROM appointment a
-                    INNER JOIN appointment_status aps ON a.appointment_status_id = aps.id
-                    INNER JOIN service s ON a.service_id = s.id
-                    INNER JOIN branch b ON s.branch_id = b.id
-                    INNER JOIN department d ON b.department_id = d.id
-                    INNER JOIN time_slot t ON a.time_slot_id = t.id
-                    WHERE a.added_user_nic = '" . $user["nic"] . "' AND
-                    a.appointment_date >= '{$today}' AND
-                    aps.status = 'Accepted' AND
-                    t.start_time > '{$currentTime}'
-                    ORDER BY a.appointment_date ASC, t.start_time ASC
-                ");
+            $appoitmentResultSet = Database::search("
+                SELECT * FROM appointment a
+                INNER JOIN appointment_status aps ON a.appointment_status_id = aps.id
+                INNER JOIN service s ON a.service_id = s.id
+                INNER JOIN branch b ON s.branch_id = b.id
+                INNER JOIN department d ON b.department_id = d.id
+                INNER JOIN time_slot t ON a.time_slot_id = t.id
+                WHERE a.added_user_nic = '" . $user["nic"] . "'
+                  AND aps.status = 'Accepted'
+                  AND TIMESTAMP(a.appointment_date, t.start_time) > '{$currentDateTime}'
+                ORDER BY a.appointment_date ASC, t.start_time ASC
+            ");
+
 
             while ($row = $appoitmentResultSet->fetch_assoc()) {
 
@@ -87,9 +88,9 @@
                             <div class="flex flex-col sm:flex-row gap-1 sm:gap-4 text-xs text-gray-600">
                                 <span><strong>Department:</strong> <?php echo $row["department"] ?></span>
                                 <span><strong>Branch :</strong> <?php echo $row["branch"] ?></span>
-                                <span><strong>Time Slot :</strong> <?php echo $row["start_time"]." - ". $row["end_time"] ?></span>
+                                <span><strong>Time Slot :</strong> <?php echo $row["start_time"] . " - " . $row["end_time"] ?></span>
 
-                              
+
                             </div>
                         </div>
                         <button class="bg-teal-700 hover:bg-teal-800 text-white px-4 py-2 rounded w-full sm:w-auto text-xs mt-3 lg:mt-10">
