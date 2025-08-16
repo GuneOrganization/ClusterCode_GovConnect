@@ -7,7 +7,7 @@ if (isset($_SESSION["user"])) {
 
     $user = $_SESSION["user"];
 
-?>
+    ?>
 
     <!DOCTYPE html>
     <html lang="en">
@@ -125,9 +125,9 @@ if (isset($_SESSION["user"])) {
                         <!-- Left side -->
                         <div class="hidden md:flex items-center gap-3 flex-shrink-0 pl-8">
                             <h5 class="text-sm sm:text-md font-medium truncate max-w-[150px] sm:max-w-none">
-                                Welcome 
-                                <?php 
-                                    echo $user["first_name"] ; 
+                                Welcome
+                                <?php
+                                echo $user["first_name"];
                                 ?> !
                             </h5>
                         </div>
@@ -138,15 +138,17 @@ if (isset($_SESSION["user"])) {
 
                             <div class="flex items-center justify-between gap-2 flex-wrap sm:flex-nowrap">
                                 <!-- Profile Icon -->
-                                <div class="bg-gray-800 text-white rounded-full flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10">
+                                <div
+                                    class="bg-gray-800 text-white rounded-full flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10">
                                     <img src="./assets/images/dashboard_icons/user.png" alt="User Profile image">
                                 </div>
 
                                 <!-- User Info -->
                                 <div class="text-left text-xs leading-tight min-w-[100px] sm:min-w-[150px]">
-                                    <div class="font-semibold truncate"><?php echo $user["first_name"]." ".$user["last_name"] ;  ?>
-                                </div>
-                                    <div class="text-gray-500 truncate text-[10px]"><?php echo $user["email"];  ?></div>
+                                    <div class="font-semibold truncate">
+                                        <?php echo $user["first_name"] . " " . $user["last_name"]; ?>
+                                    </div>
+                                    <div class="text-gray-500 truncate text-[10px]"><?php echo $user["email"]; ?></div>
                                 </div>
                             </div>
 
@@ -352,7 +354,7 @@ if (isset($_SESSION["user"])) {
         <!-- Modal Background -->
         <div id="modalbarcode" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center">
             <!-- Modal Box -->
-            <div class="bg-white rounded-lg shadow-lg p-6 w-96 relative">
+            <div class="bg-white rounded-lg shadow-lg p-6 w-96 relative" id="printSection">
                 <!-- Close Button -->
                 <button id="closeModalbarcode"
                     class="absolute top-3 right-3 text-gray-500 hover:text-gray-700">&times;</button>
@@ -360,39 +362,66 @@ if (isset($_SESSION["user"])) {
                 <!-- Title -->
                 <h2 class="text-xl font-bold text-center mb-4 border-b pb-2">APPOINTMENT DETAILS</h2>
 
-                <!-- Barcode and Queue Number -->
-                <div class="flex items-center justify-between mb-6">
-                    <div class="text-center">
-                        <img src="https://barcodeapi.org/api/128/2556580001" alt="barcode" class="mx-auto w-32">
-                        <p class="text-sm font-semibold text-teal-800">2556580001</p>
-                    </div>
-                    <div class="text-center">
-                        <p class="text-teal-700 font-medium">Queue Number</p>
-                        <p class="text-3xl font-bold">22</p>
-                    </div>
+                <!-- Barcode -->
+                <div class="text-center mb-6">
+                    <img src="https://barcodeapi.org/api/128/2569470001" alt="barcode" class="mx-auto w-40">
+                    <p class="text-sm font-semibold text-teal-800 mt-2">2569470001</p>
                 </div>
 
                 <!-- Appointment Details -->
-                <div class="space-y-4">
-                    <div class="flex justify-between border-b pb-1">
-                        <span class="text-gray-500">Time Slot</span>
-                        <span class="font-medium">--</span>
+                <div class="space-y-3">
+                    <div class="flex justify-between flex-wrap">
+                        <span class="font-medium text-gray-600">Appointment Id</span>
+                        <span class="text-gray-900">2569470001</span>
                     </div>
-                    <div class="flex justify-between border-b pb-1">
-                        <span class="text-gray-500">Department</span>
-                        <span class="font-medium">--</span>
+                    <div class="flex justify-between flex-wrap">
+                        <span class="font-medium text-gray-600">Service</span>
+                        <span class="text-gray-900">National ID Renewal</span>
                     </div>
-                    <div class="flex justify-between border-b pb-1">
-                        <span class="text-gray-500">Service</span>
-                        <span class="font-medium">--</span>
+                    <div class="flex justify-between flex-wrap">
+                        <span class="font-medium text-gray-600">Department</span>
+                        <span class="text-gray-900">Civil Registration Department</span>
                     </div>
-                    <div class="flex justify-between border-b pb-1">
-                        <span class="text-gray-500">Date</span>
-                        <span class="font-medium">--</span>
+                    <div class="flex justify-between flex-wrap">
+                        <span class="font-medium text-gray-600">Branch</span>
+                        <span class="text-gray-900">Central Government Office</span>
                     </div>
+                    <div class="flex justify-between flex-wrap">
+                        <span class="font-medium text-gray-600">Date</span>
+                        <span class="text-teal-600 font-medium">2025-08-12</span>
+                    </div>
+                    <div class="flex justify-between flex-wrap">
+                        <span class="font-medium text-gray-600">Time Slot</span>
+                        <span class="text-gray-900">09:00am - 10:00am</span>
+                    </div>
+                    <div class="flex justify-between flex-wrap">
+                        <span class="font-medium text-gray-600">Queue Number</span>
+                        <span class="text-teal-600 font-bold text-lg">#004</span>
+                    </div>
+                </div>
+
+                <!-- Print Button -->
+                <div class="mt-6 text-center">
+                    <button onclick="printAppointment()"
+                        class="bg-teal-600 hover:bg-teal-700 text-white px-6 py-2 rounded-md shadow">
+                        <i class="fas fa-print mr-2"></i> Print
+                    </button>
                 </div>
             </div>
         </div>
+
+        <script>
+            function printAppointment() {
+                let printContents = document.getElementById("printSection").innerHTML;
+                let originalContents = document.body.innerHTML;
+
+                document.body.innerHTML = printContents;
+                window.print();
+                document.body.innerHTML = originalContents;
+                location.reload(); // reload back to normal after print
+            }
+        </script>
+
 
 
         <!-- feedback model -->
@@ -560,7 +589,7 @@ if (isset($_SESSION["user"])) {
             }
 
             // Close notifications when pressing Escape key
-            document.addEventListener('keydown', function(event) {
+            document.addEventListener('keydown', function (event) {
                 if (event.key === 'Escape') {
                     hideNotifications();
                 }
@@ -570,7 +599,7 @@ if (isset($_SESSION["user"])) {
         <script>
             // Menu navigation
             document.querySelectorAll('.menu-item').forEach(item => {
-                item.addEventListener('click', function() {
+                item.addEventListener('click', function () {
                     const menu = this.getAttribute('data-menu');
 
                     // Remove active class from all menu items
@@ -604,19 +633,19 @@ if (isset($_SESSION["user"])) {
             // const closeModal = document.getElementById('closeModal');
             const appointmentForm = document.getElementById('appointmentForm');
 
-            newAppointmentBtn.addEventListener('click', function() {
+            newAppointmentBtn.addEventListener('click', function () {
                 appointmentModal.classList.remove('hidden');
             });
 
 
 
-            appointmentModal.addEventListener('click', function(e) {
+            appointmentModal.addEventListener('click', function (e) {
                 if (e.target === appointmentModal) {
                     appointmentModal.classList.add('hidden');
                 }
             });
 
-            appointmentForm.addEventListener('submit', function(e) {
+            appointmentForm.addEventListener('submit', function (e) {
                 e.preventDefault();
                 alert('Appointment created successfully!');
                 appointmentModal.classList.add('hidden');
@@ -673,7 +702,7 @@ if (isset($_SESSION["user"])) {
         </script>
 
         <script>
-            document.addEventListener('DOMContentLoaded', function() {
+            document.addEventListener('DOMContentLoaded', function () {
                 const calendarEl = document.getElementById('calendar');
                 const calendar = new FullCalendar.Calendar(calendarEl, {
                     initialView: 'dayGridMonth',
@@ -729,7 +758,7 @@ if (isset($_SESSION["user"])) {
                             textColor: 'white'
                         }
                     ],
-                    dayCellDidMount: function(info) {
+                    dayCellDidMount: function (info) {
                         // Mark booking days
                         const bookingDates = ['2025-08-12', '2025-08-15', '2025-08-18', '2025-08-20'];
                         const holidayDates = ['2025-02-04', '2025-05-12'];
@@ -744,7 +773,7 @@ if (isset($_SESSION["user"])) {
                             info.el.classList.add('holiday');
                         }
                     },
-                    eventClick: function(info) {
+                    eventClick: function (info) {
                         alert('Event: ' + info.event.title + '\nDate: ' + info.event.startStr);
                     }
                 });
@@ -756,14 +785,14 @@ if (isset($_SESSION["user"])) {
                 // Cancel and View Barcode button handlers
                 document.querySelectorAll('button').forEach(button => {
                     if (button.textContent.includes('CANCEL')) {
-                        button.addEventListener('click', function() {
+                        button.addEventListener('click', function () {
                             if (confirm('Are you sure you want to cancel this appointment?')) {
                                 button.closest('.bg-white').style.opacity = '0.5';
                                 alert('Appointment cancelled successfully.');
                             }
                         });
                     } else if (button.textContent.includes('VIEW BARCODE')) {
-                        button.addEventListener('click', function() {
+                        button.addEventListener('click', function () {
                             alert('Barcode view functionality would be implemented here.');
                         });
                     }
@@ -775,12 +804,12 @@ if (isset($_SESSION["user"])) {
 
 
             // Navigation functionality
-            document.addEventListener('DOMContentLoaded', function() {
+            document.addEventListener('DOMContentLoaded', function () {
                 const menuItems = document.querySelectorAll('.menu-item');
                 const contentSections = document.querySelectorAll('.content-section');
 
                 menuItems.forEach(item => {
-                    item.addEventListener('click', function() {
+                    item.addEventListener('click', function () {
                         const targetMenu = this.getAttribute('data-menu');
 
                         // Remove active class from all menu items
@@ -822,7 +851,7 @@ if (isset($_SESSION["user"])) {
                 }
 
                 // Handle form submission
-                document.getElementById('newAppointmentForm').addEventListener('submit', function(e) {
+                document.getElementById('newAppointmentForm').addEventListener('submit', function (e) {
                     e.preventDefault();
 
                     // Get form values
@@ -841,7 +870,7 @@ if (isset($_SESSION["user"])) {
                 });
 
                 // Close modal when clicking outside
-                document.getElementById('newAppointmentModal').addEventListener('click', function(e) {
+                document.getElementById('newAppointmentModal').addEventListener('click', function (e) {
                     if (e.target === this) {
                         closeNewAppointmentModal();
                     }
@@ -1012,8 +1041,8 @@ if (isset($_SESSION["user"])) {
                         btn.className = [
                             "px-3 py-2 rounded border text-sm transition",
                             unavailable ?
-                            "bg-red-100 text-gray-500 cursor-not-allowed border-red-200" :
-                            "bg-green-100 hover:bg-green-200 border-green-200"
+                                "bg-red-100 text-gray-500 cursor-not-allowed border-red-200" :
+                                "bg-green-100 hover:bg-green-200 border-green-200"
                         ].join(" ");
                         btn.textContent = slot.replace("-", " - ");
 
@@ -1188,7 +1217,7 @@ if (isset($_SESSION["user"])) {
 
 
 
-<?php
+    <?php
 
 } else {
     header("Location:index.php");
