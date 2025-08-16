@@ -21,7 +21,7 @@ if (!isset($_GET['department_id']) || empty($_GET['department_id'])) {
 
 
 try {
-    $resultSet = Database::search("SELECT * FROM branch WHERE department_id = ".$_GET['department_id']."");
+    $resultSet = Database::search("SELECT * FROM branch WHERE department_id = '".$_GET['department_id']."'");
 
     $branches = [];
     while ($row = $resultSet->fetch_assoc()) {

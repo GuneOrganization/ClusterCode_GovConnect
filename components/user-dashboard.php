@@ -59,12 +59,14 @@
             $currentTime = date("H:i:s");
 
             $appoitmentResultSet = Database::search("SELECT * FROM appointment a
+                    INNER JOIN appointment_status aps ON a.appointment_status_id = aps.id
                     INNER JOIN service s ON a.service_id = s.id
                     INNER JOIN branch b ON s.branch_id = b.id
                     INNER JOIN department d ON b.department_id = d.id
                     INNER JOIN time_slot t ON a.time_slot_id = t.id
                     WHERE a.added_user_nic = '" . $user["nic"] . "' AND
-                    a.appointment_date > '{$today}' AND
+                    a.appointment_date >= '{$today}' AND
+                    aps.status = 'Accepted' AND
                     t.start_time > '{$currentTime}'
                     ORDER BY a.appointment_date ASC, t.start_time ASC
                 ");
@@ -96,14 +98,9 @@
                     </div>
                 </div>
 
-
-
             <?php
 
-
-
             }
-
 
             ?>
 
