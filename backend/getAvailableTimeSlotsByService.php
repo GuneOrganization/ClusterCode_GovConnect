@@ -32,7 +32,7 @@ try {
     $result = Database::search("SELECT ts.id, ts.start_time, ts.end_time FROM time_slot ts WHERE ts.id NOT IN (
             SELECT a.time_slot_id FROM appointment a 
             INNER JOIN appointment_status s ON a.appointment_status_id = s.id
-            WHERE a.service_id = '{$service_id}' AND a.appointment_date='{$appointment_date}' AND (s.status='Accepted' OR s.status='Completed')
+            WHERE a.service_id = '{$service_id}' AND a.appointment_date='{$appointment_date}' AND (s.status='Pending' OR s.status='Accepted' OR s.status='Completed')
         )
         ORDER BY ts.start_time ASC
     ");

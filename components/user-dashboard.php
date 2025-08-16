@@ -5,19 +5,16 @@
     </div>
 
     <?php
-    $today = date("Y-m-d");
+        $today = date("Y-m-d");
+        $todayAppoitmentsResult = Database::search("SELECT COUNT(*) AS count FROM appointment WHERE added_user_nic='" . $user["nic"] . "' AND appointment_status_id='2' AND appointment_date='{$today}' ");
+        $ongoingAppoitmentsResult = Database::search("SELECT COUNT(*) AS count FROM appointment WHERE added_user_nic='" . $user["nic"] . "' AND appointment_status_id='2'");
+        $rejectedAppoitmentsResult = Database::search("SELECT COUNT(*) AS count FROM appointment WHERE added_user_nic='" . $user["nic"] . "' AND appointment_status_id='3'");
+        $totalAppoitmentsResult = Database::search("SELECT COUNT(*) AS count FROM appointment WHERE added_user_nic='" . $user["nic"] . "'");
 
-    $todayAppoitmentsResult = Database::search("SELECT COUNT(*) AS count FROM appointment WHERE added_user_nic='" . $user["nic"] . "' AND appointment_status_id='2' AND appointment_date='{$today}' ");
-    $ongoingAppoitmentsResult = Database::search("SELECT COUNT(*) AS count FROM appointment WHERE added_user_nic='" . $user["nic"] . "' AND appointment_status_id='2'");
-    $rejectedAppoitmentsResult = Database::search("SELECT COUNT(*) AS count FROM appointment WHERE added_user_nic='" . $user["nic"] . "' AND appointment_status_id='3'");
-    $totalAppoitmentsResult = Database::search("SELECT COUNT(*) AS count FROM appointment WHERE added_user_nic='" . $user["nic"] . "'");
-
-    $todayAppoitments = $todayAppoitmentsResult->fetch_assoc();
-    $ongoingAppoitments = $ongoingAppoitmentsResult->fetch_assoc();
-    $rejectedAppoitments = $rejectedAppoitmentsResult->fetch_assoc();
-    $totalAppoitments = $totalAppoitmentsResult->fetch_assoc();
-
-
+        $todayAppoitments = $todayAppoitmentsResult->fetch_assoc();
+        $ongoingAppoitments = $ongoingAppoitmentsResult->fetch_assoc();
+        $rejectedAppoitments = $rejectedAppoitmentsResult->fetch_assoc();
+        $totalAppoitments = $totalAppoitmentsResult->fetch_assoc();
     ?>
 
     <!-- Stats Cards -->
@@ -53,7 +50,6 @@
         <h4 class="text-lg sm:text-xl font-semibold text-gray-800 mb-4">Upcoming Appointments</h4>
         <div class="space-y-4">
 
-
             <?php
 
             $currentDateTime = date("Y-m-d H:i:s");
@@ -75,7 +71,6 @@
             while ($row = $appoitmentResultSet->fetch_assoc()) {
 
             ?>
-
 
                 <!-- Appointment Card -->
                 <div class="bg-stone-100 rounded-lg shadow p-5">

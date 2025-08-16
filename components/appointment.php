@@ -17,37 +17,50 @@
             <!-- Left Side - Booking Cards -->
             <div class="lg:col-span-2">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <!-- Appointment Card Template -->
+
+                    <?php
+
+                    $appoitmentResultSet = Database::search("SELECT * FROM appointment a
+                    INNER JOIN appointment_status aps ON a.appointment_status_id = aps.id
+                    INNER JOIN service s ON a.service_id = s.id
+                    INNER JOIN branch b ON s.branch_id = b.id
+                    INNER JOIN department d ON b.department_id = d.id
+                    INNER JOIN time_slot t ON a.time_slot_id = t.id
+                    WHERE a.added_user_nic = '" . $user["nic"] . "'
+                    ORDER BY a.appointment_date ASC, t.start_time ASC
+                ");
+
+                    while ($row = $appoitmentResultSet->fetch_assoc()){
+                            ?>
+                            
+                            <!-- Appointment Card Template -->
                     <div class="bg-stone-200 rounded-lg shadow-sm border p-4 hover:shadow-md transition-shadow">
                         <div class="space-y-2 text-sm">
                             <div class="flex justify-between flex-wrap">
                                 <span class="font-medium text-gray-600">Appointment Id</span>
-                                <span class="text-gray-900">2569470001</span>
+                                <span class="text-gray-900"><?php echo $row["reference_number"] ?></span>
                             </div>
                             <div class="flex justify-between flex-wrap">
                                 <span class="font-medium text-gray-600">Service</span>
-                                <span class="text-gray-900">National ID Renewal</span>
+                                <span class="text-gray-900"><?php echo $row["title"] ?></span>
                             </div>
                             <div class="flex justify-between flex-wrap">
                                 <span class="font-medium text-gray-600">Department</span>
-                                <span class="text-gray-900">Civil Registration Department</span>
+                                <span class="text-gray-900"><?php echo $row["department"] ?></span>
                             </div>
                             <div class="flex justify-between flex-wrap">
                                 <span class="font-medium text-gray-600">Branch</span>
-                                <span class="text-gray-900">Central Government Office</span>
+                                <span class="text-gray-900"><?php echo $row["branch"] ?></span>
                             </div>
                             <div class="flex justify-between flex-wrap">
                                 <span class="font-medium text-gray-600">Date</span>
-                                <span class="text-teal-600 font-medium">2025-08-12</span>
+                                <span class="text-teal-600 font-medium"><?php echo $row["appointment_date"] ?></span>
                             </div>
                             <div class="flex justify-between flex-wrap">
                                 <span class="font-medium text-gray-600">Time Slot</span>
-                                <span class="text-gray-900">09:00am - 10:00am</span>
+                                <span class="text-gray-900"><?php echo $row["start_time"]." - ". $row["end_time"] ?></span>
                             </div>
-                            <div class="flex justify-between flex-wrap">
-                                <span class="font-medium text-gray-600">Queue Number</span>
-                                <span class="text-teal-600 font-bold text-lg">#004</span>
-                            </div>
+                            
                         </div>
                         <div class="flex flex-col sm:flex-row gap-2 mt-4">
                             <button
@@ -60,7 +73,15 @@
                                     class="fa-regular fa-thumbs-up"></i></button>
                         </div>
                     </div>
-a
+
+                            <?php
+
+                    }
+
+                    ?>
+
+                    
+
                     <!-- Duplicate this card block for other appointments -->
                 </div>
             </div>
@@ -87,7 +108,3 @@ a
 </div>
 
 <!--  -->
-
-
-
-

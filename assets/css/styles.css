@@ -560,3 +560,66 @@ body {
     line-height: 1.4;
     font-size: 12px;
 }
+
+.logo {
+    width: 48px;
+    height: 48px;
+    position: relative;
+}
+
+.logo-shape-1 {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background-color: #f97316;
+    border-radius: 50% 50% 50% 10px;
+    top: 6px;
+    left: 6px;
+    transform: rotate(-45deg);
+}
+
+.logo-shape-2 {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #fb923c;
+    border-radius: 50% 50% 10px 50%;
+    bottom: 8px;
+    right: 8px;
+    transform: rotate(45deg);
+}
+
+.logo1 {
+    width: 18px;
+    height: 18px;
+}
+
+.content-section {
+    display: none;
+}
+
+.content-section.active {
+    display: block;
+}
+
+.fc-theme-standard .fc-scrollgrid {
+    border: 1px solid #e5e7eb;
+}
+
+.fc-daygrid-day.booking-day {
+    background-color: #dcfdf7 !important;
+}
+
+.fc-daygrid-day.holiday {
+    background-color: #fef3c7 !important;
+}
+
+.fc-event.booking-event {
+    background-color: #14b8a6;
+    border-color: #14b8a6;
+}
+
+.fc-event.holiday-event {
+    background-color: #f59e0b;
+    border-color: #f59e0b;
+}
