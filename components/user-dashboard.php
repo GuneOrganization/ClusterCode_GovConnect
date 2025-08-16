@@ -84,13 +84,9 @@
                                 <span><strong>Department:</strong> <?php echo $row["department"] ?></span>
                                 <span><strong>Branch :</strong> <?php echo $row["branch"] ?></span>
                                 <span><strong>Time Slot :</strong> <?php echo $row["start_time"] . " - " . $row["end_time"] ?></span>
-
-
                             </div>
                         </div>
-                        <button class="bg-teal-700 hover:bg-teal-800 text-white px-4 py-2 rounded w-full sm:w-auto text-xs mt-3 lg:mt-10">
-                            View Details
-                        </button>
+                        
                     </div>
                 </div>
 

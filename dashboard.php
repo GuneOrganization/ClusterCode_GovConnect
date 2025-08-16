@@ -262,67 +262,7 @@ if (isset($_SESSION["user"])) {
                 </div>
             </div>
         </div>
-
-
-        <!-- view barcode model -->
-        <!-- Modal Background -->
-        <div id="modalbarcode" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center">
-            <!-- Modal Box -->
-            <div class="bg-white rounded-lg shadow-lg p-6 w-96 relative" id="printSection">
-                <!-- Close Button -->
-                <button id="closeModalbarcode"
-                    class="absolute top-3 right-3 text-gray-500 hover:text-gray-700">&times;</button>
-
-                <!-- Title -->
-                <h2 class="text-xl font-bold text-center mb-4 border-b pb-2">APPOINTMENT DETAILS</h2>
-
-                <!-- Barcode -->
-                <div class="text-center mb-6">
-                    <img src="https://barcodeapi.org/api/128/2569470001" alt="barcode" class="mx-auto w-40">
-                    <p class="text-sm font-semibold text-teal-800 mt-2">2569470001</p>
-                </div>
-
-                <!-- Appointment Details -->
-                <div class="space-y-3">
-                    <div class="flex justify-between flex-wrap">
-                        <span class="font-medium text-gray-600">Appointment Id</span>
-                        <span class="text-gray-900">2569470001</span>
-                    </div>
-                    <div class="flex justify-between flex-wrap">
-                        <span class="font-medium text-gray-600">Service</span>
-                        <span class="text-gray-900">National ID Renewal</span>
-                    </div>
-                    <div class="flex justify-between flex-wrap">
-                        <span class="font-medium text-gray-600">Department</span>
-                        <span class="text-gray-900">Civil Registration Department</span>
-                    </div>
-                    <div class="flex justify-between flex-wrap">
-                        <span class="font-medium text-gray-600">Branch</span>
-                        <span class="text-gray-900">Central Government Office</span>
-                    </div>
-                    <div class="flex justify-between flex-wrap">
-                        <span class="font-medium text-gray-600">Date</span>
-                        <span class="text-teal-600 font-medium">2025-08-12</span>
-                    </div>
-                    <div class="flex justify-between flex-wrap">
-                        <span class="font-medium text-gray-600">Time Slot</span>
-                        <span class="text-gray-900">09:00am - 10:00am</span>
-                    </div>
-                    <div class="flex justify-between flex-wrap">
-                        <span class="font-medium text-gray-600">Queue Number</span>
-                        <span class="text-teal-600 font-bold text-lg">#004</span>
-                    </div>
-                </div>
-
-                <!-- Print Button -->
-                <div class="mt-6 text-center">
-                    <button onclick="printAppointment()"
-                        class="bg-teal-600 hover:bg-teal-700 text-white px-6 py-2 rounded-md shadow">
-                        <i class="fas fa-print mr-2"></i> Print
-                    </button>
-                </div>
-            </div>
-        </div>
+  
 
         <script>
             function printAppointment() {
