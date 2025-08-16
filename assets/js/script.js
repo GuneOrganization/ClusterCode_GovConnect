@@ -139,3 +139,8 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+
+function logoutProcess(){
+    window.location="backend/logoutProcess.php";
+}

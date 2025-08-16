@@ -30,7 +30,7 @@
             <img class="w-5 h-5" src="assets/images/dashboard_icons/my_profile.png" alt="My Profile">
             <span class="menu-text">| MY PROFILE</span>
         </button>
-        <button class="menu-item w-full flex items-center gap-3 p-3 mb-2 rounded-full text-sm font-medium text-gray-600 hover:bg-gray-300" data-menu="logout">
+        <button onclick="logoutProcess();" class="menu-item w-full flex items-center gap-3 p-3 mb-2 rounded-full text-sm font-medium text-gray-600 hover:bg-gray-300">
             <img class="w-5 h-5" src="assets/images/dashboard_icons/logout.png" alt="Logout">
             <span class="menu-text">| LOGOUT</span>
         </button>
@@ -38,7 +38,7 @@
 </div>
 
 <!-- Mobile Footer Navigation -->
-<div id="mobileNav" class="bg-stone-100 lg:hidden fixed bottom-0 left-0 w-full border-t flex justify-around px-1 z-10">
+<div id="mobileNav" class="bg-stone-100 xl:hidden fixed bottom-0 left-0 w-full border-t flex justify-around px-1 z-10">
     <button class="menu-item flex flex-col items-center justify-center text-xs p-3 w-24 h-20" data-menu="dashboard">
         <img class="w-5 h-5 mb-2" src="assets/images/dashboard_icons/dashboard.png" alt="Dashboard">
         <span>DASHBOARD</span>
@@ -85,3 +85,4 @@
         }
     });
 </script>
+
