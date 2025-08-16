@@ -189,7 +189,7 @@
                 <button class="px-3 py-1 bg-blue-50 text-blue-600 rounded-md text-sm hover:bg-blue-100 flex items-center justify-center sm:justify-start">
                     <i class="fas fa-print mr-1"></i> Print
                 </button>
-                <button class="px-3 py-1 bg-green-50 text-green-600 rounded-md text-sm hover:bg-green-100 flex items-center justify-center sm:justify-start">
+                <button id="openModalBtn" class="px-3 py-1 bg-green-50 text-green-600 rounded-md text-sm hover:bg-green-100 flex items-center justify-center sm:justify-start">
                     <i class="fas fa-eye mr-1"></i> View
                 </button>
             </div>
