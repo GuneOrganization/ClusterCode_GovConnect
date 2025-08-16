@@ -257,9 +257,9 @@ if (isset($_SESSION["user"])) {
                     <form id="appointmentForm" class="space-y-5">
                         <!-- Department -->
                         <div>
-                            <label class="block text-sm text-gray-500 mb-1">Department</label>
+                            <label class="block text-xs text-gray-800 mb-1">Department</label>
                             <select id="department"
-                                class="w-full px-3 py-2 rounded border border-gray-200 focus:border-teal-500 outline-none">
+                                class="w-full px-3 py-2 rounded border border-gray-200 focus:border-teal-500 outline-none text-xs">
                                 <option value="0">Select department</option>
                                 <?php
 
@@ -274,26 +274,18 @@ if (isset($_SESSION["user"])) {
 
                         <!-- Branch -->
                         <div>
-                            <label class="block text-sm text-gray-500 mb-1">Branch</label>
+                            <label class="block text-xs text-gray-800 mb-1">Branch</label>
                             <select id="branch"
-                                class="w-full px-3 py-2 rounded border border-gray-200 focus:border-teal-500 outline-none">
+                                class="w-full px-3 py-2 rounded border border-gray-200 focus:border-teal-500 outline-none text-xs" disabled>
                                 <option value="0">Select branch</option>
-                                <?php
-
-                                // $branch_rs = Database::search("SELECT * FROM `branch`");
-                                // while ($branch_row = $branch_rs->fetch_assoc()) {
-                                //     echo "<option value='" . $branch_row['id'] . "'>" . $branch_row['branch'] . "</option>";
-                                // }
-
-                                ?>
                             </select>
                         </div>
 
                         <!-- Service -->
                         <div>
-                            <label class="block text-sm text-gray-500 mb-1">Service</label>
+                            <label class="block text-xs text-gray-800 mb-1">Service</label>
                             <select id="service"
-                                class="w-full px-3 py-2 rounded border border-gray-200 focus:border-teal-500 outline-none">
+                                class="w-full px-3 py-2 rounded border border-gray-200 focus:border-teal-500 outline-none text-xs" disabled>
                                 <option value="0">Select service</option>
                                 <?php
 
@@ -325,10 +317,10 @@ if (isset($_SESSION["user"])) {
 
                         <!-- Selected Date & Time -->
                         <div class="rounded-lg border border-gray-100 p-4 bg-gray-50">
-                            <p class="text-sm text-gray-600">Selected Date:</p>
-                            <p id="selectedDateText" class="text-lg font-semibold text-gray-800">—</p>
-                            <p class="text-sm text-gray-600 mt-2">Selected Time:</p>
-                            <p id="selectedTimeText" class="text-lg font-semibold text-gray-800">—</p>
+                            <p class="text-xs text-gray-800">Selected Date:</p>
+                            <p id="selectedDateText" class="text-sm font-semibold text-gray-800">—</p>
+                            <p class="text-xs text-gray-800 mt-3">Selected TimeSlot</p>
+                            <p id="selectedTimeText" class="text-sm font-semibold text-gray-800">—</p>
                         </div>
 
                         <!-- Create Button -->
@@ -352,7 +344,7 @@ if (isset($_SESSION["user"])) {
                         <!-- Time Slots -->
                         <div>
                             <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
-                                <h4 class="text-lg font-semibold text-gray-800">Available Time Slots</h4>
+                                <h4 class="text-sm font-semibold text-gray-800">Available Time Slots</h4>
                                 <div class="flex items-center gap-2 text-xs">
                                     <span class="px-2 py-1 rounded bg-green-100">Available</span>
                                     <span class="px-2 py-1 rounded bg-red-100">Unavailable</span>
@@ -1025,21 +1017,20 @@ if (isset($_SESSION["user"])) {
                     timeSlotsEl.innerHTML = "";
                     selectedSlot = null;
                     selectedTimeText.textContent = "—";
-                    // queueNumberEl.textContent = "-";
                     submitBtn.disabled = true;
 
                     if (!ymd) return;
 
-                    if (isHoliday(ymd)) {
-                        timeSlotsEl.innerHTML = `<p class="text-sm text-red-600">No slots: holiday.</p>`;
-                        return;
-                    }
-                    if (isPast(ymd)) {
-                        timeSlotsEl.innerHTML = `<p class="text-sm text-gray-500">Past date.</p>`;
-                        return;
-                    }
+                    // if (isHoliday(ymd)) {
+                    //     timeSlotsEl.innerHTML = `<p class="text-sm text-red-600">No slots: holiday.</p>`;
+                    //     return;
+                    // }
+                    // if (isPast(ymd)) {
+                    //     timeSlotsEl.innerHTML = `<p class="text-sm text-gray-500">Past date.</p>`;
+                    //     return;
+                    // }
 
-                    const booked = new Set(BOOKED_BY_DATE[ymd] || []);
+                    //const booked = new Set(BOOKED_BY_DATE[ymd] || []);
 
                     // Demo rule: random extra unavailability to mimic load
                     const randomUnavailableIdx = hashStr(ymd) % BASE_SLOTS.length;
