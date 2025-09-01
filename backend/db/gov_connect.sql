@@ -1,8 +1,8 @@
 -- --------------------------------------------------------
 -- Host:                         127.0.0.1
--- Server version:               8.0.34 - MySQL Community Server - GPL
+-- Server version:               8.0.40 - MySQL Community Server - GPL
 -- Server OS:                    Win64
--- HeidiSQL Version:             12.6.0.6765
+-- HeidiSQL Version:             12.8.0.6908
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -13,11 +13,6 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
-
--- Dumping database structure for gov_connect
-CREATE DATABASE IF NOT EXISTS `gov_connect` /*!40100 DEFAULT CHARACTER SET utf8mb3 */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `gov_connect`;
 
 -- Dumping structure for table gov_connect.appointment
 CREATE TABLE IF NOT EXISTS `appointment` (
@@ -50,30 +45,24 @@ CREATE TABLE IF NOT EXISTS `appointment` (
   CONSTRAINT `fk_appointment_user3` FOREIGN KEY (`completed_user_nic`) REFERENCES `user` (`nic`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
--- Dumping data for table gov_connect.appointment: ~7 rows (approximately)
+-- Dumping data for table gov_connect.appointment: ~2 rows (approximately)
 INSERT INTO `appointment` (`reference_number`, `added_user_nic`, `service_id`, `appointment_status_id`, `added_datetime`, `appointment_date`, `time_slot_id`, `accepted_user_nic`, `completed_user_nic`, `accepted_datetime`, `completed_datetime`, `feedback`, `rating`, `rejected_message`) VALUES
-	('APP0000001', '102030405010', 'SER0000001', 2, '2025-08-17 12:04:39', '2025-08-17', 2, '200127804509', NULL, NULL, NULL, NULL, NULL, NULL),
-	('APP0000002', '102030405010', 'SER0000002', 2, '2025-08-17 13:01:27', '2025-08-17', 3, '200127804509', NULL, NULL, NULL, NULL, NULL, ''),
-	('APP0000003', '102030405010', 'SER0000001', 2, '2025-08-17 13:01:42', '2025-08-17', 4, '200127804509', NULL, NULL, NULL, NULL, NULL, NULL),
-	('APP0000004', '102030405010', 'SER0000007', 2, '2025-08-17 14:42:00', '2025-08-17', 5, '200127804509', NULL, NULL, NULL, NULL, NULL, NULL),
-	('APP0000005', '102030405016', 'SER0000002', 2, '2025-08-16 18:48:00', '2025-08-17', 5, NULL, NULL, NULL, NULL, NULL, NULL, ''),
-	('APP0000006', '102030405016', 'SER0000002', 2, '2025-08-16 19:02:16', '2025-08-17', 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-	('APP0000007', '102030405016', 'SER0000002', 1, '2025-08-16 19:07:54', '2025-08-19', 10, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+	('APP0000001', '200127804509', 'SER0000010', 2, '2025-08-16 11:00:00', '2025-08-15', 2, '200487562145', '200487562145', '2025-08-13 01:31:55', '2025-08-15 01:31:56', 'Good service!', 5, ''),
+	('APP0000002', '200126761234', 'SER0000010', 3, '2025-08-16 14:37:37', '2025-08-16', 3, '200487562145', '200487562145', '2025-08-16 14:37:54', '2025-08-16 14:37:54', '', 1, '');
 
 -- Dumping structure for table gov_connect.appointment_status
 CREATE TABLE IF NOT EXISTS `appointment_status` (
   `id` int NOT NULL AUTO_INCREMENT,
   `status` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
 
--- Dumping data for table gov_connect.appointment_status: ~5 rows (approximately)
+-- Dumping data for table gov_connect.appointment_status: ~4 rows (approximately)
 INSERT INTO `appointment_status` (`id`, `status`) VALUES
 	(1, 'Pending'),
 	(2, 'Accepted'),
 	(3, 'Rejected'),
-	(4, 'Completed'),
-	(5, 'Canceled');
+	(4, 'Completed');
 
 -- Dumping structure for table gov_connect.branch
 CREATE TABLE IF NOT EXISTS `branch` (
@@ -215,11 +204,9 @@ CREATE TABLE IF NOT EXISTS `service_document` (
   KEY `fk_service_document_document_type1_idx` (`document_type_id`),
   CONSTRAINT `fk_service_document_document_type1` FOREIGN KEY (`document_type_id`) REFERENCES `document_type` (`id`),
   CONSTRAINT `fk_service_document_service1` FOREIGN KEY (`service_id`) REFERENCES `service` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
--- Dumping data for table gov_connect.service_document: ~1 rows (approximately)
-INSERT INTO `service_document` (`id`, `service_id`, `document_name`, `document_type_id`) VALUES
-	(1, 'SER0000002', 'Ai Ai', 1);
+-- Dumping data for table gov_connect.service_document: ~0 rows (approximately)
 
 -- Dumping structure for table gov_connect.time_slot
 CREATE TABLE IF NOT EXISTS `time_slot` (
@@ -269,12 +256,11 @@ CREATE TABLE IF NOT EXISTS `user` (
   CONSTRAINT `fk_user_user_status` FOREIGN KEY (`user_status_id`) REFERENCES `user_status` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
--- Dumping data for table gov_connect.user: ~4 rows (approximately)
+-- Dumping data for table gov_connect.user: ~2 rows (approximately)
 INSERT INTO `user` (`nic`, `first_name`, `last_name`, `email`, `mobile`, `password`, `verification_code`, `user_status_id`, `user_role_id`, `registered_datetime`) VALUES
-	('102030405010', 'Sachintha', 'Chandradasa', 'dilshan4930@gmail.com', '0771020304', '$2y$10$cLSD8QCscEnM8I0s1LJst.HaDdz.Po8o7cDe.47r0RjBzSxLqevPe', '', 1, 2, '2025-08-16 08:53:10'),
-	('102030405013', 'Sachintha', 'Rupasinghe', 'test@gmail.com', '0771020303', '$2y$10$0OL0JUAYcK1E6EB94F.kFe9rfUI.lFaPdMM299rEoGL6cWkZb7qi6', NULL, 1, 2, '2025-08-16 18:56:23'),
-	('102030405016', 'Amarabandu', 'Rupasinghe', 'amarabandu@gmail.com', '0771020308', '$2y$10$WMjXZhsxhtVq0CDShz.8yOBmiu3YPJ/v0Ky/OSNwHvqCPyQ1P8aZ6', '', 1, 2, '2025-08-16 18:46:05'),
-	('200127804509', 'Danula', 'Gunawardana', 'danulagunawardana@gmail.com', '0774570765', '$2y$10$XrW/YJbFvhte7swoHA0eNe0c6.fF6pURLfPvgU/gyOKPbotH9gxyy', '', 1, 1, '2025-08-15 18:27:16');
+	('200126761234', 'Sandeep', 'Kavinda', 'dahamn07@gmail.com', '0712345678', '$2y$10$6BOFOS2Ul2bf6I9RHSjZo.7q1suVUhw9SmCkOjg8xly09pKmGBrWW', '894252', 1, 2, '2025-08-15 01:27:26'),
+	('200127804509', 'Daham', 'Bandara', 'dahamn09@gmail.com', '0702352220', '$2y$10$I7pmwQQdh59RrgYlfnUHfuwourLsX0QeOM/tAddDco8uf6sLvc6Mi', '12345', 1, 2, '2025-08-15 00:54:57'),
+	('200487562145', 'Kumara', 'Silva', 'kumara@gmail.com', '0717851190', '$2y$10$I7pmwQQdh59RrgYlfnUHfuwourLsX0QeOM/tAddDco8uf6sLvc6Mi', '', 1, 1, '2025-08-15 01:27:26');
 
 -- Dumping structure for table gov_connect.user_has_branch
 CREATE TABLE IF NOT EXISTS `user_has_branch` (
@@ -286,9 +272,11 @@ CREATE TABLE IF NOT EXISTS `user_has_branch` (
   KEY `fk_user_has_branch_user1_idx` (`user_nic`),
   CONSTRAINT `fk_user_has_branch_branch1` FOREIGN KEY (`branch_id`) REFERENCES `branch` (`id`),
   CONSTRAINT `fk_user_has_branch_user1` FOREIGN KEY (`user_nic`) REFERENCES `user` (`nic`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
 
 -- Dumping data for table gov_connect.user_has_branch: ~0 rows (approximately)
+INSERT INTO `user_has_branch` (`id`, `branch_id`, `user_nic`) VALUES
+	(1, 'BRN0000010', '200487562145');
 
 -- Dumping structure for table gov_connect.user_role
 CREATE TABLE IF NOT EXISTS `user_role` (
