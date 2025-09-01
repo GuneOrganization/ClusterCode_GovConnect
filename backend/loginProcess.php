@@ -24,6 +24,9 @@ if (isset($_SESSION['user'])) {
     $nicOrEmail = trim($input['nicOrEmail'] ?? '');
     $password = trim($input['password'] ?? '');
 
+    // $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+    // echo $hashedPassword;
+
     if (empty($nicOrEmail) || empty($password)) {
         sendUserResponse("fail", "NIC and Password are required");
     } else {
