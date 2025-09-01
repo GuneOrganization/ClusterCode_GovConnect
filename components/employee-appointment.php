@@ -91,9 +91,8 @@
     </div>
 
    
-    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-4 mb-6">
+    <!-- <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-4 mb-6">
         <div class="flex flex-col sm:flex-row flex-wrap gap-4">
-            <!-- Reference Number Search -->
             <div class="flex-1 min-w-[200px]">
                 <label for="refSearch" class="block text-sm font-medium text-gray-700 mb-1">Reference Number</label>
                 <div class="relative">
@@ -176,7 +175,7 @@
                 </button>
             </div>
         </div>
-    </div>
+    </div> -->
 
    
     <div class="grid grid-cols-1 gap-6 mb-8 overflow-y-auto max-h-[420px]">

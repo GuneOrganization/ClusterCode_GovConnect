@@ -409,8 +409,8 @@ if (!isset($_SESSION['user'])) {
             item.addEventListener('click', function() {
                 const menu = this.getAttribute('data-menu');
 
-                if (menu === 'logout') {
-                    window.location = '/clustercode_govconnect';
+                if (menu === 'employee-logout') {
+                    window.location = 'backend/logoutProcess.php';
                     return;
                 }
 
@@ -811,10 +811,12 @@ if (!isset($_SESSION['user'])) {
                 if (data.success) {
                     alert("Appointment updated and email sent ✅");
 
-                    const modal = document.getElementById("appointmentModal");
-                    if (modal) {
-                        modal.classList.add("hidden");
-                    }
+                    // const modal = document.getElementById("appointmentModal1");
+                    // if (modal) {
+                    //     modal.classList.add("hidden");
+                    // }
+
+                    window.location.reload();
 
                 } else {
                     alert("Failed to update ❌: " + data.message);
@@ -822,7 +824,7 @@ if (!isset($_SESSION['user'])) {
             } catch (err) {
                 console.error("Error updating appointment:", err);
 
-                const modal = document.getElementById("appointmentModal");
+                const modal = document.getElementById("appointmentModal1");
                 if (modal) {
                     modal.classList.add("hidden");
                 }

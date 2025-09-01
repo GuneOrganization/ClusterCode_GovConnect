@@ -46,6 +46,7 @@ if (isset($input['reference_number'], $input['status'])) {
                       <h2>Hello, ' . $firstName . '</h2>
                       <p>We are pleased to inform you that your appointment status has been changed.</p>
                       <p>Your current appointment status: <b>' . $appointment_status . '</b> </p>
+                      <p>Reason: <b>' . $reason . '</b> </p>
                       <p>Thank you for choosing <strong>Gov-Connect</strong> for a smooth and efficient government service experience.</p>
                  </div>'
             )
