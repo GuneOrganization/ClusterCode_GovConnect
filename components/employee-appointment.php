@@ -14,15 +14,7 @@
                                     SELECT * FROM `appointment` 
                                     INNER JOIN `appointment_status` ON `appointment`.`appointment_status_id` = `appointment_status`.`id`
                                     INNER JOIN `service` ON `appointment`.`service_id` = `service`.`id`
-                                    INNER JOIN `user_has_branch` ON `service`.`branch_id` = `user_has_branch`.`branch_id`
-                                    WHERE `service_id` = (
-                                    SELECT `id` FROM `service` 
-                                    WHERE `branch_id` = (
-                                    SELECT `branch_id` FROM `user_has_branch` 
-                                    WHERE `user_nic` = '" . $user_nic . "'
-                                         )
-                                       )
-                                    ");
+                                    INNER JOIN `user_has_branch` ON `service`.`branch_id` = `user_has_branch`.`branch_id` ");
 
         $total_appointments = 0;
         $pending_appointments = 0;
