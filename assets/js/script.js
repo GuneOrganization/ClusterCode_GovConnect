@@ -50,7 +50,6 @@ let mySelectedDate = "";
 //   });
 // });
 
-
 document.getElementById("submitFeedback").addEventListener("click", () => {
   const feedback = document.getElementById("feedbackText").value;
   const department = document.getElementById("department").value;
@@ -64,7 +63,6 @@ document.getElementById("submitFeedback").addEventListener("click", () => {
     alert("Please provide feedback.");
     return;
   }
-
 
   closeModal.click();
 
@@ -108,7 +106,6 @@ document.querySelectorAll(".menu-item").forEach((item) => {
       menuItem.classList.add("hover:bg-gray-300");
     });
 
-    
     this.classList.add("bg-white", "shadow-sm");
     this.classList.remove("hover:bg-gray-300");
 
@@ -122,7 +119,6 @@ document.querySelectorAll(".menu-item").forEach((item) => {
     }
   });
 });
-
 
 const newAppointmentBtn = document.getElementById("newAppointmentBtn");
 const appointmentModal = document.getElementById("appointmentModal");
@@ -151,20 +147,16 @@ function togglePassword(fieldId) {
   field.setAttribute("type", type);
 }
 
-
 const btn = document.getElementById("notificationBtn");
 const popup = document.getElementById("notificationPopup");
-
 
 btn.addEventListener("mouseenter", () => {
   popup.classList.remove("hidden");
 });
 
-
 popup.addEventListener("mouseenter", () => {
   popup.classList.remove("hidden");
 });
-
 
 btn.addEventListener("mouseleave", () => {
   setTimeout(() => {
@@ -271,9 +263,13 @@ document.addEventListener("DOMContentLoaded", function () {
     },
   });
 
-  calendar.render();
-});
+  requestAnimationFrame(() => calendar.render());
 
+  document.addEventListener("shown.bs.tab", () => calendar.updateSize());
+  document.addEventListener("shown.bs.collapse", () => calendar.updateSize());
+
+  new ResizeObserver(() => calendar.updateSize()).observe(calendarEl);
+});
 
 document.addEventListener("DOMContentLoaded", function () {
   const menuItems = document.querySelectorAll(".menu-item");
@@ -283,20 +279,16 @@ document.addEventListener("DOMContentLoaded", function () {
     item.addEventListener("click", function () {
       const targetMenu = this.getAttribute("data-menu");
 
-      
       menuItems.forEach((menuItem) => {
         menuItem.classList.remove("active");
       });
 
-      
       this.classList.add("active");
 
-      
       contentSections.forEach((section) => {
         section.classList.remove("active");
       });
 
-      
       const targetSection = document.getElementById(targetMenu + "-content");
       if (targetSection) {
         targetSection.classList.add("active");
@@ -362,15 +354,14 @@ function updateQueueNumber() {
 }
 
 (() => {
-  
   const HOLIDAYS = new Set([
-    "2025-01-14", 
-    "2025-02-04", 
+    "2025-01-14",
+    "2025-02-04",
     "2025-04-13",
-    "2025-04-14", 
-    "2025-05-01", 
-    "2025-05-12", 
-    "2025-06-11", 
+    "2025-04-14",
+    "2025-05-01",
+    "2025-05-12",
+    "2025-06-11",
   ]);
 
   const BASE_SLOTS = [
@@ -385,8 +376,8 @@ function updateQueueNumber() {
     "2025-08-05": ["10:00-11:00", "15:00-16:00"],
   };
 
-  let selectedDate = null; 
-  let selectedSlot = null; 
+  let selectedDate = null;
+  let selectedSlot = null;
 
   const modal = document.getElementById("appointmentModal");
   const openBtn = document.getElementById("openModal");
@@ -573,14 +564,14 @@ function updateQueueNumber() {
         loadTimeSlotsWithAvailability(ymd);
         // renderTimeSlots(ymd);
       },
-      
+
       events: Array.from(HOLIDAYS).map((d) => ({
         start: d,
         end: d,
         display: "background",
         className: "is-holiday",
       })),
-      
+
       dayCellDidMount: (arg) => {
         const ymd = toYMD(arg.date);
         if (isHoliday(ymd)) {
@@ -589,10 +580,14 @@ function updateQueueNumber() {
       },
     });
 
-    calendar.render();
+    requestAnimationFrame(() => calendar.render());
+
+    document.addEventListener("shown.bs.tab", () => calendar.updateSize());
+    document.addEventListener("shown.bs.collapse", () => calendar.updateSize());
+
+    new ResizeObserver(() => calendar.updateSize()).observe(calendarEl);
   }
 
-  
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     const service = document.getElementById("service").value.trim();
@@ -610,7 +605,6 @@ function updateQueueNumber() {
     setTimeout(() => hideModal(), 700);
   });
 
-  
   function showModal() {
     modal.classList.add("show");
     modal.classList.remove("hidden");
@@ -638,7 +632,6 @@ function updateQueueNumber() {
     if (e.target === modal) hideModal();
   });
 
-  
   document.addEventListener("DOMContentLoaded", () => {
     buildCalendar();
     // Preselect "today" (if not holiday)
@@ -650,7 +643,6 @@ function updateQueueNumber() {
     }
   });
 })();
-
 
 function loadBarcodeModelData(data) {
   const openBarcodemodelModal = document.getElementById("openModalbarcode");
@@ -685,7 +677,6 @@ function loadBarcodeModelData(data) {
 //   }
 // }
 
-
 document.addEventListener("DOMContentLoaded", function () {
   const menuItems = document.querySelectorAll(".menu-item");
   const contentSections = document.querySelectorAll(".content-section");
@@ -694,20 +685,16 @@ document.addEventListener("DOMContentLoaded", function () {
     item.addEventListener("click", function () {
       const targetMenu = this.getAttribute("data-menu");
 
-      
       menuItems.forEach((menuItem) => {
         menuItem.classList.remove("active");
       });
 
-      
       this.classList.add("active");
 
-      
       contentSections.forEach((section) => {
         section.classList.remove("active");
       });
 
-      
       const targetSection = document.getElementById(targetMenu + "-content");
       if (targetSection) {
         targetSection.classList.add("active");
@@ -937,13 +924,11 @@ async function loadTimeSlotsWithAvailability(ymd) {
     alert("Select a Date");
   } else {
     try {
-      
       const allRes = await fetch(
         "http://localhost/ClusterCode_GovConnect/backend/getTimeSlots.php"
       );
       const allResult = await allRes.json();
 
-      
       const availRes = await fetch(
         `http://localhost/ClusterCode_GovConnect/backend/getAvailableTimeSlotsByService.php?service_id=${serviceId}&appointment_date=${ymd}`
       );
@@ -960,7 +945,7 @@ async function loadTimeSlotsWithAvailability(ymd) {
             : [];
 
         let i = 0;
-        
+
         while (i < allSlots.length) {
           const slot = allSlots[i];
           const option = document.createElement("option");
@@ -968,7 +953,6 @@ async function loadTimeSlotsWithAvailability(ymd) {
           option.value = slot.id;
           option.textContent = `${slot.start_time} - ${slot.end_time}`;
 
-          
           if (!availableSlots.includes(slot.id)) {
             option.disabled = true;
             option.textContent =
@@ -992,7 +976,6 @@ async function loadTimeSlotsWithAvailability(ymd) {
 }
 
 async function createNewAppointment() {
-  
   let department = document.getElementById("department").value;
   let branch = document.getElementById("branch").value;
   let service = document.getElementById("service").value;
@@ -1013,7 +996,6 @@ async function createNewAppointment() {
 
     document.querySelectorAll("input[type='file']").forEach((input) => {
       if (input.files.length > 0) {
-        
         formData.append(input.name, input.files[0]);
       }
     });
