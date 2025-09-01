@@ -257,12 +257,6 @@
     </div>
 </div>
 
-<!-- Success Message -->
-<div id="successPopup"
-    class="hidden fixed bottom-6 right-6 bg-green-600 text-white px-5 py-3 rounded-lg shadow-lg flex items-center space-x-2 animate-bounce">
-    <span class="text-xl">✅</span>
-    <span>Feedback Submitted!</span>
-</div>
 
 <script>
     const closeModal = document.getElementById("closeModal");
@@ -282,7 +276,7 @@
         }, 50);
 
         //Submit Process
-        document.getElementById("submitFeedback").addEventListener("click", async() => {
+        document.getElementById("submitFeedback").addEventListener("click", async () => {
             const feedback = document.getElementById("feedbackText").value;
 
             if (!selectedRating) {
@@ -376,4 +370,59 @@
             }
         });
     });
+
+
+    async function cancelAppointment(appoitmentId) {
+
+        if (confirm("Are you sure you want to cancel this appointment?")) {
+           const data = {
+            reference_number: appoitmentId,
+        };
+
+        const response = await fetch("backend/cancelAppointment.php", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+        });
+
+        if (response.ok) {
+            const result = await response.json();
+
+            console.log(result);
+
+            if (result.status == "success") {
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: result.message,
+                    showConfirmButton: true,
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.reload();
+                    }
+                });
+
+            } else {
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: result.message,
+                });
+            }
+        } else {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Something went wrong! Please try again later.",
+            });
+        }
+        }
+
+
+        
+
+
+    }
 </script>
