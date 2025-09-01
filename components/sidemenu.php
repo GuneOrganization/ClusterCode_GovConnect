@@ -22,10 +22,10 @@
             <img class="w-5 h-5" src="assets/images/dashboard_icons/service_guide.png" alt="Service Guide">
             <span class="menu-text">| SERVICE GUIDE</span>
         </button>
-        <button class="menu-item w-full flex items-center gap-3 p-3 mb-2 rounded-full text-sm font-medium text-gray-600 hover:bg-gray-300" data-menu="ai-chatbot">
+        <!-- <button class="menu-item w-full flex items-center gap-3 p-3 mb-2 rounded-full text-sm font-medium text-gray-600 hover:bg-gray-300" data-menu="ai-chatbot">
             <img class="w-5 h-5" src="assets/images/dashboard_icons/ai_chatbot.png" alt="AI Chatbot">
             <span class="menu-text">| AI CHATBOT</span>
-        </button>
+        </button> -->
         <button class="menu-item w-full flex items-center gap-3 p-3 mb-2 rounded-full text-sm font-medium text-gray-600 hover:bg-gray-300" data-menu="my-profile">
             <img class="w-5 h-5" src="assets/images/dashboard_icons/my_profile.png" alt="My Profile">
             <span class="menu-text">| MY PROFILE</span>
@@ -51,10 +51,10 @@
         <img class="w-5 h-5 mb-2" src="assets/images/dashboard_icons/service_guide.png" alt="Service Guide">
         <span>SERVICE</span>
     </button>
-    <button class="menu-item flex flex-col items-center justify-center text-xs p-3 w-24 h-20" data-menu="ai-chatbot">
+    <!-- <button class="menu-item flex flex-col items-center justify-center text-xs p-3 w-24 h-20" data-menu="ai-chatbot">
         <img class="w-5 h-5 mb-2" src="assets/images/dashboard_icons/ai_chatbot.png" alt="AI Chatbot">
         <span>CHATBOT</span>
-    </button>
+    </button> -->
     <button class="menu-item flex flex-col items-center justify-center text-xs p-3 w-24 h-20" data-menu="my-profile">
         <img class="w-5 h-5 mb-2" src="assets/images/dashboard_icons/my_profile.png" alt="My Profile">
         <span>PROFILE</span>
