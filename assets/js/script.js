@@ -678,12 +678,12 @@ function loadBarcodeModelData(data) {
   });
 }
 
-async function cancelAppointment(reference) {
-  if (confirm("Are you sure you want to cancel this appointment?")) {
-    button.closest(".bg-white").style.opacity = "0.5";
-    await fetch("backend/updateAppoinmentStatus.php?reference_number=" + reference + "&status=completed");
-  }
-}
+// async function cancelAppointment(reference) {
+//   if (confirm("Are you sure you want to cancel this appointment?")) {
+//     button.closest(".bg-white").style.opacity = "0.5";
+//     await fetch("backend/updateAppoinmentStatus.php?reference_number=" + reference + "&status=completed");
+//   }
+// }
 
 
 document.addEventListener("DOMContentLoaded", function () {

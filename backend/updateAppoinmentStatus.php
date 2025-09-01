@@ -13,7 +13,7 @@ if (isset($input['reference_number'], $input['status'])) {
     $status_id = $input['status'];
     $reason = $input['rejected_reason'] ?? null;
 
-    echo "Reference Number: $ref, Status ID: $status_id, Reason: $reason";
+    // echo "Reference Number: $ref, Status ID: $status_id, Reason: $reason";
 
     try {
         $stmt = Database::iud(
@@ -21,39 +21,40 @@ if (isset($input['reference_number'], $input['status'])) {
              SET appointment_status_id = '$status_id', rejected_message = '$reason'
              WHERE reference_number = '$ref'"
         );
-         $response = ["success" => true, "message" => "Appointment updated"];
+        $response = ["success" => true, "message" => "Appointment updated"];
 
-         $result = Database::search("SELECT first_name, email FROM `appointment` 
+        $result = Database::search("SELECT first_name, email FROM `appointment` 
                                      INNER JOIN `user` ON `appointment`.`added_user_nic` = `user`.`nic`
                                      WHERE `reference_number` = '$ref'");
 
-         $appoinment_result = Database::search("SELECT * FROM `appointment_status` 
-                                     WHERE `id` = '$status_id'");                            
-         
-         $data = $result->fetch_assoc();
-         $user_email = $data['email'];
-         $firstName = $data['first_name'];
-         $subject = "Appointment Status Update";
-         $appointment_status = $appoinment_result->fetch_assoc()['status'];
+        $appoinment_result = Database::search("SELECT * FROM `appointment_status` 
+                                     WHERE `id` = '$status_id'");
 
-         echo "User Email: $user_email, First Name: $firstName, Subject: $subject, Appointment Status: $appointment_status";
-            if (MailSender::sendMail(
-                $user_email,
-                $subject,
-                EmailTemplateGenerator::generateEmailTemplate('
+        $data = $result->fetch_assoc();
+        $user_email = $data['email'];
+        $firstName = $data['first_name'];
+        $subject = "Appointment Status Update";
+        $appointment_status = $appoinment_result->fetch_assoc()['status'];
+
+        // echo "User Email: $user_email, First Name: $firstName, Subject: $subject, Appointment Status: $appointment_status";
+        if (MailSender::sendMail(
+            $user_email,
+            $subject,
+            EmailTemplateGenerator::generateEmailTemplate(
+                '
                 <div class="content">
-                      <h2>Hello, '.$firstName.'</h2>
+                      <h2>Hello, ' . $firstName . '</h2>
                       <p>We are pleased to inform you that your appointment status has been changed.</p>
-                      <p>Your current appointment status: <b>'.$appointment_status.'</b> </p>
+                      <p>Your current appointment status: <b>' . $appointment_status . '</b> </p>
+                      <p>Reason: <b>' . $reason . '</b> </p>
                       <p>Thank you for choosing <strong>Gov-Connect</strong> for a smooth and efficient government service experience.</p>
                  </div>'
-                )
-            )) {
-                $response = ["success" => true, "message" => "Appointment updated and email sent"];
-            } else {
-               $response = ["success" => true, "message" => "Appointment updated but email doen't sent"];
-            }
-
+            )
+        )) {
+            $response = ["success" => true, "message" => "Appointment updated and email sent"];
+        } else {
+            $response = ["success" => true, "message" => "Appointment updated but email doen't sent"];
+        }
     } catch (Exception $e) {
         $response["message"] = $e->getMessage();
     }

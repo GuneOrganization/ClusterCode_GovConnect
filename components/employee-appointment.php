@@ -14,15 +14,7 @@
                                     SELECT * FROM `appointment` 
                                     INNER JOIN `appointment_status` ON `appointment`.`appointment_status_id` = `appointment_status`.`id`
                                     INNER JOIN `service` ON `appointment`.`service_id` = `service`.`id`
-                                    INNER JOIN `user_has_branch` ON `service`.`branch_id` = `user_has_branch`.`branch_id`
-                                    WHERE `service_id` = (
-                                    SELECT `id` FROM `service` 
-                                    WHERE `branch_id` = (
-                                    SELECT `branch_id` FROM `user_has_branch` 
-                                    WHERE `user_nic` = '" . $user_nic . "'
-                                         )
-                                       )
-                                    ");
+                                    INNER JOIN `user_has_branch` ON `service`.`branch_id` = `user_has_branch`.`branch_id` ");
 
         $total_appointments = 0;
         $pending_appointments = 0;
@@ -99,9 +91,8 @@
     </div>
 
    
-    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-4 mb-6">
+    <!-- <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-4 mb-6">
         <div class="flex flex-col sm:flex-row flex-wrap gap-4">
-            <!-- Reference Number Search -->
             <div class="flex-1 min-w-[200px]">
                 <label for="refSearch" class="block text-sm font-medium text-gray-700 mb-1">Reference Number</label>
                 <div class="relative">
@@ -184,7 +175,7 @@
                 </button>
             </div>
         </div>
-    </div>
+    </div> -->
 
    
     <div class="grid grid-cols-1 gap-6 mb-8 overflow-y-auto max-h-[420px]">

@@ -13,13 +13,8 @@
                                     SELECT * FROM `appointment` 
                                     INNER JOIN `appointment_status` ON `appointment`.`appointment_status_id` = `appointment_status`.`id`
                                     INNER JOIN `service` ON `appointment`.`service_id` = `service`.`id`
-                                    INNER JOIN `user_has_branch` ON `service`.`branch_id` = `user_has_branch`.`branch_id`
-                                    WHERE `service_id` = (
-                                    SELECT `id` FROM `service` 
-                                    WHERE `branch_id` = (
-                                    SELECT `branch_id` FROM `user_has_branch` 
-                                    WHERE `user_nic` = '$user_nic')
-                                    ) AND DATE(`appointment`.`added_datetime`) = CURDATE()
+                                    INNER JOIN `user_has_branch` ON `service`.`branch_id` = `user_has_branch`.`branch_id` 
+                                    AND DATE(`appointment`.`appointment_date`) = CURDATE()
                                     ");
         $total_appointments = 0;
         $pending_appointments = 0;
@@ -100,7 +95,7 @@
                                     INNER JOIN `appointment_status` ON `appointment`.`appointment_status_id` = `appointment_status`.`id`
                                     INNER JOIN `service` ON `appointment`.`service_id` = `service`.`id`
                                     INNER JOIN `user` ON `appointment`.`added_user_nic` = `user`.`nic`
-                                    WHERE DATE(`appointment`.`added_datetime`) = CURDATE()
+                                    WHERE DATE(`appointment`.`appointment_date`) = CURDATE()
                                  ");
 
         if ($appoinment_result && $appoinment_result->num_rows > 0) {

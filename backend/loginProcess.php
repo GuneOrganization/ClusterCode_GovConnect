@@ -25,7 +25,6 @@ if (isset($_SESSION['user'])) {
     $password = trim($input['password'] ?? '');
 
     // $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
-
     // echo $hashedPassword;
 
     if (empty($nicOrEmail) || empty($password)) {
