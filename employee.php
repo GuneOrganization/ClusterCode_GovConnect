@@ -409,8 +409,8 @@ if (!isset($_SESSION['user'])) {
             item.addEventListener('click', function() {
                 const menu = this.getAttribute('data-menu');
 
-                if (menu === 'logout') {
-                    window.location = '/clustercode_govconnect';
+                if (menu === 'employee-logout') {
+                    window.location = 'backend/logoutProcess.php';
                     return;
                 }
 
@@ -767,12 +767,12 @@ if (!isset($_SESSION['user'])) {
             modal.classList.remove('flex');
         });
 
-        confirmUpdateBtn.addEventListener('click', () => {
-            const status = document.getElementById('status').value;
-            alert(`Appointment status updated to: ${status}`);
-            modal.classList.add('hidden');
-            modal.classList.remove('flex');
-        });
+        // confirmUpdateBtn.addEventListener('click', () => {
+        //     const status = document.getElementById('status').value;
+        //     alert(`Appointment status updated to: ${status}`);
+        //     modal.classList.add('hidden');
+        //     modal.classList.remove('flex');
+        // });
 
         // Optional: Close modal if background is clicked
         modal.addEventListener('click', (e) => {
@@ -811,23 +811,22 @@ if (!isset($_SESSION['user'])) {
                 if (data.success) {
                     alert("Appointment updated and email sent ✅");
 
-                    // Close modal after success
-                    const modal = document.getElementById("appointmentModal");
-                    if (modal) {
-                        modal.classList.add("hidden"); // Tailwind modal hide
-                    }
+                    // const modal = document.getElementById("appointmentModal1");
+                    // if (modal) {
+                    //     modal.classList.add("hidden");
+                    // }
+
+                    window.location.reload();
 
                 } else {
                     alert("Failed to update ❌: " + data.message);
                 }
             } catch (err) {
                 console.error("Error updating appointment:", err);
-                alert("Appointment updated and email sent ✅");
 
-                // Close modal after success
-                const modal = document.getElementById("appointmentModal");
+                const modal = document.getElementById("appointmentModal1");
                 if (modal) {
-                    modal.classList.add("hidden"); // Tailwind modal hide
+                    modal.classList.add("hidden");
                 }
 
             }
