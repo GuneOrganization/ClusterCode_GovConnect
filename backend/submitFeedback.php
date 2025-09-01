@@ -4,13 +4,13 @@ require 'connection.php';
 $rawData = file_get_contents("php://input");
 $data = json_decode($rawData, true);
 
-// $referenceNumber = $data['reference_number'] ?? '';
-// $rating = $data['rating'] ?? '';
-// $feedback = $data['feedback'] ?? '';
+$referenceNumber = $data['reference_number'] ?? '';
+$rating = $data['rating'] ?? '';
+$feedback = $data['feedback'] ?? '';
 
-$referenceNumber = "APP0000001";
-$rating = "5";
-$feedback = "Good service!";
+// $referenceNumber = "APP0000001";
+// $rating = "5";
+// $feedback = "Good service!";
 
 $response = [
     "status" => "fail",
