@@ -147,8 +147,9 @@ if (!isset($_SESSION['user'])) {
 
 
                     <div class="flex items-center gap-3">
-                        <div class="bg-gray-800 text-white rounded-full flex items-center justify-center w-10 h-10">
-                            <span class="font-semibold text-sm">😁</span>
+                        <div
+                            class="bg-gray-800 text-white rounded-full flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10">
+                            <img src="./assets/images/dashboard_icons/user.png" alt="User Profile image">
                         </div>
                         <div class="text-left">
                             <div class="font-semibold text-sm"><?php echo strtoupper(htmlspecialchars($_SESSION['user']['first_name'] . " " . $_SESSION['user']['last_name'] ?? 'FULL NAME')); ?></div>
@@ -686,7 +687,7 @@ if (!isset($_SESSION['user'])) {
 
                 if (result.status == "success") {
 
-                    const data = []; 
+                    const data = [];
                     result.data.forEach((item) => {
                         data.push(item.total_appointments);
                     });
@@ -833,7 +834,7 @@ if (!isset($_SESSION['user'])) {
         });
     </script>
 
-    
+
 
 </body>
 
