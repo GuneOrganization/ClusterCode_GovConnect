@@ -155,7 +155,7 @@ if (isset($_SESSION["user"])) {
           <span class="font-medium  text-blue-500 ">SIGN IN WITH GOOGLE</span>
         </button> -->
 
-        <div class="text-center">
+        <div class="text-center mt-3">
           <a href="signup.php" class="text-teal-600 font-sm text-sm hover:text-teal-700">
             Create New Account
           </a>
